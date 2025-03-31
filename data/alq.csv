@@ -1,0 +1,439 @@
+01001 ;Flensburg, Stadt;1.256 ;2,6 
+01002 ;Kiel, Landeshauptstadt;2.779 ;2,2 
+01003 ;Lübeck, Hansestadt;2.214 ;2,1 
+01004 ;Neumünster, Stadt;1.048 ;2,6 
+01051 ;Dithmarschen;1.255 ;1,9 
+01053 ;Herzogtum Lauenburg;1.859 ;1,9 
+01054 ;Nordfriesland;1.637 ;1,8 
+01055 ;Ostholstein;1.685 ;1,7 
+01056 ;Pinneberg;3.406 ;2,1 
+01057 ;Plön;1.321 ;2,1 
+01058 ;Rendsburg-Eckernförde;2.945 ;2,2 
+01059 ;Schleswig-Flensburg;2.276 ;2,2 
+01060 ;Segeberg;2.714 ;1,9 
+01061 ;Steinburg;1.723 ;2,5 
+01062 ;Stormarn;2.165 ;1,8 
+;;;
+02000 ;Hamburg, Freie und Hansestadt;21.923 ;2,3 
+;;;
+03101 ;Braunschweig, Stadt;2.484 ;1,9 
+03102 ;Salzgitter, Stadt;980 ;1,9 
+03103 ;Wolfsburg, Stadt;855 ;1,3 
+03151 ;Gifhorn;1.446 ;1,6 
+03152 ;Göttingen;3.291 ;2,6 
+03153 ;Goslar;1.447 ;2,1 
+03154 ;Helmstedt;738 ;1,6 
+03155 ;Northeim;1.647 ;2,4 
+03156 ;Osterode am Harz;863 ;2,3 
+03157 ;Peine;1.686 ;2,4 
+03158 ;Wolfenbüttel;1.184 ;1,9 
+;;;
+03241 ;Region Hannover;11.928 ;2,0 
+03251 ;Diepholz;2.152 ;1,9 
+03252 ;Hameln-Pyrmont;1.719 ;2,3 
+03254 ;Hildesheim;3.298 ;2,3 
+03255 ;Holzminden;907 ;2,5 
+03256 ;Nienburg (Weser);1.433 ;2,2 
+03257 ;Schaumburg;1.705 ;2,1 
+;;;
+03351 ;Celle;1.803 ;2,0 
+03352 ;Cuxhaven;2.042 ;2,0 
+03353 ;Harburg;2.711 ;2,1 
+03354 ;Lüchow-Dannenberg;681 ;3,1 
+03355 ;Lüneburg;1.798 ;2,0 
+03356 ;Osterholz;1.131 ;1,9 
+03357 ;Rotenburg (Wümme);1.708 ;2,0 
+03358 ;Heidekreis;1.666 ;2,3 
+03359 ;Stade;2.233 ;2,1 
+03360 ;Uelzen;1.142 ;2,5 
+03361 ;Verden;1.515 ;2,1 
+;;;
+03401 ;Delmenhorst, Stadt;913 ;2,3 
+03402 ;Emden, Stadt;716 ;2,8 
+03403 ;Oldenburg (Oldenburg), Stadt;1.754 ;2,0 
+03404 ;Osnabrück, Stadt;1.932 ;2,3 
+03405 ;Wilhelmshaven, Stadt;898 ;2,4 
+03451 ;Ammerland;1.460 ;2,3 
+03452 ;Aurich;2.130 ;2,2 
+03453 ;Cloppenburg;1.913 ;2,2 
+03454 ;Emsland;3.343 ;2,0 
+03455 ;Friesland;955 ;2,0 
+03456 ;Grafschaft Bentheim;1.264 ;1,8 
+03457 ;Leer;2.354 ;2,8 
+03458 ;Oldenburg;1.433 ;2,1 
+03459 ;Osnabrück;4.111 ;2,1 
+03460 ;Vechta;1.350 ;1,7 
+03461 ;Wesermarsch;1.057 ;2,3 
+03462 ;Wittmund;613 ;2,2 
+;;;
+04011 ;Bremen, Stadt;5.962 ;2,1 
+04012 ;Bremerhaven, Stadt;1.241 ;2,2 
+;;;
+05111 ;Düsseldorf, Stadt;7.355 ;2,3 
+05112 ;Duisburg, Stadt;6.448 ;2,6 
+05113 ;Essen, Stadt;6.998 ;2,4 
+05114 ;Krefeld, Stadt;3.350 ;2,9 
+05116 ;Mönchengladbach, Stadt;3.340 ;2,5 
+05117 ;Mülheim an der Ruhr, Stadt;1.695 ;2,0 
+05119 ;Oberhausen, Stadt;2.275 ;2,1 
+05120 ;Remscheid, Stadt;1.483 ;2,5 
+05122 ;Solingen, Klingenstadt;2.423 ;2,9 
+05124 ;Wuppertal, Stadt;4.760 ;2,7 
+05154 ;Kleve;4.291 ;2,7 
+05158 ;Mettmann;5.459 ;2,1 
+05162 ;Rhein-Kreis Neuss;5.173 ;2,2 
+05166 ;Viersen;4.393 ;2,8 
+05170 ;Wesel;5.222 ;2,2 
+;;;
+05314 ;Bonn, Stadt;3.364 ;2,1 
+05315 ;Köln, Stadt;13.690 ;2,5 
+05316 ;Leverkusen, Stadt;2.125 ;2,6 
+05334 ;Städteregion Aachen;6.669 ;2,3 
+05358 ;Düren;3.083 ;2,3 
+05362 ;Rhein-Erft-Kreis;5.959 ;2,5 
+05366 ;Euskirchen;2.354 ;2,3 
+05370 ;Heinsberg;3.565 ;2,8 
+05374 ;Oberbergischer Kreis;3.493 ;2,4 
+05378 ;Rheinisch-Bergischer Kreis;3.271 ;2,3 
+05382 ;Rhein-Sieg-Kreis;6.288 ;2,1 
+;;;
+05512 ;Bottrop, Stadt;1.355 ;2,3 
+05513 ;Gelsenkirchen, Stadt;3.066 ;2,5 
+05515 ;Münster, Stadt;3.217 ;2,1 
+05554 ;Borken;4.033 ;2,0 
+05558 ;Coesfeld;2.183 ;1,9 
+05562 ;Recklinghausen;8.049 ;2,5 
+05566 ;Steinfurt;4.979 ;2,1 
+05570 ;Warendorf;3.023 ;2,0 
+;;;
+05711 ;Bielefeld, Stadt;4.246 ;2,6 
+05754 ;Gütersloh;4.530 ;2,3 
+05758 ;Herford;3.179 ;2,4 
+05762 ;Höxter;1.701 ;2,3 
+05766 ;Lippe;4.060 ;2,3 
+05770 ;Minden-Lübbecke;3.989 ;2,5 
+05774 ;Paderborn;3.483 ;2,2 
+;;;
+05911 ;Bochum, Stadt;4.545 ;2,5 
+05913 ;Dortmund, Stadt;7.562 ;2,6 
+05914 ;Hagen, Stadt der FernUniversi.;2.416 ;2,5 
+05915 ;Hamm, Stadt;1.970 ;2,2 
+05916 ;Herne, Stadt;2.121 ;2,8 
+05954 ;Ennepe-Ruhr-Kreis;4.301 ;2,5 
+05958 ;Hochsauerlandkreis;3.038 ;2,1 
+05962 ;Märkischer Kreis;5.025 ;2,2 
+05966 ;Olpe;1.562 ;2,0 
+05970 ;Siegen-Wittgenstein;3.083 ;2,0 
+05974 ;Soest;3.763 ;2,3 
+05978 ;Unna;4.911 ;2,4 
+;;;
+06411 ;Darmstadt, Wissenschaftsstadt;1.305 ;1,7 
+06412 ;Frankfurt am Main, Stadt;7.759 ;2,2 
+06413 ;Offenbach am Main, Stadt;1.916 ;3,0 
+06414 ;Wiesbaden, Landeshauptstadt;2.939 ;2,0 
+06431 ;Bergstraße;2.374 ;1,7 
+06432 ;Darmstadt-Dieburg;2.748 ;1,8 
+06433 ;Groß-Gerau;2.525 ;1,8 
+06434 ;Hochtaunuskreis;2.302 ;2,0 
+06435 ;Main-Kinzig-Kreis;4.622 ;2,1 
+06436 ;Main-Taunus-Kreis;2.673 ;2,2 
+06437 ;Odenwaldkreis;1.096 ;2,1 
+06438 ;Offenbach;4.554 ;2,5 
+06439 ;Rheingau-Taunus-Kreis;1.845 ;1,9 
+06440 ;Wetteraukreis;3.158 ;2,0 
+;;;
+06531 ;Gießen;2.748 ;2,0 
+06532 ;Lahn-Dill-Kreis;2.602 ;1,9 
+06533 ;Limburg-Weilburg;1.947 ;2,2 
+06534 ;Marburg-Biedenkopf;2.429 ;1,9 
+06535 ;Vogelsbergkreis;1.100 ;1,9 
+;;;
+06611 ;Kassel, documenta-Stadt;2.558 ;2,6 
+06631 ;Fulda;2.007 ;1,7 
+06632 ;Hersfeld-Rotenburg;1.281 ;2,0 
+06633 ;Kassel;2.447 ;2,0 
+06634 ;Schwalm-Eder-Kreis;2.014 ;2,1 
+06635 ;Waldeck-Frankenberg;1.748 ;2,0 
+06636 ;Werra-Meißner-Kreis;1.088 ;2,1 
+;;;
+07111 ;Koblenz, kreisfreie Stadt;1.227 ;2,1 
+07131 ;Ahrweiler;1.307 ;2,0 
+07132 ;Altenkirchen (Westerwald);1.659 ;2,4 
+07133 ;Bad Kreuznach;1.947 ;2,4 
+07134 ;Birkenfeld;1.126 ;2,6 
+07135 ;Cochem-Zell;573 ;1,7 
+07137 ;Mayen-Koblenz;2.324 ;2,0 
+07138 ;Neuwied;2.155 ;2,3 
+07140 ;Rhein-Hunsrück-Kreis;1.266 ;2,3 
+07141 ;Rhein-Lahn-Kreis;1.280 ;2,0 
+07143 ;Westerwaldkreis;2.297 ;2,1 
+;;;
+07211 ;Trier, kreisfreie Stadt;1.436 ;2,6 
+07231 ;Bernkastel-Wittlich;1.279 ;2,1 
+07232 ;Eifelkreis Bitburg-Prüm;945 ;1,9 
+07233 ;Vulkaneifel;672 ;2,1 
+07235 ;Trier-Saarburg;1.751 ;2,3 
+;;;
+07311 ;Frankenthal (Pfalz), kr.f. St.;545 ;2,3 
+07312 ;Kaiserslautern, kreisfr. Stadt;1.412 ;2,8 
+07313 ;Landau in der Pfalz, kr.f. St.;574 ;2,4 
+07314 ;Ludwigshafen am Rhein, Stadt;1.830 ;2,2 
+07315 ;Mainz, kreisfreie Stadt;1.998 ;1,8 
+07316 ;Neustadt an der Weinstraße,St.;586 ;2,1 
+07317 ;Pirmasens, kreisfreie Stadt;622 ;3,0 
+07318 ;Speyer, kreisfreie Stadt;567 ;2,1 
+07319 ;Worms, kreisfreie Stadt;999 ;2,3 
+07320 ;Zweibrücken, kreisfreie Stadt;538 ;3,0 
+07331 ;Alzey-Worms;1.500 ;2,2 
+07332 ;Bad Dürkheim;1.477 ;2,1 
+07333 ;Donnersbergkreis;950 ;2,3 
+07334 ;Germersheim;1.596 ;2,3 
+07335 ;Kaiserslautern;1.469 ;2,7 
+07336 ;Kusel;1.125 ;3,0 
+07337 ;Südliche Weinstraße;1.275 ;2,2 
+07338 ;Rhein-Pfalz-Kreis;1.497 ;1,8 
+07339 ;Mainz-Bingen;2.061 ;1,9 
+07340 ;Südwestpfalz;1.509 ;2,9 
+;;;
+08111 ;Stuttgart, Landeshauptstadt;5.793 ;1,9 
+08115 ;Böblingen;3.941 ;2,0 
+08116 ;Esslingen;4.566 ;1,6 
+08117 ;Göppingen;2.714 ;2,0 
+08118 ;Ludwigsburg;5.410 ;1,9 
+08119 ;Rems-Murr-Kreis;4.023 ;1,8 
+08121 ;Heilbronn, Stadt;1.685 ;2,6 
+08125 ;Heilbronn;3.743 ;2,0 
+08126 ;Hohenlohekreis;1.071 ;1,7 
+08127 ;Schwäbisch Hall;1.752 ;1,7 
+08128 ;Main-Tauber-Kreis;1.332 ;1,8 
+08135 ;Heidenheim;1.760 ;2,6 
+08136 ;Ostalbkreis;3.343 ;2,0 
+;;;
+08211 ;Baden-Baden, Stadt;566 ;2,1 
+08212 ;Karlsruhe, Stadt;2.716 ;1,8 
+08215 ;Karlsruhe;4.557 ;1,9 
+08216 ;Rastatt;2.250 ;1,8 
+08221 ;Heidelberg, Stadt;1.360 ;2,0 
+08222 ;Mannheim, Universitätsstadt;3.146 ;2,0 
+08225 ;Neckar-Odenwald-Kreis;1.674 ;2,2 
+08226 ;Rhein-Neckar-Kreis;6.157 ;2,2 
+08231 ;Pforzheim, Stadt;1.402 ;2,3 
+08235 ;Calw;1.977 ;2,4 
+08236 ;Enzkreis;1.891 ;1,8 
+08237 ;Freudenstadt;1.487 ;2,2 
+;;;
+08311 ;Freiburg im Breisgau, Stadt;2.312 ;2,1 
+08315 ;Breisgau-Hochschwarzwald;2.249 ;1,7 
+08316 ;Emmendingen;1.589 ;1,8 
+08317 ;Ortenaukreis;4.162 ;1,8 
+08325 ;Rottweil;1.370 ;1,8 
+08326 ;Schwarzwald-Baar-Kreis;2.160 ;1,9 
+08327 ;Tuttlingen;1.312 ;1,7 
+08335 ;Konstanz;2.693 ;1,8 
+08336 ;Lörrach;2.201 ;1,7 
+08337 ;Waldshut;1.699 ;1,9 
+;;;
+08415 ;Reutlingen;2.513 ;1,7 
+08416 ;Tübingen;1.815 ;1,6 
+08417 ;Zollernalbkreis;2.203 ;2,2 
+08421 ;Ulm, Universitätsstadt;1.386 ;2,1 
+08425 ;Alb-Donau-Kreis;2.127 ;2,0 
+08426 ;Biberach;1.815 ;1,7 
+08435 ;Bodenseekreis;1.840 ;1,6 
+08436 ;Ravensburg;2.455 ;1,6 
+08437 ;Sigmaringen;1.471 ;2,1 
+;;;
+09161 ;Ingolstadt, Stadt;1.123 ;1,5 
+09162 ;München, Landeshauptstadt;17.154 ;2,2 
+09163 ;Rosenheim, Stadt;681 ;2,1 
+09171 ;Altötting;1.085 ;1,8 
+09172 ;Berchtesgadener Land;955 ;2,0 
+09173 ;Bad Tölz-Wolfratshausen;1.089 ;1,7 
+09174 ;Dachau;1.275 ;1,6 
+09175 ;Ebersberg;1.212 ;1,7 
+09176 ;Eichstätt;688 ;1,0 
+09177 ;Erding;1.043 ;1,4 
+09178 ;Freising;1.753 ;1,8 
+09179 ;Fürstenfeldbruck;1.997 ;1,8 
+09180 ;Garmisch-Partenkirchen;697 ;1,6 
+09181 ;Landsberg am Lech;1.117 ;1,9 
+09182 ;Miesbach;817 ;1,6 
+09183 ;Mühldorf a.Inn;1.075 ;1,8 
+09184 ;München;3.172 ;1,8 
+09185 ;Neuburg-Schrobenhausen;612 ;1,2 
+09186 ;Pfaffenhofen a.d.Ilm;1.083 ;1,6 
+09187 ;Rosenheim;2.147 ;1,6 
+09188 ;Starnberg;1.027 ;1,6 
+09189 ;Traunstein;1.279 ;1,4 
+09190 ;Weilheim-Schongau;1.042 ;1,5 
+;;;
+09261 ;Landshut, Stadt;719 ;2,0 
+09262 ;Passau, Stadt;509 ;2,0 
+09263 ;Straubing, Stadt;502 ;2,1 
+09271 ;Deggendorf;1.082 ;1,7 
+09272 ;Freyung-Grafenau;645 ;1,5 
+09273 ;Kelheim;1.121 ;1,7 
+09274 ;Landshut;1.351 ;1,6 
+09275 ;Passau;1.689 ;1,7 
+09276 ;Regen;487 ;1,2 
+09277 ;Rottal-Inn;985 ;1,5 
+09278 ;Straubing-Bogen;901 ;1,7 
+09279 ;Dingolfing-Landau;864 ;1,5 
+;;;
+09361 ;Amberg, Stadt;568 ;2,5 
+09362 ;Regensburg, Stadt;1.529 ;2,0 
+09363 ;Weiden i.d.OPf., Stadt;564 ;2,5 
+09371 ;Amberg-Sulzbach;1.136 ;2,0 
+09372 ;Cham;1.391 ;2,0 
+09373 ;Neumarkt i.d.OPf.;1.204 ;1,7 
+09374 ;Neustadt a.d.Waldnaab;1.272 ;2,4 
+09375 ;Regensburg;1.690 ;1,6 
+09376 ;Schwandorf;1.520 ;1,9 
+09377 ;Tirschenreuth;892 ;2,2 
+;;;
+09461 ;Bamberg, Stadt;758 ;2,0 
+09462 ;Bayreuth, Stadt;902 ;2,4 
+09463 ;Coburg, Stadt;509 ;2,3 
+09464 ;Hof, Stadt;556 ;2,4 
+09471 ;Bamberg;1.542 ;1,8 
+09472 ;Bayreuth;1.232 ;2,1 
+09473 ;Coburg;1.159 ;2,3 
+09474 ;Forchheim;1.195 ;1,8 
+09475 ;Hof;1.060 ;2,1 
+09476 ;Kronach;939 ;2,4 
+09477 ;Kulmbach;973 ;2,4 
+09478 ;Lichtenfels;1.001 ;2,6 
+09479 ;Wunsiedel i.Fichtelgebirge;879 ;2,3 
+;;;
+09561 ;Ansbach, Stadt;504 ;2,3 
+09562 ;Erlangen, Stadt;1.055 ;1,7 
+09563 ;Fürth, Stadt;1.616 ;2,4 
+09564 ;Nürnberg, Stadt;6.541 ;2,4 
+09565 ;Schwabach, Stadt;418 ;2,0 
+09571 ;Ansbach;1.957 ;1,9 
+09572 ;Erlangen-Höchstadt;1.142 ;1,5 
+09573 ;Fürth;1.199 ;1,9 
+09574 ;Nürnberger Land;1.702 ;1,9 
+09575 ;Neustadt a.d.Aisch-Bad Windsh.;777 ;1,4 
+09576 ;Roth;1.445 ;2,1 
+09577 ;Weißenburg-Gunzenhausen;922 ;1,8 
+;;;
+09661 ;Aschaffenburg, Stadt;910 ;2,4 
+09662 ;Schweinfurt, Stadt;674 ;2,5 
+09663 ;Würzburg, Stadt;1.436 ;2,1 
+09671 ;Aschaffenburg;2.056 ;2,1 
+09672 ;Bad Kissingen;1.267 ;2,3 
+09673 ;Rhön-Grabfeld;896 ;2,0 
+09674 ;Haßberge;1.066 ;2,2 
+09675 ;Kitzingen;940 ;1,9 
+09676 ;Miltenberg;1.556 ;2,2 
+09677 ;Main-Spessart;1.306 ;1,8 
+09678 ;Schweinfurt;1.176 ;1,8 
+09679 ;Würzburg;1.676 ;1,9 
+;;;
+09761 ;Augsburg, Stadt;3.866 ;2,6 
+09762 ;Kaufbeuren, Stadt;514 ;2,3 
+09763 ;Kempten (Allgäu), Stadt;853 ;2,4 
+09764 ;Memmingen, Stadt;470 ;2,0 
+09771 ;Aichach-Friedberg;1.183 ;1,6 
+09772 ;Augsburg;2.690 ;2,0 
+09773 ;Dillingen a.d.Donau;839 ;1,6 
+09774 ;Günzburg;1.245 ;1,8 
+09775 ;Neu-Ulm;1.701 ;1,8 
+09776 ;Lindau (Bodensee);665 ;1,6 
+09777 ;Ostallgäu;1.317 ;1,8 
+09778 ;Unterallgäu;1.208 ;1,6 
+09779 ;Donau-Ries;1.012 ;1,4 
+09780 ;Oberallgäu;1.484 ;1,8 
+;;;
+10041 ;Regionalverband Saarbrücken;3.890 ;2,4 
+10042 ;Merzig-Wadern;1.132 ;2,1 
+10043 ;Neunkirchen;1.708 ;2,5 
+10044 ;Saarlouis;2.323 ;2,3 
+10045 ;Saarpfalz-Kreis;1.839 ;2,4 
+10046 ;St. Wendel;1.001 ;2,1 
+;;;
+11000 ;Berlin, Stadt;43.624 ;2,4 
+;;;
+12051 ;Brandenburg an der Havel, St.;907 ;2,4 
+12052 ;Cottbus, Stadt;1.298 ;2,4 
+12053 ;Frankfurt (Oder), Stadt;949 ;3,0 
+12054 ;Potsdam, Stadt;1.878 ;2,2 
+12060 ;Barnim;2.413 ;2,5 
+12061 ;Dahme-Spreewald;1.772 ;2,0 
+12062 ;Elbe-Elster;1.856 ;3,2 
+12063 ;Havelland;2.387 ;2,8 
+12064 ;Märkisch-Oderland;2.831 ;2,8 
+12065 ;Oberhavel;2.981 ;2,7 
+12066 ;Oberspreewald-Lausitz;1.754 ;2,8 
+12067 ;Oder-Spree;2.646 ;2,7 
+12068 ;Ostprignitz-Ruppin;1.590 ;2,9 
+12069 ;Potsdam-Mittelmark;2.533 ;2,3 
+12070 ;Prignitz;1.475 ;3,5 
+12071 ;Spree-Neiße;2.045 ;3,1 
+12072 ;Teltow-Fläming;2.090 ;2,3 
+12073 ;Uckermark;2.191 ;3,3 
+;;;
+13003 ;Rostock, Hansestadt;2.566 ;2,4 
+13004 ;Schwerin, Landeshauptstadt;1.327 ;2,7 
+13071 ;Mecklenburgische Seenplatte;4.461 ;3,2 
+13072 ;Landkreis Rostock;2.570 ;2,3 
+13073 ;Vorpommern-Rügen;3.640 ;3,1 
+13074 ;Nordwestmecklenburg;2.460 ;2,9 
+13075 ;Vorpommern-Greifswald;4.246 ;3,5 
+13076 ;Ludwigslust-Parchim;2.981 ;2,6 
+;;;
+14511 ;Chemnitz, Stadt;3.077 ;2,5 
+14521 ;Erzgebirgskreis;5.564 ;3,0 
+14522 ;Mittelsachsen;4.048 ;2,4 
+14523 ;Vogtlandkreis;2.907 ;2,4 
+14524 ;Zwickau;4.134 ;2,4 
+;;;
+14612 ;Dresden, Stadt;6.640 ;2,4 
+14625 ;Bautzen;4.814 ;2,9 
+14626 ;Görlitz;3.792 ;2,8 
+14627 ;Meißen;3.408 ;2,6 
+14628 ;Sächs. Schweiz-Osterzgebirge;2.975 ;2,3 
+;;;
+14713 ;Leipzig, Stadt;6.569 ;2,4 
+14729 ;Leipzig;3.758 ;2,7 
+14730 ;Nordsachsen;3.032 ;2,8 
+;;;
+15001 ;Dessau-Roßlau, Stadt;1.237 ;2,9 
+15002 ;Halle (Saale), Stadt;2.738 ;2,4 
+15003 ;Magdeburg, Landeshauptstadt;3.112 ;2,6 
+15081 ;Altmarkkreis Salzwedel;1.270 ;2,6 
+15082 ;Anhalt-Bitterfeld;2.872 ;3,2 
+15083 ;Börde;2.564 ;2,6 
+15084 ;Burgenlandkreis;2.650 ;2,7 
+15085 ;Harz;3.059 ;2,6 
+15086 ;Jerichower Land;1.494 ;3,0 
+15087 ;Mansfeld-Südharz;2.700 ;3,8 
+15088 ;Saalekreis;3.186 ;3,1 
+15089 ;Salzlandkreis;3.508 ;3,4 
+15090 ;Stendal;1.923 ;3,1 
+15091 ;Wittenberg;2.172 ;3,2 
+;;;
+16051 ;Erfurt, Stadt;2.534 ;2,4 
+16052 ;Gera, Stadt;1.653 ;3,3 
+16053 ;Jena, Stadt;1.379 ;2,5 
+16054 ;Suhl, Stadt;526 ;2,7 
+16055 ;Weimar, Stadt;721 ;2,3 
+16056 ;Eisenach, Stadt;516 ;2,4 
+16061 ;Eichsfeld;1.646 ;2,9 
+16062 ;Nordhausen;1.212 ;2,7 
+16063 ;Wartburgkreis;1.845 ;2,6 
+16064 ;Unstrut-Hainich-Kreis;1.771 ;3,1 
+16065 ;Kyffhäuserkreis;1.236 ;3,0 
+16066 ;Schmalkalden-Meiningen;1.816 ;2,6 
+16067 ;Gotha;1.796 ;2,4 
+16068 ;Sömmerda;1.325 ;3,3 
+16069 ;Hildburghausen;964 ;2,6 
+16070 ;Ilm-Kreis;1.628 ;2,8 
+16071 ;Weimarer Land;1.120 ;2,4 
+16072 ;Sonneberg;785 ;2,5 
+16073 ;Saalfeld-Rudolstadt;1.524 ;2,5 
+16074 ;Saale-Holzland-Kreis;1.191 ;2,6 
+16075 ;Saale-Orla-Kreis;1.418 ;3,1 
+16076 ;Greiz;1.795 ;3,3 
+16077 ;Altenburger Land;1.693 ;3,4 
