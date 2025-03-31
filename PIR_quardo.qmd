@@ -24,10 +24,7 @@ execute:
 4.  [Data Analysis (dplyr)](#dataanalysis)
 5.  [Programming: Flow Control](#flowcontrol)
 6.  [Regressions](#regression)
-7.  [Monte Carlo Simulations](#mc)
-8.  [Numerical Optimization](#optim)
-9.  [Bootstrap](#bootstrap)
-10. [Efficiency](#efficiency)
+7.  [Efficiency](#efficiency)
 
 # Preliminary Remarks
 
