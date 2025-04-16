@@ -1077,8 +1077,8 @@ More examples (first, download a zip folder with sample files):
 
 ```{r list56,eval = FALSE}
 ## Download sample files
-curl::curl_download(url ="https://drive.google.com/uc?export=download&id=1JMsHywhBeDAzNnqD0bHIAWJq0eB79wBr",
-                    destfile = "example_data.zip")
+download.file(url = "https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/example.zip",
+                                   , destfile = "example_data.zip")
 ## Unzip the files
 res <- unzip("example_data.zip")
 ```

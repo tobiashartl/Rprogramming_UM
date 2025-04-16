@@ -24,3 +24,10 @@ head(data)
 
 weather_data  %>% group_by(NAME) %>% summarise(mean(TEMP))
 saveRDS(weather_data, "/Users/tobias/Documents/professional/teaching/PMR/PIR_quardo/data/climate.rds")
+write.csv(weather_data, "/Users/tobias/Documents/professional/teaching/PMR/PIR_quardo/data/climate.csv")
+haven::write_dta(weather_data, "/Users/tobias/Documents/professional/teaching/PMR/PIR_quardo/data/climate.dta")
+openxlsx::write.xlsx(
+    weather_data, 
+    "/Users/tobias/Documents/professional/teaching/PMR/PIR_quardo/data/climate.xlsx"
+)
+
