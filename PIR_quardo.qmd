@@ -1865,12 +1865,17 @@ With `paste()` and `expression()`, this should be straightforward.
 
 ## Task 3.2  
 
-Create a scatter plot of daily average temperature in Eindhoven against Schiphol using the wide-format climate data.
-Color the points based on whether the average temperature in Eindhoven on that day was above or below 10°C:
+Create a scatter plot of daily average temperature in Maastricht against Eelde using the wide-format climate data.
+Color the points based on whether the average temperature in Maastricht on that day was above or below 10°C:
 
-Use red for days when Eindhoven's temperature was above 10°C,
+Use red for days when Maastricht's temperature was above 10°C,
 Use blue for days when it was 10°C or below.
 Add a legend to indicate the meaning of the colors.
+```{r list652, eval = FALSE}
+download.file(url = "https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/temperature.RDS",
+                                   , destfile = "temperature.RDS")
+temperature <- readRDS("temperature.RDS")          
+```
 
 
 
@@ -1881,7 +1886,7 @@ Save this as a `.pdf` file in the "graphs" folder.
 
 ## Task 3.4  
 
-See whether a LLM improves your graph: Write a promt for a LLM of choice to create a scatter plot of `wage` against `education`. Again, distinguish between men and women. Come up with further characteristics you could add, and see if the AI model produces a satisfactory graph. 
+See whether a LLM improves your graph: Write a promt for a LLM of choice to create the scatter plot of task 3.2. Come up with further characteristics you could add, and see if the AI model produces a satisfactory graph. 
 
 
 
@@ -2078,33 +2083,36 @@ xtabs(~gender + sector, data = CPS1985)
 
 ## Task 4.1
 
-Use the dataset `CPS1985` from the `AER` package.
+Use the wide-format temperature data set `temperature`.
 
-1. Add the variable `logW` (log-transformed wages) to the dataset using `mutate()` and the pipe operator.
+1. Add the variable `tempF` (temperature in Fahrenheit) to the dataset using `mutate()` and the pipe operator.
 
-2. Compute, grouped by `gender` and `occupation`, the mean log wages and their standard deviation.
+2. Compute, grouped by city and year, the mean temperature and standard deviation.
 
-3. Select the observation with the highest wage for both men and women.
+3. Find the coolest and warmest day for each city.
 
-4. Add a variable `lowest_wage_in_occ` to the `CPS1985` dataset, which remains constant within each `occupation` group and corresponds to the lowest wage in that respective group.
+4. Add a variable `lowest_temperature` to the dataset, which remains constant within each `city` group and corresponds to the lowest temperature in that respective group. Do the same for `highest_temperature`
 
-5. Sort the dataset within gender groups by wages.
+5. Sort the dataset within city groups by temperature.
 
 ---
 
 ## Task 4.2
 
-Enhance the histogram of (log) wages within the lambda expression on [Slide 124](#124) as follows:
+Create a histogram of the daily temperatures in Eindhoven.
 
-1. Add the density function of a normally distributed random variable with the same mean and variance as the log wages.
+1. Overlay the density function of a normal distribution with the same mean and variance as the temperatures in Eindhoven.
 
 2. Draw the mean as a dashed line.
 
 3. Use a polygon to shade the area under the density function up to the 25% quantile.
 
+Hints: Use dnorm() with mean() and sd() to define the normal density curve.
+Use polygon() for shading and abline() for the dashed line.
+
 
 ## Task 4.3
-The code on the next slide collects climate data for Dutch cities. Use `dplyr` to 
+The code on the next slide collects climate data for Dutch cities in long format. Use `dplyr` to 
 
 1. find the warmest and coldest day in Maastricht
 2. find the city with the highest average temperature in 2023 and the one with the lowest average temperature
@@ -2138,63 +2146,8 @@ cities$stations <- sapply(1:NROW(cities), function(j){
 })
 weather_data <- get_GSOD(years = 2023, station = cities$stations)
 ```
----
 
 
-
-## Hypothesis Tests
-
-For this, we use the dataset [wheat.txt](https://www.dropbox.com/scl/fi/5g9rh2mzmegss9tvnq2bi/wheat.txt?rlkey=9lyvtr6b9jgv120ijtscdl3mu&st=r95f4h2x&dl=1), which contains wheat prices for the months from March 1982 to March 2012.
-
-```{r hyp-test, eval = FALSE}
-(wheat <- read.table("wheat.txt", header=TRUE) %>%
-  na.omit()) %>% {
-
-    ## One-sample t-test
-    t.test(.$Change,
-       alternative = "greater",
-       mu = 0,
-       conf.level = 0.95)
-
-    ## Two-sample t-test
-    t.test(Change ~ I(Year > 2000), data = .,      ##  t-test specification 
-       alternative = "greater",
-       mu = 0,
-       conf.level = 0.95)
-  }
-
-```
----
-
-Other functions to perform hypothesis tests:
-
-- `var.test()`: Test for equality of variances between two vectors
-- `chisq.test()`: $χ^2$-test for independence
-- Many other packages for specialized tests (`urca`, `lmtest`, `bootUR`)
-
-
-## Task 4.4
-
-- Skim through the paper ["Incentives Work: Getting Teachers to Come to School"](http://economics.mit.edu/files/5582) by Duflo et al. Briefly describe the experiment that was conducted.
-
-- Then look at the [data](https://dataverse.harvard.edu/dataset.xhtml?persistentId=hdl:1902.1/VZJXRPURTJ). The datasets `TreatmentSchools` and `Posttest` are sufficient.
-  Load the data into R and examine it. Try to load the Stata dataset (extension: .dta) using the `read_dta` function from the `haven` package.
-
----
-
-- In the `Posttest` dataset, create a variable `treat` that takes the value `TRUE` for students whose School-ID (variable `schid`) appears in the `TreatmentSchools` dataset. Use the `%in%` operator for this. 
-Example: 
-```{r example_2, eval = FALSE}
-    a <- 1:10
-    a[1:10 %in% c(2,3)]
-```
-
-- Create a subset of the dataset that includes only students who took the written test (`post_writ==1`).
-
-- Compare the mean test scores (variable `post_total_w`) of treatment and non-treatment students.
-
-- Conduct a t-test for the following null hypothesis:
-   "Treatment and non-treatment students perform equally well on average."
 
 
 
