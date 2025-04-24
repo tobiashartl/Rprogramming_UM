@@ -2340,12 +2340,12 @@ We start at a value where we are sure that the parabola is still increasing,
 move stepwise to the right while checking whether the value of the parabola
 is still increasing significantly. If this is not the case, we stop:
 ```{r parabel, eval =TRUE, fig.height=5, echo = FALSE}
-parabel <- function(x) -x^2
+parabola <- function(x) -x^2
 par(mar = c(3,2,0,0))
-plot(parabel , -2,2, xaxt = "n", yaxt = "n")
+plot(parabola , -2,2, xaxt = "n", yaxt = "n")
 axis(side = 1, at = c(-1.7,-1.3,-0.9,-0.5), tick = TRUE,
      labels = c("x1","x2", "x3", "x4"))
-axis(side = 2, at = parabel(c(-1.7,-1.3,-0.9,-0.5)), tick = TRUE,
+axis(side = 2, at = parabola(c(-1.7,-1.3,-0.9,-0.5)), tick = TRUE,
      labels = c("y1","y2", "y3", "y4"))
 x <- c(-1.7,-1.3,-0.9,-0.5)
 y <- -x^2
@@ -2360,15 +2360,15 @@ points(x,y, pch = 19, col = "blue")
 
 Code:
 ```{r num_optim, eval = FALSE}
-parabel <- function(x) -x^2
+parabola <- function(x) -x^2
 
 xx <- -2          ## here we start
-yy <- parabel(xx) ## what is the value of the parabola here?
+yy <- parabola(xx) ## what is the value of the parabola here?
 
 dY <- 1           ## we initialize a value so that while() does not terminate immediately
 while( dY > 0.0000001){
   xx <- xx + 0.01       ## move xx one step to the right
-  yyNew <- parabel(xx)  ## what is the value of the parabola at the new xx?
+  yyNew <- parabola(xx)  ## what is the value of the parabola at the new xx?
   dY <- yyNew - yy      ## by how much did the value of the parabola increase in this step?
                         ## this dY is used before the next loop iteration to check
                         ## whether the condition dY >0.0000001 is still met.
