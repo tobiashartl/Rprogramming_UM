@@ -1138,32 +1138,19 @@ fill presenter names here
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"readxl"</span>, <span class="st">"haven"</span>) <span class="do">## Install packages if not available</span></span>
-<span id="cb70-2"><a href=""></a><span class="fu">library</span>(readxl)</span>
+<span id="cb70-2"><a href=""></a><span class="fu">library</span>(openxlsx)</span>
 <span id="cb70-3"><a href=""></a></span>
-<span id="cb70-4"><a href=""></a>excel_data <span class="ot">&lt;-</span> <span class="fu">read_xls</span>(<span class="st">"Africa.xls"</span>, <span class="at">skip =</span> <span class="dv">7</span>,</span>
-<span id="cb70-5"><a href=""></a>                       <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">"country"</span>,<span class="st">"pop"</span>, <span class="st">"larea"</span>,<span class="st">"pop_dens"</span>,</span>
-<span id="cb70-6"><a href=""></a>                                     <span class="st">"gdpppp"</span>, <span class="st">"gdppcppp"</span>,<span class="st">"gdpgrwth"</span>))</span>
-<span id="cb70-7"><a href=""></a></span>
-<span id="cb70-8"><a href=""></a>dax <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"dax.csv"</span>) <span class="do">## Default values for sep, dec, and header already match!</span></span>
-<span id="cb70-9"><a href=""></a>schools_treat <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_dta</span>(<span class="st">"TreatmentSchools.dta"</span>) <span class="do">## Specify namespace using "::"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb70-4"><a href=""></a>excel_data <span class="ot">&lt;-</span> openxlsx<span class="sc">::</span><span class="fu">read.xlsx</span>(<span class="st">"climate.xlsx"</span>)</span>
+<span id="cb70-5"><a href=""></a></span>
+<span id="cb70-6"><a href=""></a>csv_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"climate.csv"</span>) <span class="do">## Default values for sep, dec, and header already match!</span></span>
+<span id="cb70-7"><a href=""></a>stata_data <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_dta</span>(<span class="st">"climate.dta"</span>) <span class="do">## Specify namespace using "::"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="task-2.13" class="slide level2"><h2>Task 2.13</h2>
-<p>Read in unemployment data (from 2013) in Germany (number and rate) at the district level into R. Download the corresponding <a href="https://www.dropbox.com/scl/fi/wu0epccdt4g3lqyv2hspb/alq.csv?rlkey=lbermmc9d3d8zfiz6wbjyepit&amp;e=1&amp;st=0351bm1j&amp;dl=1">data set</a>.</p>
+<p>Read the climate data ‘climate.csv’ into R. Download the corresponding <a href="https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv">data set</a>.</p>
 <p>Use the <code>read.table</code> function and import the dataset as <code>data_uemp</code>. After reading in the data, perform the following steps:</p>
 <ul>
 <li>Print a summary (check if all variables are correct).</li>
-<li>If the column headers were not read correctly, assign the following names: <code>DistrictKey</code>, <code>District</code>, <code>Abs_uemp</code>, <code>Rate_uemp</code>
-</li>
-</ul></section><section id="task-2.13-continuation" class="slide level2"><h2>Task 2.13 (Continuation)</h2>
-<ul>
-<li><p>Calculate the total workforce and overall unemployment rate.</p></li>
-<li>
-<p>Truncating <code>DistrictKey</code> after dividing by 1000 assigns each number from 1 to 16 to a federal state. The order is:</p>
-<p><code>"Schleswig-Holstein", "Hamburg", "Lower Saxony", "Bremen", "NRW", "Hessen", "Rhineland-Palatinate", "BW", "Bavaria", "Saarland", "Berlin", "Brandenburg", "Mecklenburg-Vorpommern", "Saxony", "Saxony-Anhalt", "Thuringia"</code></p>
-<p>Add a new column indicating the federal state for each observation. <strong>Hint</strong>: The function <code><a href="https://rdrr.io/r/base/Round.html">trunc()</a></code> may be useful.</p>
-</li>
-<li><p>Use the <code><a href="https://rdrr.io/r/base/order.html">order()</a></code> function to display the 30 districts with the highest unemployment rates.</p></li>
-<li><p>Save the dataset as <code>uemp_regions.txt</code> and the complete <code>data.frame</code> (including federal states) as <code>uemp.RData</code>. (The latter, including federal states, will be needed later.)</p></li>
+<li>If the column headers were not read correctly, assign the appropriate names.</li>
 </ul></section><section id="more-inputoutput" class="slide level2"><h2>More Input/Output</h2>
 <ul>
 <li><p>Most data can be saved to disk just as they are read in using <code><a href="https://rdrr.io/r/utils/write.table.html">write.csv()</a></code>, <code><a href="https://rdrr.io/r/utils/write.table.html">write.table()</a></code>, <code><a href="https://haven.tidyverse.org/reference/read_dta.html">haven::write_dta()</a></code>, etc.</p></li>

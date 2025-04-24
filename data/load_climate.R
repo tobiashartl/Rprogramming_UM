@@ -20,9 +20,19 @@ weather_data <- get_GSOD(years = c(2000:2024), station = cities$stations)
 saveRDS(weather_data, "/Users/tobias/Documents/professional/teaching/PMR/PIR_quardo/data/climate.rds")
 data <- readRDS("/Users/tobias/Documents/professional/teaching/PMR/PIR_quardo/data/climate.rds")
 head(data)
+weather_data <- data
 
-
+library(dplyr)
 weather_data  %>% group_by(NAME) %>% summarise(mean(TEMP))
+
+
+plot(weather_data)
+
+
+
+
+
+
 saveRDS(weather_data, "/Users/tobias/Documents/professional/teaching/PMR/PIR_quardo/data/climate.rds")
 write.csv(weather_data, "/Users/tobias/Documents/professional/teaching/PMR/PIR_quardo/data/climate.csv")
 haven::write_dta(weather_data, "/Users/tobias/Documents/professional/teaching/PMR/PIR_quardo/data/climate.dta")
@@ -31,3 +41,23 @@ openxlsx::write.xlsx(
     "/Users/tobias/Documents/professional/teaching/PMR/PIR_quardo/data/climate.xlsx"
 )
 
+
+
+temp_wide <- reshape(weather_data[, c("YEARMODA", "NAME", "TEMP")],
+                     timevar = "NAME",
+                     idvar = "YEARMODA",
+                     direction = "wide")
+
+# Remove rows with any missing values
+temp_wide <- temp_wide[complete.cases(temp_wide), ]
+
+# Drop the date column and prepare data for plotting
+temp_matrix <- temp_wide[, -1]
+
+# Optional: Rename columns to remove the "TEMP." prefix
+colnames(temp_matrix) <- sub("TEMP\\.", "", colnames(temp_matrix))
+
+# Create the pairs plot
+quartz()
+plot(temp_matrix)
+saveRDS(temp_matrix, "/Users/tobias/Documents/professional/teaching/PMR/PIR_quardo/data/temparature.RDS")

@@ -1085,38 +1085,23 @@ res <- unzip("example_data.zip")
 
 ```{r list57, eval = FALSE}
 install.packages("readxl", "haven") ## Install packages if not available
-library(readxl)
+library(openxlsx)
 
-excel_data <- read_xls("Africa.xls", skip = 7,
-                       col_names = c("country","pop", "larea","pop_dens",
-                                     "gdpppp", "gdppcppp","gdpgrwth"))
+excel_data <- openxlsx::read.xlsx("climate.xlsx")
 
-dax <- read.csv("dax.csv") ## Default values for sep, dec, and header already match!
-schools_treat <- haven::read_dta("TreatmentSchools.dta") ## Specify namespace using "::"
+csv_data <- read.csv("climate.csv") ## Default values for sep, dec, and header already match!
+stata_data <- haven::read_dta("climate.dta") ## Specify namespace using "::"
 ```
 
 ## Task 2.13
-
-Read in unemployment data (from 2013) in Germany (number and rate) at the district level into R. Download the corresponding [data set](https://www.dropbox.com/scl/fi/wu0epccdt4g3lqyv2hspb/alq.csv?rlkey=lbermmc9d3d8zfiz6wbjyepit&e=1&st=0351bm1j&dl=1).
+Read the climate data 'climate.csv' into R. Download the corresponding [data set](https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv).
 
 Use the `read.table` function and import the dataset as `data_uemp`. After reading in the data, perform the following steps:
 
 -   Print a summary (check if all variables are correct).
--   If the column headers were not read correctly, assign the following names: `DistrictKey`, `District`, `Abs_uemp`, `Rate_uemp`
+-   If the column headers were not read correctly, assign the appropriate names. 
 
-## Task 2.13 (Continuation)
 
--   Calculate the total workforce and overall unemployment rate.
-
--   Truncating `DistrictKey` after dividing by 1000 assigns each number from 1 to 16 to a federal state. The order is:
-
-    `"Schleswig-Holstein", "Hamburg", "Lower Saxony", "Bremen", "NRW", "Hessen", "Rhineland-Palatinate", "BW", "Bavaria", "Saarland", "Berlin", "Brandenburg", "Mecklenburg-Vorpommern", "Saxony", "Saxony-Anhalt", "Thuringia"`
-
-    Add a new column indicating the federal state for each observation. **Hint**: The function `trunc()` may be useful.
-
--   Use the `order()` function to display the 30 districts with the highest unemployment rates.
-
--   Save the dataset as `uemp_regions.txt` and the complete `data.frame` (including federal states) as `uemp.RData`. (The latter, including federal states, will be needed later.)
 
 ## More Input/Output
 
@@ -1207,7 +1192,9 @@ These methods correspond to the available high-level plot functions.
 Examples:
 
 ```{r list62, eval = TRUE, fig.height= 4, fig.width= 9}
-load(url("https://www.dropbox.com/scl/fi/9u8h45ajulcw3qm4ucrn9/CPS1985.RData?rlkey=4f81urvkwjhihyvn88g15o92w&st=nmwi22od&dl=1"))
+download.file(url = "https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/CPS1985.RData",
+                                   , destfile = "CPS1985.RData")
+load("CPS1985.RData")
 class(CPS1985)
 plot(CPS1985)             ## plot on data.frame calls pairs()
 ```
@@ -1878,9 +1865,12 @@ With `paste()` and `expression()`, this should be straightforward.
 
 ## Task 3.2  
 
-Create a scatter plot of `wage` against `education` (from the `CPS1985` dataset),  
-where women appear as red points and men as blue points.  
-Add a legend to illustrate this distinction.
+Create a scatter plot of daily average temperature in Eindhoven against Schiphol using the wide-format climate data.
+Color the points based on whether the average temperature in Eindhoven on that day was above or below 10°C:
+
+Use red for days when Eindhoven's temperature was above 10°C,
+Use blue for days when it was 10°C or below.
+Add a legend to indicate the meaning of the colors.
 
 
 
