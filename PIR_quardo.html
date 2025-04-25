@@ -253,7 +253,7 @@ fill presenter names here
 </ul></section><section id="exam" class="slide level2"><h2>Exam</h2>
 <ul>
 <li>Provide information about the exam here</li>
-</ul></section></section><section><section id="introduction" class="title-slide slide level1 center"><h1>1. Introduction</h1>
+</ul></section></section><section><section id="intro" class="title-slide slide level1 center"><h1>1. Introduction</h1>
 
 </section><section id="general-information" class="slide level2"><h2>General Information</h2>
 <p><strong>R</strong> is…</p>
@@ -308,7 +308,7 @@ fill presenter names here
 [1] 3</code></pre>
 </div>
 </div>
-</section><section id="graphics" class="slide level2"><h2>Graphics:</h2>
+</section><section id="graphs" class="slide level2"><h2>Graphs:</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb3-2"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>)</span>
@@ -544,9 +544,9 @@ fill presenter names here
 <li>Use the help() function to find information about the lm() function.</li>
 <li>Now, use google to find out how to apply the lm() function.</li>
 <li>Use a LLM of your choice to generate a summary of the lm() function.</li>
-</ol></section></section><section><section id="objects-in-r" class="title-slide slide level1 center"><h1>2. Objects in R</h1>
+</ol></section></section><section><section id="objects" class="title-slide slide level1 center"><h1>2. Objects in R</h1>
 
-</section><section id="objects-in-r-1" class="slide level2"><h2>Objects in R</h2>
+</section><section id="objects-in-r" class="slide level2"><h2>Objects in R</h2>
 <ul>
 <li>Everything that exists in R (objects) is either data (a structure) or a function.</li>
 <li>Objects each have a class (object orientation).</li>
@@ -1147,7 +1147,7 @@ fill presenter names here
 </div>
 </section><section id="task-2.13" class="slide level2"><h2>Task 2.13</h2>
 <p>Read the climate data ‘climate.csv’ into R. Download the corresponding <a href="https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv">data set</a>.</p>
-<p>Use the <code>read.table</code> function and import the dataset as <code>data_uemp</code>. After reading in the data, perform the following steps:</p>
+<p>Use the <code>read.table</code> function and import the dataset as <code>data_cli</code>. After reading in the data, perform the following steps:</p>
 <ul>
 <li>Print a summary (check if all variables are correct).</li>
 <li>If the column headers were not read correctly, assign the appropriate names.</li>
@@ -1157,7 +1157,7 @@ fill presenter names here
 <li><p>More fundamental methods to read/write data: <code><a href="https://rdrr.io/r/base/readLines.html">readLines()</a></code>/<code><a href="https://rdrr.io/r/base/writeLines.html">writeLines()</a></code>, <code><a href="https://rdrr.io/r/base/scan.html">scan()</a></code>/<code><a href="https://rdrr.io/r/base/write.html">write()</a></code>.</p></li>
 <li><p>Database connections via the <code>odbc</code> package.</p></li>
 <li>
-<p>Reading from the clipboard after copying data from the <em>People</em> dataset:</p>
+<p>Reading from the clipboard after copying data from the <em>players</em> dataset:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a>players <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="fu">file</span>(<span class="at">description =</span> <span class="st">"clipboard"</span>), <span class="at">sep =</span> <span class="st">";"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1165,7 +1165,7 @@ fill presenter names here
 <li><p>Network resources via <code><a href="https://rdrr.io/r/base/connections.html">url()</a></code>, compressed files with <code><a href="https://rdrr.io/r/base/connections.html">unz()</a></code>, etc.</p></li>
 </ul>
 <p>See also <code>?connections()</code>.</p>
-</section></section><section><section id="graphics-1" class="title-slide slide level1 center"><h1>3. Graphics</h1>
+</section></section><section><section id="graphics" class="title-slide slide level1 center"><h1>3. Graphics</h1>
 
 </section><section id="r-base-graphics" class="slide level2"><h2>R Base Graphics</h2>
 <ul>
@@ -1786,7 +1786,7 @@ With <code><a href="https://rdrr.io/r/base/paste.html">paste()</a></code> and <c
 Save this as a <code>.pdf</code> file in the “graphs” folder.</p>
 </section><section id="task-3.4" class="slide level2"><h2>Task 3.4</h2>
 <p>See whether a LLM improves your graph: Write a promt for a LLM of choice to create the scatter plot of task 3.2. Come up with further characteristics you could add, and see if the AI model produces a satisfactory graph.</p>
-</section></section><section><section id="data-analysis" class="title-slide slide level1 center"><h1>4. Data Analysis</h1>
+</section></section><section><section id="dataanalysis" class="title-slide slide level1 center"><h1>4. Data Analysis</h1>
 
 </section><section id="consistent-work-with-data-tidyverse" class="slide level2"><h2>Consistent Work with Data: tidyverse</h2>
 <p>In this chapter, we will (superficially) cover the package <a href="https://dplyr.tidyverse.org/">dplyr</a>. This package is part of the <a href="https://www.tidyverse.org/">tidyverse</a>, a collection of R packages designed to provide a consistent approach to working with data. The following packages belong to the <a href="https://www.tidyverse.org/">tidyverse</a>:</p>
@@ -1979,7 +1979,7 @@ More examples
 <span id="cb116-21"><a href=""></a>})</span>
 <span id="cb116-22"><a href=""></a>weather_data <span class="ot">&lt;-</span> <span class="fu">get_GSOD</span>(<span class="at">years =</span> <span class="dv">2023</span>, <span class="at">station =</span> cities<span class="sc">$</span>stations)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section><section><section id="flow-control" class="title-slide slide level1 center"><h1>5. Flow Control</h1>
+</section></section><section><section id="flowcontrol" class="title-slide slide level1 center"><h1>5. Flow Control</h1>
 
 </section><section id="general-information-1" class="slide level2"><h2>General Information</h2>
 <p>Often, expressions (calculations, estimations, simulations, plots…) should only be executed under certain conditions and/or repeated multiple times. Sometimes an operation is so complex that breaking it down into repeated steps makes it easier to think through and program.</p>
@@ -2122,15 +2122,15 @@ More examples
 
 <img data-src="PIR_quardo_files/figure-revealjs/parabel-1.png" width="960" class="r-stretch"></section><section class="slide level2"><p>Code:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href=""></a>parabel <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="sc">-</span>x<span class="sc">^</span><span class="dv">2</span></span>
+<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href=""></a>parabola <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="sc">-</span>x<span class="sc">^</span><span class="dv">2</span></span>
 <span id="cb129-2"><a href=""></a></span>
 <span id="cb129-3"><a href=""></a>xx <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span>          <span class="do">## here we start</span></span>
-<span id="cb129-4"><a href=""></a>yy <span class="ot">&lt;-</span> <span class="fu">parabel</span>(xx) <span class="do">## what is the value of the parabola here?</span></span>
+<span id="cb129-4"><a href=""></a>yy <span class="ot">&lt;-</span> <span class="fu">parabola</span>(xx) <span class="do">## what is the value of the parabola here?</span></span>
 <span id="cb129-5"><a href=""></a></span>
 <span id="cb129-6"><a href=""></a>dY <span class="ot">&lt;-</span> <span class="dv">1</span>           <span class="do">## we initialize a value so that while() does not terminate immediately</span></span>
 <span id="cb129-7"><a href=""></a><span class="cf">while</span>( dY <span class="sc">&gt;</span> <span class="fl">0.0000001</span>){</span>
 <span id="cb129-8"><a href=""></a>  xx <span class="ot">&lt;-</span> xx <span class="sc">+</span> <span class="fl">0.01</span>       <span class="do">## move xx one step to the right</span></span>
-<span id="cb129-9"><a href=""></a>  yyNew <span class="ot">&lt;-</span> <span class="fu">parabel</span>(xx)  <span class="do">## what is the value of the parabola at the new xx?</span></span>
+<span id="cb129-9"><a href=""></a>  yyNew <span class="ot">&lt;-</span> <span class="fu">parabola</span>(xx)  <span class="do">## what is the value of the parabola at the new xx?</span></span>
 <span id="cb129-10"><a href=""></a>  dY <span class="ot">&lt;-</span> yyNew <span class="sc">-</span> yy      <span class="do">## by how much did the value of the parabola increase in this step?</span></span>
 <span id="cb129-11"><a href=""></a>                        <span class="do">## this dY is used before the next loop iteration to check</span></span>
 <span id="cb129-12"><a href=""></a>                        <span class="do">## whether the condition dY &gt;0.0000001 is still met.</span></span>
@@ -2290,10 +2290,33 @@ More examples
 </ol></section><section id="task-5.6" class="slide level2"><h2>Task 5.6</h2>
 <p>Write a function named “fib” that, given a natural number <code>n</code>, computes the <code>n</code>-th Fibonacci number. The Fibonacci sequence is defined recursively as follows:</p>
 <p><span class="math inline">\(a_0=0\)</span>, <span class="math inline">\(a_1=1\)</span>, and <span class="math inline">\(a_n=a_{n-1}+a_{n-2}\)</span>.</p>
-</section></section><section><section id="regression" class="title-slide slide level1 center"><h1>6. Regression</h1>
+</section><section id="task-5.6-1" class="slide level2"><h2>Task 5.6</h2>
+<p>Reconsider the wide-format temperature data set <code>temperature</code>. You want to identify the day when the temperature was equal to or closest to 20 degrees for De Bilt in 2024. Your task is to write a loop that searches for this temperature value, using a half-way (binary-like) search approach.</p>
+<p>Steps:</p>
+<ul>
+<li>Extract the daily temperature data for De Bilt and sort it in ascending order.</li>
+<li>Write a loop (e.g., a while loop or a repeat loop) that:
+<ul>
+<li>Starts with the full range of the sorted vector.</li>
+<li>Checks the temperature at the halfway index.</li>
+<li>If it is lower than 20, search the upper half; if greater or equal, search the lower half.</li>
+<li>Continue until you find the index of the value closest to 20. Print:</li>
+</ul>
+</li>
+<li>The temperature found</li>
+<li>The date</li>
+<li>The number of steps your loop needed to find it</li>
+</ul></section></section><section><section id="regression" class="title-slide slide level1 center"><h1>6. Regression</h1>
 
 </section><section id="general-information-2" class="slide level2"><h2>General Information</h2>
-<p>In econometrics (which can also be applied to other scientific fields), we often ask questions like: - Does income convergence occur (does a low income level lead to higher growth in the future, ceteris paribus)? - Is education an important determinant of growth? - Does foreign trade accelerate growth? - Is political stability important / does violence hinder economic prosperity? - Is growth slower in Africa, ceteris paribus?</p>
+<p>In econometrics (which can also be applied to other scientific fields), we often ask questions like:</p>
+<ul>
+<li>Does income convergence occur (does a low income level lead to higher growth in the future, ceteris paribus)?</li>
+<li>Is education an important determinant of growth?</li>
+<li>Does foreign trade accelerate growth?</li>
+<li>Is political stability important / does violence hinder economic prosperity?</li>
+<li>Is growth slower in Africa, ceteris paribus?</li>
+</ul>
 <p>The standard tool for such analyses: <strong>multiple linear regression model</strong></p>
 <p><span class="math display">\[y_i = \beta_0 + \beta_1 x_{1,i} + \beta_2 x_{2,i} + \dots + \beta_p x_{p,i} + u_i,\ i=1,\dots,n\]</span> Or, in matrix notation: <span class="math display">\[\mathbf{y} = \mathbf{X}\beta + \mathbf{u},\]</span> where <span class="math inline">\(\mathbf{y}, \mathbf{u}\in\mathbb{R}^{n}\)</span>, <span class="math inline">\(\mathbf{X}\in\mathbb{R}^{n\times k}\)</span>, <span class="math inline">\(\beta\in\mathbb{R}^{k}\)</span>, and <span class="math inline">\(k = p + 1\)</span>.</p>
 </section><section id="formula-objects" class="slide level2"><h2>Formula Objects</h2>
@@ -2433,14 +2456,15 @@ F-statistic: 0.2487 on 1 and 63 DF,  p-value: 0.6197</code></pre>
 <span id="cb152-6"><a href=""></a>                            <span class="at">data=</span>GrowthSW))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="task-6.1" class="slide level2"><h2>Task 6.1</h2>
-<p>Use the Growth dataset from above.</p>
+<p>Reconsider the wide-format temperature data set <code>temperature</code>. You want to draw inference on whether temperature is trending, at the same time stay agnostic about the nature of the trend. Therefore, you decide to approximate the trending dynamics of temperature by a polynomial trend of order p <span class="math display">\[
+  temp_t = \beta_0 + \beta_1 t + \beta_2 t^2 + \beta_3 t^3 + ... + \beta_p t^p + u_t.
+\]</span> For one of the different locations</p>
 <ol type="1">
 <li>
-<p>Test a few possibilities for formula input:</p>
+<p>Test different specifications for the trend (i.e.&nbsp;choose <span class="math inline">\(p\)</span> and possibly set some of the coefficients above to zero). Allow for</p>
 <ul>
-<li>With and without a constant</li>
-<li>Quadratic, cubic, or duplicated regressors</li>
-<li>Interactions (of groups)</li>
+<li>Only a constant and a linear trend</li>
+<li>Quadratic, cubic, and higher order trends</li>
 <li>Use the <code>stepAIC()</code> function</li>
 </ul>
 </li>
@@ -2546,7 +2570,7 @@ F-statistic: 0.2487 on 1 and 63 DF,  p-value: 0.6197</code></pre>
 <li>Compare the two models using appropriate diagnostic tests, criteria, and graphical representations. Decide on the better model.</li>
 <li>Estimate the expected wage for an employee whose explanatory characteristics correspond to the median values. Also, determine the expected wage for an “average worker.”<br><strong>Hint:</strong> Use a model that includes only numerical explanatory variables.</li>
 <li>Provide a prediction interval for both cases.</li>
-</ul></section><section id="some-rules-for-efficient-code" class="slide level2"><h2>Some Rules for Efficient Code</h2>
+</ul></section></section><section id="efficiency" class="title-slide slide level1 center"><h1>Some Rules for Efficient Code</h1>
 <ul>
 <li><p><strong>Vectorize!</strong> This ensures that loops are executed in C rather than in R.</p></li>
 <li><p><strong>Do not dynamically increase object size in loops</strong>; instead, initialize an empty object first and then populate it.</p></li>
@@ -2561,7 +2585,7 @@ F-statistic: 0.2487 on 1 and 63 DF,  p-value: 0.6197</code></pre>
 <li><p>Use <strong>profiling methods</strong> to identify where execution time is high and where optimization may be worthwhile.</p></li>
 <li><p>If necessary, implement <strong>bottlenecks in C/C++ or Fortran</strong>.</p></li>
 <li><p>Balance <strong>faster execution time vs.&nbsp;extra implementation time</strong> for optimizations.</p></li>
-</ul></section></section><section id="thanks" class="title-slide slide level1 center"><h1>Thanks!</h1>
+</ul></section><section id="thanks" class="title-slide slide level1 center"><h1>Thanks!</h1>
 <p>Slides created via <a href="https://quarto.org"><strong>Quarto</strong></a>, a multi-language version of R Markdown that uses knitr to execute Rmd files.</p>
 <p>The chakra comes from <a href="https://remarkjs.com">remark.js</a>, <a href="http://yihui.name/knitr"><strong>knitr</strong></a>, and <a href="https://rmarkdown.rstudio.com">R Markdown</a>.</p>
 

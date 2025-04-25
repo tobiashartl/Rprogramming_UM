@@ -76,7 +76,7 @@ You'll need a
 
 -   Provide information about the exam here
 
-# 1. Introduction
+# 1. Introduction{#intro}
 
 ------------------------------------------------------------------------
 
@@ -124,7 +124,7 @@ Inf-Inf     # -> NaN (not defined)
 1       # Execution only when expression is complete
 ```
 
-## Graphics: {#graphics}
+## Graphs:
 
 ```{r, list2, echo=TRUE, fig.align='center', fig.width=7, fig.height=6}
 set.seed(123)
@@ -380,7 +380,7 @@ Find an R package that provides functions to test linear hypotheses in multiple 
 2.  Now, use google to find out how to apply the lm() function.
 3.  Use a LLM of your choice to generate a summary of the lm() function.
 
-# 2. Objects in R
+# 2. Objects in R{#objects}
 
 ------------------------------------------------------------------------
 
@@ -1096,7 +1096,7 @@ stata_data <- haven::read_dta("climate.dta") ## Specify namespace using "::"
 ## Task 2.13
 Read the climate data 'climate.csv' into R. Download the corresponding [data set](https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv).
 
-Use the `read.table` function and import the dataset as `data_uemp`. After reading in the data, perform the following steps:
+Use the `read.table` function and import the dataset as `data_cli`. After reading in the data, perform the following steps:
 
 -   Print a summary (check if all variables are correct).
 -   If the column headers were not read correctly, assign the appropriate names. 
@@ -1111,7 +1111,7 @@ Use the `read.table` function and import the dataset as `data_uemp`. After readi
 
 -   Database connections via the `odbc` package.
 
--   Reading from the clipboard after copying data from the *People* dataset:
+-   Reading from the clipboard after copying data from the *players* dataset:
 
     ```{r list58, eval = FALSE}
     players <- read.table(file(description = "clipboard"), sep = ";")
@@ -1121,7 +1121,10 @@ Use the `read.table` function and import the dataset as `data_uemp`. After readi
 
 See also `?connections()`.
 
-# 3. Graphics
+# 3. Graphics{#graphics}
+
+------------------------------------------------------------------------
+
 
 ## R Base Graphics
 
@@ -1893,7 +1896,7 @@ See whether a LLM improves your graph: Write a promt for a LLM of choice to crea
 
 
 
-# 4. Data Analysis
+# 4. Data Analysis{#dataanalysis}
 
 ---
 ```{r setup, include = FALSE}
@@ -2151,7 +2154,7 @@ weather_data <- get_GSOD(years = 2023, station = cities$stations)
 
 
 
-# 5. Flow Control
+# 5. Flow Control{#flowcontrol}
 
 ## General Information
 
@@ -2598,13 +2601,30 @@ $a_0=0$, $a_1=1$, and $a_n=a_{n-1}+a_{n-2}$.
 
 
 
+## Task 5.6
+Reconsider the wide-format temperature data set `temperature`. You want to identify the day when the temperature was equal to or closest to 20 degrees for De Bilt in 2024. Your task is to write a loop that searches for this temperature value, using a half-way (binary-like) search approach.
+
+Steps:
+
+- Extract the daily temperature data for De Bilt and sort it in ascending order.
+- Write a loop (e.g., a while loop or a repeat loop) that:
+    - Starts with the full range of the sorted vector.
+    - Checks the temperature at the halfway index.
+    - If it is lower than 20, search the upper half; if greater or equal, search the lower half.
+    - Continue until you find the index of the value closest to 20.
+Print:
+- The temperature found
+- The date
+- The number of steps your loop needed to find it
 
 
-# 6. Regression
+
+# 6. Regression{#regression}
 
 ## General Information
 
 In econometrics (which can also be applied to other scientific fields), we often ask questions like:
+
  - Does income convergence occur (does a low income level lead to higher growth in the future, ceteris paribus)?
  - Is education an important determinant of growth?
  - Does foreign trade accelerate growth?
@@ -2773,16 +2793,24 @@ growth.eqAIC <- stepAIC(lm(growth ~ (log(rgdp60) + tradeshare + log(education)+
 
 
 ## Task 6.1
-Use the Growth dataset from above.
+Reconsider the wide-format temperature data set `temperature`. You want to draw inference on whether temperature is trending, at the same time stay agnostic about the nature of the trend. Therefore, you decide to approximate the trending dynamics of temperature by a polynomial trend of order p
+$$
+  temp_t = \beta_0 + \beta_1 t + \beta_2 t^2 + \beta_3 t^3 + ... + \beta_p t^p + u_t.
+$$
+For one of the different locations
 
- 1. Test a few possibilities for formula input:
+
+1. Test different specifications for the trend (i.e.\ choose $p$ and possibly set some of the coefficients above to zero). Allow for 
    
-    - With and without a constant
-    - Quadratic, cubic, or duplicated regressors
-    - Interactions (of groups)
+    - Only a constant and a linear trend
+    - Quadratic, cubic, and higher order trends
     - Use the `stepAIC()` function
   
- 2. Select one of your models and apply the `summary()` method to it. Discuss the estimates, standard errors, p-values, residual sum of squares, and the adjusted $R^2$ value.
+2. Select one of your models and apply the `summary()` method to it. Discuss the estimates, standard errors, p-values, residual sum of squares, and the adjusted $R^2$ value.
+
+3. Plot the temperature series for your location of choice. What could make it hard to identify a trend?
+
+4. Use `as.factor(format(temperature$date, "%m"))` to generate monthly dummies. Add them to your regression model. Do your conclusions change?
 
 
 ## Model Diagnosis and Tests
@@ -2914,26 +2942,10 @@ predict(growth.eqAIC, newdata=X0, se.fit=TRUE, interval="prediction")
 ```
 
 
-
-## Task 6.2
-
-- Use the `CPS1985` dataset to specify and estimate an ad-hoc regression model for the logarithm of hourly wages.
-- Starting from a very general model, perform model selection by iteratively removing the least significant regressor. Then, test the exclusion restrictions applied in the process.<br>
-  **Hints:**
-   - General model: Use a squared formula for all possible interactions.
-   - Implement a loop that checks whether the maximum p-value is greater than 5%.
-   - Remove the respective regressor from the model. Important: To simplify the removal of individual regressors, ensure that the model outputs matrix X using `lm(y~x, x=TRUE)`. The design matrix `X` can then be accessed via `a$x` when `a <- lm(y~x, x=TRUE)`.
-
----
-
-- Compare the two models using appropriate diagnostic tests, criteria, and graphical representations. Decide on the better model.
-- Estimate the expected wage for an employee whose explanatory characteristics correspond to the median values. Also, determine the expected wage for an "average worker."<br>
-  **Hint:** Use a model that includes only numerical explanatory variables.
-- Provide a prediction interval for both cases.
   
 
 
-## Some Rules for Efficient Code
+# Some Rules for Efficient Code{#efficiency}
 
 - **Vectorize!** This ensures that loops are executed in C rather than in R.
 

@@ -52,12 +52,51 @@ temp_wide <- reshape(weather_data[, c("YEARMODA", "NAME", "TEMP")],
 temp_wide <- temp_wide[complete.cases(temp_wide), ]
 
 # Drop the date column and prepare data for plotting
-temp_matrix <- temp_wide[, -1]
+#temp_matrix <- temp_wide[, -1]
 
 # Optional: Rename columns to remove the "TEMP." prefix
-colnames(temp_matrix) <- sub("TEMP\\.", "", colnames(temp_matrix))
+colnames(temp_wide) <- c("date", sub("TEMP\\.", "", colnames(temp_matrix)))
 
 # Create the pairs plot
 quartz()
-plot(temp_matrix)
-saveRDS(temp_matrix, "/Users/tobias/Documents/professional/teaching/PMR/PIR_quardo/data/temparature.RDS")
+plot(temp_wide[, -1])
+saveRDS(temp_wide, "/Users/tobias/Documents/professional/teaching/PMR/PIR_quardo/data/temparature.RDS")
+
+
+
+# Step 1: Load and prepare the data
+temp_debilt <- temp_wide[, c("date", "DE BILT")] %>% 
+  filter(date >= as.Date("2024-01-01") & date <= as.Date("2024-12-31"))
+temp_sorted <- temp_debilt[order(temp_debilt[, 2]), ]
+
+# Step 2: Half-way search function
+halfway_search <- function(temp_vector, threshold) {
+  low <- 1
+  high <- nrow(temp_vector)
+  steps <- 0
+  result_index <- NA
+  
+  while (low <= high) {
+    steps <- steps + 1
+    mid <- floor((low + high) / 2)
+    mid_val <- temp_vector[mid, 2]
+    
+    if (mid_val < threshold) {
+      low <- mid + 1
+    } else {
+      result_index <- mid
+      high <- mid - 1
+    }
+  }
+  
+  if (!is.na(result_index)) {
+    cat("Temperature closest to", threshold, "°C is", temp_vector[result_index, 2], 
+        "at ", as.character(temp_vector[result_index, 1]), "\n")
+    cat("Steps taken:", steps, "\n")
+  } else {
+    cat("No temperature found.\n")
+  }
+}
+
+# Step 3: Test the function
+halfway_search(temp_sorted, 20)
