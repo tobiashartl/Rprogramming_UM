@@ -39,6 +39,7 @@ You'll need a
 -   Folder structure consistent with the course:
     -   `code/`
     -   `RData/`
+- All datasets used in this course: [download here](https://github.com/tobiashartl/Rprogramming_UM/raw/main/RData.zip)
 
 ## Literature/Links
 

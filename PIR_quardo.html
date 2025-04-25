@@ -229,6 +229,8 @@ fill presenter names here
 <li><code>RData/</code></li>
 </ul>
 </li>
+<li>All datasets used in this course: <a href="https://github.com/tobiashartl/Rprogramming_UM/raw/main/RData.zip">download here</a>
+</li>
 </ul></section><section id="literaturelinks" class="slide level2"><h2>Literature/Links</h2>
 <ul>
 <li><p>Kleiber, C. &amp; Zeileis, A. (2008), <a href="https://www.springer.com/de/book/9780387773162">Applied Econometrics with R</a>, Springer.</p></li>
@@ -2469,6 +2471,8 @@ F-statistic: 0.2487 on 1 and 63 DF,  p-value: 0.6197</code></pre>
 </ul>
 </li>
 <li><p>Select one of your models and apply the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> method to it. Discuss the estimates, standard errors, p-values, residual sum of squares, and the adjusted <span class="math inline">\(R^2\)</span> value.</p></li>
+<li><p>Plot the temperature series for your location of choice. What could make it hard to identify a trend?</p></li>
+<li><p>Use <code>as.factor(format(temperature$date, "%m"))</code> to generate monthly dummies. Add them to your regression model. Do your conclusions change?</p></li>
 </ol></section><section id="model-diagnosis-and-tests" class="slide level2"><h2>Model Diagnosis and Tests</h2>
 <h3 id="heteroskedasticity">1. Heteroskedasticity</h3>
 <p>Graphical examination:</p>
@@ -2556,21 +2560,7 @@ F-statistic: 0.2487 on 1 and 63 DF,  p-value: 0.6197</code></pre>
 <span id="cb162-13"><a href=""></a><span class="do">## Point prediction, prediction interval, etc.</span></span>
 <span id="cb162-14"><a href=""></a><span class="fu">predict</span>(growth.eqAIC, <span class="at">newdata=</span>X0, <span class="at">se.fit=</span><span class="cn">TRUE</span>, <span class="at">interval=</span><span class="st">"prediction"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="task-6.2" class="slide level2"><h2>Task 6.2</h2>
-<ul>
-<li>Use the <code>CPS1985</code> dataset to specify and estimate an ad-hoc regression model for the logarithm of hourly wages.</li>
-<li>Starting from a very general model, perform model selection by iteratively removing the least significant regressor. Then, test the exclusion restrictions applied in the process.<br><strong>Hints:</strong>
-<ul>
-<li>General model: Use a squared formula for all possible interactions.</li>
-<li>Implement a loop that checks whether the maximum p-value is greater than 5%.</li>
-<li>Remove the respective regressor from the model. Important: To simplify the removal of individual regressors, ensure that the model outputs matrix X using <code>lm(y~x, x=TRUE)</code>. The design matrix <code>X</code> can then be accessed via <code>a$x</code> when <code>a &lt;- lm(y~x, x=TRUE)</code>.</li>
-</ul>
-</li>
-</ul></section><section class="slide level2"><ul>
-<li>Compare the two models using appropriate diagnostic tests, criteria, and graphical representations. Decide on the better model.</li>
-<li>Estimate the expected wage for an employee whose explanatory characteristics correspond to the median values. Also, determine the expected wage for an “average worker.”<br><strong>Hint:</strong> Use a model that includes only numerical explanatory variables.</li>
-<li>Provide a prediction interval for both cases.</li>
-</ul></section></section><section id="efficiency" class="title-slide slide level1 center"><h1>Some Rules for Efficient Code</h1>
+</section></section><section id="efficiency" class="title-slide slide level1 center"><h1>Some Rules for Efficient Code</h1>
 <ul>
 <li><p><strong>Vectorize!</strong> This ensures that loops are executed in C rather than in R.</p></li>
 <li><p><strong>Do not dynamically increase object size in loops</strong>; instead, initialize an empty object first and then populate it.</p></li>
