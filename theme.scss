@@ -11,6 +11,24 @@ $code-block-font-size: 0.6em;
 $code-color: #5f5f5f;
 $presentation-h2-font-size: 1.4em;
 
+$UMdblue:    #001C3D !default;
+$UMlblue:  #00A2DB !default;
+$UMorangered:  #E84E10 !default;
+$UMred:     #AE0B12 !default;
+$UMorange:  #F39425 !default;
+
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #ecf0f1 !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #b4bcc2 !default;
+$gray-600: #95a5a6 !default;
+$gray-700: #7b8a8b !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
 /*-- scss:rules --*/
 
 .reveal .custom-title {
