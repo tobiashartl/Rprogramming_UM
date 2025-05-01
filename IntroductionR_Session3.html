@@ -700,10 +700,10 @@ fill presenter names here
           event.initEvent("slideenter", true, true);
           window.document.dispatchEvent(event);
         }
-    
+
         function fireSlideChanged(previousSlide, currentSlide) {
           fireSlideEnter();
-    
+
           // dispatch for shiny
           if (window.jQuery) {
             if (previousSlide) {
@@ -714,7 +714,7 @@ fill presenter names here
             }
           }
         }
-    
+
         // hookup for slidy
         if (window.w3c_slidy) {
           window.w3c_slidy.add_observer(function (slide_num) {
@@ -722,7 +722,7 @@ fill presenter names here
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
           });
         }
-    
+
       })();
     </script><script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
