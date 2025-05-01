@@ -9,6 +9,7 @@ format:
     background-transition: fade
     highlight-style: ayu-mirage
     fontsize: 1.5em
+    code-line-numbers: false
 code-link: true
 execute:
   echo: true
@@ -48,18 +49,29 @@ We have already encountered many *functions* in R:
 ## Function Overview
 
 A function consists of three parts:
-
-```{mermaid, echo=FALSE}
-flowchart LR
-in(Input) --> f{Operations}
-f --> out(Output)
-```
-
 ```{tikz, echo=FALSE}
-\begin{tikzpicture}[every node/.style={draw, minimum size=2cm}]
-\node[align=center] (in) at (0,0) {Input\\\emph{function argument(s)}};
-\node[align=center] (f) at (6,0) {Function\\\emph{performs operations on input}};
-\node[align=center] (out) at (12,0) {Output\\\emph{the result of the operations}};
+\definecolor{UMdblue}{RGB}{0,28,61}
+\definecolor{UMlblue}{RGB}{0,162,219}
+\definecolor{UMorangered}{RGB}{232,78,16}
+\definecolor{UMorange}{RGB}{243,148,37}
+\definecolor{UMred}{RGB}{174,11,18}
+
+\begin{tikzpicture}[every node/.style={rounded corners, minimum size=2cm}]
+\node[fill=UMlblue!10, align=center] (in) at (0,0) {%
+	\includegraphics[width=.2\textwidth]{figures/Input.png}\\%
+	\textsf{Input}\\%
+	\textsf{\emph{function argument(s)}}%
+};
+\node[fill=UMred!10, align=center] (f) at (6,0) {%
+	\includegraphics[width=.194\textwidth]{figures/Function.png}\\%
+	\textsf{Function}\\%
+	\textsf{\emph{performs operations on input}}%
+};
+\node[fill=UMdblue!10, align=center] (out) at (12,0) {%
+	\includegraphics[width=.17\textwidth]{figures/Output.png}\\%
+	\textsf{Output}\\%
+	\textsf{\emph{the result of the operations}}%
+};
 \draw [->, line width=0.1cm] (in) to (f);
 \draw [->, line width=0.1cm] (f) to (out);
 \end{tikzpicture}
@@ -67,32 +79,35 @@ f --> out(Output)
 
 ## Arguments
 
--   A function is called by specifying the function name followed by one or more comma-separated arguments in parentheses: `function_name(argument1 = value1, argument2 = value2,...)`
-
--   Argument names do not always need to be specified: `function_name(value1, value2,...)`
-
--   Attention: Order matters!
-
--   There are also default arguments, which do not always need to be specified. More on this later.
-
-## Extending R with Packages
-
-There are many packages available on [CRAN](https://cran.r-project.org/) for various applications. These allow for expanding the relatively small core system of R. While R comes with some standard packages, many need to be installed separately.
-
-```{r list11, eval = FALSE}
-install.packages("AER")  # Install a previously unavailable package
-library(AER)             # Load the package (makes objects 
-                         # in the package visible in the
-                         # global namespace)
-data(CASchools)          # Example dataset "CASchools"
-?ivreg                   # Help for function ivreg
+-   A function is called by specifying the function name followed by one or more comma-separated arguments in parentheses: 
+```{r, eval=FALSE}
+function_name(argument1 = value1, argument2 = value2, ...)
 ```
 
--   `search()` shows the search path, i.e., which packages are already loaded:
-
-```{r list12, eval = TRUE}
-search()
+-		This gives the same:
+```{r, eval=FALSE}
+function_name(argument2 = value2, argument1 = value1, ...)
 ```
+
+-		This also gives the same:
+```{r, eval=FALSE}
+function_name(value1, value2, ...)
+```
+
+-		This does not!
+```{r, eval=FALSE}
+function_name(value2, value1, ...)
+```
+
+- Why?
+
+## More about Arguments
+
+- If you don't give argument names, R assumes arguments are given in the order as defined.
+
+- There are also default arguments, which do not always need to be specified.
+
+- Let us look at an example.
 
 
 ## Lists
@@ -132,22 +147,7 @@ Named lists can also be accessed using the `$` operator:
 L1$w       # "Hello!"
 ```
 
-## Recursion
-
-Sometimes quite useful: recursive functions.
-
-```{r factorial , eval = FALSE}
-factorial <- function(n){
-  if (n<0) stop("Factorial only for positive integers")
-
-  if (n<2) return(1)
-
-  n * factorial(n-1)
-}
-```
-
-
-
+# Packages
 
 
 
