@@ -385,6 +385,7 @@
       margin-right: 0; 
     }
   </style>
+<script src="IntroductionR_Session3_files/libs/quarto-diagram/mermaid.min.js"></script><script src="IntroductionR_Session3_files/libs/quarto-diagram/mermaid-init.js"></script><link href="IntroductionR_Session3_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -401,7 +402,7 @@ fill presenter names here
 </div>
 </div>
 
-</section><section id="course-overview" class="title-slide slide level1 center"><h1>Course Overview</h1>
+</section><section class="slide level2"><!-- To use TikZ, we need to install the following extension: --><!-- quarto install extension pandoc-ext/diagram --></section><section id="course-overview" class="title-slide slide level1 center"><h1>Course Overview</h1>
 <ol type="1">
 <li><a href="#/functions">Functions in R</a></li>
 <li><a href="#/functions2">Bonus: Looking Inside Functions</a></li>
@@ -414,17 +415,25 @@ fill presenter names here
 <p><em>Add examples based on previous sessions</em></p>
 </section><section id="function-overview" class="slide level2"><h2>Function Overview</h2>
 <p>A function consists of three parts:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource tex number-lines code-with-copy"><code class="sourceCode latex"><span id="cb1-1"><a href=""></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}[every node/.style={draw, minimum size=2cm}]</span>
-<span id="cb1-2"><a href=""></a><span class="fu">\node</span>[align=center] (x2) at (0,0) {<span class="fu">\huge</span><span class="ss">$x_{t-2}$</span>};</span>
-<span id="cb1-3"><a href=""></a><span class="fu">\node</span>[align=center] (z1) at (5,0) {<span class="fu">\huge</span><span class="ss">$z_{t-1}$</span>};</span>
-<span id="cb1-4"><a href=""></a><span class="fu">\node</span>[align=center] (y0) at (10,0) {<span class="fu">\huge</span><span class="ss">$y_{t}$</span>};</span>
-<span id="cb1-5"><a href=""></a><span class="fu">\draw</span> [-&gt;, line width=0.2cm] (x2) to (z1);</span>
-<span id="cb1-6"><a href=""></a><span class="fu">\draw</span> [-&gt;, line width=0.2cm] (z1) to (y0);</span>
-<span id="cb1-7"><a href=""></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href=""></a>flowchart LR</span>
+<span id="cb1-2"><a href=""></a>in(Input) --&gt; f{Operations}</span>
+<span id="cb1-3"><a href=""></a>f --&gt; out(Output)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""></figure><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+in(Input) --&gt; f{Operations}
+f --&gt; out(Output)
+</pre>
 </div>
-<img data-src="IntroductionR_Session3_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section><section id="arguments" class="slide level2"><h2>Arguments</h2>
+<p></p>
+</div>
+</div>
+</div>
+
+<img data-src="IntroductionR_Session3_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section><section id="arguments" class="slide level2"><h2>Arguments</h2>
 <ul>
 <li><p>A function is called by specifying the function name followed by one or more comma-separated arguments in parentheses: <code>function_name(argument1 = value1, argument2 = value2,...)</code></p></li>
 <li><p>Argument names do not always need to be specified: <code>function_name(value1, value2,...)</code></p></li>

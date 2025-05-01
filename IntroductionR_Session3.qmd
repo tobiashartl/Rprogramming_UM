@@ -16,15 +16,20 @@ execute:
 filters:
   - diagram
 diagram:
-  header-includes: |
-    \usetikzlibrary{arrows,shapes.geometric,patterns,decorations.pathreplacing,quotes}
-    \definecolor{UMdblue}{RGB}{0,28,61}
-    \definecolor{UMlblue}{RGB}{0,162,219}
-    \definecolor{UMorangered}{RGB}{232,78,16}
-    \definecolor{UMorange}{RGB}{243,148,37}
-    \definecolor{UMred}{RGB}{174,11,18}
-
+  engine:
+    tikz:
+      header-includes:
+        - '\usepackage{adjustbox,xcolor}'
+        - '\usetikzlibrary{arrows, shapes}'
+        - '\definecolor{UMdblue}{RGB}{0,28,61}'
+        - '\definecolor{UMlblue}{RGB}{0,162,219}'
+        - '\definecolor{UMorangered}{RGB}{232,78,16}'
+        - '\definecolor{UMorange}{RGB}{243,148,37}'
+        - '\definecolor{UMred}{RGB}{174,11,18}'
 ---
+
+<!-- To use TikZ, we need to install the following extension: -->
+<!-- quarto install extension pandoc-ext/diagram -->
 
 # Course Overview
 
@@ -44,13 +49,19 @@ We have already encountered many *functions* in R:
 
 A function consists of three parts:
 
-```{tikz}
+```{mermaid, echo=FALSE}
+flowchart LR
+in(Input) --> f{Operations}
+f --> out(Output)
+```
+
+```{tikz, echo=FALSE}
 \begin{tikzpicture}[every node/.style={draw, minimum size=2cm}]
-\node[align=center] (x2) at (0,0) {\huge$x_{t-2}$};
-\node[align=center] (z1) at (5,0) {\huge$z_{t-1}$};
-\node[align=center] (y0) at (10,0) {\huge$y_{t}$};
-\draw [->, line width=0.2cm] (x2) to (z1);
-\draw [->, line width=0.2cm] (z1) to (y0);
+\node[align=center] (in) at (0,0) {Input\\\emph{function argument(s)}};
+\node[align=center] (f) at (6,0) {Function\\\emph{performs operations on input}};
+\node[align=center] (out) at (12,0) {Output\\\emph{the result of the operations}};
+\draw [->, line width=0.1cm] (in) to (f);
+\draw [->, line width=0.1cm] (f) to (out);
 \end{tikzpicture}
 ```
 
