@@ -57,20 +57,20 @@ A function consists of three parts:
 \definecolor{UMred}{RGB}{174,11,18}
 
 \begin{tikzpicture}[every node/.style={rounded corners, minimum size=2cm}]
-\node[fill=UMlblue!10, align=center] (in) at (0,0) {%
-	\includegraphics[width=.2\textwidth]{figures/Input.png}\\%
-	\textsf{Input}\\%
-	\textsf{\emph{function argument(s)}}%
+\node[fill=UMlblue!10, align=center] (in) at (0,0) {
+	\includegraphics[width=.2\textwidth]{figures/Input.png}\\
+	\textsf{Input}\\
+	\textsf{\emph{function argument(s)}}
 };
-\node[fill=UMred!10, align=center] (f) at (6,0) {%
-	\includegraphics[width=.194\textwidth]{figures/Function.png}\\%
+\node[fill=UMred!10, align=center] (f) at (6,0) {
+	\includegraphics[width=.194\textwidth]{figures/Function.png}\\
 	\textsf{Function}\\%
-	\textsf{\emph{performs operations on input}}%
+	\textsf{\emph{performs operations on input}}
 };
-\node[fill=UMdblue!10, align=center] (out) at (12,0) {%
-	\includegraphics[width=.17\textwidth]{figures/Output.png}\\%
+\node[fill=UMdblue!10, align=center] (out) at (12,0) {
+	\includegraphics[width=.17\textwidth]{figures/Output.png}\\
 	\textsf{Output}\\%
-	\textsf{\emph{the result of the operations}}%
+	\textsf{\emph{the result of the operations}}
 };
 \draw [->, line width=0.1cm] (in) to (f);
 \draw [->, line width=0.1cm] (f) to (out);
