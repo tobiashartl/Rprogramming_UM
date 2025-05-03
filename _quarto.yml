@@ -1,5 +1,12 @@
-project:
-  title: "PIR_quardo"
-
-
-
+format:
+  revealjs:
+    theme: [default, theme.scss]
+    transition: fade
+    background-transition: fade
+    highlight-style: arrow
+    fontsize: 1.5em
+    code-line-numbers: false
+code-link: true
+execute:
+  echo: true
+  freeze: auto

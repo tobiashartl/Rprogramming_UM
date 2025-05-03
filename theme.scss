@@ -21,20 +21,25 @@ $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black:    #000 !default;
 
-$font-family-sans-serif: "Atkinson Hyperlegible", sans-serif;
-$presentation-heading-color: #00A2DB;
+$link-color: $UMlblue;
+$presentation-heading-color: $UMlblue;
 $presentation-title-slide-text-align: "left";
 $presentation-subtitle-slide-text-align: "left";
-$code-block-font-size: 0.6em;
-$code-color: #5f5f5f;
-$code-block-bg: $gray-900;
+$code-block-font-size: 1em;
+$code-color: $UMdblue;
+$code-bg: mix($white, $UMdblue, 95);
+$code-block-bg: mix($white, $UMdblue, 90);
+$code-annotation-higlight-color: $UMorange;
 $presentation-h2-font-size: 1.4em;
+$btn-code-copy-color: $UMorange;
+$btn-code-copy-color-active: $UMorangered;
+
 
 /*-- scss:rules --*/
 
 .reveal .custom-title {
   position: absolute;
-  color: #00589b;
+  color: $UMlblue;
   font-size: 3em;
   text-align: right;
   right: 20px;
@@ -60,7 +65,7 @@ $presentation-h2-font-size: 1.4em;
 
 .reveal .custom-url a {
   position: absolute;
-  color: #00589b;
+  color: $UMlblue;
   font-size: 1.5em;
   text-align: right;
   right: 20px;

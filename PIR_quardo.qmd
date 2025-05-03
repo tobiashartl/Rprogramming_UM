@@ -2,18 +2,6 @@
 title: "Programming in R"
 subtitle: "[hyperlink to presentation]()"
 author: "fill presenter names here"
-format:
-  revealjs:
-    theme: "theme.scss"
-    transition: fade
-    background-transition: fade
-    highlight-style: ayu-mirage
-    fontsize: 1.5em
-code-link: true
-execute:
-  echo: true
-  freeze: auto
-
 ---
 
 # Course Overview

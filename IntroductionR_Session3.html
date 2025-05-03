@@ -10,7 +10,7 @@
 <link href="IntroductionR_Session3_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.57">
-<meta name="author" content="fill presenter names here">
+<meta name="author" content="">
 <title>Introduction to R</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -56,44 +56,44 @@
         -khtml-user-select: none; -moz-user-select: none;
         -ms-user-select: none; user-select: none;
         padding: 0 4px; width: 4em;
+        color: #aaaaaa;
       }
-    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
     div.sourceCode
-      { color: #cbccc6; background-color: #1f2430; }
+      { color: #003b4f; background-color: #f1f3f5; }
     @media screen {
     pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
     }
-    code span { color: #cbccc6; } /* Normal */
-    code span.al { color: #ff3333; background-color: #332430; font-weight: bold; } /* Alert */
-    code span.an { color: #ffe6b3; } /* Annotation */
-    code span.at { color: #73d0ff; } /* Attribute */
-    code span.bn { color: #ffcc66; } /* BaseN */
-    code span.bu { color: #95e6cb; } /* BuiltIn */
-    code span.cf { color: #ffa759; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #95e6cb; } /* Char */
-    code span.cn { color: #d4bfff; } /* Constant */
-    code span.co { color: #5c6773; font-style: italic; } /* Comment */
-    code span.cv { color: #d4bfff; } /* CommentVar */
-    code span.do { color: #5c6773; } /* Documentation */
-    code span.dt { color: #ffa759; } /* DataType */
-    code span.dv { color: #ffcc66; } /* DecVal */
-    code span.er { color: #ff3333; text-decoration: underline; } /* Error */
-    code span.ex { color: #73d0ff; font-weight: bold; } /* Extension */
-    code span.fl { color: #ffcc66; } /* Float */
-    code span.fu { color: #ffd580; } /* Function */
-    code span.im { color: #bae67e; } /* Import */
-    code span.in { color: #ffcc66; } /* Information */
-    code span.kw { color: #ffa759; font-weight: bold; } /* Keyword */
-    code span.op { color: #f29e74; } /* Operator */
-    code span.ot { color: #5ccfe6; } /* Other */
-    code span.pp { color: #f28779; } /* Preprocessor */
-    code span.re { color: #73d0ff; background-color: #2a4254; } /* RegionMarker */
-    code span.sc { color: #95e6cb; } /* SpecialChar */
-    code span.ss { color: #95e6cb; } /* SpecialString */
-    code span.st { color: #bae67e; } /* String */
-    code span.va { color: #5ccfe6; } /* Variable */
-    code span.vs { color: #bae67e; } /* VerbatimString */
-    code span.wa { color: #f28779; } /* Warning */
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
 <link rel="stylesheet" href="IntroductionR_Session3_files/libs/revealjs/dist/theme/quarto.css">
 <link href="IntroductionR_Session3_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -394,14 +394,9 @@
   <p class="subtitle">Session 3</p>
 
 <div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-fill presenter names here 
-</div>
-</div>
 </div>
 
-</section><section class="slide level2"><!-- To use TikZ, we need to install the following extension: --><!-- quarto install extension pandoc-ext/diagram --></section><section id="course-overview" class="title-slide slide level1 center"><h1>Course Overview</h1>
+</section><section id="session-overview" class="title-slide slide level1 center"><h1>Session Overview</h1>
 <ol type="1">
 <li><a href="#/functions">Functions in R</a></li>
 <li><a href="#/functions2">Bonus: Looking Inside Functions</a></li>
@@ -413,6 +408,8 @@ fill presenter names here
 <p>We have already encountered many <em>functions</em> in R:</p>
 <p><em>Add examples based on previous sessions</em></p>
 </section><section id="function-overview" class="slide level2"><h2>Function Overview</h2>
+<!-- To use TikZ, we need to install the following extension: -->
+<!-- quarto install extension pandoc-ext/diagram -->
 <p>A function consists of three parts:</p>
 
 <img data-src="IntroductionR_Session3_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section><section id="arguments" class="slide level2"><h2>Arguments</h2>
@@ -423,22 +420,22 @@ fill presenter names here
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">function_name</span><span class="op">(</span>argument1 <span class="op">=</span> <span class="va">value1</span>, argument2 <span class="op">=</span> <span class="va">value2</span>, <span class="va">...</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li><pre><code>  This gives the same:</code></pre></li>
+<li>This gives the same:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">function_name</span><span class="op">(</span>argument2 <span class="op">=</span> <span class="va">value2</span>, argument1 <span class="op">=</span> <span class="va">value1</span>, <span class="va">...</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">function_name</span><span class="op">(</span>argument2 <span class="op">=</span> <span class="va">value2</span>, argument1 <span class="op">=</span> <span class="va">value1</span>, <span class="va">...</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li><pre><code>  This also gives the same:</code></pre></li>
+<li>This also gives the same:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">function_name</span><span class="op">(</span><span class="va">value1</span>, <span class="va">value2</span>, <span class="va">...</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">function_name</span><span class="op">(</span><span class="va">value1</span>, <span class="va">value2</span>, <span class="va">...</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li><pre><code>  This does not!</code></pre></li>
+<li>This does not!</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">function_name</span><span class="op">(</span><span class="va">value2</span>, <span class="va">value1</span>, <span class="va">...</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">function_name</span><span class="op">(</span><span class="va">value2</span>, <span class="va">value1</span>, <span class="va">...</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Why?</li>
@@ -446,35 +443,74 @@ fill presenter names here
 <ul>
 <li><p>If you don’t give argument names, R assumes arguments are given in the order as defined.</p></li>
 <li><p>There are also default arguments, which do not always need to be specified.</p></li>
-<li><p>Let us look at an example.</p></li>
-</ul></section><section id="lists" class="slide level2"><h2>Lists</h2>
-<p>Vectors, matrices, and arrays require all elements to be of the same data type. Lists, however, are more general as they allow arbitrary combinations of data types. A list is created using the <code><a href="https://rdrr.io/r/base/list.html">list()</a></code> function.</p>
+<li><p>Let us look at an example: calculating the logarithm using the <code>log</code> function:</p></li>
+</ul>
+<div class="sourceCode" id="annotated-cell-5" data-code-line-numbers="|2|3"><pre class="sourceCode numberSource r code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-5-1"><a href="#annotated-cell-5-1"></a>fake_data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">13</span>, <span class="dv">21</span>)</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="1" onclick="event.preventDefault();" href="">1</a><span id="annotated-cell-5-2" class="code-annotation-target"><a href="#annotated-cell-5-2"></a>log_exp_data <span class="ot">&lt;-</span> <span class="fu">log</span>(fake_data)</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="2" onclick="event.preventDefault();" href="">2</a><span id="annotated-cell-5-3" class="code-annotation-target"><a href="#annotated-cell-5-3"></a>log_2_data <span class="ot">&lt;-</span> <span class="fu">log</span>(fake_data, <span class="at">base =</span> <span class="dv">2</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-5" data-code-lines="2" data-code-annotation="1">Calculates the natural logarithm;</span>
+</dd>
+<dt data-target-cell="annotated-cell-5" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-5" data-code-lines="3" data-code-annotation="2">Calculates the logarithm with base 2.</span>
+</dd>
+</dl></section><section id="understanding-the-log-function" class="slide level2"><h2>Understanding the log function</h2>
+<p>Execute the command <code><a href="https://rdrr.io/r/base/Log.html">?log</a></code>. It gives something like this:</p>
+
+<img data-src="figures/help_log.png" class="r-stretch"></section><section id="understanding-the-log-function-1" class="slide level2"><h2>Understanding the log function</h2>
+<p>Execute the command <code><a href="https://rdrr.io/r/base/Log.html">?log</a></code>. It gives something like this:</p>
+
+<img data-src="figures/help_log1.png" class="r-stretch"></section><section id="understanding-the-log-function-2" class="slide level2"><h2>Understanding the log function</h2>
+<p>Execute the command <code><a href="https://rdrr.io/r/base/Log.html">?log</a></code>. It gives something like this:</p>
+
+<img data-src="figures/help_log2.png" class="r-stretch"></section><section id="understanding-the-log-function-3" class="slide level2"><h2>Understanding the log function</h2>
+<p>Execute the command <code><a href="https://rdrr.io/r/base/Log.html">?log</a></code>. It gives something like this:</p>
+
+<img data-src="figures/help_log3.png" class="r-stretch"></section><section id="understanding-the-log-function-4" class="slide level2"><h2>Understanding the log function</h2>
+<p>Execute the command <code><a href="https://rdrr.io/r/base/Log.html">?log</a></code>. It gives something like this:</p>
+
+<img data-src="figures/help_log4.png" class="r-stretch"></section><section id="understanding-the-log-function-5" class="slide level2"><h2>Understanding the log function</h2>
+<p>Execute the command <code><a href="https://rdrr.io/r/base/Log.html">?log</a></code>. It gives something like this:</p>
+
+<img data-src="figures/help_log5.png" class="r-stretch"></section><section id="understanding-the-log-function-6" class="slide level2"><h2>Understanding the log function</h2>
+<p>Execute the command <code><a href="https://rdrr.io/r/base/Log.html">?log</a></code>. It gives something like this:</p>
+
+<img data-src="figures/help_log6.png" class="r-stretch"></section><section id="input-and-output-of-the-log-function" class="slide level2"><h2>input and output of the log function</h2>
+<ul>
+<li>Note how the <code>log</code> function preserves the object type of the input:</li>
+</ul>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">L1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
-<span>  a <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>,</span>
-<span>  A <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span>,<span class="fl">3</span>,<span class="fl">3</span><span class="op">)</span>,</span>
-<span>  w <span class="op">=</span> <span class="st">"Hello!"</span>        <span class="co"># Elements can have names AND be of any type!</span></span>
-<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fake_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">5</span>, <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">21</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">fake_data</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.0000000 0.0000000 0.6931472 1.0986123 1.6094379 2.0794415 2.5649494
+[8] 3.0445224</code></pre>
 </div>
-<p>Lists can also contain other lists:</p>
-<div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">L2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
-<span>  a <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>,</span>
-<span>  l1 <span class="op">=</span> <span class="va">L1</span> <span class="co"># List within a list</span></span>
-<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fake_data_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="va">fake_data</span>, nrow <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">fake_data_matrix</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          [,1]     [,2]
+[1,] 0.0000000 1.609438
+[2,] 0.0000000 2.079442
+[3,] 0.6931472 2.564949
+[4,] 1.0986123 3.044522</code></pre>
 </div>
-</section><section id="lists-1" class="slide level2"><h2>Lists</h2>
-<p>Lists are indexed using double square brackets (numeric, logical, by name):</p>
-<div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">L1</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>    <span class="co"># 1,2,3     -&gt; Vector</span></span>
-<span><span class="va">L1</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>      <span class="co"># list(1:3) -&gt; Still a list (sublist of L1)</span></span>
-<span><span class="va">L1</span><span class="op">[[</span><span class="st">"w"</span><span class="op">]</span><span class="op">]</span>  <span class="co"># "Hello!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Named lists can also be accessed using the <code>$</code> operator:</p>
-<div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">L1</span><span class="op">$</span><span class="va">w</span>       <span class="co"># "Hello!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section></section><section id="packages" class="title-slide slide level1 center"><h1>Packages</h1>
+</section><section id="next-up" class="slide level2"><h2>Next up</h2>
+<ul>
+<li>an exercise to practice with different kind of arguments</li>
+<li>the … argument</li>
+</ul></section></section><section><section id="functions2" class="title-slide slide level1 center"><h1>Bonus: Looking Inside Functions</h1>
+
+</section><section id="looking-inside-functions" class="slide level2"><h2>Looking Inside Functions</h2>
+<p>Creating a simple function manually, to understand how functions work.</p>
+</section></section><section id="objects" class="title-slide slide level1 center"><h1>Objects revisited</h1>
+<p>Discussion how objects and classes are used for function output. How then functions appear to act differently on different types of objects (e.g.&nbsp;<code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code>).</p>
+</section><section id="packages" class="title-slide slide level1 center"><h1>Packages</h1>
+<p>Explaining the philosophy of the package management system. Discussion of how to find good packages.</p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
