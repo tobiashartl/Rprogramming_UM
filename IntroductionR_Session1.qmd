@@ -196,9 +196,9 @@ to be continued
 # R Help {#R-help}
 
 ## R Help
-to be continued 
+to be continued later
 
 # R Package Management System {#R-packages}
 
 ## R Package Management System
-to be continued 
+to be continued later
