@@ -460,22 +460,25 @@
 </dl></section><section id="understanding-the-log-function" class="slide level2"><h2>Understanding the log function</h2>
 <p>Execute the command <code><a href="https://rdrr.io/r/base/Log.html">?log</a></code>. It gives something like this:</p>
 
-<img data-src="figures/help_log.png" class="r-stretch"></section><section id="understanding-the-log-function-1" class="slide level2"><h2>Understanding the log function</h2>
+<img data-src="figures/help_log_all.png" class="r-stretch"></section><section id="understanding-the-log-function-1" class="slide level2"><h2>Understanding the log function</h2>
 <p>Execute the command <code><a href="https://rdrr.io/r/base/Log.html">?log</a></code>. It gives something like this:</p>
 
-<img data-src="figures/help_log1.png" class="r-stretch"></section><section id="understanding-the-log-function-2" class="slide level2"><h2>Understanding the log function</h2>
+<img data-src="figures/help_log.png" class="r-stretch"></section><section id="understanding-the-log-function-2" class="slide level2"><h2>Understanding the log function</h2>
 <p>Execute the command <code><a href="https://rdrr.io/r/base/Log.html">?log</a></code>. It gives something like this:</p>
 
-<img data-src="figures/help_log2.png" class="r-stretch"></section><section id="understanding-the-log-function-3" class="slide level2"><h2>Understanding the log function</h2>
+<img data-src="figures/help_log1.png" class="r-stretch"></section><section id="understanding-the-log-function-3" class="slide level2"><h2>Understanding the log function</h2>
 <p>Execute the command <code><a href="https://rdrr.io/r/base/Log.html">?log</a></code>. It gives something like this:</p>
 
-<img data-src="figures/help_log3.png" class="r-stretch"></section><section id="understanding-the-log-function-4" class="slide level2"><h2>Understanding the log function</h2>
+<img data-src="figures/help_log2.png" class="r-stretch"></section><section id="understanding-the-log-function-4" class="slide level2"><h2>Understanding the log function</h2>
 <p>Execute the command <code><a href="https://rdrr.io/r/base/Log.html">?log</a></code>. It gives something like this:</p>
 
-<img data-src="figures/help_log4.png" class="r-stretch"></section><section id="understanding-the-log-function-5" class="slide level2"><h2>Understanding the log function</h2>
+<img data-src="figures/help_log3.png" class="r-stretch"></section><section id="understanding-the-log-function-5" class="slide level2"><h2>Understanding the log function</h2>
 <p>Execute the command <code><a href="https://rdrr.io/r/base/Log.html">?log</a></code>. It gives something like this:</p>
 
-<img data-src="figures/help_log5.png" class="r-stretch"></section><section id="understanding-the-log-function-6" class="slide level2"><h2>Understanding the log function</h2>
+<img data-src="figures/help_log4.png" class="r-stretch"></section><section id="understanding-the-log-function-6" class="slide level2"><h2>Understanding the log function</h2>
+<p>Execute the command <code><a href="https://rdrr.io/r/base/Log.html">?log</a></code>. It gives something like this:</p>
+
+<img data-src="figures/help_log5.png" class="r-stretch"></section><section id="understanding-the-log-function-7" class="slide level2"><h2>Understanding the log function</h2>
 <p>Execute the command <code><a href="https://rdrr.io/r/base/Log.html">?log</a></code>. It gives something like this:</p>
 
 <img data-src="figures/help_log6.png" class="r-stretch"></section><section id="input-and-output-of-the-log-function" class="slide level2"><h2>input and output of the log function</h2>
@@ -503,7 +506,29 @@
 <ul>
 <li>an exercise to practice with different kind of arguments</li>
 <li>the … argument</li>
-</ul></section></section><section><section id="functions2" class="title-slide slide level1 center"><h1>Bonus: Looking Inside Functions</h1>
+</ul></section><section id="exercise-function-arguments" class="slide level2"><h2>Exercise: Function Arguments</h2>
+<p>The function <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> can be used to simulate normally distributed data. The function <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> can be used to calculate the sample mean of the data, while the function <code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code> can be used to calculate the sample standard deviation. You will need to use the help files of these functions to complete the question.</p>
+<ol type="1">
+<li><p>Simulate 100 numbers from a normal distribution with mean 0 and standard deviation 1 and store these in a vector called <code>x1</code>. Do this with the least amount of explicitly specified arguments as possible.</p></li>
+<li><p>Simulate 200 numbers from a normal distribution with mean 0 and standard deviation 5 and store these in a vector called <code>x2</code>. Do this with the least amount of explicitly specified arguments as possible.</p></li>
+<li><p>Simulate 80 numbers from a normal distribution with mean -6 and standard deviation 4 and store these in a vector called <code>x3</code>. Do this with the least amount of explicitly specified arguments as possible.</p></li>
+<li><p>Calculate the mean and standard deviation of each of the three series.</p></li>
+<li><p>Set the 10th value of <code>x1</code> to <code>NA</code>. Calculate the mean and standard deviation again. What do you observe? Learn from the help function how we can fix this.</p></li>
+</ol></section><section id="the-argument" class="slide level2"><h2>The … argument</h2>
+<ul>
+<li>If you opened the help function of <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> before, you saw the last argument is</li>
+</ul>
+<p>“<code>...</code> &nbsp;&nbsp;&nbsp;&nbsp; further arguments passed to or from other methods”</p>
+<ul>
+<li><p><code>...</code> is a special argument: it allows you to put in different arguments that are then passed on to an <em>other</em> function internally.</p></li>
+<li><p>To know how to put them correctly, you may need to look at the <em>other function</em>; not always easy!</p></li>
+<li><p>Since the function accepts any arguments in <code>...</code>, an error message will typically be given at a ‘deeper level’, which can be very confusing. Or you even may not get an error message at all.</p></li>
+</ul></section><section id="exercise-plot-president-approval-ratings" class="slide level2"><h2>exercise: plot president approval ratings</h2>
+<ol type="1">
+<li><p>Repeat the last part of the previous exercise, calculating the standard deviation for <code>x1</code>. Make sure to name the second argument of the function explicitly. Now intentionally misspell the name of the second argument and look at the error message.</p></li>
+<li><p>Now, do the same for calculating the mean; first do it correctly, then make an intentional mistake in the name of the argument.</p></li>
+<li><p>Can you explain the difference in results?</p></li>
+</ol></section></section><section><section id="functions2" class="title-slide slide level1 center"><h1>Bonus: Looking Inside Functions</h1>
 
 </section><section id="looking-inside-functions" class="slide level2"><h2>Looking Inside Functions</h2>
 <p>Creating a simple function manually, to understand how functions work.</p>

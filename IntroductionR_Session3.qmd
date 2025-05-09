@@ -109,6 +109,12 @@ log_2_data <- log(fake_data, base = 2)	# <2>
 
 Execute the command `?log`. It gives something like this:
 
+![](figures/help_log_all.png)
+
+## Understanding the log function
+
+Execute the command `?log`. It gives something like this:
+
 ![](figures/help_log.png)
 
 ## Understanding the log function
@@ -163,6 +169,41 @@ log(fake_data_matrix)
 
 - an exercise to practice with different kind of arguments
 - the ... argument
+
+## Exercise: Function Arguments
+
+The function `rnorm()` can be used to simulate normally distributed data. The function `mean()` can be used to calculate the sample mean of the data, while the function `sd()` can be used to calculate the sample standard deviation. You will need to use the help files of these functions to complete the question.
+
+1. Simulate 100 numbers from a normal distribution with mean 0 and standard deviation 1 and store these in a vector called `x1`. Do this with the least amount of explicitly specified arguments as possible.
+
+2. Simulate 200 numbers from a normal distribution with mean 0 and standard deviation 5 and store these in a vector called `x2`. Do this with the least amount of explicitly specified arguments as possible.
+
+3. Simulate 80 numbers from a normal distribution with mean -6 and standard deviation 4 and store these in a vector called `x3`. Do this with the least amount of explicitly specified arguments as possible.
+
+4. Calculate the mean and standard deviation of each of the three series.
+
+5. Set the 10th value of `x1` to `NA`. Calculate the mean and standard deviation again. What do you observe? Learn from the help function how we can fix this.
+
+## The ... argument
+
+- If you opened the help function of `mean()` before, you saw the last argument is
+```{r, echo=FALSE, results='asis'}
+cat("\"`...` &nbsp;&nbsp;&nbsp;&nbsp; further arguments passed to or from other methods\"")
+```
+
+- `...` is a special argument: it allows you to put in different arguments that are then passed on to an *other* function internally.
+
+- To know how to put them correctly, you may need to look at the *other function*; not always easy!
+
+- Since the function accepts any arguments in `...`, an error message will typically be given at a 'deeper level', which can be very confusing. Or you even may not get an error message at all.
+
+## exercise: plot president approval ratings
+
+1. Repeat the last part of the previous exercise, calculating the standard deviation for `x1`. Make sure to name the second argument of the function explicitly. Now intentionally misspell the name of the second argument and look at the error message.
+
+2. Now, do the same for calculating the mean; first do it correctly, then make an intentional mistake in the name of the argument.
+
+3. Can you explain the difference in results?
 
 # Bonus: Looking Inside Functions {#functions2}
 
