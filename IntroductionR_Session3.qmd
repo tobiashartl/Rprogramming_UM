@@ -197,13 +197,29 @@ cat("\"`...` &nbsp;&nbsp;&nbsp;&nbsp; further arguments passed to or from other 
 
 - Since the function accepts any arguments in `...`, an error message will typically be given at a 'deeper level', which can be very confusing. Or you even may not get an error message at all.
 
-## exercise: plot president approval ratings
+## Exercise: function arguments revisited
 
 1. Repeat the last part of the previous exercise, calculating the standard deviation for `x1`. Make sure to name the second argument of the function explicitly. Now intentionally misspell the name of the second argument and look at the error message.
 
 2. Now, do the same for calculating the mean; first do it correctly, then make an intentional mistake in the name of the argument.
 
 3. Can you explain the difference in results?
+
+## Exercise: plot president approval ratings
+
+The dataset `presidents` contains US president approval ratings on a quarterly basis from 1945 to 1974. To visualise these approval ratings, we can use the `plot()` function. First, make a basic plot, then customise the plot in the following ways
+
+1. The title of the X-axis should say 'Year', the title of the Y-axis 'Approval Rating'.
+
+2. Make the line blue. (Hint: specifying the colour literally as `"blue"` works, also note the cool effects in RStudio!)
+
+3. Make the tick marks appear on the inside of the figure rather than the outside. Even better, change the tick marks into grid lines. (This one is tricky!)
+
+You will need to consult the help file for this exercise; see this therefrom more as an exercise in how to navigate R's help system, than an exercise in plotting (which we will cover in more detail later).
+
+You may want to ask ChatGPT for help and then try to see if you could also have gotten the same answer yourself; it may not always give you the most straightforward answer though!
+
+<!-- plot(presidents, xlab = "Year", ylab = "approval rating", col="blue", tck=0.05) -->
 
 # Bonus: Looking Inside Functions {#functions2}
 

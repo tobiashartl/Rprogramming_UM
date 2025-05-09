@@ -523,12 +523,22 @@
 <li><p><code>...</code> is a special argument: it allows you to put in different arguments that are then passed on to an <em>other</em> function internally.</p></li>
 <li><p>To know how to put them correctly, you may need to look at the <em>other function</em>; not always easy!</p></li>
 <li><p>Since the function accepts any arguments in <code>...</code>, an error message will typically be given at a ‘deeper level’, which can be very confusing. Or you even may not get an error message at all.</p></li>
-</ul></section><section id="exercise-plot-president-approval-ratings" class="slide level2"><h2>exercise: plot president approval ratings</h2>
+</ul></section><section id="exercise-function-arguments-revisited" class="slide level2"><h2>Exercise: function arguments revisited</h2>
 <ol type="1">
 <li><p>Repeat the last part of the previous exercise, calculating the standard deviation for <code>x1</code>. Make sure to name the second argument of the function explicitly. Now intentionally misspell the name of the second argument and look at the error message.</p></li>
 <li><p>Now, do the same for calculating the mean; first do it correctly, then make an intentional mistake in the name of the argument.</p></li>
 <li><p>Can you explain the difference in results?</p></li>
-</ol></section></section><section><section id="functions2" class="title-slide slide level1 center"><h1>Bonus: Looking Inside Functions</h1>
+</ol></section><section id="exercise-plot-president-approval-ratings" class="slide level2"><h2>Exercise: plot president approval ratings</h2>
+<p>The dataset <code>presidents</code> contains US president approval ratings on a quarterly basis from 1945 to 1974. To visualise these approval ratings, we can use the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function. First, make a basic plot, then customise the plot in the following ways</p>
+<ol type="1">
+<li><p>The title of the X-axis should say ‘Year’, the title of the Y-axis ‘Approval Rating’.</p></li>
+<li><p>Make the line blue. (Hint: specifying the colour literally as <code>"blue"</code> works, also note the cool effects in RStudio!)</p></li>
+<li><p>Make the tick marks appear on the inside of the figure rather than the outside. Even better, change the tick marks into grid lines. (This one is tricky!)</p></li>
+</ol>
+<p>You will need to consult the help file for this exercise; see this therefrom more as an exercise in how to navigate R’s help system, than an exercise in plotting (which we will cover in more detail later).</p>
+<p>You may want to ask ChatGPT for help and then try to see if you could also have gotten the same answer yourself; it may not always give you the most straightforward answer though!</p>
+<!-- plot(presidents, xlab = "Year", ylab = "approval rating", col="blue", tck=0.05) -->
+</section></section><section><section id="functions2" class="title-slide slide level1 center"><h1>Bonus: Looking Inside Functions</h1>
 
 </section><section id="looking-inside-functions" class="slide level2"><h2>Looking Inside Functions</h2>
 <p>Creating a simple function manually, to understand how functions work.</p>
