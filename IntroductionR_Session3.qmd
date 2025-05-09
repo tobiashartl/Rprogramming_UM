@@ -221,6 +221,8 @@ You may want to ask ChatGPT for help and then try to see if you could also have 
 
 <!-- plot(presidents, xlab = "Year", ylab = "approval rating", col="blue", tck=0.05) -->
 
+## useful functions: descriptive statistics
+
 # Bonus: Looking Inside Functions {#functions2}
 
 ## Looking Inside Functions
@@ -229,7 +231,18 @@ Creating a simple function manually, to understand how functions work.
 
 # Objects revisited {#objects}
 
+## Objects and Their Labels
+
 Discussion how objects and classes are used for function output. How then functions appear to act differently on different types of objects (e.g. `plot()`).
+
+- Objects can be seen as a *package*: there is the actual *content*, and there is a *label* explaining the purpose of the object.
+![](figures/package.png)
+- We can obtain the label from the function `class()`
+- Many functions have different meanings, depending on the class of the objects.
+
+## The summary function
+
+Illustrate this using the summary function
 
 # Packages {#packages}
 

@@ -538,13 +538,24 @@
 <p>You will need to consult the help file for this exercise; see this therefrom more as an exercise in how to navigate R’s help system, than an exercise in plotting (which we will cover in more detail later).</p>
 <p>You may want to ask ChatGPT for help and then try to see if you could also have gotten the same answer yourself; it may not always give you the most straightforward answer though!</p>
 <!-- plot(presidents, xlab = "Year", ylab = "approval rating", col="blue", tck=0.05) -->
+</section><section id="useful-functions-descriptive-statistics" class="slide level2"><h2>useful functions: descriptive statistics</h2>
 </section></section><section><section id="functions2" class="title-slide slide level1 center"><h1>Bonus: Looking Inside Functions</h1>
 
 </section><section id="looking-inside-functions" class="slide level2"><h2>Looking Inside Functions</h2>
 <p>Creating a simple function manually, to understand how functions work.</p>
-</section></section><section id="objects" class="title-slide slide level1 center"><h1>Objects revisited</h1>
+</section></section><section><section id="objects" class="title-slide slide level1 center"><h1>Objects revisited</h1>
+
+</section><section id="objects-and-their-labels" class="slide level2"><h2>Objects and Their Labels</h2>
 <p>Discussion how objects and classes are used for function output. How then functions appear to act differently on different types of objects (e.g.&nbsp;<code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code>).</p>
-</section><section id="packages" class="title-slide slide level1 center"><h1>Packages</h1>
+<ul>
+<li>Objects can be seen as a <em>package</em>: there is the actual <em>content</em>, and there is a <em>label</em> explaining the purpose of the object. <img data-src="figures/package.png">
+</li>
+<li>We can obtain the label from the function <code><a href="https://rdrr.io/r/base/class.html">class()</a></code>
+</li>
+<li>Many functions have different meanings, depending on the class of the objects.</li>
+</ul></section><section id="the-summary-function" class="slide level2"><h2>The summary function</h2>
+<p>Illustrate this using the summary function</p>
+</section></section><section id="packages" class="title-slide slide level1 center"><h1>Packages</h1>
 <p>Explaining the philosophy of the package management system. Discussion of how to find good packages.</p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
