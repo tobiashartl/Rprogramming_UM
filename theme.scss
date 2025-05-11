@@ -100,3 +100,9 @@ details>summary {
   padding-left: 1em;
   background: #ccddeb;
 }
+
+.cell-output {
+  background-color: mix($white, $UMlblue, 80);
+  border-radius: 4px;
+}
+

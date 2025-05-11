@@ -548,13 +548,40 @@
 </section><section id="objects-and-their-labels" class="slide level2"><h2>Objects and Their Labels</h2>
 <p>Discussion how objects and classes are used for function output. How then functions appear to act differently on different types of objects (e.g.&nbsp;<code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code>).</p>
 <ul>
-<li>Objects can be seen as a <em>package</em>: there is the actual <em>content</em>, and there is a <em>label</em> explaining the purpose of the object. <img data-src="figures/package.png">
-</li>
+<li>Objects can be seen as a <em>package</em>: there is the actual <em>content</em>, and there is a <em>label</em> explaining the purpose of the object.</li>
+</ul>
+
+<img data-src="figures/package.png" style="width:40.0%" class="r-stretch"><ul>
 <li>We can obtain the label from the function <code><a href="https://rdrr.io/r/base/class.html">class()</a></code>
 </li>
-<li>Many functions have different meanings, depending on the class of the objects.</li>
+<li>Many functions act differently, depending on the class of the input.</li>
 </ul></section><section id="the-summary-function" class="slide level2"><h2>The summary function</h2>
-<p>Illustrate this using the summary function</p>
+<ul>
+<li><p>We can illustrate this using the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function.</p></li>
+<li><p>Summary on vectors:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+-2.508241 -0.469869  0.004982  0.133632  0.787127  2.383214 </code></pre>
+</div>
+</div>
+<ul>
+<li><p>Summary on data frames:</p></li>
+<li><p>Similar ideas for functions such as <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code>, <code><a href="https://rdrr.io/r/base/print.html">print()</a></code>, etc.</p></li>
+</ul></section><section id="the-summary-function-1" class="slide level2"><h2>The summary function</h2>
+<ul>
+<li>The output of summary is an object in itself:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">summ_x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">summ_x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "summaryDefault" "table"         </code></pre>
+</div>
+</div>
 </section></section><section id="packages" class="title-slide slide level1 center"><h1>Packages</h1>
 <p>Explaining the philosophy of the package management system. Discussion of how to find good packages.</p>
 <div class="quarto-auto-generated-content">
@@ -767,10 +794,10 @@
           event.initEvent("slideenter", true, true);
           window.document.dispatchEvent(event);
         }
-
+    
         function fireSlideChanged(previousSlide, currentSlide) {
           fireSlideEnter();
-
+    
           // dispatch for shiny
           if (window.jQuery) {
             if (previousSlide) {
@@ -781,7 +808,7 @@
             }
           }
         }
-
+    
         // hookup for slidy
         if (window.w3c_slidy) {
           window.w3c_slidy.add_observer(function (slide_num) {
@@ -789,7 +816,7 @@
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
           });
         }
-
+    
       })();
     </script><script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
