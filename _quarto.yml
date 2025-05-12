@@ -1,6 +1,7 @@
 format:
   revealjs:
     theme: [default, theme.scss]
+    css: custom.css
     transition: fade
     background-transition: fade
     highlight-style: arrow

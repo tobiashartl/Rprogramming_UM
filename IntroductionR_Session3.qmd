@@ -252,7 +252,15 @@ x <- rnorm(100)
 summary(x)
 ```
 
+## The summary function
+
 - Summary on data frames:
+```{r echo=TRUE}
+courses <- read.csv("data/Courses.csv")
+summary(courses)
+```
+
+## The summary function
 
 - Similar ideas for functions such as `plot()`, `print()`, etc.
 
@@ -261,6 +269,7 @@ summary(x)
 summ_x <- summary(x)
 class(summ_x)
 ```
+In terms of content, this is just a (named) vector.
 
 ## S3 classes
 
