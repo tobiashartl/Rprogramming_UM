@@ -565,8 +565,8 @@
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
--2.5280 -0.4855  0.1801  0.2462  0.9987  2.2489 </code></pre>
+<pre><code>    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+-2.06677 -0.58793 -0.02137 -0.05852  0.46409  1.80602 </code></pre>
 </div>
 </div>
 </section><section id="the-summary-function-1" class="slide level2"><h2>The summary function</h2>
@@ -606,16 +606,53 @@
 </div>
 </div>
 <p>In terms of content, this is just a (named) vector.</p>
-</section><section id="s3-classes" class="slide level2"><h2>S3 classes</h2>
-<p>summay.lm etc, could be useful for finding help</p>
-</section></section><section id="packages" class="title-slide slide level1 center"><h1>Packages</h1>
+</section><section id="behind-the-scenes-the-function.class-structure" class="slide level2"><h2>Behind the Scenes: the function.class structure</h2>
+<ul>
+<li>Behind the scenes, R works as follows:</li>
+</ul>
+
+<img data-src="IntroductionR_Session3_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section><section id="behind-the-scenes-the-function.class-structure-1" class="slide level2"><h2>Behind the Scenes: the function.class structure</h2>
+<ul>
+<li><p>if you start typing the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function name in RStudio, you will see that there are actually many summary functions …</p></li>
+<li><p>… Among which <code><a href="https://rdrr.io/r/base/summary.html">summary.data.frame()</a></code> and <code><a href="https://rdrr.io/r/base/summary.html">summary.matrix()</a></code></p></li>
+<li><p>in principle we need not bother with the system, but it can be useful to keep in mind for two cases:</p></li>
+</ul>
+<ol type="1">
+<li><p>Help files and documentation may differ depending on classes</p></li>
+<li><p>Applying it to an object for which the class function has not been defined (<em>“Why does <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> not work on my object X?”</em>)</p></li>
+</ol></section></section><section><section id="packages" class="title-slide slide level1 center"><h1>Packages</h1>
 <p>Explaining the philosophy of the package management system. Discussion of how to find good packages.</p>
+</section><section id="installing-packages" class="slide level2"><h2>Installing Packages</h2>
+<ul>
+<li><p>One of R’s defining features is the richness of its package management system.</p></li>
+<li><p>Installing packages is straightforward. But how do I know which package I need?</p></li>
+<li><p>And how do packages function? Do they rely on other packages? Should I be bothered with this?</p></li>
+<li><p>Let’s have a deeper look.</p></li>
+</ul></section><section id="finding-good-packages" class="slide level2"><h2>Finding good packages</h2>
+<ul>
+<li><p>Sometimes packages come recommended in books or articles.</p></li>
+<li><p>If not, do a Google or ChatGPT search: ‘R package for reading Excel’; top search results are typically the most popular packages.</p></li>
+<li>
+<p>Unsure about the quality? Some advice:</p>
+<ul>
+<li><p>Consider the authors. Are they respected academics? Or have a good track record of developing packages? These are good signs.</p></li>
+<li><p>Read the manuals / help files. Do they make sense? Are they written by someone who understands the important aspects of the methods?</p></li>
+<li><p>Install and try them, and see if they match your expectations.</p></li>
+</ul>
+</li>
+</ul></section><section id="more-about-packages" class="slide level2"><h2>More about packages</h2>
+<ul>
+<li><p>Most of the time you need not need to be bothered by understanding the deeper meanings of the package, and you can just install it directly. But in case you do want to have a look, here are some things you can pay attention to.</p></li>
+<li><p>‘Official’ packages are hosted on the <strong>Comprehensive R Archive Network (CRAN)</strong>.</p></li>
+<li><p>The package homepage can be found as <strong>https://cran.r-project.org/package=package-name</strong></p></li>
+<li><p>You can find the same info after installing a package by clicking on the package name, then on <em>‘DESCRIPTION file’</em>.</p></li>
+</ul>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
 </div>
-</section>
+</section></section>
 </div>
   </div>
 

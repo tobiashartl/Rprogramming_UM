@@ -271,14 +271,105 @@ class(summ_x)
 ```
 In terms of content, this is just a (named) vector.
 
-## S3 classes
+## Behind the Scenes: the function.class structure
 
-summay.lm etc, could be useful for finding help 
+- Behind the scenes, R works as follows: 
+```{tikz, echo=FALSE}
+\definecolor{UMdblue}{RGB}{0,28,61}
+\definecolor{UMlblue}{RGB}{0,162,219}
+\definecolor{UMorangered}{RGB}{232,78,16}
+\definecolor{UMorange}{RGB}{243,148,37}
+\definecolor{UMred}{RGB}{174,11,18}
+
+\begin{tikzpicture}[every node/.style={rounded corners, minimum size=2cm}]
+\node[fill=UMlblue!10, align=center] (in) at (0,3) {
+	\includegraphics[width=.2\textwidth]{figures/package.png}\\
+	\textsf{Input}
+	\textsf{\emph{with class A or B}}
+};
+\node[fill=UMorangered!10, align=center] (g) at (5,3) {
+	``\texttt{cook()}''\\
+	\includegraphics[width=.194\textwidth]{figures/Package_label.png}\\
+	\textsf{Generic function}\\%
+	\textsf{\emph{checks class}}
+};
+\node[fill=UMred!10, align=center] (f) at (10,6) {
+	``\texttt{cook.A()}''\\
+	\includegraphics[width=.194\textwidth]{figures/Function.png}\\
+	\textsf{Class-specific function}\\%
+	\textsf{\emph{for input class A}}
+};
+\node[fill=UMred!10, align=center] (f2) at (10,0) {
+	``\texttt{cook.B()}''\\
+	\includegraphics[width=.194\textwidth]{figures/Function2.png}\\
+	\textsf{Class-specific function}\\%
+	\textsf{\emph{for input class B}}
+};
+\node[fill=UMdblue!10, align=center] (out) at (15,6) {
+	\includegraphics[width=.17\textwidth]{figures/Output.png}\\
+	\textsf{Output}\\%
+	\textsf{\emph{result for class A}}
+};
+\node[fill=UMdblue!10, align=center] (out2) at (15,0) {
+	\includegraphics[width=.17\textwidth]{figures/Output2.png}\\
+	\textsf{Output}\\%
+	\textsf{\emph{result for class B}}
+};
+\draw [->, line width=0.1cm, color = UMlblue] (in) to (g);
+\draw [->, line width=0.1cm, color = UMorangered] (g) to (f);
+\draw [->, line width=0.1cm, color = UMorangered] (g) to (f2);
+\draw [->, line width=0.1cm, color = UMred] (f) to (out);
+\draw [->, line width=0.1cm, color = UMred] (f2) to (out2);
+\end{tikzpicture}
+```
+
+## Behind the Scenes: the function.class structure
+
+- if you start typing the `summary()` function name in RStudio, you will see that there are actually many summary functions ...
+
+- ... Among which `summary.data.frame()` and `summary.matrix()`
+
+- in principle we need not bother with the system, but it can be useful to keep in mind for two cases:
+
+1. Help files and documentation may differ depending on classes
+
+2. Applying it to an object for which the class function has not been defined (*"Why does `summary()` not work on my object X?"*)
 
 # Packages {#packages}
 
 Explaining the philosophy of the package management system. Discussion of how to find good packages.
 
+## Installing Packages
 
+- One of R's defining features is the richness of its package management system.
 
+- Installing packages is straightforward. But how do I know which package I need?
+
+- And how do packages function? Do they rely on other packages? Should I be bothered with this?
+
+- Let's have a deeper look.
+
+## Finding good packages
+
+- Sometimes packages come recommended in books or articles.
+
+- If not, do a Google or ChatGPT search: 'R package for reading Excel'; top search results are typically the most popular packages.
+
+- Unsure about the quality? Some advice:
+
+  + Consider the authors. Are they respected academics? Or have a good track record of developing packages? These are good signs.
+
+  + Read the manuals / help files. Do they make sense? Are they written by someone who understands the important aspects of the methods?
+
+  + Install and try them, and see if they match your expectations.
+ 
+## More about packages
+
+- Most of the time you need not need to be bothered by understanding the deeper meanings of the package, and you can just install it directly. But in case you do want to have a look, here are some things you can pay attention to.
+
+- 'Official' packages are hosted on the **Comprehensive R Archive Network (CRAN)**.
+
+- The package homepage can be found as **https://cran.r-project.org/package=package-name**
+
+- You can find the same info after installing a package by clicking on the package name, then on *'DESCRIPTION file'*.
 
