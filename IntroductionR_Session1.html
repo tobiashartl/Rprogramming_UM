@@ -96,6 +96,7 @@
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="IntroductionR_Session1_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="custom.css">
   <link href="IntroductionR_Session1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="IntroductionR_Session1_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="IntroductionR_Session1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -607,7 +608,7 @@
 </section>
 <section id="rstudio-windows" class="slide level2">
 <h2>RStudio Windows</h2>
-<p>The 3 main windows in <strong>RStudio</strong>:</p>
+<p>The 3 main windows (aka panes) in <strong>RStudio</strong>:</p>
 
 <img data-src="figures/open-RStudio-3.png" class="r-stretch"></section>
 <section id="rstudio-menu-bar" class="slide level2">
@@ -662,17 +663,102 @@
 <h2>Structure in RStudio</h2>
 <p>RStudio now displays 4 windows, with the <strong>R</strong> Script currently displayed in the top left:</p>
 
-<img data-src="figures/R-script-2.png" class="r-stretch"><p>Note that you can adjust the sizes of the windows accordign to your liking.</p>
-</section>
+<img data-src="figures/R-script-2.png" class="r-stretch"></section>
 <section id="r-script" class="slide level2">
 <h2>R Script</h2>
-<p>Currently the <strong>R</strong> Script is Untitled, we should give it a name</p>
+<p>Currently the <strong>R</strong> Script is Untitled, we should give it a name.</p>
 
-<img data-src="figures/R-script-3.png" class="r-stretch"><p>Note that you can adjust the sizes of the windows according to your liking.</p>
+<img data-src="figures/R-script-3.png" class="r-stretch"></section>
+<section id="exercise-saving-r-scripts" class="slide level2">
+<h2>Exercise Saving R Scripts</h2>
+<p>Give your R Script a name and save it. Go to <em>File</em>, <em>Save As…</em>:</p>
+
+<img data-src="figures/R-script-4.png" class="r-stretch"></section>
+<section id="r-working-directory" class="slide level2">
+<h2>R Working Directory</h2>
+<p>Before we start working in our R Script, let us first set the working directory in <strong>R</strong>.</p>
+<p>The working directory is the location on your computer where <strong>R</strong> will read and save files. Go to <em>Session</em>, <em>Set Working Directory</em>. Two convenient options are:</p>
+<ul>
+<li><p><em>Choose Directory…</em>: Choose the directory yourself</p></li>
+<li><p><em>To Source File Location</em>: Set the working directory to the directory where your <strong>R</strong> Script (the source file) is saved</p></li>
+</ul>
+
+<img data-src="figures/R-script-5.png" class="r-stretch"></section>
+<section id="r-working-directory-1" class="slide level2">
+<h2>R Working Directory</h2>
+<p>Select the option to set the working directory to the source file location. You will see that a command automatically pops up in the R console, something like:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Rtraining"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can use this command directly next time. Mind the usage of the <em>/</em> when specifying the path of your working directory!</p>
 </section>
-<section id="saving-an-r-script" class="slide level2">
-<h2>Saving an R Script</h2>
-<p>To be continued</p>
+<section id="exercise-r-script" class="slide level2">
+<h2>Exercise R Script</h2>
+<p>Copy some of the commands you previously executed into your <strong>R</strong> Script.</p>
+<p>You can execute a specific line</p>
+<ul>
+<li><p>by pressing the <em>Run</em> button to execute the line on which your cursor is currently located</p></li>
+<li><p>by using <em>ctrl+enter</em> on Windows or <em>command+enter</em> on Mac to execute the line on which your cursor is currently located</p></li>
+</ul>
+
+<img data-src="figures/R-script-6.png" class="r-stretch"><p>You can execute multiple lines by highlighting them all and doing one of the above. Try this</p>
+</section>
+<section id="exercise-r-panes" class="slide level2">
+<h2>Exercise R Panes</h2>
+<p>You can adjust the sizes and positioning of the windows (panes) according to your liking.</p>
+<p>Go to <em>Tools</em>, <em>Global Options…</em> and then select <em>Pane Layout</em> from which you can adjust the positioning of each of the 4 panes by selecting them from the drop-down menus</p>
+
+<img data-src="figures/R-script-7.png" class="r-stretch"><p>Experiment with a different positioning and re-adjust according to your liking.</p>
+</section></section>
+<section>
+<section id="R-packages" class="title-slide slide level1 center">
+<h1>R Package Management System</h1>
+
+</section>
+<section id="r-package-management-system" class="slide level2">
+<h2>R Package Management System</h2>
+<p>Until now, we have explored some basic functionality in <strong>R</strong>. But much of the functionality of <strong>R</strong> is extended by its big and active community.</p>
+<p>These extensions are called <strong>R</strong> packages</p>
+</section>
+<section id="what-are-r-packages" class="slide level2">
+<h2>What are R packages?</h2>
+<p><strong>R</strong> packages</p>
+<ul>
+<li><p>are constantly developed and adjusted by the large user community making many state-of-the-art methods quickly available</p></li>
+<li><p>can be installed for just about everything you want to do in statistics and data science</p></li>
+<li><p>offer pre-defined functions which makes it possible to use <strong>R</strong> without a deep understanding of the language and programming skills.</p></li>
+</ul>
+</section>
+<section id="overview-of-r-packages" class="slide level2">
+<h2>Overview of R packages</h2>
+<p>The standard distribution of <strong>R</strong> comes already with a number of packages.</p>
+<p>A list of the currently installed packages can be obtained from the <em>Packages</em> window in the bottom right window below</p>
+
+<img data-src="figures/R-package-1.png" class="r-stretch"><p>You can install new packages depending on your needs</p>
+</section>
+<section id="installing-r-packages" class="slide level2">
+<h2>Installing R packages</h2>
+<p>To install a new <strong>R</strong> package, click on the <em>Install</em> button at the top of the <em>Packages</em> window.</p>
+<p>You can then type the name of the <strong>R</strong> package you want to install. Let us install the package this.path</p>
+
+<img data-src="figures/R-package-2.png" class="r-stretch"><p>You will notice that R has automatically put the following command in the console:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"this.path"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>R</strong> will ask you ‘Do you want to install from sources the package which needs compilation?’ Choose No (TO BE DISCUSSED IF INCLUDED IN SESSION 1!)</p>
+</section>
+<section id="loading-r-package" class="slide level2">
+<h2>Loading R package</h2>
+<p>While installing an <strong>R</strong> package only needs to be done once, each time you want to use the functionality of the <strong>R</strong> package, you need to load it into your <strong>R</strong> session. You can do this via the following command:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(this.path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now <strong>R</strong> has access to the functionality that the <strong>this.path</strong> offers.</p>
+<p>The <strong>this.path</strong> package offers a convenient alternative to setting your working directory via the Menu bar. You can simply use the following command to accomplish exactly the same:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="fu">dirname</span>(this.path<span class="sc">::</span><span class="fu">this.path</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>It may be convenient to enter this at the top of your <strong>R</strong> script to ensure that you are always working in the directory where your <strong>R</strong> Script is located.</p>
 </section></section>
 <section>
 <section id="R-help" class="title-slide slide level1 center">
@@ -682,21 +768,6 @@
 <section id="r-help" class="slide level2">
 <h2>R Help</h2>
 <p>to be continued later</p>
-</section></section>
-<section>
-<section id="R-packages" class="title-slide slide level1 center">
-<h1>R Package Management System</h1>
-
-</section>
-<section id="r-package-management-system" class="slide level2">
-<h2>R Package Management System</h2>
-<p><strong>R</strong> packages</p>
-<p>to be continued later</p>
-<ul>
-<li><p>are constantly developed and adjusted by the large user community making many state-of-the-art methods quickly available</p></li>
-<li><p>can be installed for just about everything you want to do in statistics and data science</p></li>
-<li><p>offer pre-defined functions which makes it possible to use <strong>R</strong> without a deep understanding of the language and programming skills.</p></li>
-</ul>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 

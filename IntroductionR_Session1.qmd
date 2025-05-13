@@ -226,7 +226,7 @@ But **RStudio** has much more to offer than plain **R**!
 
 ## RStudio Windows
 
-The 3 main windows in **RStudio**:
+The 3 main windows (aka panes) in **RStudio**:
 
 ![](figures/open-RStudio-3.png)
 
@@ -295,35 +295,128 @@ RStudio now displays 4 windows, with the **R** Script currently displayed in the
 
 ![](figures/R-script-2.png)
 
-Note that you can adjust the sizes of the windows accordign to your liking. 
-
 ## R Script
 
-Currently the **R** Script is Untitled, we should give it a name
+Currently the **R** Script is Untitled, we should give it a name. 
 
 ![](figures/R-script-3.png)
 
-Note that you can adjust the sizes of the windows according to your liking. 
+## Exercise Saving R Scripts
 
-## Saving an R Script 
+Give your R Script a name and save it. Go to <em>File</em>, <em>Save As...</em>:
 
-To be continued
+![](figures/R-script-4.png)
 
-# R Help {#R-help}
+## R Working Directory
 
-## R Help
-to be continued later
+Before we start working in our R Script, let us first set the working directory in **R**.
+
+The working directory is the location on your computer where **R** will read and save files. Go to <em>Session</em>, <em>Set Working Directory</em>. Two convenient options are:  
+
+- <em>Choose Directory...</em>: Choose the directory yourself
+
+- <em>To Source File Location</em>: Set the working directory to the directory where your **R** Script (the source file) is saved
+
+![](figures/R-script-5.png)
+
+
+
+## R Working Directory
+
+Select the option to set the working directory to the source file location. You will see that a command automatically pops up in the R console, something like:
+
+```{r, eval=FALSE}
+setwd("C:/Rtraining")
+```
+
+You can use this command directly next time. Mind the usage of the  <em>/</em> when specifying the path of your working directory!
+
+
+## Exercise R Script
+Copy some of the commands you previously executed into your **R** Script. 
+
+You can execute a specific line
+
+-  by pressing the <em>Run</em> button to execute the line on which your cursor is currently located
+
+- by using <em>ctrl+enter</em> on Windows or <em>command+enter</em>  on Mac to execute the line on which your cursor is currently located
+
+![](figures/R-script-6.png)
+
+You can execute multiple lines by highlighting them all and doing one of the above. Try this
+
+
+## Exercise R Panes
+You can adjust the sizes and positioning of the windows (panes) according to your liking. 
+
+Go to <em>Tools</em>, <em>Global Options...</em> and then select <em>Pane Layout</em> from which you can adjust the positioning of each of the 4 panes by selecting them from the drop-down menus
+
+![](figures/R-script-7.png)
+
+Experiment with a different positioning and re-adjust  according to your liking.
 
 # R Package Management System {#R-packages}
 
 ## R Package Management System
 
-**R** packages
+Until now, we have  explored some basic functionality in **R**. But much of the functionality of **R** is extended by its big and active community.
 
-to be continued later
+These extensions are called **R** packages
+
+## What are R packages?
+
+**R** packages
 
 - are constantly developed and adjusted by the large user community making many state-of-the-art methods quickly available
 
 - can be installed for just about everything you want to do in statistics and data science
 
 - offer pre-defined functions which makes it possible to use **R** without a deep understanding of the language and programming skills.
+
+
+## Overview of R packages
+
+The standard distribution of **R** comes already with a number of packages. 
+
+A list of the currently installed packages can be obtained from the <em>Packages</em> window in the bottom right window below
+
+![](figures/R-package-1.png)
+
+You can install new packages depending on your needs
+
+## Installing R packages
+
+To install a new **R** package,  click on the <em>Install</em> button at the top of the <em>Packages</em> window.
+
+You can then type the name of the **R** package you want to install. Let us install the package this.path
+
+![](figures/R-package-2.png)
+
+You will notice that R has automatically put the following command in the console:
+
+```{r, eval=FALSE}
+install.packages("this.path")
+```
+
+**R** will ask you 'Do you want to install from sources the package which needs compilation?' Choose No (TO BE DISCUSSED IF INCLUDED IN SESSION 1!)
+
+## Loading R package
+
+While installing an **R** package only needs to be done once, each time you want to use the functionality of the **R** package, you need to load it into your **R** session. You can do this via the following command:
+```{r, eval=FALSE}
+library(this.path)
+```
+
+Now **R** has access to the functionality that the **this.path** offers.
+
+The **this.path** package offers a convenient alternative to setting your working directory via the Menu bar. You can simply use the following command to accomplish exactly the same:
+```{r, eval=FALSE}
+setwd(dirname(this.path::this.path()))
+```
+It may be convenient to enter this at the top of your **R** script to ensure that you are always working in the directory where your **R** Script is located.
+
+# R Help {#R-help}
+
+## R Help
+to be continued later
+
