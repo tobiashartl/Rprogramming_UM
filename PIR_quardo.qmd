@@ -2075,7 +2075,7 @@ xtabs(~gender + sector, data = CPS1985)
 
 ## Task 4.1
 
-Use the wide-format temperature data set `temperature`.
+Use the long-format temperature `[data set](https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv).`.
 
 1. Add the variable `tempF` (temperature in Fahrenheit) to the dataset using `mutate()` and the pipe operator.
 
@@ -2577,12 +2577,8 @@ factorial <- function(n){
 
 
 
+
 ## Task 5.5
-
- 1. Replace the loop over the variable with an apply construct.
- 2. How can the use of `assign` and `get` be avoided for this problem?
-
-## Task 5.6
 
 Write a function named "fib" that, given a natural number `n`, computes the `n`-th Fibonacci number. The Fibonacci sequence is defined recursively as follows:
 
