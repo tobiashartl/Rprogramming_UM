@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="IntroductionR_Session5_files/libs/clipboard/clipboard.min.js"></script>
+<script src="IntroductionR_Session5_files/libs/quarto-html/tabby.min.js"></script>
+<script src="IntroductionR_Session5_files/libs/quarto-html/popper.min.js"></script>
+<script src="IntroductionR_Session5_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="IntroductionR_Session5_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="IntroductionR_Session5_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="IntroductionR_Session5_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+<meta name="author" content="">
+<title>Introduction to R</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="IntroductionR_Session5_files/libs/revealjs/dist/reset.css">
+<link rel="stylesheet" href="IntroductionR_Session5_files/libs/revealjs/dist/reveal.css">
+<style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+<link rel="stylesheet" href="IntroductionR_Session5_files/libs/revealjs/dist/theme/quarto-583737715ad91b45aa8f803ec5bac169.css">
+<link rel="stylesheet" href="custom.css">
+<link href="IntroductionR_Session5_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+<link href="IntroductionR_Session5_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+<link href="IntroductionR_Session5_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+<link href="IntroductionR_Session5_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+<style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">Introduction to R</h1>
+  <p class="subtitle">Session 5</p>
+
+<div class="quarto-title-authors">
+</div>
+
+</section><section id="session-overview" class="title-slide slide level1 center"><h1>Session Overview</h1>
+<ol type="1">
+<li><a href="#/dataman1">Basics of data manipulation</a></li>
+<li><a href="#/dataman2">Bonus: Data manipulation and tidyverse</a></li>
+<li><a href="#/reg1">Regression analysis</a></li>
+</ol></section><section><section id="dataman1" class="title-slide slide level1 center"><h1>Basics of data manipulation</h1>
+
+</section><section id="data-manipulation" class="slide level2"><h2>Data manipulation</h2>
+<p>In the last session, we learned how to load data of various sources into R.</p>
+<p>Today’s session will be about how to manipulate data in R. Importantly, we will learn how to</p>
+<ul>
+<li>select certain variables from a data</li>
+<li>subset a data set</li>
+<li>order data</li>
+<li>recode and rename certain variables</li>
+<li>add new information to a data set</li>
+<li>reshape data</li>
+<li>compute summary statistics</li>
+</ul>
+<p>We will work with the climate data set for the Netherlands in long format</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_cli</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv"</span>, </span>
+<span>                       header <span class="op">=</span> <span class="cn">TRUE</span>, sep <span class="op">=</span> <span class="st">","</span>, stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="data-manipulation-select-1" class="slide level2"><h2>Data manipulation: Select 1</h2>
+<p>We begin with selecting interesting variables from a data set while dropping irrelevant ones. For our climate data set, we want to preserve information about <code>date</code>, <code>location</code>, and <code>temperature</code>, and drop all other information.</p>
+<p>Approach #1: Selecting by variable names</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data_cli</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"YEARMODA"</span>, <span class="st">"NAME"</span>, <span class="st">"TEMP"</span><span class="op">)</span><span class="op">]</span> </span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    YEARMODA     NAME TEMP
+1 2000-01-01 SCHIPHOL  6.4
+2 2000-01-02 SCHIPHOL  7.2
+3 2000-01-03 SCHIPHOL  8.7</code></pre>
+</div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">data</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         YEARMODA       NAME TEMP
+100152 2024-12-29 MAASTRICHT  0.2
+100153 2024-12-30 MAASTRICHT  1.7
+100154 2024-12-31 MAASTRICHT  1.4</code></pre>
+</div>
+</div>
+</section><section id="data-manipulation-select-2" class="slide level2"><h2>Data manipulation: Select 2</h2>
+<p>As an alternative, we could also</p>
+<ul>
+<li>call the column indexes</li>
+<li>use negative indexing</li>
+<li>use subset()</li>
+</ul>
+<p>Approach #2: Selecting by variable indexes</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># positive indexing</span></span>
+<span><span class="va">data1</span> <span class="op">&lt;-</span> <span class="va">data_cli</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">14</span>, <span class="fl">3</span>, <span class="fl">19</span><span class="op">)</span><span class="op">]</span> </span>
+<span></span>
+<span><span class="co"># negative indexing</span></span>
+<span><span class="va">data2</span> <span class="op">&lt;-</span> <span class="va">data_cli</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="fl">4</span><span class="op">:</span><span class="fl">13</span>, <span class="fl">15</span><span class="op">:</span><span class="fl">18</span>, <span class="fl">20</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">)</span><span class="op">)</span><span class="op">]</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span><span class="op">]</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># check</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">data1</span><span class="op">)</span> <span class="op">&amp;</span> <span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">data1</span>, <span class="va">data2</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</section><section id="data-manipulation-select-3" class="slide level2"><h2>Data manipulation: Select 3</h2>
+<p>Approach #3: Selecting by subset()</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># subset()</span></span>
+<span><span class="va">data3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">data_cli</span>, select <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">YEARMODA</span>, <span class="va">NAME</span>, <span class="va">TEMP</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># check</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">data3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</section><section id="data-manipulation-subsetting-rows-1" class="slide level2"><h2>Data manipulation: Subsetting rows 1</h2>
+<p>Next, we want to subset the data set, i.e.&nbsp;preserve interesting rows while dropping irrelevant ones. For the climate data set, we might be interested in information about Maastricht in 2024 only.</p>
+<p>Approach #1: Logical row indexing</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># select data from 2024-01-01 on only</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data_cli</span><span class="op">[</span><span class="va">data_cli</span><span class="op">$</span><span class="va">YEARMODA</span> <span class="op">&gt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2024-01-01"</span><span class="op">)</span>, <span class="op">]</span></span>
+<span><span class="co"># select data until 2024-12-31</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[</span><span class="va">data</span><span class="op">$</span><span class="va">YEARMODA</span> <span class="op">&lt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2024-12-31"</span><span class="op">)</span>, <span class="op">]</span></span>
+<span><span class="co"># select Maastricht only</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[</span><span class="va">data</span><span class="op">$</span><span class="va">NAME</span> <span class="op">==</span> <span class="st">"MAASTRICHT"</span>, <span class="op">]</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"YEARMODA"</span>, <span class="st">"NAME"</span>, <span class="st">"TEMP"</span><span class="op">)</span><span class="op">]</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        YEARMODA       NAME TEMP
+99800 2024-01-01 MAASTRICHT  7.0
+99801 2024-01-02 MAASTRICHT  9.7
+99802 2024-01-03 MAASTRICHT  9.7</code></pre>
+</div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">data</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"YEARMODA"</span>, <span class="st">"NAME"</span>, <span class="st">"TEMP"</span><span class="op">)</span><span class="op">]</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         YEARMODA       NAME TEMP
+100152 2024-12-29 MAASTRICHT  0.2
+100153 2024-12-30 MAASTRICHT  1.7
+100154 2024-12-31 MAASTRICHT  1.4</code></pre>
+</div>
+</div>
+</section><section id="data-manipulation-subsetting-rows-2" class="slide level2"><h2>Data manipulation: Subsetting rows 2</h2>
+<p>Approach #2: subset()</p>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">data_cli</span>, <span class="va">YEARMODA</span> <span class="op">&gt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2024-01-01"</span><span class="op">)</span> <span class="op">&amp;</span></span>
+<span>                          <span class="va">YEARMODA</span> <span class="op">&lt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2024-12-31"</span><span class="op">)</span> <span class="op">&amp;</span></span>
+<span>                          <span class="va">NAME</span> <span class="op">==</span> <span class="st">"MAASTRICHT"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">data2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<p>Approach #3: which()</p>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data3</span> <span class="op">&lt;-</span> <span class="va">data_cli</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">$</span><span class="va">YEARMODA</span> <span class="op">&gt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2024-01-01"</span><span class="op">)</span> <span class="op">&amp;</span> </span>
+<span>                        <span class="va">data_cli</span><span class="op">$</span><span class="va">YEARMODA</span> <span class="op">&lt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2024-12-31"</span><span class="op">)</span> <span class="op">&amp;</span> </span>
+<span>                        <span class="va">data_cli</span><span class="op">$</span><span class="va">NAME</span> <span class="op">==</span> <span class="st">"MAASTRICHT"</span><span class="op">)</span>, <span class="op">]</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">data3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</section><section id="data-manipulation-sorting-data-1" class="slide level2"><h2>Data manipulation: Sorting data 1</h2>
+<p>Often we want to order / sort data. Two functions will be helpful here:</p>
+<ul>
+<li>
+<code><a href="https://rdrr.io/r/base/order.html">order()</a></code> returns the indices that would sort the data (ascendingly, descendingly)</li>
+<li>
+<code><a href="https://rdrr.io/r/base/sort.html">sort()</a></code> is available for vectors only, and returns the sorted vector.</li>
+</ul></section><section id="data-manipulation-sorting-data-2" class="slide level2"><h2>Data manipulation: Sorting data 2</h2>
+<p>For our climate data set, suppose we want to sort the data by time (instead of by location).</p>
+<div class="cell">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># sort: returns a sorted vector</span></span>
+<span><span class="va">data_cli</span><span class="op">$</span><span class="va">YEARMODA</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "2000-01-01" "2000-01-02" "2000-01-03" "2000-01-04" "2000-01-05"
+ [6] "2000-01-06" "2000-01-07" "2000-01-08" "2000-01-09" "2000-01-10"</code></pre>
+</div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">$</span><span class="va">YEARMODA</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "2000-01-01" "2000-01-01" "2000-01-01" "2000-01-01" "2000-01-01"
+ [6] "2000-01-01" "2000-01-01" "2000-01-01" "2000-01-01" "2000-01-01"</code></pre>
+</div>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># order: returns the indices that would sort the data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">$</span><span class="va">YEARMODA</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]    1  367  733 1098 1454 1820 2186 2552 2918 3284</code></pre>
+</div>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_cli_ord</span> <span class="op">&lt;-</span> <span class="va">data_cli</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">$</span><span class="va">YEARMODA</span><span class="op">)</span>, <span class="op">]</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_cli_ord</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"YEARMODA"</span>, <span class="st">"NAME"</span>, <span class="st">"TEMP"</span><span class="op">)</span><span class="op">]</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      YEARMODA     NAME TEMP
+1   2000-01-01 SCHIPHOL  6.4
+367 2000-01-01  DE BILT  6.0
+733 2000-01-01 LELYSTAD  4.9</code></pre>
+</div>
+</div>
+</section><section id="task-5.1" class="slide level2"><h2>Task 5.1</h2>
+<p>Use the long-format climate <a href="https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv">data set</a>.</p>
+<ol type="1">
+<li><p>Generate a data set that contains information about precipitation (<code>PRCP</code>), temperature (<code>TEMP</code>) for all days and locations of the original data set</p></li>
+<li><p>Reduce the information to the year 2020 and the locations Eelde, De Bilt, and Maastricht</p></li>
+<li><p>Sort the data by time (ascendingly) and location (alphabetically) first, and then by temperature (ascendingly). When and where was the highest temperature observed?</p></li>
+</ol></section><section id="data-manipulation-adding-information-1" class="slide level2"><h2>Data manipulation: Adding information 1</h2>
+<p>Sometimes we want to transform data or add information. For instance, we could be interested in adding a variable <code>season</code>, with values <code>spring</code>, <code>summer</code>, <code>autumn</code>, <code>winter</code> to our climate data set.</p>
+<p>To add a new variable to a data.frame, use the <code>$</code> operator</p>
+<div class="cell">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Extract month and assign seasons</span></span>
+<span><span class="va">get_season</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">date</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="va">date</span>, <span class="st">"%m"</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">m</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fl">3</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span> <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="st">"spring"</span><span class="op">)</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">m</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fl">6</span><span class="op">:</span><span class="fl">8</span><span class="op">)</span> <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="st">"summer"</span><span class="op">)</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">m</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fl">9</span><span class="op">:</span><span class="fl">11</span><span class="op">)</span> <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="st">"autumn"</span><span class="op">)</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="st">"winter"</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="va">get_season</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Vectorize.html">Vectorize</a></span><span class="op">(</span><span class="va">get_season</span><span class="op">)</span></span>
+<span><span class="va">data_cli</span><span class="op">$</span><span class="va">season</span> <span class="op">&lt;-</span> <span class="fu">get_season</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">$</span><span class="va">YEARMODA</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"YEARMODA"</span>, <span class="st">"season"</span><span class="op">)</span><span class="op">]</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    YEARMODA season
+1 2000-01-01 winter
+2 2000-01-02 winter
+3 2000-01-03 winter</code></pre>
+</div>
+</div>
+</section><section id="data-manipulation-adding-information-2" class="slide level2"><h2>Data manipulation: Adding information 2</h2>
+<p>As an alternative, we can also use the bracket notation</p>
+<div class="cell">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_cli</span><span class="op">[</span>, <span class="st">"season"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu">get_season</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">[</span>, <span class="st">"YEARMODA"</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Moreover, sometimes we want to transform data. As an example, add temperature in Kelvin to the data set.</p>
+<div class="cell">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_cli</span><span class="op">[</span>, <span class="st">"temp_k"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">data_cli</span><span class="op">[</span>, <span class="st">"TEMP"</span><span class="op">]</span> <span class="op">+</span> <span class="fl">273.15</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"YEARMODA"</span>, <span class="st">"season"</span>, <span class="st">"NAME"</span>, <span class="st">"TEMP"</span>, <span class="st">"temp_k"</span><span class="op">)</span><span class="op">]</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    YEARMODA season     NAME TEMP temp_k
+1 2000-01-01 winter SCHIPHOL  6.4 279.55
+2 2000-01-02 winter SCHIPHOL  7.2 280.35
+3 2000-01-03 winter SCHIPHOL  8.7 281.85</code></pre>
+</div>
+</div>
+</section><section id="data-manipulation-adding-information-3" class="slide level2"><h2>Data manipulation: Adding information 3</h2>
+<p>Besides adding columns, we can also expand our data set by adding further rows to the data. For instance, we could first drop all observations for Maastricht from the climate data set and add them back to it:</p>
+<div class="cell">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># split the data set</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data_cli</span><span class="op">[</span><span class="va">data_cli</span><span class="op">$</span><span class="va">NAME</span> <span class="op">!=</span> <span class="st">"MAASTRICHT"</span> ,<span class="op">]</span></span>
+<span><span class="va">data_M</span> <span class="op">&lt;-</span> <span class="va">data_cli</span><span class="op">[</span><span class="va">data_cli</span><span class="op">$</span><span class="va">NAME</span> <span class="op">==</span> <span class="st">"MAASTRICHT"</span> ,<span class="op">]</span></span>
+<span></span>
+<span><span class="co"># join the two data sets </span></span>
+<span><span class="va">data_new</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">data_M</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">data_cli</span>, <span class="va">data_new</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># preserve order</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">data_cli</span>, <span class="va">data_new</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">data_new</span><span class="op">$</span><span class="va">X</span><span class="op">)</span>, <span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</section><section id="data-manipulation-adding-information-4" class="slide level2"><h2>Data manipulation: Adding information 4</h2>
+<p>Sometimes we want to change the class of a variable: for instance, we want to make sure that <code>YEARMODA</code> indeed is a Date-variable, whereas <code>NAME</code> is a factor</p>
+<div class="cell">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># split the data set</span></span>
+<span><span class="va">data_cli</span><span class="op">$</span><span class="va">NAME</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">$</span><span class="va">NAME</span><span class="op">)</span></span>
+<span><span class="va">data_cli</span><span class="op">$</span><span class="va">YEARMODA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">$</span><span class="va">YEARMODA</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="data-manipulation-reshaping-data-1" class="slide level2"><h2>Data manipulation: Reshaping data 1</h2>
+<p>If we want to generate a new data.framem, we can collect the relevat information via the <code><a href="https://rdrr.io/r/base/data.frame.html">data.frame()</a></code> function:</p>
+<div class="cell">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># split the data set</span></span>
+<span><span class="va">data_cli_new</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">$</span><span class="va">YEARMODA</span><span class="op">)</span>,</span>
+<span>                           location <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">$</span><span class="va">NAME</span><span class="op">)</span>, </span>
+<span>                           temp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">$</span><span class="va">TEMP</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_cli_new</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        date location temp
+1 2000-01-01 SCHIPHOL  6.4
+2 2000-01-02 SCHIPHOL  7.2
+3 2000-01-03 SCHIPHOL  8.7
+4 2000-01-04 SCHIPHOL  6.0
+5 2000-01-05 SCHIPHOL  4.7
+6 2000-01-06 SCHIPHOL  7.1</code></pre>
+</div>
+</div>
+</section><section id="data-manipulation-reshaping-data-2" class="slide level2"><h2>Data manipulation: Reshaping data 2</h2>
+<p>Moreover, we sometimes prefer to have data in wide format. This can be achieved by using the <code><a href="https://rdrr.io/r/stats/reshape.html">reshape()</a></code> function. The example below generates a wide data set with temperature data along different stations.</p>
+<div class="cell">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># split the data set</span></span>
+<span><span class="va">data_cli_new_wide</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/reshape.html">reshape</a></span><span class="op">(</span><span class="va">data_cli_new</span>, timevar <span class="op">=</span> <span class="st">"location"</span>, </span>
+<span>                             idvar <span class="op">=</span><span class="st">"date"</span>, direction <span class="op">=</span> <span class="st">"wide"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_cli_new_wide</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        date temp.SCHIPHOL temp.DE BILT temp.LELYSTAD
+1 2000-01-01           6.4          6.0           4.9
+2 2000-01-02           7.2          7.2           6.2
+3 2000-01-03           8.7          8.4           8.5
+4 2000-01-04           6.0          6.6           5.8
+5 2000-01-05           4.7          4.4           4.2
+6 2000-01-06           7.1          7.2           6.8</code></pre>
+</div>
+</div>
+</section><section id="data-manipulation-computing-summary-statistics-1" class="slide level2"><h2>Data manipulation: Computing summary statistics 1</h2>
+<p>For exploratory data analysis, we are interested in computing (conditional and unconditional) summary statistics. In principle, the function <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> already gives us an overview about the data.</p>
+<p>Example:</p>
+<div class="cell">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># split the data set</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">data_cli_new</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      date                   location          temp      
+ Min.   :2000-01-01   SCHIPHOL   : 9121   Min.   :-16.9  
+ 1st Qu.:2006-04-02   MAASTRICHT : 9119   1st Qu.:  6.2  
+ Median :2012-06-27   EELDE      : 9118   Median : 10.9  
+ Mean   :2012-06-28   ROTTERDAM  : 9118   Mean   : 10.8  
+ 3rd Qu.:2018-09-25   EINDHOVEN  : 9117   3rd Qu.: 15.7  
+ Max.   :2024-12-31   GILZE RIJEN: 9106   Max.   : 31.0  
+                      (Other)    :45455                  </code></pre>
+</div>
+</div>
+</section><section id="data-manipulation-computing-summary-statistics-2" class="slide level2"><h2>Data manipulation: Computing summary statistics 2</h2>
+<p>Often we are interested in computing summary statistics along certain groups: For instance, we could be interested in the average temperature for each station and year. Here, the <code>aggregate</code> function allows to execute functions along groups.</p>
+<p>Example:</p>
+<div class="cell">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># generate a new variable `year``</span></span>
+<span><span class="va">data_cli_new</span><span class="op">$</span><span class="va">year</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">data_cli_new</span><span class="op">$</span><span class="va">date</span><span class="op">)</span>, <span class="st">"%Y"</span><span class="op">)</span></span>
+<span><span class="co"># average temperature per year</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">temp</span> <span class="op">~</span> <span class="va">year</span>, data <span class="op">=</span> <span class="va">data_cli_new</span>, FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   year      temp
+1  2000 10.816733
+2  2001 10.320060
+3  2002 10.679608
+4  2003 10.452584
+5  2004 10.265572
+6  2005 10.587198
+7  2006 11.070439
+8  2007 11.066152
+9  2008 10.445427
+10 2009 10.410302
+11 2010  9.000897
+12 2011 10.824981
+13 2012 10.184042
+14 2013  9.746233
+15 2014 11.600448
+16 2015 10.817018
+17 2016 10.643574
+18 2017 10.923928
+19 2018 11.453566
+20 2019 11.222017
+21 2020 11.673621
+22 2021 10.499749
+23 2022 11.653900
+24 2023 11.769240
+25 2024 11.820456</code></pre>
+</div>
+</div>
+</section><section id="data-manipulation-computing-summary-statistics-3" class="slide level2"><h2>Data manipulation: Computing summary statistics 3</h2>
+<div class="cell">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># average temperature per station</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">temp</span> <span class="op">~</span> <span class="va">location</span>, data <span class="op">=</span> <span class="va">data_cli_new</span>, FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      location     temp
+1      DE BILT 10.85676
+2       DEELEN 10.52035
+3        EELDE 10.17615
+4    EINDHOVEN 11.08124
+5  GILZE RIJEN 11.00421
+6     LELYSTAD 10.60002
+7   MAASTRICHT 11.05955
+8    ROTTERDAM 11.13035
+9     SCHIPHOL 11.05968
+10     TWENTHE 10.43557
+11      VOLKEL 10.84123</code></pre>
+</div>
+</div>
+</section><section id="data-manipulation-computing-summary-statistics-4" class="slide level2"><h2>Data manipulation: Computing summary statistics 4</h2>
+<div class="cell">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># average temperature per station and year</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">temp</span> <span class="op">~</span> <span class="va">location</span> <span class="op">+</span> <span class="va">year</span>, data <span class="op">=</span> <span class="va">data_cli_new</span>, FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       location year      temp
+1       DE BILT 2000 10.902732
+2        DEELEN 2000 10.548876
+3         EELDE 2000 10.265574
+4     EINDHOVEN 2000 11.050273
+5   GILZE RIJEN 2000 10.920492
+6      LELYSTAD 2000 10.632055
+7    MAASTRICHT 2000 11.165847
+8     ROTTERDAM 2000 11.126230
+9      SCHIPHOL 2000 11.027322
+10      TWENTHE 2000 10.577049
+11       VOLKEL 2000 10.759003
+12      DE BILT 2001 10.399726
+13       DEELEN 2001 10.181616
+14        EELDE 2001  9.637808
+15    EINDHOVEN 2001 10.505205
+16  GILZE RIJEN 2001 10.455890
+17     LELYSTAD 2001 10.220386
+18   MAASTRICHT 2001 10.603014
+19    ROTTERDAM 2001 10.642033
+20     SCHIPHOL 2001 10.641370
+21      TWENTHE 2001  9.912329
+22       VOLKEL 2001 10.319328
+23      DE BILT 2002 10.730137
+24       DEELEN 2002 10.469780
+25        EELDE 2002 10.120548
+26    EINDHOVEN 2002 10.990685
+27  GILZE RIJEN 2002 10.930618
+28     LELYSTAD 2002 10.188889
+29   MAASTRICHT 2002 11.133973
+30    ROTTERDAM 2002 11.046027
+31     SCHIPHOL 2002 10.960000
+32      TWENTHE 2002 10.249724
+33       VOLKEL 2002 10.637883
+34      DE BILT 2003 10.378356
+35       DEELEN 2003 10.299452
+36        EELDE 2003  9.722253
+37    EINDHOVEN 2003 10.810411
+38  GILZE RIJEN 2003 10.691713
+39     LELYSTAD 2003 10.064110
+40   MAASTRICHT 2003 11.001370
+41    ROTTERDAM 2003 10.766301
+42     SCHIPHOL 2003 10.705205
+43      TWENTHE 2003 10.018681
+44       VOLKEL 2003 10.520278
+45      DE BILT 2004 10.371038
+46       DEELEN 2004  9.959890
+47        EELDE 2004  9.824590
+48    EINDHOVEN 2004 10.406284
+49  GILZE RIJEN 2004 10.425956
+50     LELYSTAD 2004 10.148361
+51   MAASTRICHT 2004 10.380328
+52    ROTTERDAM 2004 10.592623
+53     SCHIPHOL 2004 10.710383
+54      TWENTHE 2004  9.884890
+55       VOLKEL 2004 10.212912
+56      DE BILT 2005 10.684658
+57       DEELEN 2005 10.320274
+58        EELDE 2005  9.969863
+59    EINDHOVEN 2005 10.810685
+60  GILZE RIJEN 2005 10.796986
+61     LELYSTAD 2005 10.390411
+62   MAASTRICHT 2005 10.848219
+63    ROTTERDAM 2005 10.903288
+64     SCHIPHOL 2005 10.967945
+65      TWENTHE 2005 10.167397
+66       VOLKEL 2005 10.599452
+67      DE BILT 2006 11.230685
+68       DEELEN 2006 10.820274
+69        EELDE 2006 10.597260
+70    EINDHOVEN 2006 11.282466
+71  GILZE RIJEN 2006 11.203014
+72     LELYSTAD 2006 10.810989
+73   MAASTRICHT 2006 11.177534
+74    ROTTERDAM 2006 11.395616
+75     SCHIPHOL 2006 11.355616
+76      TWENTHE 2006 10.835342
+77       VOLKEL 2006 11.065289
+78      DE BILT 2007 11.235068
+79       DEELEN 2007 10.654144
+80        EELDE 2007 10.634521
+81    EINDHOVEN 2007 11.240548
+82  GILZE RIJEN 2007 11.209589
+83     LELYSTAD 2007 10.909315
+84   MAASTRICHT 2007 11.210411
+85    ROTTERDAM 2007 11.417808
+86     SCHIPHOL 2007 11.447671
+87      TWENTHE 2007 10.720274
+88       VOLKEL 2007 11.044932
+89      DE BILT 2008 10.611202
+90       DEELEN 2008 10.123224
+91        EELDE 2008 10.176230
+92    EINDHOVEN 2008 10.645628
+93  GILZE RIJEN 2008 10.566940
+94     LELYSTAD 2008 10.331694
+95   MAASTRICHT 2008 10.585519
+96    ROTTERDAM 2008 10.723224
+97     SCHIPHOL 2008 10.832514
+98      TWENTHE 2008 10.127473
+99       VOLKEL 2008 10.174317
+100     DE BILT 2009 10.525753
+101      DEELEN 2009 10.158630
+102       EELDE 2009  9.806849
+103   EINDHOVEN 2009 10.646301
+104 GILZE RIJEN 2009 10.546575
+105    LELYSTAD 2009 10.326575
+106  MAASTRICHT 2009 10.616712
+107   ROTTERDAM 2009 10.782740
+108    SCHIPHOL 2009 10.720822
+109     TWENTHE 2009 10.028969
+110      VOLKEL 2009 10.347123
+111     DE BILT 2010  9.158082
+112      DEELEN 2010  8.720330
+113       EELDE 2010  8.172603
+114   EINDHOVEN 2010  9.399176
+115 GILZE RIJEN 2010  9.251233
+116    LELYSTAD 2010  8.785753
+117  MAASTRICHT 2010  9.295616
+118   ROTTERDAM 2010  9.385753
+119    SCHIPHOL 2010  9.229863
+120     TWENTHE 2010  8.535890
+121      VOLKEL 2010  9.075890
+122     DE BILT 2011 10.929315
+123      DEELEN 2011 10.550685
+124       EELDE 2011  9.977534
+125   EINDHOVEN 2011 11.281918
+126 GILZE RIJEN 2011 11.127945
+127    LELYSTAD 2011 10.560274
+128  MAASTRICHT 2011 11.195068
+129   ROTTERDAM 2011 11.209041
+130    SCHIPHOL 2011 11.044658
+131     TWENTHE 2011 10.344658
+132      VOLKEL 2011 10.853699
+133     DE BILT 2012 10.368852
+134      DEELEN 2012  9.854098
+135       EELDE 2012  9.547268
+136   EINDHOVEN 2012 10.484699
+137 GILZE RIJEN 2012 10.394809
+138    LELYSTAD 2012  9.998907
+139  MAASTRICHT 2012 10.351913
+140   ROTTERDAM 2012 10.529508
+141    SCHIPHOL 2012 10.403005
+142     TWENTHE 2012  9.858127
+143      VOLKEL 2012 10.230601
+144     DE BILT 2013  9.841096
+145      DEELEN 2013  9.460822
+146       EELDE 2013  9.256164
+147   EINDHOVEN 2013 10.059341
+148 GILZE RIJEN 2013  9.955342
+149    LELYSTAD 2013  9.492201
+150  MAASTRICHT 2013  9.928767
+151   ROTTERDAM 2013  9.952329
+152    SCHIPHOL 2013  9.967123
+153     TWENTHE 2013  9.415890
+154      VOLKEL 2013  9.876164
+155     DE BILT 2014 11.713973
+156      DEELEN 2014 11.299178
+157       EELDE 2014 11.105753
+158   EINDHOVEN 2014 11.836986
+159 GILZE RIJEN 2014 11.755342
+160    LELYSTAD 2014 11.461370
+161  MAASTRICHT 2014 11.771233
+162   ROTTERDAM 2014 11.956438
+163    SCHIPHOL 2014 11.840548
+164     TWENTHE 2014 11.286575
+165      VOLKEL 2014 11.577534
+166     DE BILT 2015 10.776000
+167      DEELEN 2015 10.448219
+168       EELDE 2015 10.212055
+169   EINDHOVEN 2015 11.171233
+170 GILZE RIJEN 2015 11.049315
+171    LELYSTAD 2015 10.599452
+172  MAASTRICHT 2015 11.162192
+173   ROTTERDAM 2015 11.156438
+174    SCHIPHOL 2015 11.026027
+175     TWENTHE 2015 10.426648
+176      VOLKEL 2015 10.940822
+177     DE BILT 2016 10.698907
+178      DEELEN 2016 10.324590
+179       EELDE 2016 10.005738
+180   EINDHOVEN 2016 10.977596
+181 GILZE RIJEN 2016 10.859016
+182    LELYSTAD 2016 10.398907
+183  MAASTRICHT 2016 10.854645
+184   ROTTERDAM 2016 11.100000
+185    SCHIPHOL 2016 10.976230
+186     TWENTHE 2016 10.137741
+187      VOLKEL 2016 10.741803
+188     DE BILT 2017 10.963288
+189      DEELEN 2017 10.560822
+190       EELDE 2017 10.167671
+191   EINDHOVEN 2017 11.224110
+192 GILZE RIJEN 2017 11.192329
+193    LELYSTAD 2017 10.775890
+194  MAASTRICHT 2017 11.250685
+195   ROTTERDAM 2017 11.300000
+196    SCHIPHOL 2017 11.166575
+197     TWENTHE 2017 10.520718
+198      VOLKEL 2017 11.037808
+199     DE BILT 2018 11.400824
+200      DEELEN 2018 11.301096
+201       EELDE 2018 10.714247
+202   EINDHOVEN 2018 11.805479
+203 GILZE RIJEN 2018 11.756986
+204    LELYSTAD 2018 11.306319
+205  MAASTRICHT 2018 11.854247
+206   ROTTERDAM 2018 11.585753
+207    SCHIPHOL 2018 11.552329
+208     TWENTHE 2018 11.132873
+209      VOLKEL 2018 11.575890
+210     DE BILT 2019 11.192877
+211      DEELEN 2019 10.969041
+212       EELDE 2019 10.659452
+213   EINDHOVEN 2019 11.529041
+214 GILZE RIJEN 2019 11.428493
+215    LELYSTAD 2019 11.046849
+216  MAASTRICHT 2019 11.476164
+217   ROTTERDAM 2019 11.419726
+218    SCHIPHOL 2019 11.369863
+219     TWENTHE 2019 11.016164
+220      VOLKEL 2019 11.334521
+221     DE BILT 2020 11.676776
+222      DEELEN 2020 11.408197
+223       EELDE 2020 10.885792
+224   EINDHOVEN 2020 11.994262
+225 GILZE RIJEN 2020 12.029235
+226    LELYSTAD 2020 11.425956
+227  MAASTRICHT 2020 12.056557
+228   ROTTERDAM 2020 11.996175
+229    SCHIPHOL 2020 11.862022
+230     TWENTHE 2020 11.248907
+231      VOLKEL 2020 11.825956
+232     DE BILT 2021 10.500829
+233      DEELEN 2021 10.169697
+234       EELDE 2021  9.905234
+235   EINDHOVEN 2021 10.699449
+236 GILZE RIJEN 2021 10.723416
+237    LELYSTAD 2021 10.379063
+238  MAASTRICHT 2021 10.694766
+239   ROTTERDAM 2021 10.934160
+240    SCHIPHOL 2021 10.746556
+241     TWENTHE 2021 10.168611
+242      VOLKEL 2021 10.572727
+243     DE BILT 2022 11.496712
+244      DEELEN 2022 11.375068
+245       EELDE 2022 10.811233
+246   EINDHOVEN 2022 12.010685
+247 GILZE RIJEN 2022 11.887945
+248    LELYSTAD 2022 11.399178
+249  MAASTRICHT 2022 12.120548
+250   ROTTERDAM 2022 12.003288
+251    SCHIPHOL 2022 11.910959
+252     TWENTHE 2022 11.299725
+253      VOLKEL 2022 11.875616
+254     DE BILT 2023 11.769863
+255      DEELEN 2023 11.505205
+256       EELDE 2023 10.969041
+257   EINDHOVEN 2023 12.123014
+258 GILZE RIJEN 2023 12.058630
+259    LELYSTAD 2023 11.537260
+260  MAASTRICHT 2023 11.947123
+261   ROTTERDAM 2023 12.173151
+262    SCHIPHOL 2023 12.014247
+263     TWENTHE 2023 11.417534
+264      VOLKEL 2023 11.946575
+265     DE BILT 2024 11.887042
+266      DEELEN 2024 11.542254
+267       EELDE 2024 11.287042
+268   EINDHOVEN 2024 12.065634
+269 GILZE RIJEN 2024 11.911017
+270    LELYSTAD 2024 11.810704
+271  MAASTRICHT 2024 11.827887
+272   ROTTERDAM 2024 12.189577
+273    SCHIPHOL 2024 12.034174
+274     TWENTHE 2024 11.576338
+275      VOLKEL 2024 11.892394</code></pre>
+</div>
+</div>
+</section><section id="task-5.2" class="slide level2"><h2>Task 5.2</h2>
+<p>Use the long-format temperature <code>[data set](https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv).</code>.</p>
+<ol type="1">
+<li><p>Add the variable <code>tempF</code> (temperature in Fahrenheit) to the dataset</p></li>
+<li><p>Compute, grouped by city and year, the mean temperature and standard deviation.</p></li>
+<li><p>Find the coolest and warmest day for each city.</p></li>
+<li><p>Add a variable <code>lowest_temperature</code> to the dataset, which remains constant within each <code>city</code> group and corresponds to the lowest temperature in that respective group. Do the same for <code>highest_temperature</code></p></li>
+<li><p>Sort the dataset within city groups by temperature.</p></li>
+</ol></section></section><section><section id="dataman2" class="title-slide slide level1 center"><h1>Bonus: Data manipulation and tidyverse</h1>
+
+</section><section id="consistent-work-with-data-tidyverse" class="slide level2"><h2>Consistent Work with Data: tidyverse</h2>
+<p>Next, we will (superficially) cover the package <a href="https://dplyr.tidyverse.org/">dplyr</a>. This package is part of the <a href="https://www.tidyverse.org/">tidyverse</a>, a collection of R packages designed to provide a consistent approach to working with data. The following packages belong to the <a href="https://www.tidyverse.org/">tidyverse</a>:</p>
+<ul>
+<li><p><a href="https://dplyr.tidyverse.org/">dplyr</a>: “Grammar of Data Manipulation”</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/">ggplot2</a>: “Grammar of Graphics”</p></li>
+<li><p><a href="https://readr.tidyverse.org/">readr</a>: “Fast and friendly way to read rectangular data”</p></li>
+<li><p><a href="https://tibble.tidyverse.org/">tibble</a>: “A tibble, or tbl_df, is a modern reimagining of the data.frame”</p></li>
+<li>
+<p><a href="https://tidyr.tidyverse.org/">tidyr</a>: “Create tidy data. Tidy data is data where:</p>
+<ol type="1">
+<li>Every column is a variable.</li>
+<li>Every row is an observation.</li>
+<li>Every cell is a single value.”</li>
+</ol>
+</li>
+<li><p><a href="https://purrr.tidyverse.org/">purrr</a>: “Enhance R’s functional programming toolkit”</p></li>
+</ul></section><section id="pipes" class="slide level2"><h2>Pipes</h2>
+<p>An important component of working with data and <code>dplyr</code> is the pipe operator <code>%&gt;%</code>, included in the <code>magrittr</code> package. The goal of this operator (also found in many other languages) is to make function composition more readable in code.</p>
+<p>Example:</p>
+<div class="cell">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op">+</span> <span class="fl">10</span></span>
+<span><span class="va">g</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op">*</span> <span class="fl">2</span></span>
+<span></span>
+<span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">2</span></span>
+<span><span class="fu">f</span><span class="op">(</span><span class="fu">g</span><span class="op">(</span><span class="va">a</span><span class="op">)</span><span class="op">)</span>         <span class="co"># 2*a + 10 -&gt; 14</span></span>
+<span></span>
+<span><span class="co">## Same result using the pipe operator</span></span>
+<span><span class="va">a</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">g</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">f</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## Parentheses for function calls can be omitted,</span></span>
+<span><span class="co">## but for readability, it is helpful to keep them</span></span>
+<span><span class="va">a</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">g</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">f</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="pipes-2" class="slide level2"><h2>Pipes 2</h2>
+More examples
+<div style="display: flex; gap: 2em;">
+<div style="flex: 1;">
+<p><strong>dplyr</strong> with <code>%&gt;%</code></p>
+<div class="cell">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_cli</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">TEMP</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="va">data_cli</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">YEARMODA</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2024-01-01"</span><span class="op">)</span> <span class="op">&amp;</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">YEARMODA</span><span class="op">)</span> <span class="op">&lt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2024-12-31"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">NAME</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mtemp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">TEMP</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div style="flex: 1;">
+<p><strong>Standard R</strong></p>
+<div class="cell">
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">data_cli</span>, select <span class="op">=</span> <span class="va">TEMP</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span><span class="va">datatemp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">data_cli</span>, <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">YEARMODA</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2024-01-01"</span><span class="op">)</span> <span class="op">&amp;</span> </span>
+<span>                   <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">YEARMODA</span><span class="op">)</span> <span class="op">&lt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2024-12-31"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/tapply.html">tapply</a></span><span class="op">(</span>X <span class="op">=</span> <span class="va">datatemp</span><span class="op">$</span><span class="va">TEMP</span>,</span>
+<span>      INDEX <span class="op">=</span> <span class="va">datatemp</span><span class="op">$</span><span class="va">NAME</span>,</span>
+<span>      FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>In the second example, you can already see that the pipe operator often eliminates the need for unnecessary assignments.</p>
+</section><section id="dplyr" class="slide level2"><h2><code>dplyr</code></h2>
+<p>The key functions of <code>dplyr</code> are:</p>
+<ul>
+<li><p><a href="https://dplyr.tidyverse.org/reference/mutate.html"><code>mutate()</code></a>: Add new variables to a dataset</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/select.html"><code>select()</code></a>: Select variables (columns)</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/filter.html"><code>filter()</code></a>: Select observations (rows)</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/arrange.html"><code>arrange()</code></a>: Sort observations</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/summarise.html"><code>summarise()</code></a>: Reduce variable values of multiple observations to a single value</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/group_by.html"><code>group_by()</code></a>: Apply subsequent operations to groups</p></li>
+<li><p><code>join()</code>: Merge two datasets</p></li>
+<li><p><code><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows()</a></code>: Add rows to data set (equivalent to <code>rbind</code>)</p></li>
+</ul>
+<p>These functions often have variants and additional helper functions that assist with variable selection.</p>
+</section><section id="data-manipulation-with-dplyr-select" class="slide level2"><h2>Data manipulation with <code>dplyr</code>: Select</h2>
+<p>As before, we want to select certain variables from our data set - now using dplyr. For our climate data set, we want to preserve information about <code>date</code>, <code>location</code>, and <code>temperature</code>, and drop all other information.</p>
+<p><code><a href="https://rdrr.io/pkg/MASS/man/lm.ridge.html">select()</a></code> picks the variables of interest while dropping all others. In the example below, we choose to preserve <code>YEARMODA</code>, <code>NAME</code>, <code>TEMP</code>, while dropping all other information (as before).</p>
+<div class="cell">
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data_cli</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">YEARMODA</span>, <span class="va">NAME</span>, <span class="va">TEMP</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    YEARMODA     NAME TEMP
+1 2000-01-01 SCHIPHOL  6.4
+2 2000-01-02 SCHIPHOL  7.2
+3 2000-01-03 SCHIPHOL  8.7</code></pre>
+</div>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">data</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         YEARMODA       NAME TEMP
+100152 2024-12-29 MAASTRICHT  0.2
+100153 2024-12-30 MAASTRICHT  1.7
+100154 2024-12-31 MAASTRICHT  1.4</code></pre>
+</div>
+</div>
+</section><section id="data-manipulation-with-dplyr-subsetting-rows" class="slide level2"><h2>Data manipulation with <code>dplyr</code>: Subsetting rows</h2>
+<p>Next, we want to subset the rows. Here, the <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> command is useful. It drops all information that violates the logical argument. In the example below, we restrict the data to year 2024 and to Maastricht only.</p>
+<div class="cell">
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># select data from 2024-01-01 on only</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data_cli</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">YEARMODA</span> <span class="op">&gt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2024-01-01"</span><span class="op">)</span> <span class="op">&amp;</span></span>
+<span>                            <span class="va">YEARMODA</span> <span class="op">&lt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2024-12-31"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>                     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">NAME</span> <span class="op">==</span> <span class="st">"MAASTRICHT"</span><span class="op">)</span> <span class="co"># select Maastricht obs</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"YEARMODA"</span>, <span class="st">"NAME"</span>, <span class="st">"TEMP"</span><span class="op">)</span><span class="op">]</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    YEARMODA       NAME TEMP
+1 2024-01-01 MAASTRICHT  7.0
+2 2024-01-02 MAASTRICHT  9.7
+3 2024-01-03 MAASTRICHT  9.7</code></pre>
+</div>
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">data</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"YEARMODA"</span>, <span class="st">"NAME"</span>, <span class="st">"TEMP"</span><span class="op">)</span><span class="op">]</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      YEARMODA       NAME TEMP
+353 2024-12-29 MAASTRICHT  0.2
+354 2024-12-30 MAASTRICHT  1.7
+355 2024-12-31 MAASTRICHT  1.4</code></pre>
+</div>
+</div>
+</section><section id="data-manipulation-with-dplyr-sorting-data" class="slide level2"><h2>Data manipulation with <code>dplyr</code>: Sorting data</h2>
+<p>The function <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> sorts the observations along the values of the selected columns.</p>
+<div class="cell">
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_cli_ord</span> <span class="op">&lt;-</span> <span class="va">data_cli</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">YEARMODA</span>, <span class="va">NAME</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>                <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">YEARMODA</span>, <span class="va">NAME</span>, <span class="va">TEMP</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_cli_ord</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    YEARMODA    NAME TEMP
+1 2000-01-01 DE BILT  6.0
+2 2000-01-01  DEELEN  4.6
+3 2000-01-01   EELDE  4.4</code></pre>
+</div>
+</div>
+</section><section id="task-5.3" class="slide level2"><h2>Task 5.3</h2>
+<p>Replicate task 5.1 using <code>dplyr</code></p>
+</section><section id="data-manipulation-with-dplyr-adding-information-1" class="slide level2"><h2>Data manipulation with <code>dplyr</code>: Adding information 1</h2>
+<p>To add a new variable to the data set, we can use the function <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>. As before, add a new variable <code>season</code> to the data set:</p>
+<div class="cell">
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_cli</span> <span class="op">&lt;-</span> <span class="va">data_cli</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>    season <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">YEARMODA</span><span class="op">)</span>, <span class="st">"%m"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"03"</span>, <span class="st">"04"</span>, <span class="st">"05"</span><span class="op">)</span> <span class="op">~</span> <span class="st">"spring"</span>,</span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">YEARMODA</span><span class="op">)</span>, <span class="st">"%m"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"06"</span>, <span class="st">"07"</span>, <span class="st">"08"</span><span class="op">)</span> <span class="op">~</span> <span class="st">"summer"</span>,</span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">YEARMODA</span><span class="op">)</span>, <span class="st">"%m"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"09"</span>, <span class="st">"10"</span>, <span class="st">"11"</span><span class="op">)</span> <span class="op">~</span> <span class="st">"autumn"</span>,</span>
+<span>      <span class="cn">TRUE</span> <span class="op">~</span> <span class="st">"winter"</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Preview</span></span>
+<span><span class="va">data_cli</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">YEARMODA</span>, <span class="va">season</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    YEARMODA season
+1 2000-01-01 winter
+2 2000-01-02 winter
+3 2000-01-03 winter</code></pre>
+</div>
+</div>
+</section><section id="data-manipulation-with-dplyr-adding-information-2" class="slide level2"><h2>Data manipulation with <code>dplyr</code>: Adding information 2</h2>
+<p>Besides adding columns, we can also expand our data set by adding further rows to the data. For instance, we could first drop all observations for Maastricht from the climate data set and add them back to it:</p>
+<div class="cell">
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Split the data set</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data_cli</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">NAME</span> <span class="op">!=</span> <span class="st">"MAASTRICHT"</span><span class="op">)</span></span>
+<span><span class="va">data_M</span> <span class="op">&lt;-</span> <span class="va">data_cli</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">NAME</span> <span class="op">==</span> <span class="st">"MAASTRICHT"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Join the two data sets</span></span>
+<span><span class="va">data_new</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">data_M</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Check if identical (ignores row order)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">data_cli</span>, <span class="va">data_new</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Preserve original order using column X</span></span>
+<span><span class="va">data_new_ordered</span> <span class="op">&lt;-</span> <span class="va">data_new</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Check if fully identical after reordering</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">data_cli</span>, <span class="va">data_new_ordered</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</section><section id="data-manipulation-with-dplyr-reshaping-data" class="slide level2"><h2>Data manipulation with <code>dplyr</code>: Reshaping data</h2>
+<p>Datasets that are <em>tidy</em> should have each observation as a row and each variable as a column (<code>long</code> format). However, datasets are often found in <code>wide</code> format.</p>
+<p>A way to convert <code>wide</code> to <code>long</code> is the <code>pivot_longer()</code> function from <code>tidyr</code>:</p>
+<div class="cell">
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_cli_new</span> <span class="op">&lt;-</span> <span class="va">data_cli</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  <span class="co"># subset the data set</span></span>
+<span>      <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">YEARMODA</span><span class="op">)</span>, location <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">NAME</span><span class="op">)</span>, </span>
+<span>             temp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">TEMP</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>      <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">date</span>, <span class="va">location</span>, <span class="va">temp</span><span class="op">)</span> </span>
+<span><span class="va">data_cli_new_wide</span> <span class="op">&lt;-</span> <span class="va">data_cli_new</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">location</span>, values_from <span class="op">=</span> <span class="va">temp</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_cli_new_wide</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">data_cli_new_long</span> <span class="op">&lt;-</span> <span class="va">data_cli_new_wide</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span></span>
+<span>    cols <span class="op">=</span> <span class="op">-</span><span class="va">date</span>,                  <span class="co"># all columns except 'date'</span></span>
+<span>    names_to <span class="op">=</span> <span class="st">"location"</span>,         <span class="co"># name of the new key column</span></span>
+<span>    values_to <span class="op">=</span> <span class="st">"temp"</span>             <span class="co"># name of the value column</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="data-manipulation-with-dplyr-computing-summary-statistics-1" class="slide level2"><h2>Data manipulation with <code>dplyr</code>: Computing summary statistics 1</h2>
+<p>To compute summary statistics along groups, we can use <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code>, which splits the data into groups and allows for the group-wise execution of functions:</p>
+<div class="cell">
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># add variable year</span></span>
+<span><span class="va">data_cli_new</span> <span class="op">&lt;-</span> <span class="va">data_cli_new</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">date</span><span class="op">)</span>, <span class="st">"%Y"</span><span class="op">)</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co"># mean temperature by location </span></span>
+<span><span class="va">data_cli_new</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">location</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co"># now data is grouped by city</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_temp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">temp</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, .groups <span class="op">=</span> <span class="st">"drop"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 × 2
+   location    mean_temp
+   &lt;fct&gt;           &lt;dbl&gt;
+ 1 DE BILT          10.9
+ 2 DEELEN           10.5
+ 3 EELDE            10.2
+ 4 EINDHOVEN        11.1
+ 5 GILZE RIJEN      11.0
+ 6 LELYSTAD         10.6
+ 7 MAASTRICHT       11.1
+ 8 ROTTERDAM        11.1
+ 9 SCHIPHOL         11.1
+10 TWENTHE          10.4
+11 VOLKEL           10.8</code></pre>
+</div>
+</div>
+</section><section id="data-manipulation-with-dplyr-computing-summary-statistics-2" class="slide level2"><h2>Data manipulation with <code>dplyr</code>: Computing summary statistics 2</h2>
+<div class="cell">
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># mean temperature by year</span></span>
+<span><span class="va">data_cli_new</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co"># now data is grouped by year</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_temp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">temp</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, .groups <span class="op">=</span> <span class="st">"drop"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 25 × 2
+   year  mean_temp
+   &lt;chr&gt;     &lt;dbl&gt;
+ 1 2000       10.8
+ 2 2001       10.3
+ 3 2002       10.7
+ 4 2003       10.5
+ 5 2004       10.3
+ 6 2005       10.6
+ 7 2006       11.1
+ 8 2007       11.1
+ 9 2008       10.4
+10 2009       10.4
+# ℹ 15 more rows</code></pre>
+</div>
+</div>
+</section><section id="data-manipulation-with-dplyr-computing-summary-statistics-3" class="slide level2"><h2>Data manipulation with <code>dplyr</code>: Computing summary statistics 3</h2>
+<div class="cell">
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># mean temperature by year and city</span></span>
+<span><span class="va">data_cli_new</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">location</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co"># now data is grouped by city and year</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_temp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">temp</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, .groups <span class="op">=</span> <span class="st">"drop"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 275 × 3
+   year  location    mean_temp
+   &lt;chr&gt; &lt;fct&gt;           &lt;dbl&gt;
+ 1 2000  DE BILT          10.9
+ 2 2000  DEELEN           10.5
+ 3 2000  EELDE            10.3
+ 4 2000  EINDHOVEN        11.1
+ 5 2000  GILZE RIJEN      10.9
+ 6 2000  LELYSTAD         10.6
+ 7 2000  MAASTRICHT       11.2
+ 8 2000  ROTTERDAM        11.1
+ 9 2000  SCHIPHOL         11.0
+10 2000  TWENTHE          10.6
+# ℹ 265 more rows</code></pre>
+</div>
+</div>
+</section><section id="task-5.4" class="slide level2"><h2>Task 5.4</h2>
+<p>Replicate task 5.2 using <code>dyplr</code></p>
+</section></section><section><section id="reg1" class="title-slide slide level1 center"><h1>Regression analysis</h1>
+
+</section><section id="general-information" class="slide level2"><h2>General Information</h2>
+<p>In econometrics (which can also be applied to other scientific fields), we often ask questions like:</p>
+<ul>
+<li>Does income convergence occur (does a low income level lead to higher growth in the future, ceteris paribus)?</li>
+<li>Is education an important determinant of growth?</li>
+<li>Does foreign trade accelerate growth?</li>
+<li>Is political stability important / does violence hinder economic prosperity?</li>
+<li>Is growth slower in Africa, ceteris paribus?</li>
+</ul>
+<p>The standard tool for such analyses: <strong>multiple linear regression model</strong></p>
+<p><span class="math display">\[y_i = \beta_0 + \beta_1 x_{1,i} + \beta_2 x_{2,i} + \dots + \beta_p x_{p,i} + u_i,\ i=1,\dots,n\]</span> Or, in matrix notation: <span class="math display">\[\mathbf{y} = \mathbf{X}\beta + \mathbf{u},\]</span> where <span class="math inline">\(\mathbf{y}, \mathbf{u}\in\mathbb{R}^{n}\)</span>, <span class="math inline">\(\mathbf{X}\in\mathbb{R}^{n\times k}\)</span>, <span class="math inline">\(\beta\in\mathbb{R}^{k}\)</span>, and <span class="math inline">\(k = p + 1\)</span>.</p>
+</section><section id="formula-objects" class="slide level2"><h2>Formula Objects</h2>
+<p>R is designed to easily estimate various statistical models. It provides a specific object class to symbolically describe statistical models, called <code>formula</code> objects. See <code><a href="https://rdrr.io/r/stats/formula.html">?formula</a></code> for more details.</p>
+<p>Example: the regression model</p>
+<p><span class="math inline">\(y_i = \beta_0 + \beta_1 x_{1,i} + \beta_2 x_{2,i} + u_i\)</span></p>
+<p>can be specified in R as a <code>formula</code> like this:</p>
+<p><code>y ~ x1 + x2</code></p>
+</section><section class="slide level2"><ul>
+<li>
+<p>Important operators:</p>
+<ul>
+<li>
+<code>~</code>: Basis for all models. <code>y ~ model</code> specifies that the dependent variable <code>y</code> is modeled using the linear predictors described in <code>model</code>.</li>
+<li>
+<code>+</code>: Models consist of terms separated by <code>+</code> (in simple cases, these are variables).</li>
+<li>
+<code>:</code>: Creates interaction terms between variables.</li>
+<li>
+<code>*</code>: <code>a*b</code> is equivalent to <code>a + b + a:b</code>.</li>
+<li>
+<code>^</code>: <code>(a + b)^2</code> is equivalent to <code>(a + b) * (a + b)</code>.</li>
+</ul>
+</li>
+<li><p>Note: <code>y ~ x1 + x2^2</code> is NOT the model <span class="math inline">\(y_i = \beta_0 + \beta_1 x_{1,i} + \beta_2 x^2_{2,i} + u_i\)</span>!</p></li>
+<li><p>For arithmetic expressions (e.g., variable transformations), use the function <code><a href="https://rdrr.io/r/base/AsIs.html">I()</a></code>: <br><code>y ~ x1 + I(x2^2)</code>.</p></li>
+<li><p>Factor variables in formulas are automatically <em>dummy coded</em>.</p></li>
+</ul></section><section class="slide level2"><p>The standard function for estimating linear models is <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>. This function returns an <code>lm</code> object with numerous available methods: <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>, <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code>, <code><a href="https://rdrr.io/r/stats/predict.html">predict()</a></code>, etc.</p>
+<div class="cell">
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">AER</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">GrowthSW</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">growth.eq1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">growth</span> <span class="op">~</span> <span class="va">rgdp60</span>,</span>
+<span>                 data<span class="op">=</span><span class="va">GrowthSW</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">growth.eq1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section class="slide level2"><p>Output:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = growth ~ rgdp60, data = GrowthSW)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-4.6309 -1.0485  0.0831  0.8722  5.3183 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 1.796e+00  3.780e-01   4.751 1.21e-05 ***
+rgdp60      4.735e-05  9.494e-05   0.499     0.62    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.908 on 63 degrees of freedom
+Multiple R-squared:  0.003932,  Adjusted R-squared:  -0.01188 
+F-statistic: 0.2487 on 1 and 63 DF,  p-value: 0.6197</code></pre>
+</div>
+</div>
+</section><section class="slide level2"><p>Multiple variables, transformations:</p>
+<div class="cell">
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">growth.eq2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">growth</span> <span class="op">~</span> <span class="va">rgdp60</span> <span class="op">+</span> <span class="va">tradeshare</span> <span class="op">+</span></span>
+<span>                 <span class="va">education</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/AsIs.html">I</a></span><span class="op">(</span><span class="va">education</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span> <span class="op">+</span> <span class="co"># education linear and squared</span></span>
+<span>                 <span class="va">revolutions</span> <span class="op">+</span> <span class="va">assassinations</span>, data <span class="op">=</span> <span class="va">GrowthSW</span><span class="op">)</span></span>
+<span><span class="va">sum.eq2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">growth.eq2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Without intercept:</p>
+<div class="cell">
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">growth.eq3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">growth</span> <span class="op">~</span> <span class="op">-</span><span class="fl">1</span> <span class="op">+</span> <span class="va">rgdp60</span> <span class="op">+</span> <span class="va">tradeshare</span>, data <span class="op">=</span> <span class="va">GrowthSW</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>All variables in the dataset:</p>
+<div class="cell">
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">growth.eq4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">growth</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">GrowthSW</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Excluding specific variables:</p>
+<div class="cell">
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">growth.eq5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">growth</span> <span class="op">~</span> <span class="va">.</span> <span class="op">-</span><span class="va">rgdp60</span>, data <span class="op">=</span> <span class="va">GrowthSW</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section class="slide level2"><p>With factor variable:</p>
+<div class="cell">
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">GrowthSW</span> <span class="op">&lt;-</span> <span class="va">GrowthSW</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/rownames.html">rownames_to_column</a></span><span class="op">(</span><span class="st">"country"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>continent <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span></span>
+<span>    <span class="va">country</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Zaire"</span>,<span class="st">"Niger"</span>,<span class="st">"Senegal"</span>, <span class="st">"Zimbabwe"</span> ,<span class="st">"Togo"</span>,</span>
+<span>           <span class="st">"South Africa"</span>, <span class="st">"Sierra Leone"</span> ,<span class="st">"Ghana"</span>,<span class="st">"Kenya"</span>,</span>
+<span>           <span class="st">"Mauritius"</span><span class="op">)</span>, <span class="st">"africa"</span>, <span class="st">"other"</span><span class="op">)</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"africa"</span>, <span class="st">"other"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">growth.eq6</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">growth</span> <span class="op">~</span> <span class="va">rgdp60</span> <span class="op">+</span> <span class="va">tradeshare</span> <span class="op">+</span> <span class="va">continent</span>, data <span class="op">=</span> <span class="va">GrowthSW</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">growth.eq6</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Interaction terms:</p>
+<div class="cell">
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">growth.eq7</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">growth</span> <span class="op">~</span></span>
+<span>                     <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">rgdp60</span><span class="op">)</span> <span class="op">*</span> <span class="va">continent</span> <span class="op">+</span></span>
+<span>                     <span class="va">tradeshare</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">education</span><span class="op">)</span><span class="op">+</span></span>
+<span>                     <span class="va">revolutions</span><span class="op">+</span><span class="va">assassinations</span>,</span>
+<span>                 data<span class="op">=</span><span class="va">GrowthSW</span><span class="op">)</span></span>
+<span><span class="va">sum.eq7</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">growth.eq7</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="accessing-regression-results" class="slide level2"><h2>Accessing Regression Results</h2>
+<ul>
+<li>Use functions such as <code><a href="https://rdrr.io/r/stats/coef.html">coefficients()</a></code>, <code><a href="https://rdrr.io/r/stats/fitted.values.html">fitted()</a></code>, <code><a href="https://rdrr.io/r/stats/residuals.html">residuals()</a></code>.</li>
+<li>Or directly access the <code>lm</code> or <code>summary.lm</code> list objects:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">growth.eq7</span><span class="op">)</span>    <span class="co">## structure of lm object</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">sum.eq7</span><span class="op">)</span>       <span class="co">## structure of summary.lm object</span></span>
+<span></span>
+<span><span class="co"># elements in lm object</span></span>
+<span><span class="va">growth.eq7</span><span class="op">$</span><span class="va">coefficients</span></span>
+<span><span class="va">growth.eq7</span><span class="op">$</span><span class="va">residuals</span></span>
+<span><span class="va">growth.eq7</span><span class="op">$</span><span class="va">fitted</span></span>
+<span></span>
+<span><span class="co"># summary.lm provides additional information:</span></span>
+<span><span class="va">sum.eq7</span><span class="op">$</span><span class="va">coefficients</span>      <span class="co">## matrix with estimates, std-dev, t-stat, p-value</span></span>
+<span><span class="va">sum.eq7</span><span class="op">$</span><span class="va">sigma</span>             <span class="co">## residual standard error estimate</span></span>
+<span><span class="va">sum.eq7</span><span class="op">$</span><span class="va">adj.r.squared</span>     <span class="co">## adjusted R^2 of regression</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="model-selection" class="slide level2"><h2>Model Selection</h2>
+<p>To determine which model is “better,” model selection criteria like AIC (Akaike Information Criterion) and BIC (Bayesian Information Criterion) are commonly used. The model with the lowest value is considered the “best.”</p>
+<div class="cell">
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Akaike Criterion</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/AIC.html">AIC</a></span><span class="op">(</span><span class="va">growth.eq5</span><span class="op">)</span>     <span class="co"># smaller is better</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/AIC.html">AIC</a></span><span class="op">(</span><span class="va">growth.eq1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Bayesian Information Criterion</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/AIC.html">BIC</a></span><span class="op">(</span><span class="va">growth.eq5</span><span class="op">)</span>     <span class="co"># smaller is better</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/AIC.html">BIC</a></span><span class="op">(</span><span class="va">growth.eq1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section class="slide level2"><p>The <code>MASS</code> package provides the <code>stepAIC</code> function, which iteratively finds an “optimal” model starting from a large model:</p>
+<div class="cell">
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"MASS"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.stats.ox.ac.uk/pub/MASS4/">MASS</a></span><span class="op">)</span></span>
+<span><span class="op">?</span><span class="va">stepAIC</span></span>
+<span><span class="va">growth.eqAIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/MASS/man/stepAIC.html">stepAIC</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">growth</span> <span class="op">~</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">rgdp60</span><span class="op">)</span> <span class="op">+</span> <span class="va">tradeshare</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">education</span><span class="op">)</span><span class="op">+</span></span>
+<span>                                      <span class="va">revolutions</span> <span class="op">+</span> <span class="va">assassinations</span> <span class="op">+</span> <span class="va">continent</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span>,</span>
+<span>                            data<span class="op">=</span><span class="va">GrowthSW</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="task-5.5" class="slide level2"><h2>Task 5.5</h2>
+<p>Reconsider the climate <a href="https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv">data set</a>. You want to draw inference on whether temperature is trending, at the same time stay agnostic about the nature of the trend. Therefore, you decide to approximate the trending dynamics of temperature by a polynomial trend of order p <span class="math display">\[
+  temp_t = \beta_0 + \beta_1 t + \beta_2 t^2 + \beta_3 t^3 + ... + \beta_p t^p + u_t.
+\]</span> For one of the different locations</p>
+<ol type="1">
+<li>
+<p>Test different specifications for the trend (i.e.&nbsp;choose <span class="math inline">\(p\)</span> and possibly set some of the coefficients above to zero). Allow for</p>
+<ul>
+<li>Only a constant and a linear trend</li>
+<li>Quadratic, cubic, and higher order trends</li>
+<li>Use the <code><a href="https://rdrr.io/pkg/MASS/man/stepAIC.html">stepAIC()</a></code> function</li>
+</ul>
+</li>
+<li><p>Select one of your models and apply the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> method to it. Discuss the estimates, standard errors, p-values, residual sum of squares, and the adjusted <span class="math inline">\(R^2\)</span> value.</p></li>
+<li><p>Plot the temperature series for your location of choice. What could make it hard to identify a trend?</p></li>
+<li><p>Generate monthly dummies. Add them to your regression model. Do your conclusions change?</p></li>
+</ol>
+
+</section></section>
+</div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="IntroductionR_Session5_files/libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="IntroductionR_Session5_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="IntroductionR_Session5_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="IntroductionR_Session5_files/libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="IntroductionR_Session5_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="IntroductionR_Session5_files/libs/revealjs/plugin/quarto-support/support.js"></script><script src="IntroductionR_Session5_files/libs/revealjs/plugin/notes/notes.js"></script><script src="IntroductionR_Session5_files/libs/revealjs/plugin/search/search.js"></script><script src="IntroductionR_Session5_files/libs/revealjs/plugin/zoom/zoom.js"></script><script src="IntroductionR_Session5_files/libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script><script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script><script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+
+
+</body></html>
