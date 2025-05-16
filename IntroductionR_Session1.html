@@ -691,11 +691,16 @@
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Rtraining"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can use this command directly next time. Mind the usage of the <em>/</em> when specifying the path of your working directory!</p>
+<p>You can also include comment lines in your <strong>R</strong> script. These start with the symbol <em>#</em> and allow you to document your code. For instance:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting my working directory</span></span>
+<span id="cb8-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Rtraining"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="exercise-r-script" class="slide level2">
 <h2>Exercise R Script</h2>
 <p>Copy some of the commands you previously executed into your <strong>R</strong> Script.</p>
-<p>You can execute a specific line</p>
+<p>Execute a specific line</p>
 <ul>
 <li><p>by pressing the <em>Run</em> button to execute the line on which your cursor is currently located</p></li>
 <li><p>by using <em>ctrl+enter</em> on Windows or <em>command+enter</em> on Mac to execute the line on which your cursor is currently located</p></li>
@@ -739,35 +744,81 @@
 <section id="installing-r-packages" class="slide level2">
 <h2>Installing R packages</h2>
 <p>To install a new <strong>R</strong> package, click on the <em>Install</em> button at the top of the <em>Packages</em> window.</p>
-<p>You can then type the name of the <strong>R</strong> package you want to install. Let us install the package this.path</p>
+<p>You can then type the name of the <strong>R</strong> package you want to install. Let us install the package <strong>this.path</strong></p>
 
-<img data-src="figures/R-package-2.png" class="r-stretch"><p>You will notice that R has automatically put the following command in the console:</p>
+<img data-src="figures/R-package-2.png" class="r-stretch"><p>You will notice that <strong>R</strong> has automatically put the following command in the console:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"this.path"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"this.path"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>R</strong> will ask you ‘Do you want to install from sources the package which needs compilation?’ Choose No (TO BE DISCUSSED IF INCLUDED IN SESSION 1!)</p>
+<p>You can use this <strong>R</strong> code also directly to install a package. The package is now added to to your package list and ready to be used.</p>
 </section>
 <section id="loading-r-package" class="slide level2">
 <h2>Loading R package</h2>
-<p>While installing an <strong>R</strong> package only needs to be done once, each time you want to use the functionality of the <strong>R</strong> package, you need to load it into your <strong>R</strong> session. You can do this via the following command:</p>
+<p>Installing an <strong>R</strong> package as we just did, only needs to be done once. Yet each time you want to use the functionality of the <strong>R</strong> package in your current <strong>R</strong> session, you need to activate it. You can do this via the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(this.path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(this.path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now <strong>R</strong> has access to the functionality that the <strong>this.path</strong> offers.</p>
-<p>The <strong>this.path</strong> package offers a convenient alternative to setting your working directory via the Menu bar. You can simply use the following command to accomplish exactly the same:</p>
+<p>After activating the package nothing immediately happens, but <strong>R</strong> simply has access to the functionality that the <strong>this.path</strong> offers.</p>
+</section>
+<section id="exercise-r-package" class="slide level2">
+<h2>Exercise R package</h2>
+<p>Why did we install the <strong>this.path</strong> package? Because it offers functionality to set your working directory, as an alternative to the Menu-based approach we say before.</p>
+<p>To set the working directory to the folder where your current <strong>R</strong> script is located, you can simply use:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="fu">dirname</span>(this.path<span class="sc">::</span><span class="fu">this.path</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="fu">dirname</span>(this.path<span class="sc">::</span><span class="fu">this.path</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>It may be convenient to enter this at the top of your <strong>R</strong> script to ensure that you are always working in the directory where your <strong>R</strong> Script is located.</p>
+<p>It may be convenient to enter this at the top of your <strong>R</strong> script to ensure that you are always working in the directory where your <strong>R</strong> Script is located without having to type the name of the path!</p>
 </section></section>
 <section>
 <section id="R-help" class="title-slide slide level1 center">
 <h1>R Help</h1>
 
 </section>
+<section id="what-are-r-help-pages" class="slide level2">
+<h2>What are R help pages?</h2>
+<p><strong>R</strong> help pages</p>
+<ul>
+<li><p>provide detailed descriptions, arguments, return values, etc. for <strong>R</strong> packages, functions</p></li>
+<li><p>include usage examples that demonstrate how to use the function effectively</p></li>
+<li><p>are directly accessible in <strong>RStudio</strong></p></li>
+</ul>
+</section>
 <section id="r-help" class="slide level2">
 <h2>R Help</h2>
-<p>to be continued later</p>
+<p>Help files are displayed in the <em>Help</em> window in the bottom right window below</p>
+
+<img data-src="figures/R-help-1.png" class="r-stretch"></section>
+<section id="accessing-r-help" class="slide level2">
+<h2>Accessing R Help</h2>
+<p>To access an <strong>R</strong> help page for an <strong>R</strong> package, for instance the package <strong>this.path</strong>, you can use</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="at">package=</span><span class="st">'this.path'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="figures/R-help-2.png" class="r-stretch"></section>
+<section id="accessing-r-help-1" class="slide level2">
+<h2>Accessing R Help</h2>
+<p>To open the help file for a specific <strong>R</strong> function, for instance the function this.path, you can use either of the following two commands:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(this.path)</span>
+<span id="cb13-2"><a href="" aria-hidden="true" tabindex="-1"></a>?this.path</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Both commands above to the exact same: they open the help file of the function you specified. An <strong>R</strong> Help page will only be opened if the function exists!</p>
+<p>You will explore <strong>R</strong> Help pages in more detail during later sessions!</p>
+</section>
+<section id="exercise-r-help" class="slide level2">
+<h2>Exercise R Help</h2>
+<p>What happens if you execute the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="" aria-hidden="true" tabindex="-1"></a>?thispath</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>R</strong> should tell you that no documentation for the requested function exists.</p>
+<p>What happens if you try instead:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="" aria-hidden="true" tabindex="-1"></a>??thispath</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>R</strong> performs a full-text search of the help system for all documentation that mentions the term thispath (or something alike)</p>
+<p>Such a broader search is useful if you are not sure about the exact name of a function.</p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 

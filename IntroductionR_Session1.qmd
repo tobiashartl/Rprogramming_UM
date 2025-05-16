@@ -332,10 +332,18 @@ setwd("C:/Rtraining")
 You can use this command directly next time. Mind the usage of the  <em>/</em> when specifying the path of your working directory!
 
 
+You can also include comment lines in your **R** script. These start with the symbol <em>#</em> and allow you to document your code. For instance:
+
+```{r, eval=FALSE}
+# Setting my working directory
+setwd("C:/Rtraining")
+```
+
+
 ## Exercise R Script
 Copy some of the commands you previously executed into your **R** Script. 
 
-You can execute a specific line
+Execute a specific line
 
 -  by pressing the <em>Run</em> button to execute the line on which your cursor is currently located
 
@@ -344,6 +352,7 @@ You can execute a specific line
 ![](figures/R-script-6.png)
 
 You can execute multiple lines by highlighting them all and doing one of the above. Try this
+
 
 
 ## Exercise R Panes
@@ -388,35 +397,91 @@ You can install new packages depending on your needs
 
 To install a new **R** package,  click on the <em>Install</em> button at the top of the <em>Packages</em> window.
 
-You can then type the name of the **R** package you want to install. Let us install the package this.path
+You can then type the name of the **R** package you want to install. Let us install the package **this.path**
 
 ![](figures/R-package-2.png)
 
-You will notice that R has automatically put the following command in the console:
+You will notice that **R** has automatically put the following command in the console:
 
 ```{r, eval=FALSE}
 install.packages("this.path")
 ```
 
-**R** will ask you 'Do you want to install from sources the package which needs compilation?' Choose No (TO BE DISCUSSED IF INCLUDED IN SESSION 1!)
+You can use this **R** code also directly to install a package. The package is now added to to your package list and ready to be used.
 
 ## Loading R package
 
-While installing an **R** package only needs to be done once, each time you want to use the functionality of the **R** package, you need to load it into your **R** session. You can do this via the following command:
+Installing an **R** package as we just did, only needs to be done once. Yet each time you want to use the functionality of the **R** package in your current **R** session, you need to activate it. You can do this via the following command:
 ```{r, eval=FALSE}
 library(this.path)
 ```
 
-Now **R** has access to the functionality that the **this.path** offers.
+After activating the package nothing immediately happens, but **R** simply has access to the functionality that the **this.path** offers.
 
-The **this.path** package offers a convenient alternative to setting your working directory via the Menu bar. You can simply use the following command to accomplish exactly the same:
+## Exercise R package
+
+Why did we install the **this.path** package? Because it offers functionality to  set your working directory, as an alternative to the Menu-based approach we say before.
+
+To set the working directory to the folder where your current **R** script is located, you can simply use:
 ```{r, eval=FALSE}
 setwd(dirname(this.path::this.path()))
 ```
-It may be convenient to enter this at the top of your **R** script to ensure that you are always working in the directory where your **R** Script is located.
+It may be convenient to enter this at the top of your **R** script to ensure that you are always working in the directory where your **R** Script is located without having to type the name of the path!
 
 # R Help {#R-help}
 
+## What are R help pages?
+**R** help pages
+
+- provide detailed descriptions, arguments, return values, etc. for **R** packages, functions
+
+- include usage examples that demonstrate how to use the function effectively
+
+- are directly accessible in **RStudio**
+
+
 ## R Help
-to be continued later
+Help files are displayed in the <em>Help</em> window in the bottom right window below
+
+![](figures/R-help-1.png)
+
+## Accessing R Help
+To access an **R** help page for an **R** package, for instance the package **this.path**, you can use
+```{r, eval=FALSE}
+help(package='this.path')
+```
+
+![](figures/R-help-2.png)
+
+## Accessing R Help
+
+To open the help file for a specific **R** function, for instance the function this.path, you can use either of the following two commands:
+```{r, eval=FALSE}
+help(this.path)
+?this.path
+```
+
+Both commands above to the exact same: they open the help file of the function you specified. An **R** Help page will only be opened if the function exists!
+
+You will explore **R** Help pages in more detail during later sessions!
+
+## Exercise R Help
+What happens if you execute the following code:
+```{r, eval=FALSE}
+?thispath
+```
+
+**R** should tell you that no documentation for the requested function exists. 
+
+What happens if you try instead:
+```{r, eval=FALSE}
+??thispath
+```
+
+**R** performs a full-text search of the help system for all documentation that mentions the term thispath (or something alike)
+
+Such a broader search is useful if you are not sure about the exact name of a function.
+
+
+
 
