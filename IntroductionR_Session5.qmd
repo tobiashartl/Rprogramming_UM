@@ -19,7 +19,6 @@ diagram:
 
 ```{r setup, include = FALSE}
 library(dplyr)
-
 data_cli <- read.table("https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv", 
                        header = TRUE, sep = ",", stringsAsFactors = FALSE)
 ```
@@ -51,7 +50,6 @@ We will work with the climate data set for the Netherlands in long format
 ```{r list1, eval = FALSE}
 data_cli <- read.table("https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv", 
                        header = TRUE, sep = ",", stringsAsFactors = FALSE)
-library(dplyr)
 ```
 
 
@@ -75,7 +73,6 @@ As an alternative, we could also
 
 Approach #2: Selecting by variable indexes
 ```{r list3, eval = TRUE}
-# positive indexing
 data1 <- data_cli[, c(14, 3, 19)] 
 
 # check
@@ -85,7 +82,6 @@ identical(data, data1)
 ## Data manipulation: Select 3
 Approach #3: Selecting by subset()
 ```{r list4, eval = TRUE}
-# subset()
 data3 <- subset(data_cli, select = c(YEARMODA, NAME, TEMP))
 
 # check
@@ -156,9 +152,9 @@ head(data_cli_ord[, c("YEARMODA", "NAME", "TEMP")], 3)
 
 Use the long-format climate [data set](https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv).
 
-1. Generate a data set that contains information about precipitation (`PRCP`), temperature (`TEMP`) for all days and locations of the original data set
+1. Generate a data set that contains information about precipitation (`PRCP`), temperature (`TEMP`) for all days and locations of the original data set.
 
-2. Reduce the information to the year 2020 and the locations Eelde, De Bilt, and Maastricht
+2. Reduce the information to the year 2020 and the locations Eelde, De Bilt, and Maastricht.
 
 3. Sort the data by time (ascendingly) and location (alphabetically) first, and then by temperature (ascendingly). When and where was the highest temperature observed?
 
@@ -185,52 +181,43 @@ tail(data)
 
 
 ## Data manipulation: Adding information 1
-Sometimes we want to transform data or add information. For instance, we could be interested in adding a variable `season`, with values `spring`, `summer`, `autumn`, `winter` to our climate data set.
+Sometimes we want to transform data or add information. For instance, we could be interested in whether it was raining on a certain day in a certain city (i.e. `PRCP` is positive)
 
-To add a new variable to a data.frame, use the `$` operator
+To add a new variable `RAIN` to a data.frame, use the `$` operator
 ```{r list10, eval = TRUE}
+# Generate a logical value that is TRUE if percipitation > 0, else FALSE
+data_cli$RAIN <- (data_cli$PRCP > 0)
 
-# Extract month and assign seasons
-get_season <- function(date) {
-  m <- as.integer(format(date, "%m"))
-  if (m %in% 3:5) return("spring")
-  if (m %in% 6:8) return("summer")
-  if (m %in% 9:11) return("autumn")
-  return("winter")
-}
-get_season <- Vectorize(get_season)
-data_cli$season <- get_season(as.Date(data_cli$YEARMODA))
-
-head(data_cli[, c("YEARMODA", "season")], 3)
+head(data_cli[, c("YEARMODA", "RAIN")], 3)
 ```
 
 ## Data manipulation: Adding information 2
 As an alternative, we can also use the bracket notation
 ```{r list11, eval = F}
-data_cli[, "season"] <- get_season(as.Date(data_cli[, "YEARMODA"]))
+data_cli[, "RAIN"] <- (data_cli$PRCP > 0)
 ```
 
 Moreover, sometimes we want to transform data. As an example, add temperature in Kelvin to the data set. 
 ```{r list12, eval = TRUE}
 data_cli[, "temp_k"] <- data_cli[, "TEMP"] + 273.15
-head(data_cli[, c("YEARMODA", "season", "NAME", "TEMP", "temp_k")], 3)
+head(data_cli[, c("YEARMODA", "RAIN", "NAME", "TEMP", "temp_k")], 3)
 
 ```
 
 
 ## Data manipulation: Adding information 3
-Besides adding columns, we can also expand our data set by adding further rows to the data. For instance, we could first drop all observations for Maastricht from the climate data set and add them back to it:
+Besides adding columns, we can also expand our data set by adding further rows to the data. Suppose we observe additional data for Leuven. We can then extend our data set to include the new information using the `rbind()` command.
+```{r, include = FALSE}
+data_cli <- read.table("https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv", 
+                       header = TRUE, sep = ",", stringsAsFactors = FALSE)
+```
 ```{r list13, eval = TRUE}
-# split the data set
-data <- data_cli[data_cli$NAME != "MAASTRICHT" ,]
-data_M <- data_cli[data_cli$NAME == "MAASTRICHT" ,]
+# Load data for Leuven
+data_leuven <- read.table("https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate_leuven.csv", 
+                       header = TRUE, sep = ",", stringsAsFactors = FALSE)
 
 # join the two data sets 
-data_new <- rbind(data, data_M)
-identical(data_cli, data_new)
-
-# preserve order
-identical(data_cli, data_new[order(data_new$X), ])
+data_new <- rbind(data_cli, data_leuven)
 ```
 
 ## Data manipulation: Adding information 4
@@ -243,7 +230,7 @@ data_cli$YEARMODA <- as.Date(data_cli$YEARMODA)
 
 
 ## Data manipulation: Reshaping data 1
-If we want to generate a new data.framem, we can collect the relevat information via the `data.frame()` function: 
+If we want to generate a new data.frame, we can collect the relevat information via the `data.frame()` function: 
 ```{r list15, eval = TRUE}
 # split the data set
 data_cli_new <- data.frame(date = as.Date(data_cli$YEARMODA),
@@ -307,7 +294,7 @@ aggregate(temp ~ location + year, data = data_cli_new, FUN = mean)
 
 ## Task 5.2
 
-Use the long-format temperature `[data set](https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv).`.
+Use the long-format temperature [data set](https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv).
 
 1. Add the variable `tempF` (temperature in Fahrenheit) to the dataset 
 
@@ -379,6 +366,8 @@ Next, we will (superficially) cover the package [dplyr](https://dplyr.tidyverse.
       3. Every cell is a single value."
 
  - [purrr](https://purrr.tidyverse.org/): "Enhance R’s functional programming toolkit"
+
+Note: The philosophy (and syntax) of [tidyverse](https://www.tidyverse.org/) differs completely from base-R and is somewhat similar to Python's `pandas`. Some argue tidyverse code is more readable and intuitive, others find it rather unhandy. R code written by AI models typically utilizes packages from the tidyverse.
 
 
 ## Pipes
@@ -701,15 +690,8 @@ tail(filter(data_ord, city == "MAASTRICHT"))
 
 ## General Information
 
-In econometrics (which can also be applied to other scientific fields), we often ask questions like:
 
- - Does income convergence occur (does a low income level lead to higher growth in the future, ceteris paribus)?
- - Is education an important determinant of growth?
- - Does foreign trade accelerate growth?
- - Is political stability important / does violence hinder economic prosperity?
- - Is growth slower in Africa, ceteris paribus?
-
-The standard tool for such analyses: **multiple linear regression model**
+In what follows, consider the **multiple linear regression model**
 
  $$y_i = \beta_0 + \beta_1 x_{1,i} + \beta_2 x_{2,i} + \dots + \beta_p x_{p,i} + u_i,\ i=1,\dots,n$$
 Or, in matrix notation:
@@ -748,76 +730,14 @@ can be specified in R as a `formula` like this:
 
 The standard function for estimating linear models is `lm()`. This function returns an `lm` object with numerous available methods: `summary()`, `plot()`, `predict()`, etc.
 
-```{r lm_example11, eval = FALSE}
-library(AER)
-data(GrowthSW)
 
-growth.eq1 <- lm(growth ~ rgdp60,
-                 data=GrowthSW)
-summary(growth.eq1)
+```{r lm_example11, eval = TRUE}
+# example : Which city has the highest average temperature?
+regression_1 <- lm(TEMP ~ NAME, data = data_cli)
+summary(regression_1)
 ```
 
----
 
-Output:
-
-```{r lm_example12, eval = TRUE, echo = FALSE}
-library(AER)
-data(GrowthSW)
-
-growth.eq1 <- lm(growth ~ rgdp60,
-                 data=GrowthSW)
-summary(growth.eq1)
-```
----
-
-Multiple variables, transformations:
-```{r lm_example21, eval = FALSE, echo = TRUE}
-growth.eq2 <- lm(growth ~ rgdp60 + tradeshare +
-                 education + I(education^2) + # education linear and squared
-                 revolutions + assassinations, data = GrowthSW)
-sum.eq2 <- summary(growth.eq2)
-```
-
-Without intercept:
-```{r lm_example31, eval = FALSE}
-growth.eq3 <- lm(growth ~ -1 + rgdp60 + tradeshare, data = GrowthSW)
-```
-
-All variables in the dataset:
-```{r lm_example32, eval = FALSE}
-growth.eq4 <- lm(growth ~ ., data = GrowthSW)
-```
-
-Excluding specific variables:
-```{r lm_example33, eval = FALSE}
-growth.eq5 <- lm(growth ~ . -rgdp60, data = GrowthSW)
-```
-
----
-
-With factor variable:
-```{r lm_example41, eval = FALSE}
-GrowthSW <- GrowthSW %>%
-  tibble::rownames_to_column("country") %>%
-  mutate(continent = factor(ifelse(
-    country %in% c("Zaire","Niger","Senegal", "Zimbabwe" ,"Togo",
-           "South Africa", "Sierra Leone" ,"Ghana","Kenya",
-           "Mauritius"), "africa", "other"), levels = c("africa", "other")))
-
-growth.eq6 <- lm(growth ~ rgdp60 + tradeshare + continent, data = GrowthSW)
-summary(growth.eq6)
-```
-
-Interaction terms:
-```{r lm_example51, eval = FALSE}
-growth.eq7 <- lm(growth ~
-                     log(rgdp60) * continent +
-                     tradeshare+log(education)+
-                     revolutions+assassinations,
-                 data=GrowthSW)
-sum.eq7 <- summary(growth.eq7)
-```
 
 
 
@@ -827,47 +747,18 @@ sum.eq7 <- summary(growth.eq7)
 - Or directly access the `lm` or `summary.lm` list objects:
 
 ```{r access_lm, eval = FALSE}
-str(growth.eq7)    ## structure of lm object
-str(sum.eq7)       ## structure of summary.lm object
-
 # elements in lm object
-growth.eq7$coefficients
-growth.eq7$residuals
-growth.eq7$fitted
+regression_1$coefficients
+regression_1$residuals
+regression_1$fitted
 
 # summary.lm provides additional information:
-sum.eq7$coefficients      ## matrix with estimates, std-dev, t-stat, p-value
-sum.eq7$sigma             ## residual standard error estimate
-sum.eq7$adj.r.squared     ## adjusted R^2 of regression
+sum.reg.1 <- summary(regression_1)
+sum.reg.1$coefficients      ## matrix with estimates, std-dev, t-stat, p-value
+sum.reg.1$sigma             ## residual standard error estimate
+sum.reg.1$adj.r.squared     ## adjusted R^2 of regression
 ```
 
-
-
-## Model Selection
-
-To determine which model is "better," model selection criteria like AIC (Akaike Information Criterion) and BIC (Bayesian Information Criterion) are commonly used. The model with the lowest value is considered the "best."
-
-```{r model_selection, eval = FALSE}
-# Akaike Criterion
-AIC(growth.eq5)     # smaller is better
-AIC(growth.eq1)
-
-# Bayesian Information Criterion
-BIC(growth.eq5)     # smaller is better
-BIC(growth.eq1)
-```
-
----
-
-The `MASS` package provides the `stepAIC` function, which iteratively finds an "optimal" model starting from a large model:
-```{r stepwise, eval = FALSE}
-install.packages("MASS")
-library(MASS)
-?stepAIC
-growth.eqAIC <- stepAIC(lm(growth ~ (log(rgdp60) + tradeshare + log(education)+
-                                      revolutions + assassinations + continent)^2,
-                            data=GrowthSW))
-```
 
 
 ## Task 5.5
@@ -882,7 +773,7 @@ For one of the different locations
    
     - Only a constant and a linear trend
     - Quadratic, cubic, and higher order trends
-    - Use the `stepAIC()` function
+    - A polynomial trend up to order 8, but include only coefficients that are significant on a 5% level. 
   
 2. Select one of your models and apply the `summary()` method to it. Discuss the estimates, standard errors, p-values, residual sum of squares, and the adjusted $R^2$ value.
 
@@ -914,14 +805,10 @@ data.lm <- data.frame(temp = data$temp, trend = trend)
 mod <- lm(temp ~ ., data = data.lm)
 
 
-final <- stepAIC(mod)
-
-summary(final)
-
-# stepAIC(lm(MAASTRICHT ~ trend, data = data),
+summary(mod)
 
 plot(data$temp, type = "l")
-lines(fitted(final), col="red")
+lines(fitted(mod), col="red")
 data.lm$mon <- as.factor(format(as.Date(data$date), "%m"))
 
 
@@ -933,9 +820,9 @@ summary(mod)
 
 # select from the full model with dummies and trends via stepAIC
 final <- stepAIC(lm(data.lm$temp ~ ., data = data.lm))
-summary(final)
+summary(mod)
 plot(data$temp, type = "l")
-lines(fitted(final), col="red", lwd = 3)
+lines(fitted(mod), col="red", lwd = 3)
 ```
 
 

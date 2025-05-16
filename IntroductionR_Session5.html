@@ -220,8 +220,7 @@
 <p>We will work with the climate data set for the Netherlands in long format</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_cli</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv"</span>, </span>
-<span>                       header <span class="op">=</span> <span class="cn">TRUE</span>, sep <span class="op">=</span> <span class="st">","</span>, stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>                       header <span class="op">=</span> <span class="cn">TRUE</span>, sep <span class="op">=</span> <span class="st">","</span>, stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="data-manipulation-select-1" class="slide level2"><h2>Data manipulation: Select 1</h2>
 <p>We begin with selecting interesting variables from a data set while dropping irrelevant ones. For our climate data set, we want to preserve information about <code>date</code>, <code>location</code>, and <code>temperature</code>, and drop all other information.</p>
@@ -252,8 +251,7 @@
 </ul>
 <p>Approach #2: Selecting by variable indexes</p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># positive indexing</span></span>
-<span><span class="va">data1</span> <span class="op">&lt;-</span> <span class="va">data_cli</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">14</span>, <span class="fl">3</span>, <span class="fl">19</span><span class="op">)</span><span class="op">]</span> </span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data1</span> <span class="op">&lt;-</span> <span class="va">data_cli</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">14</span>, <span class="fl">3</span>, <span class="fl">19</span><span class="op">)</span><span class="op">]</span> </span>
 <span></span>
 <span><span class="co"># check</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">data1</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -264,8 +262,7 @@
 </section><section id="data-manipulation-select-3" class="slide level2"><h2>Data manipulation: Select 3</h2>
 <p>Approach #3: Selecting by subset()</p>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># subset()</span></span>
-<span><span class="va">data3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">data_cli</span>, select <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">YEARMODA</span>, <span class="va">NAME</span>, <span class="va">TEMP</span><span class="op">)</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">data_cli</span>, select <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">YEARMODA</span>, <span class="va">NAME</span>, <span class="va">TEMP</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># check</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">data3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -360,78 +357,61 @@
 </section><section id="task-5.1" class="slide level2"><h2>Task 5.1</h2>
 <p>Use the long-format climate <a href="https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv">data set</a>.</p>
 <ol type="1">
-<li><p>Generate a data set that contains information about precipitation (<code>PRCP</code>), temperature (<code>TEMP</code>) for all days and locations of the original data set</p></li>
-<li><p>Reduce the information to the year 2020 and the locations Eelde, De Bilt, and Maastricht</p></li>
+<li><p>Generate a data set that contains information about precipitation (<code>PRCP</code>), temperature (<code>TEMP</code>) for all days and locations of the original data set.</p></li>
+<li><p>Reduce the information to the year 2020 and the locations Eelde, De Bilt, and Maastricht.</p></li>
 <li><p>Sort the data by time (ascendingly) and location (alphabetically) first, and then by temperature (ascendingly). When and where was the highest temperature observed?</p></li>
 </ol></section><section id="data-manipulation-adding-information-1" class="slide level2"><h2>Data manipulation: Adding information 1</h2>
-<p>Sometimes we want to transform data or add information. For instance, we could be interested in adding a variable <code>season</code>, with values <code>spring</code>, <code>summer</code>, <code>autumn</code>, <code>winter</code> to our climate data set.</p>
-<p>To add a new variable to a data.frame, use the <code>$</code> operator</p>
+<p>Sometimes we want to transform data or add information. For instance, we could be interested in whether it was raining on a certain day in a certain city (i.e.&nbsp;<code>PRCP</code> is positive)</p>
+<p>To add a new variable <code>RAIN</code> to a data.frame, use the <code>$</code> operator</p>
 <div class="cell">
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Extract month and assign seasons</span></span>
-<span><span class="va">get_season</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">date</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="va">date</span>, <span class="st">"%m"</span><span class="op">)</span><span class="op">)</span></span>
-<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">m</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fl">3</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span> <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="st">"spring"</span><span class="op">)</span></span>
-<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">m</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fl">6</span><span class="op">:</span><span class="fl">8</span><span class="op">)</span> <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="st">"summer"</span><span class="op">)</span></span>
-<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">m</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fl">9</span><span class="op">:</span><span class="fl">11</span><span class="op">)</span> <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="st">"autumn"</span><span class="op">)</span></span>
-<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="st">"winter"</span><span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span><span class="va">get_season</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Vectorize.html">Vectorize</a></span><span class="op">(</span><span class="va">get_season</span><span class="op">)</span></span>
-<span><span class="va">data_cli</span><span class="op">$</span><span class="va">season</span> <span class="op">&lt;-</span> <span class="fu">get_season</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">$</span><span class="va">YEARMODA</span><span class="op">)</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Generate a logical value that is TRUE if percipitation &gt; 0, else FALSE</span></span>
+<span><span class="va">data_cli</span><span class="op">$</span><span class="va">RAIN</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">data_cli</span><span class="op">$</span><span class="va">PRCP</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"YEARMODA"</span>, <span class="st">"season"</span><span class="op">)</span><span class="op">]</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"YEARMODA"</span>, <span class="st">"RAIN"</span><span class="op">)</span><span class="op">]</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    YEARMODA season
-1 2000-01-01 winter
-2 2000-01-02 winter
-3 2000-01-03 winter</code></pre>
+<pre><code>    YEARMODA RAIN
+1 2000-01-01 TRUE
+2 2000-01-02 TRUE
+3 2000-01-03 TRUE</code></pre>
 </div>
 </div>
 </section><section id="data-manipulation-adding-information-2" class="slide level2"><h2>Data manipulation: Adding information 2</h2>
 <p>As an alternative, we can also use the bracket notation</p>
 <div class="cell">
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_cli</span><span class="op">[</span>, <span class="st">"season"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu">get_season</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">[</span>, <span class="st">"YEARMODA"</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_cli</span><span class="op">[</span>, <span class="st">"RAIN"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">data_cli</span><span class="op">$</span><span class="va">PRCP</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Moreover, sometimes we want to transform data. As an example, add temperature in Kelvin to the data set.</p>
 <div class="cell">
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_cli</span><span class="op">[</span>, <span class="st">"temp_k"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">data_cli</span><span class="op">[</span>, <span class="st">"TEMP"</span><span class="op">]</span> <span class="op">+</span> <span class="fl">273.15</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"YEARMODA"</span>, <span class="st">"season"</span>, <span class="st">"NAME"</span>, <span class="st">"TEMP"</span>, <span class="st">"temp_k"</span><span class="op">)</span><span class="op">]</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"YEARMODA"</span>, <span class="st">"RAIN"</span>, <span class="st">"NAME"</span>, <span class="st">"TEMP"</span>, <span class="st">"temp_k"</span><span class="op">)</span><span class="op">]</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    YEARMODA season     NAME TEMP temp_k
-1 2000-01-01 winter SCHIPHOL  6.4 279.55
-2 2000-01-02 winter SCHIPHOL  7.2 280.35
-3 2000-01-03 winter SCHIPHOL  8.7 281.85</code></pre>
+<pre><code>    YEARMODA RAIN     NAME TEMP temp_k
+1 2000-01-01 TRUE SCHIPHOL  6.4 279.55
+2 2000-01-02 TRUE SCHIPHOL  7.2 280.35
+3 2000-01-03 TRUE SCHIPHOL  8.7 281.85</code></pre>
 </div>
 </div>
 </section><section id="data-manipulation-adding-information-3" class="slide level2"><h2>Data manipulation: Adding information 3</h2>
-<p>Besides adding columns, we can also expand our data set by adding further rows to the data. For instance, we could first drop all observations for Maastricht from the climate data set and add them back to it:</p>
+<p>Besides adding columns, we can also expand our data set by adding further rows to the data. Suppose we observe additional data for Leuven. We can then extend our data set to include the new information using the <code><a href="https://rdrr.io/r/base/cbind.html">rbind()</a></code> command.</p>
 <div class="cell">
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># split the data set</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data_cli</span><span class="op">[</span><span class="va">data_cli</span><span class="op">$</span><span class="va">NAME</span> <span class="op">!=</span> <span class="st">"MAASTRICHT"</span> ,<span class="op">]</span></span>
-<span><span class="va">data_M</span> <span class="op">&lt;-</span> <span class="va">data_cli</span><span class="op">[</span><span class="va">data_cli</span><span class="op">$</span><span class="va">NAME</span> <span class="op">==</span> <span class="st">"MAASTRICHT"</span> ,<span class="op">]</span></span>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Load data for Leuven</span></span>
+<span><span class="va">data_leuven</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.table</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate_leuven.csv"</span>, </span>
+<span>                       header <span class="op">=</span> <span class="cn">TRUE</span>, sep <span class="op">=</span> <span class="st">","</span>, stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># join the two data sets </span></span>
-<span><span class="va">data_new</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">data_M</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">data_cli</span>, <span class="va">data_new</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># preserve order</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/identical.html">identical</a></span><span class="op">(</span><span class="va">data_cli</span>, <span class="va">data_new</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">data_new</span><span class="op">$</span><span class="va">X</span><span class="op">)</span>, <span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
+<span><span class="va">data_new</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">data_cli</span>, <span class="va">data_leuven</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="data-manipulation-adding-information-4" class="slide level2"><h2>Data manipulation: Adding information 4</h2>
 <p>Sometimes we want to change the class of a variable: for instance, we want to make sure that <code>YEARMODA</code> indeed is a Date-variable, whereas <code>NAME</code> is a factor</p>
 <div class="cell">
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># split the data set</span></span>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># split the data set</span></span>
 <span><span class="va">data_cli</span><span class="op">$</span><span class="va">NAME</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">$</span><span class="va">NAME</span><span class="op">)</span></span>
 <span><span class="va">data_cli</span><span class="op">$</span><span class="va">YEARMODA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">$</span><span class="va">YEARMODA</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="data-manipulation-reshaping-data-1" class="slide level2"><h2>Data manipulation: Reshaping data 1</h2>
-<p>If we want to generate a new data.framem, we can collect the relevat information via the <code><a href="https://rdrr.io/r/base/data.frame.html">data.frame()</a></code> function:</p>
+<p>If we want to generate a new data.frame, we can collect the relevat information via the <code><a href="https://rdrr.io/r/base/data.frame.html">data.frame()</a></code> function:</p>
 <div class="cell">
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># split the data set</span></span>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># split the data set</span></span>
 <span><span class="va">data_cli_new</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">$</span><span class="va">YEARMODA</span><span class="op">)</span>,</span>
 <span>                           location <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">$</span><span class="va">NAME</span><span class="op">)</span>, </span>
 <span>                           temp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">data_cli</span><span class="op">$</span><span class="va">TEMP</span><span class="op">)</span><span class="op">)</span></span>
@@ -449,7 +429,7 @@
 </section><section id="data-manipulation-reshaping-data-2" class="slide level2"><h2>Data manipulation: Reshaping data 2</h2>
 <p>Moreover, we sometimes prefer to have data in wide format. This can be achieved by using the <code><a href="https://rdrr.io/r/stats/reshape.html">reshape()</a></code> function. The example below generates a wide data set with temperature data along different stations.</p>
 <div class="cell">
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># split the data set</span></span>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># split the data set</span></span>
 <span><span class="va">data_cli_new_wide</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/reshape.html">reshape</a></span><span class="op">(</span><span class="va">data_cli_new</span>, timevar <span class="op">=</span> <span class="st">"location"</span>, </span>
 <span>                             idvar <span class="op">=</span><span class="st">"date"</span>, direction <span class="op">=</span> <span class="st">"wide"</span><span class="op">)</span></span>
 <span></span>
@@ -468,7 +448,7 @@
 <p>For exploratory data analysis, we are interested in computing (conditional and unconditional) summary statistics. In principle, the function <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> already gives us an overview about the data.</p>
 <p>Example:</p>
 <div class="cell">
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># split the data set</span></span>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># split the data set</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">data_cli_new</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      date                   location          temp      
@@ -485,7 +465,7 @@
 <p>Often we are interested in computing summary statistics along certain groups: For instance, we could be interested in the average temperature for each station and year. Here, the <code>aggregate</code> function allows to execute functions along groups.</p>
 <p>Example:</p>
 <div class="cell">
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># generate a new variable `year``</span></span>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># generate a new variable `year``</span></span>
 <span><span class="va">data_cli_new</span><span class="op">$</span><span class="va">year</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">data_cli_new</span><span class="op">$</span><span class="va">date</span><span class="op">)</span>, <span class="st">"%Y"</span><span class="op">)</span></span>
 <span><span class="co"># average temperature per year</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">temp</span> <span class="op">~</span> <span class="va">year</span>, data <span class="op">=</span> <span class="va">data_cli_new</span>, FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -520,7 +500,7 @@
 </div>
 </section><section id="data-manipulation-computing-summary-statistics-3" class="slide level2"><h2>Data manipulation: Computing summary statistics 3</h2>
 <div class="cell">
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># average temperature per station</span></span>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># average temperature per station</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">temp</span> <span class="op">~</span> <span class="va">location</span>, data <span class="op">=</span> <span class="va">data_cli_new</span>, FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      location     temp
@@ -539,7 +519,7 @@
 </div>
 </section><section id="data-manipulation-computing-summary-statistics-4" class="slide level2"><h2>Data manipulation: Computing summary statistics 4</h2>
 <div class="cell">
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># average temperature per station and year</span></span>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># average temperature per station and year</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">temp</span> <span class="op">~</span> <span class="va">location</span> <span class="op">+</span> <span class="va">year</span>, data <span class="op">=</span> <span class="va">data_cli_new</span>, FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       location year      temp
@@ -821,7 +801,7 @@
 </div>
 </div>
 </section><section id="task-5.2" class="slide level2"><h2>Task 5.2</h2>
-<p>Use the long-format temperature <code>[data set](https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv).</code>.</p>
+<p>Use the long-format temperature <a href="https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv">data set</a>.</p>
 <ol type="1">
 <li><p>Add the variable <code>tempF</code> (temperature in Fahrenheit) to the dataset</p></li>
 <li><p>Compute, grouped by city and year, the mean temperature and standard deviation.</p></li>
@@ -846,11 +826,13 @@
 </ol>
 </li>
 <li><p><a href="https://purrr.tidyverse.org/">purrr</a>: “Enhance R’s functional programming toolkit”</p></li>
-</ul></section><section id="pipes" class="slide level2"><h2>Pipes</h2>
+</ul>
+<p>Note: The philosophy (and syntax) of <a href="https://www.tidyverse.org/">tidyverse</a> differs completely from base-R and is somewhat similar to Python’s <code>pandas</code>. Some argue tidyverse code is more readable and intuitive, others find it rather unhandy. R code written by AI models typically utilizes packages from the tidyverse.</p>
+</section><section id="pipes" class="slide level2"><h2>Pipes</h2>
 <p>An important component of working with data and <code>dplyr</code> is the pipe operator <code>%&gt;%</code>, included in the <code>magrittr</code> package. The goal of this operator (also found in many other languages) is to make function composition more readable in code.</p>
 <p>Example:</p>
 <div class="cell">
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op">+</span> <span class="fl">10</span></span>
 <span><span class="va">g</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op">*</span> <span class="fl">2</span></span>
@@ -871,7 +853,7 @@ More examples
 <div style="flex: 1;">
 <p><strong>dplyr</strong> with <code>%&gt;%</code></p>
 <div class="cell">
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_cli</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_cli</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">TEMP</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
@@ -885,7 +867,7 @@ More examples
 <div style="flex: 1;">
 <p><strong>Standard R</strong></p>
 <div class="cell">
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">data_cli</span>, select <span class="op">=</span> <span class="va">TEMP</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span></span>
@@ -913,9 +895,9 @@ More examples
 <p>These functions often have variants and additional helper functions that assist with variable selection.</p>
 </section><section id="data-manipulation-with-dplyr-select" class="slide level2"><h2>Data manipulation with <code>dplyr</code>: Select</h2>
 <p>As before, we want to select certain variables from our data set - now using dplyr. For our climate data set, we want to preserve information about <code>date</code>, <code>location</code>, and <code>temperature</code>, and drop all other information.</p>
-<p><code><a href="https://rdrr.io/pkg/MASS/man/lm.ridge.html">select()</a></code> picks the variables of interest while dropping all others. In the example below, we choose to preserve <code>YEARMODA</code>, <code>NAME</code>, <code>TEMP</code>, while dropping all other information (as before).</p>
+<p><code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> picks the variables of interest while dropping all others. In the example below, we choose to preserve <code>YEARMODA</code>, <code>NAME</code>, <code>TEMP</code>, while dropping all other information (as before).</p>
 <div class="cell">
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data_cli</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">YEARMODA</span>, <span class="va">NAME</span>, <span class="va">TEMP</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data_cli</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">YEARMODA</span>, <span class="va">NAME</span>, <span class="va">TEMP</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    YEARMODA     NAME TEMP
@@ -923,7 +905,7 @@ More examples
 2 2000-01-02 SCHIPHOL  7.2
 3 2000-01-03 SCHIPHOL  8.7</code></pre>
 </div>
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">data</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">data</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         YEARMODA       NAME TEMP
 100152 2024-12-29 MAASTRICHT  0.2
@@ -932,9 +914,9 @@ More examples
 </div>
 </div>
 </section><section id="data-manipulation-with-dplyr-subsetting-rows" class="slide level2"><h2>Data manipulation with <code>dplyr</code>: Subsetting rows</h2>
-<p>Next, we want to subset the rows. Here, the <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> command is useful. It drops all information that violates the logical argument. In the example below, we restrict the data to year 2024 and to Maastricht only.</p>
+<p>Next, we want to subset the rows. Here, the <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> command is useful. It drops all information that violates the logical argument. In the example below, we restrict the data to year 2024 and to Maastricht only.</p>
 <div class="cell">
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># select data from 2024-01-01 on only</span></span>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># select data from 2024-01-01 on only</span></span>
 <span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data_cli</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">YEARMODA</span> <span class="op">&gt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2024-01-01"</span><span class="op">)</span> <span class="op">&amp;</span></span>
 <span>                            <span class="va">YEARMODA</span> <span class="op">&lt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2024-12-31"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>                     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">NAME</span> <span class="op">==</span> <span class="st">"MAASTRICHT"</span><span class="op">)</span> <span class="co"># select Maastricht obs</span></span>
@@ -946,7 +928,7 @@ More examples
 2 2024-01-02 MAASTRICHT  9.7
 3 2024-01-03 MAASTRICHT  9.7</code></pre>
 </div>
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">data</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"YEARMODA"</span>, <span class="st">"NAME"</span>, <span class="st">"TEMP"</span><span class="op">)</span><span class="op">]</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">data</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"YEARMODA"</span>, <span class="st">"NAME"</span>, <span class="st">"TEMP"</span><span class="op">)</span><span class="op">]</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      YEARMODA       NAME TEMP
 353 2024-12-29 MAASTRICHT  0.2
@@ -957,7 +939,7 @@ More examples
 </section><section id="data-manipulation-with-dplyr-sorting-data" class="slide level2"><h2>Data manipulation with <code>dplyr</code>: Sorting data</h2>
 <p>The function <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> sorts the observations along the values of the selected columns.</p>
 <div class="cell">
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_cli_ord</span> <span class="op">&lt;-</span> <span class="va">data_cli</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">YEARMODA</span>, <span class="va">NAME</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_cli_ord</span> <span class="op">&lt;-</span> <span class="va">data_cli</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">YEARMODA</span>, <span class="va">NAME</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>                <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">YEARMODA</span>, <span class="va">NAME</span>, <span class="va">TEMP</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_cli_ord</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -972,7 +954,7 @@ More examples
 </section><section id="data-manipulation-with-dplyr-adding-information-1" class="slide level2"><h2>Data manipulation with <code>dplyr</code>: Adding information 1</h2>
 <p>To add a new variable to the data set, we can use the function <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>. As before, add a new variable <code>season</code> to the data set:</p>
 <div class="cell">
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_cli</span> <span class="op">&lt;-</span> <span class="va">data_cli</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_cli</span> <span class="op">&lt;-</span> <span class="va">data_cli</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
 <span>    season <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
 <span>      <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">YEARMODA</span><span class="op">)</span>, <span class="st">"%m"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"03"</span>, <span class="st">"04"</span>, <span class="st">"05"</span><span class="op">)</span> <span class="op">~</span> <span class="st">"spring"</span>,</span>
@@ -994,7 +976,7 @@ More examples
 </section><section id="data-manipulation-with-dplyr-adding-information-2" class="slide level2"><h2>Data manipulation with <code>dplyr</code>: Adding information 2</h2>
 <p>Besides adding columns, we can also expand our data set by adding further rows to the data. For instance, we could first drop all observations for Maastricht from the climate data set and add them back to it:</p>
 <div class="cell">
-<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Split the data set</span></span>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Split the data set</span></span>
 <span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data_cli</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">NAME</span> <span class="op">!=</span> <span class="st">"MAASTRICHT"</span><span class="op">)</span></span>
 <span><span class="va">data_M</span> <span class="op">&lt;-</span> <span class="va">data_cli</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">NAME</span> <span class="op">==</span> <span class="st">"MAASTRICHT"</span><span class="op">)</span></span>
 <span></span>
@@ -1006,7 +988,7 @@ More examples
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
-<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Preserve original order using column X</span></span>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Preserve original order using column X</span></span>
 <span><span class="va">data_new_ordered</span> <span class="op">&lt;-</span> <span class="va">data_new</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Check if fully identical after reordering</span></span>
@@ -1019,7 +1001,7 @@ More examples
 <p>Datasets that are <em>tidy</em> should have each observation as a row and each variable as a column (<code>long</code> format). However, datasets are often found in <code>wide</code> format.</p>
 <p>A way to convert <code>wide</code> to <code>long</code> is the <code>pivot_longer()</code> function from <code>tidyr</code>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_cli_new</span> <span class="op">&lt;-</span> <span class="va">data_cli</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  <span class="co"># subset the data set</span></span>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_cli_new</span> <span class="op">&lt;-</span> <span class="va">data_cli</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>  <span class="co"># subset the data set</span></span>
 <span>      <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>date <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">YEARMODA</span><span class="op">)</span>, location <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">NAME</span><span class="op">)</span>, </span>
 <span>             temp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">TEMP</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>      <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">date</span>, <span class="va">location</span>, <span class="va">temp</span><span class="op">)</span> </span>
@@ -1037,7 +1019,7 @@ More examples
 </section><section id="data-manipulation-with-dplyr-computing-summary-statistics-1" class="slide level2"><h2>Data manipulation with <code>dplyr</code>: Computing summary statistics 1</h2>
 <p>To compute summary statistics along groups, we can use <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code>, which splits the data into groups and allows for the group-wise execution of functions:</p>
 <div class="cell">
-<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># add variable year</span></span>
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># add variable year</span></span>
 <span><span class="va">data_cli_new</span> <span class="op">&lt;-</span> <span class="va">data_cli_new</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="va">date</span><span class="op">)</span>, <span class="st">"%Y"</span><span class="op">)</span><span class="op">)</span> </span>
 <span></span>
 <span><span class="co"># mean temperature by location </span></span>
@@ -1063,7 +1045,7 @@ More examples
 </div>
 </section><section id="data-manipulation-with-dplyr-computing-summary-statistics-2" class="slide level2"><h2>Data manipulation with <code>dplyr</code>: Computing summary statistics 2</h2>
 <div class="cell">
-<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># mean temperature by year</span></span>
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># mean temperature by year</span></span>
 <span><span class="va">data_cli_new</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co"># now data is grouped by year</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_temp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">temp</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, .groups <span class="op">=</span> <span class="st">"drop"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1086,7 +1068,7 @@ More examples
 </div>
 </section><section id="data-manipulation-with-dplyr-computing-summary-statistics-3" class="slide level2"><h2>Data manipulation with <code>dplyr</code>: Computing summary statistics 3</h2>
 <div class="cell">
-<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># mean temperature by year and city</span></span>
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># mean temperature by year and city</span></span>
 <span><span class="va">data_cli_new</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">location</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="co"># now data is grouped by city and year</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_temp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">temp</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, .groups <span class="op">=</span> <span class="st">"drop"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1112,15 +1094,7 @@ More examples
 </section></section><section><section id="reg1" class="title-slide slide level1 center"><h1>Regression analysis</h1>
 
 </section><section id="general-information" class="slide level2"><h2>General Information</h2>
-<p>In econometrics (which can also be applied to other scientific fields), we often ask questions like:</p>
-<ul>
-<li>Does income convergence occur (does a low income level lead to higher growth in the future, ceteris paribus)?</li>
-<li>Is education an important determinant of growth?</li>
-<li>Does foreign trade accelerate growth?</li>
-<li>Is political stability important / does violence hinder economic prosperity?</li>
-<li>Is growth slower in Africa, ceteris paribus?</li>
-</ul>
-<p>The standard tool for such analyses: <strong>multiple linear regression model</strong></p>
+<p>In what follows, consider the <strong>multiple linear regression model</strong></p>
 <p><span class="math display">\[y_i = \beta_0 + \beta_1 x_{1,i} + \beta_2 x_{2,i} + \dots + \beta_p x_{p,i} + u_i,\ i=1,\dots,n\]</span> Or, in matrix notation: <span class="math display">\[\mathbf{y} = \mathbf{X}\beta + \mathbf{u},\]</span> where <span class="math inline">\(\mathbf{y}, \mathbf{u}\in\mathbb{R}^{n}\)</span>, <span class="math inline">\(\mathbf{X}\in\mathbb{R}^{n\times k}\)</span>, <span class="math inline">\(\beta\in\mathbb{R}^{k}\)</span>, and <span class="math inline">\(k = p + 1\)</span>.</p>
 </section><section id="formula-objects" class="slide level2"><h2>Formula Objects</h2>
 <p>R is designed to easily estimate various statistical models. It provides a specific object class to symbolically describe statistical models, called <code>formula</code> objects. See <code><a href="https://rdrr.io/r/stats/formula.html">?formula</a></code> for more details.</p>
@@ -1149,75 +1123,38 @@ More examples
 <li><p>Factor variables in formulas are automatically <em>dummy coded</em>.</p></li>
 </ul></section><section class="slide level2"><p>The standard function for estimating linear models is <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>. This function returns an <code>lm</code> object with numerous available methods: <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>, <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code>, <code><a href="https://rdrr.io/r/stats/predict.html">predict()</a></code>, etc.</p>
 <div class="cell">
-<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">AER</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">GrowthSW</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">growth.eq1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">growth</span> <span class="op">~</span> <span class="va">rgdp60</span>,</span>
-<span>                 data<span class="op">=</span><span class="va">GrowthSW</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">growth.eq1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section><section class="slide level2"><p>Output:</p>
-<div class="cell">
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># example : Which city has the highest average temperature?</span></span>
+<span><span class="va">regression_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">TEMP</span> <span class="op">~</span> <span class="va">NAME</span>, data <span class="op">=</span> <span class="va">data_cli</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">regression_1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = growth ~ rgdp60, data = GrowthSW)
+lm(formula = TEMP ~ NAME, data = data_cli)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--4.6309 -1.0485  0.0831  0.8722  5.3183 
+     Min       1Q   Median       3Q      Max 
+-27.5000  -4.5761   0.0697   4.9588  20.3644 
 
 Coefficients:
-             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept) 1.796e+00  3.780e-01   4.751 1.21e-05 ***
-rgdp60      4.735e-05  9.494e-05   0.499     0.62    
+                Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)     10.85676    0.06627 163.833  &lt; 2e-16 ***
+NAMEDEELEN      -0.33641    0.09373  -3.589 0.000332 ***
+NAMEEELDE       -0.68061    0.09367  -7.266 3.74e-13 ***
+NAMEEINDHOVEN    0.22449    0.09368   2.396 0.016560 *  
+NAMEGILZE RIJEN  0.14745    0.09371   1.574 0.115598    
+NAMELELYSTAD    -0.25673    0.09374  -2.739 0.006166 ** 
+NAMEMAASTRICHT   0.20279    0.09367   2.165 0.030399 *  
+NAMEROTTERDAM    0.27359    0.09367   2.921 0.003494 ** 
+NAMESCHIPHOL     0.20292    0.09367   2.166 0.030285 *  
+NAMETWENTHE     -0.42119    0.09379  -4.491 7.11e-06 ***
+NAMEVOLKEL      -0.01553    0.09374  -0.166 0.868429    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 1.908 on 63 degrees of freedom
-Multiple R-squared:  0.003932,  Adjusted R-squared:  -0.01188 
-F-statistic: 0.2487 on 1 and 63 DF,  p-value: 0.6197</code></pre>
+Residual standard error: 6.322 on 100143 degrees of freedom
+Multiple R-squared:  0.002293,  Adjusted R-squared:  0.002193 
+F-statistic: 23.01 on 10 and 100143 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-</div>
-</section><section class="slide level2"><p>Multiple variables, transformations:</p>
-<div class="cell">
-<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">growth.eq2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">growth</span> <span class="op">~</span> <span class="va">rgdp60</span> <span class="op">+</span> <span class="va">tradeshare</span> <span class="op">+</span></span>
-<span>                 <span class="va">education</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/AsIs.html">I</a></span><span class="op">(</span><span class="va">education</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span> <span class="op">+</span> <span class="co"># education linear and squared</span></span>
-<span>                 <span class="va">revolutions</span> <span class="op">+</span> <span class="va">assassinations</span>, data <span class="op">=</span> <span class="va">GrowthSW</span><span class="op">)</span></span>
-<span><span class="va">sum.eq2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">growth.eq2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Without intercept:</p>
-<div class="cell">
-<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">growth.eq3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">growth</span> <span class="op">~</span> <span class="op">-</span><span class="fl">1</span> <span class="op">+</span> <span class="va">rgdp60</span> <span class="op">+</span> <span class="va">tradeshare</span>, data <span class="op">=</span> <span class="va">GrowthSW</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>All variables in the dataset:</p>
-<div class="cell">
-<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">growth.eq4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">growth</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">GrowthSW</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Excluding specific variables:</p>
-<div class="cell">
-<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">growth.eq5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">growth</span> <span class="op">~</span> <span class="va">.</span> <span class="op">-</span><span class="va">rgdp60</span>, data <span class="op">=</span> <span class="va">GrowthSW</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section><section class="slide level2"><p>With factor variable:</p>
-<div class="cell">
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">GrowthSW</span> <span class="op">&lt;-</span> <span class="va">GrowthSW</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/rownames.html">rownames_to_column</a></span><span class="op">(</span><span class="st">"country"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>continent <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span></span>
-<span>    <span class="va">country</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Zaire"</span>,<span class="st">"Niger"</span>,<span class="st">"Senegal"</span>, <span class="st">"Zimbabwe"</span> ,<span class="st">"Togo"</span>,</span>
-<span>           <span class="st">"South Africa"</span>, <span class="st">"Sierra Leone"</span> ,<span class="st">"Ghana"</span>,<span class="st">"Kenya"</span>,</span>
-<span>           <span class="st">"Mauritius"</span><span class="op">)</span>, <span class="st">"africa"</span>, <span class="st">"other"</span><span class="op">)</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"africa"</span>, <span class="st">"other"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">growth.eq6</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">growth</span> <span class="op">~</span> <span class="va">rgdp60</span> <span class="op">+</span> <span class="va">tradeshare</span> <span class="op">+</span> <span class="va">continent</span>, data <span class="op">=</span> <span class="va">GrowthSW</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">growth.eq6</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Interaction terms:</p>
-<div class="cell">
-<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">growth.eq7</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">growth</span> <span class="op">~</span></span>
-<span>                     <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">rgdp60</span><span class="op">)</span> <span class="op">*</span> <span class="va">continent</span> <span class="op">+</span></span>
-<span>                     <span class="va">tradeshare</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">education</span><span class="op">)</span><span class="op">+</span></span>
-<span>                     <span class="va">revolutions</span><span class="op">+</span><span class="va">assassinations</span>,</span>
-<span>                 data<span class="op">=</span><span class="va">GrowthSW</span><span class="op">)</span></span>
-<span><span class="va">sum.eq7</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">growth.eq7</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="accessing-regression-results" class="slide level2"><h2>Accessing Regression Results</h2>
 <ul>
@@ -1225,38 +1162,16 @@ F-statistic: 0.2487 on 1 and 63 DF,  p-value: 0.6197</code></pre>
 <li>Or directly access the <code>lm</code> or <code>summary.lm</code> list objects:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">growth.eq7</span><span class="op">)</span>    <span class="co">## structure of lm object</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">sum.eq7</span><span class="op">)</span>       <span class="co">## structure of summary.lm object</span></span>
-<span></span>
-<span><span class="co"># elements in lm object</span></span>
-<span><span class="va">growth.eq7</span><span class="op">$</span><span class="va">coefficients</span></span>
-<span><span class="va">growth.eq7</span><span class="op">$</span><span class="va">residuals</span></span>
-<span><span class="va">growth.eq7</span><span class="op">$</span><span class="va">fitted</span></span>
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># elements in lm object</span></span>
+<span><span class="va">regression_1</span><span class="op">$</span><span class="va">coefficients</span></span>
+<span><span class="va">regression_1</span><span class="op">$</span><span class="va">residuals</span></span>
+<span><span class="va">regression_1</span><span class="op">$</span><span class="va">fitted</span></span>
 <span></span>
 <span><span class="co"># summary.lm provides additional information:</span></span>
-<span><span class="va">sum.eq7</span><span class="op">$</span><span class="va">coefficients</span>      <span class="co">## matrix with estimates, std-dev, t-stat, p-value</span></span>
-<span><span class="va">sum.eq7</span><span class="op">$</span><span class="va">sigma</span>             <span class="co">## residual standard error estimate</span></span>
-<span><span class="va">sum.eq7</span><span class="op">$</span><span class="va">adj.r.squared</span>     <span class="co">## adjusted R^2 of regression</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section><section id="model-selection" class="slide level2"><h2>Model Selection</h2>
-<p>To determine which model is “better,” model selection criteria like AIC (Akaike Information Criterion) and BIC (Bayesian Information Criterion) are commonly used. The model with the lowest value is considered the “best.”</p>
-<div class="cell">
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Akaike Criterion</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/AIC.html">AIC</a></span><span class="op">(</span><span class="va">growth.eq5</span><span class="op">)</span>     <span class="co"># smaller is better</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/AIC.html">AIC</a></span><span class="op">(</span><span class="va">growth.eq1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Bayesian Information Criterion</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/AIC.html">BIC</a></span><span class="op">(</span><span class="va">growth.eq5</span><span class="op">)</span>     <span class="co"># smaller is better</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/AIC.html">BIC</a></span><span class="op">(</span><span class="va">growth.eq1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section><section class="slide level2"><p>The <code>MASS</code> package provides the <code>stepAIC</code> function, which iteratively finds an “optimal” model starting from a large model:</p>
-<div class="cell">
-<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"MASS"</span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.stats.ox.ac.uk/pub/MASS4/">MASS</a></span><span class="op">)</span></span>
-<span><span class="op">?</span><span class="va">stepAIC</span></span>
-<span><span class="va">growth.eqAIC</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/MASS/man/stepAIC.html">stepAIC</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">growth</span> <span class="op">~</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">rgdp60</span><span class="op">)</span> <span class="op">+</span> <span class="va">tradeshare</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">education</span><span class="op">)</span><span class="op">+</span></span>
-<span>                                      <span class="va">revolutions</span> <span class="op">+</span> <span class="va">assassinations</span> <span class="op">+</span> <span class="va">continent</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span>,</span>
-<span>                            data<span class="op">=</span><span class="va">GrowthSW</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">sum.reg.1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">regression_1</span><span class="op">)</span></span>
+<span><span class="va">sum.reg.1</span><span class="op">$</span><span class="va">coefficients</span>      <span class="co">## matrix with estimates, std-dev, t-stat, p-value</span></span>
+<span><span class="va">sum.reg.1</span><span class="op">$</span><span class="va">sigma</span>             <span class="co">## residual standard error estimate</span></span>
+<span><span class="va">sum.reg.1</span><span class="op">$</span><span class="va">adj.r.squared</span>     <span class="co">## adjusted R^2 of regression</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="task-5.5" class="slide level2"><h2>Task 5.5</h2>
 <p>Reconsider the climate <a href="https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv">data set</a>. You want to draw inference on whether temperature is trending, at the same time stay agnostic about the nature of the trend. Therefore, you decide to approximate the trending dynamics of temperature by a polynomial trend of order p <span class="math display">\[
@@ -1268,7 +1183,7 @@ F-statistic: 0.2487 on 1 and 63 DF,  p-value: 0.6197</code></pre>
 <ul>
 <li>Only a constant and a linear trend</li>
 <li>Quadratic, cubic, and higher order trends</li>
-<li>Use the <code><a href="https://rdrr.io/pkg/MASS/man/stepAIC.html">stepAIC()</a></code> function</li>
+<li>A polynomial trend up to order 8, but include only coefficients that are significant on a 5% level.</li>
 </ul>
 </li>
 <li><p>Select one of your models and apply the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> method to it. Discuss the estimates, standard errors, p-values, residual sum of squares, and the adjusted <span class="math inline">\(R^2\)</span> value.</p></li>
