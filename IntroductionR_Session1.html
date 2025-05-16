@@ -754,7 +754,8 @@
 </section>
 <section id="loading-r-package" class="slide level2">
 <h2>Loading R package</h2>
-<p>Installing an <strong>R</strong> package as we just did, only needs to be done once. Yet each time you want to use the functionality of the <strong>R</strong> package in your current <strong>R</strong> session, you need to activate it. You can do this via the following command:</p>
+<p>Installing an <strong>R</strong> package as we just did, only needs to be done once.</p>
+<p>Yet each time you want to use the functionality of the <strong>R</strong> package in your current <strong>R</strong> session, you need to activate it. You can do this via the following command:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(this.path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -803,22 +804,32 @@
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(this.path)</span>
 <span id="cb13-2"><a href="" aria-hidden="true" tabindex="-1"></a>?this.path</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Both commands above to the exact same: they open the help file of the function you specified. An <strong>R</strong> Help page will only be opened if the function exists!</p>
-<p>You will explore <strong>R</strong> Help pages in more detail during later sessions!</p>
+<p>Both commands above to the same: they open the help file of the function you specified. Note that <strong>R</strong> searches for an <strong>exact</strong>! match and will only open the <strong>R</strong> Help page if the function exists.</p>
 </section>
 <section id="exercise-r-help" class="slide level2">
 <h2>Exercise R Help</h2>
-<p>What happens if you execute the following code:</p>
+<ul>
+<li>What happens if you execute the following code:</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="" aria-hidden="true" tabindex="-1"></a>?thispath</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="" aria-hidden="true" tabindex="-1"></a>?this.path</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>R</strong> should tell you that no documentation for the requested function exists.</p>
-<p>What happens if you try instead:</p>
+<p><strong>R</strong> should open the help page for the function with name this.path. No need to go over the help page in detail, you will explore the content of <strong>R</strong> Help pages during later sessions!</p>
+<ul>
+<li>What happens if you execute the following code:</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="" aria-hidden="true" tabindex="-1"></a>??thispath</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="" aria-hidden="true" tabindex="-1"></a>?thispath</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>R</strong> should tell you that no documentation for the requested function exists. It did not find an <strong>exact</strong> match to the function thispath! It does give you a recommendation to try something instead…</p>
+<ul>
+<li>What happens if you try this recommendation, namely:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="" aria-hidden="true" tabindex="-1"></a>??thispath</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>R</strong> performs a full-text search of the help system for all documentation that mentions the term thispath (or something alike)</p>
-<p>Such a broader search is useful if you are not sure about the exact name of a function.</p>
+<p>While the search with the command <em>?</em> is thus useful to directly access the help page of an <strong>R</strong> function you know exists, the broader help search with the command <em>??</em> is useful if you are not sure about the exact name of a function.</p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 

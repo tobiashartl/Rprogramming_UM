@@ -411,7 +411,9 @@ You can use this **R** code also directly to install a package. The package is n
 
 ## Loading R package
 
-Installing an **R** package as we just did, only needs to be done once. Yet each time you want to use the functionality of the **R** package in your current **R** session, you need to activate it. You can do this via the following command:
+Installing an **R** package as we just did, only needs to be done once. 
+
+Yet each time you want to use the functionality of the **R** package in your current **R** session, you need to activate it. You can do this via the following command:
 ```{r, eval=FALSE}
 library(this.path)
 ```
@@ -461,26 +463,36 @@ help(this.path)
 ?this.path
 ```
 
-Both commands above to the exact same: they open the help file of the function you specified. An **R** Help page will only be opened if the function exists!
+Both commands above to the  same: they open the help file of the function you specified. 
+Note that **R**  searches for an **exact**! match and will only open the **R** Help page if the function exists. 
 
-You will explore **R** Help pages in more detail during later sessions!
+
 
 ## Exercise R Help
-What happens if you execute the following code:
+
+- What happens if you execute the following code:
+```{r, eval=FALSE}
+?this.path
+```
+
+**R** should open the help page for the function with name this.path. No need to go over the help page in detail, you will explore the content of **R** Help pages during later sessions!
+
+- What happens if you execute the following code:
 ```{r, eval=FALSE}
 ?thispath
 ```
 
-**R** should tell you that no documentation for the requested function exists. 
+**R** should tell you that no documentation for the requested function exists. It did not find an **exact** match to the function thispath!  It does give you a recommendation to try something instead...
 
-What happens if you try instead:
+- What happens if you try this recommendation, namely:
 ```{r, eval=FALSE}
 ??thispath
 ```
 
 **R** performs a full-text search of the help system for all documentation that mentions the term thispath (or something alike)
 
-Such a broader search is useful if you are not sure about the exact name of a function.
+
+While the search with the command <em>?</em> is thus useful to directly access the help page of an **R** function you know exists, the broader help search with the command <em>??</em> is useful if you are not sure about the exact name of a function.
 
 
 
