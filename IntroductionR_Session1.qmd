@@ -426,6 +426,7 @@ Why did we install the **this.path** package? Because it offers functionality to
 
 To set the working directory to the folder where your current **R** script is located, you can simply use:
 ```{r, eval=FALSE}
+library(this.path) # Load the library each time you use the command below
 setwd(dirname(this.path::this.path()))
 ```
 It may be convenient to enter this at the top of your **R** script to ensure that you are always working in the directory where your **R** Script is located without having to type the name of the path!

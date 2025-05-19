@@ -766,7 +766,8 @@
 <p>Why did we install the <strong>this.path</strong> package? Because it offers functionality to set your working directory, as an alternative to the Menu-based approach we say before.</p>
 <p>To set the working directory to the folder where your current <strong>R</strong> script is located, you can simply use:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="fu">dirname</span>(this.path<span class="sc">::</span><span class="fu">this.path</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(this.path) <span class="co"># Load the library each time you use the command below</span></span>
+<span id="cb11-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="fu">dirname</span>(this.path<span class="sc">::</span><span class="fu">this.path</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>It may be convenient to enter this at the top of your <strong>R</strong> script to ensure that you are always working in the directory where your <strong>R</strong> Script is located without having to type the name of the path!</p>
 </section></section>
