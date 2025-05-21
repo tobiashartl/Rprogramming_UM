@@ -373,3 +373,35 @@ Explaining the philosophy of the package management system. Discussion of how to
 
 - You can find the same info after installing a package by clicking on the package name, then on *'DESCRIPTION file'*.
 
+- Important fields:
+  + Maintainer & Author
+  + URL
+  + Imports & LinkingTo: the packages needed to make the package work (installation is normally taken care of automatically)
+  + Suggests: packages that are not necessarily needed for using the package, but are needed for specific functionalities
+
+## Suggested packages
+
+- It is up to the author to decide what packages to suggest, and what packages to list as imports.
+
+- It is also up to the author to protect the user from strange error messages while not having installed a suggested package.
+
+- This is not always done properly!
+
+- Suggested packages are not always installed automatically!
+
+## Installing suggested packages
+
+- The command
+```{r eval=FALSE}
+install.packages("package-name")
+```
+does not install suggested packages. Use instead
+```{r eval=FALSE}
+install.packages("package-name", dependencies = TRUE)
+```
+
+- In RStudio, make sure that the box "Install dependencies" is checked.
+
+## Exercise: package information
+
+- Find out who the maintainer is of the package `bigtime`.
