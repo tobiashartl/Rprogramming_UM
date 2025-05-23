@@ -1,0 +1,293 @@
+---
+title: "Introduction to R"
+subtitle: "Session 2 - Objects"
+author: ""
+filters:
+  - diagram
+diagram:
+  engine:
+    tikz:
+      header-includes:
+        - '\usepackage{adjustbox,xcolor}'
+        - '\usetikzlibrary{arrows, shapes}'
+        - '\definecolor{UMdblue}{RGB}{0,28,61}'
+        - '\definecolor{UMlblue}{RGB}{0,162,219}'
+        - '\definecolor{UMorangered}{RGB}{232,78,16}'
+        - '\definecolor{UMorange}{RGB}{243,148,37}'
+        - '\definecolor{UMred}{RGB}{174,11,18}'
+---
+
+
+# Session Overview
+
+1.  [Objects](#objects)
+2.	[Vectors](#vectors)
+3.  [Matrices](#matrices)
+4.	[lists](#lists)
+5.	[Data frames](#datframes)
+
+# Objects {#objects}
+
+## Objects
+- In R, **everything is an object**.
+- Objects have a name that is assigned with `<-` (recommended) or `=`.
+- Names have to start with a letter and include only letters,   numbers, and characters such as “.” and “_”.
+- R is  **case sensitive:** $\Rightarrow Name\neq name$!
+
+- Objects can store vectors, matrices, lists, data frames, functions...
+
+```{r}
+# generate object x (no output):
+x <- 5
+# display log(x)
+log(x)
+
+```
+```{r, error=TRUE}
+# object X is not defined => error message 
+X
+```
+
+# Vectors {#vectors}
+
+- Vectors can store multiple types of information (e.g., numbers or "characters").
+- To define a 3-dimensional vector named "vec", use `vec<- c(value1,value2,value3)`.
+- Operators and functions can be applied to vectors, which means they are applied to **each of the elements individually**.
+```{r, eval=TRUE}
+# define vector named 'vec'
+vec<-c(1,2,3)
+# take the square root of 'vec' and store the result in 'sqrt_vec'
+sqrt_vec=sqrt(vec)
+# display sqrt_vec
+print(sqrt_vec)
+```
+
+## Vectors - some helpful shortcuts
+- R has built-in functions that generate sequences (useful for loops or plots, among other things). 
+- We can also repeat elements using `rep()`.
+```{r, eval=TRUE}
+# generate sequence 5,6,...,10
+5:10
+# generate sequence from 1 to 10 in steps of 0.5
+seq(from=1,to=5,by=0.5)
+#generate 4-dimensional vector of ones
+rep(1,4)
+```
+## Order matters!
+- **Be aware of the order of operations!**
+- compare the following:
+```{r, eval=TRUE}
+1+2:3^2 # '^2' evaluated before ':', only then '+1' is evaluated
+1+2:3*4 # first ':', then '*4', then '+1'
+# use brackets to avoid confusion or mistakes
+(1+2):(3*4)
+```
+## Summarizing vectors
+- R has built-in functions to summarize the information stored in vectors.
+- Remark: R is very good at generating random numbers!
+```{r, eval=TRUE}
+# Example: generate 100 random draws from a normal distribution with mean 1
+# and standard deviation 2
+norm.vec=rnorm(n=100,mean=1,sd=2)
+# get mean 
+mean(norm.vec)
+# get standard deviation 
+sd(norm.vec)
+# get maximum
+max(norm.vec)
+
+```
+
+## logical operators
+
+- logical operators can be either `TRUE` or `FALSE`.
+- Extremely useful for conditional statements, e.g. `if(condition is TRUE){do this}else{do that}`.
+- We can check if two objects are equal by `==`, different by `!=` or compare them with `<` and `>`.
+- We can combine logical statements with "AND" `&` and "OR" `|`
+```{r, eval=TRUE}
+# define  objects 
+obj1<-1
+obj2<-2
+obj3<-1 # same value as obj1
+obj1==obj2 # false statement
+obj1!=obj2 # true statement
+obj1==obj2 & obj1==obj3 # FALSE AND TRUE => FALSE
+obj1==obj2 | obj1==obj3 # FALSE OR TRUE => TRUE
+
+```
+
+---
+
+- We can also use logical operators in vectors.
+- the AND and OR operators `&` and `|` are then applied element-wise.
+```{r, eval=TRUE}
+vec2=1:5 # defines vector vec2=(1,2,3,4,5)
+vec2==3  # =FALSE if element is not 3, =TRUE if element is 3
+vec2>=2&vec2<5 # Only TRUE for elements >=2 and <5
+vec2>=2|vec2<5 # TRUE for all elements since either >=2 or <5
+```
+
+## Characters 
+- Vectors can also store characters.
+- characters are enclosed in `""`or `''`.
+```{r, eval=TRUE,error=TRUE}
+# define a vector of 2 cities
+cities<-c('Maastricht', "Amsterdam",'Rotterdam')
+print(cities)
+# combine characters and numbers => numbers turn into characters
+mix=c(1,"2")
+print(mix)
+# now that numbers are converted to characters, numerical operations
+# produce an error
+mix+1
+```
+## Names
+- You can give the elements of your vector names either directly or using the `names()` command.
+- This is very useful for accessing elements (see nect slide)
+```{r, eval=TRUE,error=TRUE}
+avg_temp<-c(Maastricht=14.2, Amsterdam=13.4,Rotterdam=13.7)
+print(avg_temp) # names appear on top of elements
+names(avg_temp) # returns names of elements
+# Alternatively, we can define data and names separately
+temp<-c(14.2,13.4,13.7)
+names(temp)<-cities # recall that we have defined "cities" earlier!
+print(temp)
+```
+## Accessing elements
+- One can access the elements of a vector either by name or position.
+```{r, eval=TRUE,error=TRUE}
+# return the second element of "avg_temp" defined before
+avg_temp[2] 
+# return the element corresponding to "Maastricht"
+avg_temp["Maastricht"]
+# trying to access a non-existing element yields "NA"
+# ( for "not available"), i.e. a missing value
+avg_temp[4]
+```
+
+---
+
+
+- We can also add elements to an existing vector.
+```{r, eval=TRUE,error=TRUE}
+# now add another city to avg_temp
+avg_temp["Tilburg" ]<- 14.7
+# now the fourth element is defined!
+avg_temp[4]
+```
+
+## More on NA, NaN, Inf
+- `NA` ("not available") indicates missing values. 
+- Anything combined with `NA` yields `NA`.
+- `NaN`("not a number") indicates the result of a mathematically  undefined operation.
+```{r, eval=TRUE,error=TRUE}
+#define another vector
+vec3=c(-1.2,NA,0)
+# combine avg_temp and vec3
+vec4=c(avg_temp,vec3) 
+# divide elements by 0; notice the different outcomes
+vec4/0 
+```
+
+# Matrices {#matrices}
+- We can create a matrix with `m` rows directly using `matrix(vector,nrow=m)`.
+
+```{r, eval=TRUE,error=TRUE}
+# create matrix with 3 rows; fill numbers by row
+mat1<-matrix(1:12,nrow=3,byrow=TRUE)
+mat1
+```
+
+---
+
+- We can also combine vectors of the same length by row with `rbind(v1,v2,...)` or by column by `cbind(v1,v2,...)`.
+```{r, eval=TRUE,error=TRUE}
+# create vectors v1, v2 and v3 and combine them for same result
+v1<-1:4
+v2<-5:8
+v3<-9:12
+mat2=rbind(v1,v2,v3)
+mat2
+```
+
+
+# Matrix indexing
+- We can give the rows and columns names using `rownames()` and `colnames()`.
+```{r, eval=TRUE,error=TRUE}
+# assign names to columns
+colnames(mat1)<-c("col1","col2","col3","col4")
+mat1
+# assign names to rows
+rownames(mat1)<-c("row1","row2","row3")
+mat1
+```
+## Accessing elements
+
+- We can access single elements by `[rownumber,colnumber]`, the `k`-th row by `[k,]` and the `k`-th column by `[,k]`.
+```{r, eval=TRUE,error=TRUE}
+# get element in second row in third column
+mat1[2,3]
+# get second row
+mat1[2,]
+# get third column
+mat1[,3]
+```
+
+---
+
+- If rows/columns have names, we can also use those.
+- Using vectors, we can also create more complicated subsets of matrices.
+```{r, eval=TRUE,error=TRUE}
+# get sub-matrix using vectors
+mat1[c(2,3),c(1:3)]
+# get second row using names (recall definition of mat2)
+mat2["v2",]
+
+```
+
+## Exercise
+1. Create the 3x3 identity matrix "by hand". To do so:
+	a) create 3 vectors of with zeros and ones in the appropriate spots.
+	b) use `rbind()` or `cbind()` to combine them into the identity matrix.
+	c) store the identity matrix as the object "I_mat".
+	d) R makes your life easy: type `diag(3)` in your console.
+
+2. Replicate the following Excel-matrix:
+
+![](figures/excel-screenshot.png){width=50%}
+	
+# Matrix algebra
+- R can do matrix "regular" algebra, and even lets you do operations that are not well-defined mathematically. 
+
+- `t(A)`is the transpose of the matrix `A`.
+```{r, eval=TRUE,error=TRUE}
+# define matrix containing normal data
+data.vec=rnorm(9,mean=0,sd=1)
+A=matrix(data.vec,nrow=3) 
+A # return A
+t(A) # return the transpose
+```
+
+---
+
+- `solve(A)` returns the inverse of an invertible matrix.
+```{r, eval=TRUE,error=TRUE}
+solve(A) # return the inverse of A
+```
+
+---
+
+- `*`does element-wise multiplication.
+- `%*%` does matrix multiplication .
+```{r, eval=TRUE,error=TRUE}
+# element-wise multiplication
+A*solve(A) # NOT the identity matrix
+# matrix multiplication
+A%*%solve(A) # yields the identity (up to a small error due to the
+# numerical computation of the inverse)
+```
+
+
+## Lists
+- A `list` is a generic collection of objects.
+- Unlike vectors, the components can have different types (e.g., numeric and character).
