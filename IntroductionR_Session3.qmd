@@ -165,11 +165,6 @@ log(fake_data_matrix)
 ```
 
 
-## Next up
-
-- an exercise to practice with different kind of arguments
-- the ... argument
-
 ## Exercise: Function Arguments
 
 The function `rnorm()` can be used to simulate normally distributed data. The function `mean()` can be used to calculate the sample mean of the data, while the function `sd()` can be used to calculate the sample standard deviation. You will need to use the help files of these functions to complete the question.
@@ -207,7 +202,7 @@ cat("\"`...` &nbsp;&nbsp;&nbsp;&nbsp; further arguments passed to or from other 
 
 ## Exercise: plot president approval ratings
 
-The dataset `presidents` contains US president approval ratings on a quarterly basis from 1945 to 1974. To visualise these approval ratings, we can use the `plot()` function. First, make a basic plot, then customise the plot in the following ways
+The dataset `presidents` contains US president approval ratings on a quarterly basis from 1945 to 1974. To visualise these approval ratings, we can use the `plot()` function. First, make a basic plot, then customise the plot in the following ways:
 
 1. The title of the X-axis should say 'Year', the title of the Y-axis 'Approval Rating'.
 
@@ -221,13 +216,131 @@ You may want to ask ChatGPT for help and then try to see if you could also have 
 
 <!-- plot(presidents, xlab = "Year", ylab = "approval rating", col="blue", tck=0.05) -->
 
-## useful functions: descriptive statistics
+## Useful functions: summary / descriptive statistics
+
+- often you want to have a quick look at your data. Here are some useful functions for this purpose:
+
+- For (numerical) vectors:
+
+| Function | Description |
+|--|--|
+| `length(v)` | Number of elements in $v$|
+|`max(v)` | Largest value in $v$|
+|`min(v)` | Smallest value in $v$|
+|`sum(v)` | Sum of the elements of $v$|
+|`prod(v)` | Product of the elements of $v$|
+|`mean(v)` | mean of the elements of $v$!
+|`sd(v)` | Standard deviation of the elements of $v$|
+
+## Useful functions: summary / descriptive statistics
+
+- Often you want to have a quick look at your data. Here are some useful functions for this purpose:
+
+- For matrices and data frames:
+
+| Function | Description |
+|--|--|
+|`nrow(D)` | Number of rows in $D$|
+|`ncol(D)` | Number of columns in $D$|
+|`head(D)` | Displays the first few rows of $D$|
+|`tail(D)` | Displays the last few rows of $D$|
+|`summary(D)` | Gives a summary of $D$|
+
+- For *numerical* matrices and data frames:
+
+| Function | Description |
+|--|--|
+|`colSums(D)` | Sum of the elements in each column of $D$|
+|`rowSums(D)` | Sum of the elements in each row of $D$|
+|`colMeans(D)` | Mean of the elements in each column of $D$|
+|`rowMeans(D)` | Mean of the elements in each row of $D$|
 
 # Bonus: Looking Inside Functions {#functions2}
 
-## Looking Inside Functions
+## Structure of functions
 
-Creating a simple function manually, to understand how functions work.
+- Functions in R have the following structure:
+```{r eval=FALSE}
+function_name <- function(argument1, argument2 = default_value, ...) {
+  Function body           # the operations that the function should do
+  return(function_output) # the output to be returned by the function
+}
+```
+
+## A simple example function
+
+- This function converts miles to kilometres:
+```{r}
+miles_to_km <- function(miles = 1){
+  km <- 1.609344 * miles
+  return(km)
+}
+```
+
+- How many kilometres is 60 miles?
+```{r}
+miles_to_km(60)
+```
+
+- The default value of miles is set to one, so executing the function without argument, gives you how many kilometres is equal to 1 mile:
+```{r}
+miles_to_km()
+```
+
+## Multiple function outputs
+
+- R can only give one object as output.
+
+- if you have multiple outputs, you have to combine them in one object.
+
+- Often, the most natural choice for that is to use a *list*, as this can combine outputs of different nature.
+
+## An example function with multiple outputs
+
+- This function converts miles to kilometres and to metres:
+```{r}
+miles_to_metric <- function(miles = 1){
+  km_miles <- 1.609344 * miles
+  m_miles <- 1000 * km_miles
+  out <- list(km = km_miles, m = m_miles)
+  return(out)
+}
+```
+
+- How many (kilo)metres is 60 miles?
+```{r}
+miles_to_metric(60)
+```
+
+
+## Why create your own functions?
+
+- You can perfectly get around R without ever creating your own functions.
+
+- But there are good reasons to do so:
+
+  + Easy if you need the same code repetitively;
+  
+  + Decreases the probability of making mistakes, as you only need to write that piece of code once;
+  
+  + You can use your functions in different script later on.
+  
+- Creating functions is a basic skill well worth investing in.
+
+- Note: make sure to first execute the lines containing your function before you use it (and execute again after an update to the code).
+
+## Exercise: create your own function
+
+1. Create a function that takes as input the `courses` data frame. The function output should be the total number of courses that use student tutors.
+  + There are many ways to count the number of courses that require student tutors. Probably the easiest is to directly do calculations with the logical values: `TRUE` is treated as 1, `FALSE` as 0:
+```{r}
+c(TRUE + FALSE, TRUE + TRUE, TRUE * FALSE)
+```
+
+2. We now want to extend the function to give a second output. This output should contain a data frame with two columns: the first is the course code, the second is the number of tutorials for each course.
+  + The number of tutorials should be calculated as the number of students divided by the number of students per tutorial group, and then rounded up.
+  + The number of students per tutorial group should be a second argument of the function, with a default value of 15.
+  + To round up, we can use the function `ceiling()`.
 
 # Objects revisited {#objects}
 
@@ -256,7 +369,7 @@ summary(x)
 
 - Summary on data frames:
 ```{r echo=TRUE}
-courses <- read.csv("data/Courses.csv")
+load("data/courses.RData")
 summary(courses)
 ```
 
@@ -325,19 +438,29 @@ In terms of content, this is just a (named) vector.
 
 ## Behind the Scenes: the function.class structure
 
-- if you start typing the `summary()` function name in RStudio, you will see that there are actually many summary functions ...
+- If you start typing the `summary()` function name in RStudio, you will see that there are actually many summary functions ...
 
-- ... Among which `summary.data.frame()` and `summary.matrix()`
+- ... among which `summary.data.frame()` and `summary.matrix()`
 
-- in principle we need not bother with the system, but it can be useful to keep in mind for two cases:
+- In principle, we need not bother with the system, but it can be useful to keep in mind for two cases:
 
-1. Help files and documentation may differ depending on classes
+1. Help files and documentation may differ depending on classes.
 
-2. Applying it to an object for which the class function has not been defined (*"Why does `summary()` not work on my object X?"*)
+2. Applying it to an object for which the class function has not been defined (*"Why does `summary()` not work on my object X?"*).
+
+## Exercise 3.X: Using the plot function for different objects
+
+1. Remember your vector `x1` of normally distributed random variables created in Exercise 3.x
+
+2. Make a basic plot of this vector using the simple command `plot(x1)`.
+
+3. Now transform your vector `x1` into a time series object using the function `ts()`. Save it as `x1ts`.
+
+4. Make a plot of this new object using the command `plot(x1ts)`. Why does it look different from before?
+
+5. Make a plot of the variable `Period` from the `courses` data frame. Explain why this looks yet again different.
 
 # Packages {#packages}
-
-Explaining the philosophy of the package management system. Discussion of how to find good packages.
 
 ## Installing Packages
 
@@ -374,10 +497,22 @@ Explaining the philosophy of the package management system. Discussion of how to
 - You can find the same info after installing a package by clicking on the package name, then on *'DESCRIPTION file'*.
 
 - Important fields:
-  + Maintainer & Author
-  + URL
-  + Imports & LinkingTo: the packages needed to make the package work (installation is normally taken care of automatically)
-  + Suggests: packages that are not necessarily needed for using the package, but are needed for specific functionalities
+  + **Maintainer** & **Author**: especially helpful for specialised packages, for which you expect the authors to be experts in the field.
+  + **URL**: Is there dedicated documentation? What is the quality of the documentation (often correlates with the quality of the package)?
+  + **Imports**, **Depends** & **LinkingTo**: the packages needed to make the package work (installation is normally taken care of automatically).
+  + **Suggests**: packages that are not necessarily needed for using the package, but are needed for specific functionalities.
+
+## Checking out the bootUR package
+
+![](figures/Packages_RStudio.png){width=60%}
+
+## Checking out the bootUR package
+
+![](figures/bootUR_main){width=60%}
+
+## Checking out the bootUR package
+
+![](figures/bootUR2){width=60%}
 
 ## Suggested packages
 
@@ -402,6 +537,47 @@ install.packages("package-name", dependencies = TRUE)
 
 - In RStudio, make sure that the box "Install dependencies" is checked.
 
-## Exercise: package information
+## Exercise: package information & installation
 
-- Find out who the maintainer is of the package `bigtime`.
+1. Find out who the maintainer is of the package `bigtime`.
+
+2. Check if you have the suggested packages for `bootUR` installed. If you have `ggplot2` installed, remove it from your installation. (This can be done by clicking at the right spot in RStudio.)
+
+3. Install the package `bootUR` in the naive way using `install.packages("bootUR")`.
+
+4. This package has a function to plot missing values in a time series dataset; apply this function to the data set that comes with the package. (This obviously implies you need to find both the function and the dataset.)
+
+5. You will get an error message. Fix the error and repeat the steps above to produce a plot of the missing values.
+
+## Installing packages from (other) source(s)
+
+- Sometimes you might find a package not available on CRAN, but hosted on different platforms, such as GitHub.
+
+- Such packages have to be installed from 'source'.
+
+- Occasionally, CRAN may also ask you if you want to install a package from source, if a newer version is available than the standard binary package.
+
+- Installing from source is problematic on Windows and Mac, as it requires the installation of additional software for packages that are built on C/C++/Fortran code that needs compilation (see e.g. `?install.packages` for details).
+
+- Advice for beginners: do not install from source!
+
+## Bonus exercise: installing packages from source
+
+::: {.callout-important}
+This exercise should only be completed if you feel up for a challenge and want to get your system ready for installing from source.
+:::
+
+1. Go to [https://github.com/Marga8/HDGCvar](https://github.com/Marga8/HDGCvar) and follow the installation instructions to install the package `HDGCvar` from source. This should work on all systems.
+
+2. Go to [https://github.com/RobertAdamek/desla](https://github.com/RobertAdamek/desla) and follow the installation instructions to install the package `desla` from source.
+
+::: {.callout-caution}
+This will most likely not work and result in errors.
+:::
+
+3. Go to [https://github.com/smeekes/bootUR](https://github.com/smeekes/bootUR) and read the extended installation instructions for installing from source. Install the missing software and then try to install the package `desla` again.
+
+::: {.callout-warning}
+On Windows, this should be relatively safe, but on Mac things still can go wrong. Be warned.
+:::
+

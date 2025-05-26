@@ -304,11 +304,7 @@
 [4,] 1.0986123 3.044522</code></pre>
 </div>
 </div>
-</section><section id="next-up" class="slide level2"><h2>Next up</h2>
-<ul>
-<li>an exercise to practice with different kind of arguments</li>
-<li>the … argument</li>
-</ul></section><section id="exercise-function-arguments" class="slide level2"><h2>Exercise: Function Arguments</h2>
+</section><section id="exercise-function-arguments" class="slide level2"><h2>Exercise: Function Arguments</h2>
 <p>The function <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> can be used to simulate normally distributed data. The function <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> can be used to calculate the sample mean of the data, while the function <code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code> can be used to calculate the sample standard deviation. You will need to use the help files of these functions to complete the question.</p>
 <ol type="1">
 <li><p>Simulate 100 numbers from a normal distribution with mean 0 and standard deviation 1 and store these in a vector called <code>x1</code>. Do this with the least amount of explicitly specified arguments as possible.</p></li>
@@ -331,7 +327,7 @@
 <li><p>Now, do the same for calculating the mean; first do it correctly, then make an intentional mistake in the name of the argument.</p></li>
 <li><p>Can you explain the difference in results?</p></li>
 </ol></section><section id="exercise-plot-president-approval-ratings" class="slide level2"><h2>Exercise: plot president approval ratings</h2>
-<p>The dataset <code>presidents</code> contains US president approval ratings on a quarterly basis from 1945 to 1974. To visualise these approval ratings, we can use the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function. First, make a basic plot, then customise the plot in the following ways</p>
+<p>The dataset <code>presidents</code> contains US president approval ratings on a quarterly basis from 1945 to 1974. To visualise these approval ratings, we can use the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function. First, make a basic plot, then customise the plot in the following ways:</p>
 <ol type="1">
 <li><p>The title of the X-axis should say ‘Year’, the title of the Y-axis ‘Approval Rating’.</p></li>
 <li><p>Make the line blue. (Hint: specifying the colour literally as <code>"blue"</code> works, also note the cool effects in RStudio!)</p></li>
@@ -340,12 +336,224 @@
 <p>You will need to consult the help file for this exercise; see this therefrom more as an exercise in how to navigate R’s help system, than an exercise in plotting (which we will cover in more detail later).</p>
 <p>You may want to ask ChatGPT for help and then try to see if you could also have gotten the same answer yourself; it may not always give you the most straightforward answer though!</p>
 <!-- plot(presidents, xlab = "Year", ylab = "approval rating", col="blue", tck=0.05) -->
-</section><section id="useful-functions-descriptive-statistics" class="slide level2"><h2>useful functions: descriptive statistics</h2>
-</section></section><section><section id="functions2" class="title-slide slide level1 center"><h1>Bonus: Looking Inside Functions</h1>
+</section><section id="useful-functions-summary-descriptive-statistics" class="slide level2"><h2>Useful functions: summary / descriptive statistics</h2>
+<ul>
+<li><p>often you want to have a quick look at your data. Here are some useful functions for this purpose:</p></li>
+<li><p>For (numerical) vectors:</p></li>
+</ul>
+<table class="caption-top">
+<thead><tr class="header">
+<th>Function</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>length(v)</code></td>
+<td>Number of elements in <span class="math inline">\(v\)</span>
+</td>
+</tr>
+<tr class="even">
+<td><code>max(v)</code></td>
+<td>Largest value in <span class="math inline">\(v\)</span>
+</td>
+</tr>
+<tr class="odd">
+<td><code>min(v)</code></td>
+<td>Smallest value in <span class="math inline">\(v\)</span>
+</td>
+</tr>
+<tr class="even">
+<td><code>sum(v)</code></td>
+<td>Sum of the elements of <span class="math inline">\(v\)</span>
+</td>
+</tr>
+<tr class="odd">
+<td><code>prod(v)</code></td>
+<td>Product of the elements of <span class="math inline">\(v\)</span>
+</td>
+</tr>
+<tr class="even">
+<td><code>mean(v)</code></td>
+<td>mean of the elements of <span class="math inline">\(v\)</span>!</td>
+</tr>
+<tr class="odd">
+<td><code>sd(v)</code></td>
+<td>Standard deviation of the elements of <span class="math inline">\(v\)</span>
+</td>
+</tr>
+</tbody>
+</table></section><section id="useful-functions-summary-descriptive-statistics-1" class="slide level2"><h2>Useful functions: summary / descriptive statistics</h2>
+<ul>
+<li><p>Often you want to have a quick look at your data. Here are some useful functions for this purpose:</p></li>
+<li><p>For matrices and data frames:</p></li>
+</ul>
+<table class="caption-top">
+<thead><tr class="header">
+<th>Function</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>nrow(D)</code></td>
+<td>Number of rows in <span class="math inline">\(D\)</span>
+</td>
+</tr>
+<tr class="even">
+<td><code>ncol(D)</code></td>
+<td>Number of columns in <span class="math inline">\(D\)</span>
+</td>
+</tr>
+<tr class="odd">
+<td><code>head(D)</code></td>
+<td>Displays the first few rows of <span class="math inline">\(D\)</span>
+</td>
+</tr>
+<tr class="even">
+<td><code>tail(D)</code></td>
+<td>Displays the last few rows of <span class="math inline">\(D\)</span>
+</td>
+</tr>
+<tr class="odd">
+<td><code>summary(D)</code></td>
+<td>Gives a summary of <span class="math inline">\(D\)</span>
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>For <em>numerical</em> matrices and data frames:</li>
+</ul>
+<table class="caption-top">
+<thead><tr class="header">
+<th>Function</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>colSums(D)</code></td>
+<td>Sum of the elements in each column of <span class="math inline">\(D\)</span>
+</td>
+</tr>
+<tr class="even">
+<td><code>rowSums(D)</code></td>
+<td>Sum of the elements in each row of <span class="math inline">\(D\)</span>
+</td>
+</tr>
+<tr class="odd">
+<td><code>colMeans(D)</code></td>
+<td>Mean of the elements in each column of <span class="math inline">\(D\)</span>
+</td>
+</tr>
+<tr class="even">
+<td><code>rowMeans(D)</code></td>
+<td>Mean of the elements in each row of <span class="math inline">\(D\)</span>
+</td>
+</tr>
+</tbody>
+</table></section></section><section><section id="functions2" class="title-slide slide level1 center"><h1>Bonus: Looking Inside Functions</h1>
 
-</section><section id="looking-inside-functions" class="slide level2"><h2>Looking Inside Functions</h2>
-<p>Creating a simple function manually, to understand how functions work.</p>
-</section></section><section><section id="objects" class="title-slide slide level1 center"><h1>Objects revisited</h1>
+</section><section id="structure-of-functions" class="slide level2"><h2>Structure of functions</h2>
+<ul>
+<li>Functions in R have the following structure:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="" aria-hidden="true" tabindex="-1"></a>function_name <span class="ot">&lt;-</span> <span class="cf">function</span>(argument1, <span class="at">argument2 =</span> default_value, ...) {</span>
+<span id="cb9-2"><a href="" aria-hidden="true" tabindex="-1"></a>  Function body           <span class="co"># the operations that the function should do</span></span>
+<span id="cb9-3"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(function_output) <span class="co"># the output to be returned by the function</span></span>
+<span id="cb9-4"><a href="" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="a-simple-example-function" class="slide level2"><h2>A simple example function</h2>
+<ul>
+<li>This function converts miles to kilometres:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">miles_to_km</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">miles</span> <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="va">km</span> <span class="op">&lt;-</span> <span class="fl">1.609344</span> <span class="op">*</span> <span class="va">miles</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">km</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>How many kilometres is 60 miles?</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">miles_to_km</span><span class="op">(</span><span class="fl">60</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 96.56064</code></pre>
+</div>
+</div>
+<ul>
+<li>The default value of miles is set to one, so executing the function without argument, gives you how many kilometres is equal to 1 mile:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">miles_to_km</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.609344</code></pre>
+</div>
+</div>
+</section><section id="multiple-function-outputs" class="slide level2"><h2>Multiple function outputs</h2>
+<ul>
+<li><p>R can only give one object as output.</p></li>
+<li><p>if you have multiple outputs, you have to combine them in one object.</p></li>
+<li><p>Often, the most natural choice for that is to use a <em>list</em>, as this can combine outputs of different nature.</p></li>
+</ul></section><section id="an-example-function-with-multiple-outputs" class="slide level2"><h2>An example function with multiple outputs</h2>
+<ul>
+<li>This function converts miles to kilometres and to metres:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">miles_to_metric</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">miles</span> <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="va">km_miles</span> <span class="op">&lt;-</span> <span class="fl">1.609344</span> <span class="op">*</span> <span class="va">miles</span></span>
+<span>  <span class="va">m_miles</span> <span class="op">&lt;-</span> <span class="fl">1000</span> <span class="op">*</span> <span class="va">km_miles</span></span>
+<span>  <span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>km <span class="op">=</span> <span class="va">km_miles</span>, m <span class="op">=</span> <span class="va">m_miles</span><span class="op">)</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>How many (kilo)metres is 60 miles?</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">miles_to_metric</span><span class="op">(</span><span class="fl">60</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$km
+[1] 96.56064
+
+$m
+[1] 96560.64</code></pre>
+</div>
+</div>
+</section><section id="why-create-your-own-functions" class="slide level2"><h2>Why create your own functions?</h2>
+<ul>
+<li><p>You can perfectly get around R without ever creating your own functions.</p></li>
+<li>
+<p>But there are good reasons to do so:</p>
+<ul>
+<li><p>Easy if you need the same code repetitively;</p></li>
+<li><p>Decreases the probability of making mistakes, as you only need to write that piece of code once;</p></li>
+<li><p>You can use your functions in different script later on.</p></li>
+</ul>
+</li>
+<li><p>Creating functions is a basic skill well worth investing in.</p></li>
+<li><p>Note: make sure to first execute the lines containing your function before you use it (and execute again after an update to the code).</p></li>
+</ul></section><section id="exercise-create-your-own-function" class="slide level2"><h2>Exercise: create your own function</h2>
+<ol type="1">
+<li>Create a function that takes as input the <code>courses</code> data frame. The function output should be the total number of courses that use student tutors.</li>
+</ol>
+<ul>
+<li>There are many ways to count the number of courses that require student tutors. Probably the easiest is to directly do calculations with the logical values: <code>TRUE</code> is treated as 1, <code>FALSE</code> as 0:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span> <span class="op">+</span> <span class="cn">FALSE</span>, <span class="cn">TRUE</span> <span class="op">+</span> <span class="cn">TRUE</span>, <span class="cn">TRUE</span> <span class="op">*</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 2 0</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li>We now want to extend the function to give a second output. This output should contain a data frame with two columns: the first is the course code, the second is the number of tutorials for each course.</li>
+</ol>
+<ul>
+<li>The number of tutorials should be calculated as the number of students divided by the number of students per tutorial group, and then rounded up.</li>
+<li>The number of students per tutorial group should be a second argument of the function, with a default value of 15.</li>
+<li>To round up, we can use the function <code><a href="https://rdrr.io/r/base/Round.html">ceiling()</a></code>.</li>
+</ul></section></section><section><section id="objects" class="title-slide slide level1 center"><h1>Objects revisited</h1>
 
 </section><section id="objects-and-their-labels" class="slide level2"><h2>Objects and Their Labels</h2>
 <p>Discussion how objects and classes are used for function output. How then functions appear to act differently on different types of objects (e.g.&nbsp;<code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code>).</p>
@@ -363,11 +571,11 @@
 <li><p>Summary on vectors:</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
--2.475626 -0.720620 -0.020860 -0.007313  0.695470  2.979734 </code></pre>
+-2.510194 -0.767664 -0.012163  0.008414  0.730881  2.709099 </code></pre>
 </div>
 </div>
 </section><section id="the-summary-function-1" class="slide level2"><h2>The summary function</h2>
@@ -375,23 +583,23 @@
 <li>Summary on data frames:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">courses</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"data/Courses.csv"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"data/courses.RData"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">courses</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Course.Name        Coordinator        Course.Code         Programme        
- Length:30          Length:30          Length:30          Length:30         
- Class :character   Class :character   Class :character   Class :character  
- Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-                                                                            
-                                                                            
-                                                                            
-     Period      Enrolled.Students
- Min.   :1.000   Min.   : 57.00   
- 1st Qu.:2.000   1st Qu.: 65.75   
- Median :3.500   Median :295.50   
- Mean   :3.533   Mean   :315.50   
- 3rd Qu.:5.000   3rd Qu.:573.75   
- Max.   :6.000   Max.   :620.00   </code></pre>
+<pre><code>    Course          Coordinator            Code          
+ Length:30          Length:30          Length:30         
+ Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character  
+                                                         
+                                                         
+                                                         
+                  Programme  Period  Enrollments     StudentTutors  
+ Econometrics          :10   1:5    Min.   : 57.00   Mode :logical  
+ Economics             :10   2:6    1st Qu.: 65.75   FALSE:19       
+ International Business:10   3:4    Median :290.00   TRUE :11       
+                             4:6    Mean   :292.17                  
+                             5:5    3rd Qu.:412.50                  
+                             6:4    Max.   :610.00                  </code></pre>
 </div>
 </div>
 </section><section id="the-summary-function-2" class="slide level2"><h2>The summary function</h2>
@@ -400,7 +608,7 @@
 <li><p>The output of summary is an object in itself:</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">summ_x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">summ_x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">summ_x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "summaryDefault" "table"         </code></pre>
@@ -412,17 +620,24 @@
 <li>Behind the scenes, R works as follows:</li>
 </ul>
 
-<img data-src="IntroductionR_Session3_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section><section id="behind-the-scenes-the-function.class-structure-1" class="slide level2"><h2>Behind the Scenes: the function.class structure</h2>
+<img data-src="IntroductionR_Session3_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch"></section><section id="behind-the-scenes-the-function.class-structure-1" class="slide level2"><h2>Behind the Scenes: the function.class structure</h2>
 <ul>
-<li><p>if you start typing the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function name in RStudio, you will see that there are actually many summary functions …</p></li>
-<li><p>… Among which <code><a href="https://rdrr.io/r/base/summary.html">summary.data.frame()</a></code> and <code><a href="https://rdrr.io/r/base/summary.html">summary.matrix()</a></code></p></li>
-<li><p>in principle we need not bother with the system, but it can be useful to keep in mind for two cases:</p></li>
+<li><p>If you start typing the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function name in RStudio, you will see that there are actually many summary functions …</p></li>
+<li><p>… among which <code><a href="https://rdrr.io/r/base/summary.html">summary.data.frame()</a></code> and <code><a href="https://rdrr.io/r/base/summary.html">summary.matrix()</a></code></p></li>
+<li><p>In principle, we need not bother with the system, but it can be useful to keep in mind for two cases:</p></li>
 </ul>
 <ol type="1">
-<li><p>Help files and documentation may differ depending on classes</p></li>
-<li><p>Applying it to an object for which the class function has not been defined (<em>“Why does <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> not work on my object X?”</em>)</p></li>
+<li><p>Help files and documentation may differ depending on classes.</p></li>
+<li><p>Applying it to an object for which the class function has not been defined (<em>“Why does <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> not work on my object X?”</em>).</p></li>
+</ol></section><section id="exercise-3.x-using-the-plot-function-for-different-objects" class="slide level2"><h2>Exercise 3.X: Using the plot function for different objects</h2>
+<ol type="1">
+<li><p>Remember your vector <code>x1</code> of normally distributed random variables created in Exercise 3.x</p></li>
+<li><p>Make a basic plot of this vector using the simple command <code>plot(x1)</code>.</p></li>
+<li><p>Now transform your vector <code>x1</code> into a time series object using the function <code><a href="https://rdrr.io/r/stats/ts.html">ts()</a></code>. Save it as <code>x1ts</code>.</p></li>
+<li><p>Make a plot of this new object using the command <code>plot(x1ts)</code>. Why does it look different from before?</p></li>
+<li><p>Make a plot of the variable <code>Period</code> from the <code>courses</code> data frame. Explain why this looks yet again different.</p></li>
 </ol></section></section><section><section id="packages" class="title-slide slide level1 center"><h1>Packages</h1>
-<p>Explaining the philosophy of the package management system. Discussion of how to find good packages.</p>
+
 </section><section id="installing-packages" class="slide level2"><h2>Installing Packages</h2>
 <ul>
 <li><p>One of R’s defining features is the richness of its package management system.</p></li>
@@ -450,13 +665,23 @@
 <li>
 <p>Important fields:</p>
 <ul>
-<li>Maintainer &amp; Author</li>
-<li>URL</li>
-<li>Imports &amp; LinkingTo: the packages needed to make the package work (installation is normally taken care of automatically)</li>
-<li>Suggests: packages that are not necessarily needed for using the package, but are needed for specific functionalities</li>
+<li>
+<strong>Maintainer</strong> &amp; <strong>Author</strong>: especially helpful for specialised packages, for which you expect the authors to be experts in the field.</li>
+<li>
+<strong>URL</strong>: Is there dedicated documentation? What is the quality of the documentation (often correlates with the quality of the package)?</li>
+<li>
+<strong>Imports</strong>, <strong>Depends</strong> &amp; <strong>LinkingTo</strong>: the packages needed to make the package work (installation is normally taken care of automatically).</li>
+<li>
+<strong>Suggests</strong>: packages that are not necessarily needed for using the package, but are needed for specific functionalities.</li>
 </ul>
 </li>
-</ul></section><section id="suggested-packages" class="slide level2"><h2>Suggested packages</h2>
+</ul></section><section id="checking-out-the-bootur-package" class="slide level2"><h2>Checking out the bootUR package</h2>
+
+<img data-src="figures/Packages_RStudio.png" style="width:60.0%" class="r-stretch"></section><section id="checking-out-the-bootur-package-1" class="slide level2"><h2>Checking out the bootUR package</h2>
+
+<img data-src="figures/bootUR_main.png" style="width:60.0%" class="r-stretch"></section><section id="checking-out-the-bootur-package-2" class="slide level2"><h2>Checking out the bootUR package</h2>
+
+<img data-src="figures/bootUR2.png" style="width:60.0%" class="r-stretch"></section><section id="suggested-packages" class="slide level2"><h2>Suggested packages</h2>
 <ul>
 <li><p>It is up to the author to decide what packages to suggest, and what packages to list as imports.</p></li>
 <li><p>It is also up to the author to protect the user from strange error messages while not having installed a suggested package.</p></li>
@@ -467,18 +692,75 @@
 <li>The command</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"package-name"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"package-name"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>does not install suggested packages. Use instead</p>
 <div class="cell">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"package-name"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"package-name"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>In RStudio, make sure that the box “Install dependencies” is checked.</li>
-</ul></section><section id="exercise-package-information" class="slide level2"><h2>Exercise: package information</h2>
+</ul></section><section id="exercise-package-information-installation" class="slide level2"><h2>Exercise: package information &amp; installation</h2>
+<ol type="1">
+<li><p>Find out who the maintainer is of the package <code>bigtime</code>.</p></li>
+<li><p>Check if you have the suggested packages for <code>bootUR</code> installed. If you have <code>ggplot2</code> installed, remove it from your installation. (This can be done by clicking at the right spot in RStudio.)</p></li>
+<li><p>Install the package <code>bootUR</code> in the naive way using <code>install.packages("bootUR")</code>.</p></li>
+<li><p>This package has a function to plot missing values in a time series dataset; apply this function to the data set that comes with the package. (This obviously implies you need to find both the function and the dataset.)</p></li>
+<li><p>You will get an error message. Fix the error and repeat the steps above to produce a plot of the missing values.</p></li>
+</ol></section><section id="installing-packages-from-other-sources" class="slide level2"><h2>Installing packages from (other) source(s)</h2>
 <ul>
-<li>Find out who the maintainer is of the package <code>bigtime</code>.</li>
-</ul>
+<li><p>Sometimes you might find a package not available on CRAN, but hosted on different platforms, such as GitHub.</p></li>
+<li><p>Such packages have to be installed from ‘source’.</p></li>
+<li><p>Occasionally, CRAN may also ask you if you want to install a package from source, if a newer version is available than the standard binary package.</p></li>
+<li><p>Installing from source is problematic on Windows and Mac, as it requires the installation of additional software for packages that are built on C/C++/Fortran code that needs compilation (see e.g.&nbsp;<code><a href="https://rdrr.io/r/utils/install.packages.html">?install.packages</a></code> for details).</p></li>
+<li><p>Advice for beginners: do not install from source!</p></li>
+</ul></section><section id="bonus-exercise-installing-packages-from-source" class="slide level2"><h2>Bonus exercise: installing packages from source</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>This exercise should only be completed if you feel up for a challenge and want to get your system ready for installing from source.</p>
+</div>
+</div>
+</div>
+<ol type="1">
+<li><p>Go to <a href="https://github.com/Marga8/HDGCvar">https://github.com/Marga8/HDGCvar</a> and follow the installation instructions to install the package <code>HDGCvar</code> from source. This should work on all systems.</p></li>
+<li><p>Go to <a href="https://github.com/RobertAdamek/desla">https://github.com/RobertAdamek/desla</a> and follow the installation instructions to install the package <code>desla</code> from source.</p></li>
+</ol>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Caution</strong></p>
+</div>
+<div class="callout-content">
+<p>This will most likely not work and result in errors.</p>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Go to <a href="https://github.com/smeekes/bootUR">https://github.com/smeekes/bootUR</a> and read the extended installation instructions for installing from source. Install the missing software and then try to install the package <code>desla</code> again.</li>
+</ol>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>On Windows, this should be relatively safe, but on Mac things still can go wrong. Be warned.</p>
+</div>
+</div>
+</div>
 
 </section></section>
 </div>
@@ -690,10 +972,10 @@
           event.initEvent("slideenter", true, true);
           window.document.dispatchEvent(event);
         }
-    
+
         function fireSlideChanged(previousSlide, currentSlide) {
           fireSlideEnter();
-    
+
           // dispatch for shiny
           if (window.jQuery) {
             if (previousSlide) {
@@ -704,7 +986,7 @@
             }
           }
         }
-    
+
         // hookup for slidy
         if (window.w3c_slidy) {
           window.w3c_slidy.add_observer(function (slide_num) {
@@ -712,7 +994,7 @@
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
           });
         }
-    
+
       })();
     </script><script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
