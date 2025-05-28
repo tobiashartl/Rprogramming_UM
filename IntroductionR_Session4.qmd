@@ -1,0 +1,312 @@
+---
+title: "Introduction to R"
+subtitle: "Session 4"
+author: ""
+filters:
+  - diagram
+diagram:
+  engine:
+    tikz:
+      header-includes:
+        - '\usepackage{adjustbox,xcolor}'
+        - '\usetikzlibrary{arrows, shapes}'
+        - '\definecolor{UMdblue}{RGB}{0,28,61}'
+        - '\definecolor{UMlblue}{RGB}{0,162,219}'
+        - '\definecolor{UMorangered}{RGB}{232,78,16}'
+        - '\definecolor{UMorange}{RGB}{243,148,37}'
+        - '\definecolor{UMred}{RGB}{174,11,18}'
+---
+
+## Inputs, outputs, graphics in R
+This session has two goals:
+
+  - Understanding inputs and outputs of your R session
+  - Understanding the working of plots/graphs.
+  
+## Inputs and outputs of your R session
+  - Common inputs / outputs of an R session are datasets or R scripts.
+  - For this meeting we focus on datasets as inputs to the R session, loading data and saving data.
+  - The file format (csv, Rdata, xls, stata ...) and directory of the files are important keep in mind.
+  - We will go over a few options, potential issues, and how to avoid the need to type in a long directory name when managing the input and output of the R session.
+  
+## Working directories and R projects
+  - Whenever we provide R with a file name, it can include the full path on the computer.
+  - An alternative is to work on a specified directory.
+  - Another alternative is to work within a 'project' that all paths are visible to the project scripts.
+  - If we do not provide any path, R will use the current “working directory” for reading or writing files. It can be obtained by the command 
+
+```{r}
+  getwd()
+```
+
+## Using the correct directory to get input / output of the R session
+  - Navigating through the menus in RStudio is easy, (click and go) but requires using the menu every time the user runs the code. 
+  - In top panel in R layout, `Session -> Set working directory /  choose directory' to navigate to the correct directory.
+  
+  ![](figures/dir1.png)  
+
+## Using the correct directory to get input / output of the R session
+  - An alternative is to use function setwd() at the beginning of your script. This line then has to be changed when the code runs in another machine.
+```{r, eval=FALSE}
+ setwd("~/ownCloud (2)/Teaching/Rprogramming_UM/Rprogramming_UM")
+```
+
+## Using the correct directory to get input / output of the R session
+
+<!-- TODO -->
+
+```{r, eval=FALSE}
+library('this.path')
+```
+
+## Types of input or data that can be loaded in R
+R interacts with files in several ways.
+
+  - You can load, save, import, or export a data file. 
+  - You can save a generated figure as a graphics file or store regression tables as text, spreadsheet, or LATEX tables.
+  - You can load, save the full workspace (environment) you are working with to follow up another time.
+  
+  Datasets can come in different formats.
+  
+  - Rdata files: Files that can directly 
+  - Other file formats (SPSS csv, xls, ...) are also possible to load in R. This often requires the use of packages
+
+## Loading Rdata files
+  - Rdata files are specific to R file formats. 
+  - They can store a single object or several objects. 
+  - These files are the easiest to manage as input or output in R, since they don't require library calls.
+
+## Load climate data from RData format:
+  - load function is used to load data in Rdata format.
+  - load function loads all objects in the input Rdata file.
+
+```{r}
+load("data/climate_Maas_Eind.Rdata")
+print(summary(data_short))
+```
+  
+## Load climate data from RData format:
+  - You can assign the loaded data to a new variable
+
+```{r}
+data <- load("data/climate_Maas_Eind.Rdata")
+```
+
+## Loading other formats of data in R
+Option 1: Using menus within RStudio is the easiest (click and go) but requires using the menu every time the user runs the code.
+  
+![](figures/load1.png)  
+  
+## Loading other formats of data in R
+Option 1: Using menus within RStudio (cont'd)
+  
+![](figures/load2.png)  
+  
+## Loading other formats of data in R
+Option 1: Using menus within RStudio (cont'd)
+  
+![](figures/load3.png)  
+
+## Loading other formats of data in R
+Option 1: Using menus within RStudio (cont'd)
+![](figures/load4.png)  
+
+## Loading other formats of data in R
+
+Advice for option 1: 
+
+  - Copy the command that appears after loading the data from the menus. 
+
+![](figures/load5.png)  
+
+## Loading other formats of data in R
+
+Advice for option 1 (cont'd): 
+
+  - Paste the command on top of your script.
+  - This way, next time you do not need the menu navigation.
+
+```{r}
+library(readxl)
+climate <- read_excel("data/climate.xlsx")
+View(climate) 
+```
+
+## General way of importing and exporting of other data formats
+
+  - Using the correct libraries for different data formats can be tedious.
+  - R package rio is very convenient for data import and export. It figures out the type of data format from the file name extension, e.g. *.csv for CSV, *.dta for Stata, or *.sav for SPSS data sets
+  - For a complete list of supported formats, see help(rio). 
+  - It calls an appropriate package to do the actual importing or exporting. 
+  
+## Loading SPSS and other file types
+```{r}
+library('rio')
+import("data/climate.dta")
+```
+
+## Loading csv files
+```{r}
+import("data/dataus.csv")
+```
+
+## Outputs
+
+- Outputs work very similarly to the inputs above.
+- The most relevant outputs formats are the R output formats.
+- `save()` saves objects as an `.RData` file.
+- `save.image()` saves a selection of objects as an `.RData` file.
+
+## Exercise: 
+- Save your current workspace using function `save.image()`
+<!-- TODO: add solution and help file options -->
+
+## R Base Graphics
+
+-   We will cover R base graphics.
+-   Other alternatives include `ggplot2'...
+
+To create plots with R's standard `graphics` package, there are *high-level* and *low-level* plotting functions. 
+
+- *High-level* functions generate a new graphic (and open a *device*). 
+- *Low-level* functions add elements to an existing graphic.
+
+## Simple plots
+
+```{r}
+plot(data_short$MAX)     ## Plotting a single variable
+plot(x = data_short$YEAR, y = data_short$MAX)     ## Scatter plot
+```
+
+## Multiple plots
+
+```{r}
+par(mfrow = c(1,2)) # multiple plots in a row
+plot(data_short$MAX)     ## Plotting a single variable
+plot(x = data_short$YEAR, y = data_short$MAX)     ## Scatter plot
+```
+
+## Functions calling methods
+Notice that function `plot()` calls methods. 
+
+It will perform different operations depending on the class of the passed object.
+
+<!--
+TODO Check if this is a repetition from Session 3.
+-->
+
+```{r, eval=FALSE}
+ols_result <- lm(MAX~YEAR, data = data_short)
+plot(ols_result)
+```
+
+## Creating and saving a graph
+
+```{r}
+pdf("outputs/plot_data_short.pdf")                  
+hist(data_short$MAX, breaks = 20)
+dev.off()
+```
+## Customizing Graphics
+
+- Adding points to an existing plot
+- Function `dev.off()'is called after all the plotting, to save the file and return control to the screen.
+
+```{r, eval=FALSE}
+plot(data_short$MAX, type = "l") ## Lines
+points(data_short$MAX)
+```
+
+## Exercise: plot president approval ratings
+
+The dataset `presidents` contains US president approval ratings on a quarterly basis from 1945 to 1974. To visualise these approval ratings, we can use the `plot()` function. First, make a basic plot, then customise the plot in the following ways
+
+1. The title of the X-axis should say 'Year', the title of the Y-axis 'Approval Rating'.
+
+2. Make the line blue. (Hint: specifying the colour literally as `"blue"` works, also note the cool effects in RStudio!)
+
+3. Make the tick marks appear on the inside of the figure rather than the outside. Even better, change the tick marks into grid lines. (This one is tricky!)
+
+You will need to consult the help file for this exercise; see this therefrom more as an exercise in how to navigate R's help system, than an exercise in plotting (which we will cover in more detail later).
+
+You may want to ask ChatGPT for help and then try to see if you could also have gotten the same answer yourself; it may not always give you the most straightforward answer though!
+
+<!-- plot(presidents, xlab = "Year", ylab = "approval rating", col="blue", tck=0.05) -->
+
+<!-- Copied from Stephan -->
+
+## Customizing Graphics
+**Overview**: Frequently used arguments in graphic functions. See `?par` for all graphical options
+
+ - `axes`: Axis specification
+ - `bg`: Background color
+ - `cex`: Factor for scaling relative to the default
+ - `col`: Plot color
+ - `log`: `xlog` and `ylog` for logarithmic scales
+ - `lty`, `lwd`: Line type and thickness
+ - `mai`: 4-vector specifying margins (bottom, left, top, right)
+ - `main`, `sub`: Title, subtitle
+ - `mar`: Margin
+  
+## Customizing Graphics (cont'd)
+
+ - `mfcol`, `mfrow`: Multiple plots in one graphics window (column-wise/row-wise)
+ - `pch`: Point character (1-16)
+ - `usr`: The extreme points for a plot
+ - `xlab`, `ylab`: x and y axis labels
+ - `xlim`, `ylim`: x and y axis limits
+
+## Low-Level Graphic Functions
+
+ - `lines`: Draw lines
+ - `abline`: Quickly add horizontal, vertical lines, and lines using equation $y = bx + a$
+ - `points`: Add points
+ - `arrows`: Add arrows
+ - `polygon`: Draw arbitrary polygons
+ - `segments`: Draw unfilled polygons
+ - `axis`: Customize axes
+ - `grid`: Add a grid
+
+---
+
+## Manually saving R plots
+
+ - Use the plot functions without creating a graph.
+ - Use the `plots' area to save image manually.
+
+```{r, eval=FALSE}
+plot(x = data_short$YEAR, y = data_short$MAX)     
+``` 
+
+## Different plot types
+
+You can manually save graphs of several formats.
+
+Best practice is to save a graph through a device such as pdf or similar:
+
+- `windows()`/`x11()`/`quartz()`: Screen graphics (Windows, Unix, Mac), (default). 
+- `pdf()`: Adobe PDF (easily integrated into LaTeX). 
+- `svg()`: Scalable Vector Graphics (commonly used on websites). 
+- `png()`, `jpeg()`, `tiff()`, `bmp()`: Various bitmap formats.
+
+```{r, eval=FALSE}
+jpeg("outputs/plot_data_short.jpeg")                  
+plot(x = data_short$YEAR, y = data_short$MAX)   
+dev.off()
+```
+## Exercise: Get help from chatgbt about plotting
+
+- Make an example scatter plot in R.
+- Change the axis names of the plot.
+- Add a horizontal line to the plot.
+- Add text to the plot.
+
+## Exercise: Use other packages for figures
+
+- Make the same scatter plot in R using package ggplot2
+- You can get help from chatgbt.
+
+<!-- Todo: make the question better and include solution -->
+TODO ggplot as extra slides from Tobias
+
+TODO refer back to lists
