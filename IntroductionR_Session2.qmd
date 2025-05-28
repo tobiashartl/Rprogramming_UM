@@ -23,12 +23,11 @@ diagram:
 1.  [Objects](#objects)
 2.	[Vectors](#vectors)
 3.  [Matrices](#matrices)
-4.	[lists](#lists)
-5.	[Data frames](#datframes)
+4.	[Lists](#lists)
+5.	[Data frames](#dataframes)
 
-# Objects {#objects}
 
-## Objects
+## Objects {#objects}
 - In R, **everything is an object**.
 - Objects have a name that is assigned with `<-` (recommended) or `=`.
 - Names have to start with a letter and include only letters,   numbers, and characters such as “.” and “_”.
@@ -48,7 +47,7 @@ log(x)
 X
 ```
 
-# Vectors {#vectors}
+## Vectors {#vectors}
 
 - Vectors can store multiple types of information (e.g., numbers or "characters").
 - To define a 3-dimensional vector named "vec", use `vec<- c(value1,value2,value3)`.
@@ -96,6 +95,21 @@ sd(norm.vec)
 # get maximum
 max(norm.vec)
 
+```
+
+## factors
+- Many variables are qualitative rather than quantitative.
+- While they are often coded using numbers, they don't have a numerical meaning.
+- Examples: gender, nationality...
+- Can also be ordinal, i.e., the outcomes can be ranked (e.g., "bad", "meh", "great").
+
+```{r, eval=TRUE}
+x<- c(1,3,3,2,1,3)
+xf<-factor(x,labels=c("bad","ok","good"))# no ranking
+xf
+# now with ranking
+xf.ordered<-factor(x,labels=c("bad","ok","good"),ordered=TRUE)
+xf.ordered
 ```
 
 ## logical operators
@@ -189,12 +203,12 @@ vec4=c(avg_temp,vec3)
 vec4/0 
 ```
 
-# Matrices {#matrices}
+## Matrices {#matrices}
 - We can create a matrix with `m` rows directly using `matrix(vector,nrow=m)`.
 
 ```{r, eval=TRUE,error=TRUE}
 # create matrix with 3 rows; fill numbers by row
-mat1<-matrix(1:12,nrow=3,byrow=TRUE)
+mat1<-matrix(1:12,nrow=3,byrow=TRUE) # by default, R fills matrices by column
 mat1
 ```
 
@@ -211,7 +225,7 @@ mat2
 ```
 
 
-# Matrix indexing
+## Matrix indexing
 - We can give the rows and columns names using `rownames()` and `colnames()`.
 ```{r, eval=TRUE,error=TRUE}
 # assign names to columns
@@ -256,10 +270,25 @@ mat2["v2",]
 
 ![](figures/excel-screenshot.png){width=50%}
 	
-# Matrix algebra
+```{r, eval=FALSE,error=TRUE,echo=FALSE}
+# Solution:
+# 1.
+row1=c(1,0,0)
+row2=c(0,1,0)
+row3=c(0,0,1)
+I_mat=rbind(row1,row2,row3)
+diag(3)
+# 2.
+mat=matrix(c(12.3,14.7,27.7,11.2,13.5,15.8),nrow=3)
+rownames(mat)=c("April","May","June")
+colnames(mat)=c("Maastricht","Eindhoven")
+mat
+``` 
+
+## Bonus: Matrix algebra 
 - R can do matrix "regular" algebra, and even lets you do operations that are not well-defined mathematically. 
 
-- `t(A)`is the transpose of the matrix `A`.
+- `t(A)` is the transpose of the matrix `A`.
 ```{r, eval=TRUE,error=TRUE}
 # define matrix containing normal data
 data.vec=rnorm(9,mean=0,sd=1)
@@ -283,11 +312,84 @@ solve(A) # return the inverse of A
 # element-wise multiplication
 A*solve(A) # NOT the identity matrix
 # matrix multiplication
-A%*%solve(A) # yields the identity (up to a small error due to the
+A%*%solve(A) 
+# yields the identity (up to a small error due to the
 # numerical computation of the inverse)
 ```
 
 
-## Lists
+## Lists {#lists}
 - A `list` is a generic collection of objects.
 - Unlike vectors, the components can have different types (e.g., numeric and character).
+- Many functions output lists, so knowing how to access elements is very useful.
+- Generate a list with `mylist<- list(name1=component1, name2=component2,...)`.
+```{r, eval=TRUE,error=TRUE}
+mylist=list(num.vec=1:3,city="Maastricht") 
+print(mylist)
+```
+
+---
+
+- Get names of the components with `names(mylist)`.
+- You can access components with the `$` (dollar sign) operator, e.g., `mylist$name1`,  or by position with `[[]]`.
+```{r, eval=TRUE,error=TRUE}
+mylist$city
+mylist[[2]] # same result
+```
+
+## Data frames {#dataframes}
+- `data frames` are simply data sets in R terminology.
+- So-called `data files` can contain multiple data sets.
+- We can create a data frame by `data.frame()` or transform a matrix `mat` into a data frame by `as.data.frame(mat)`.
+- Many functions (e.g. `lm()` for regressions) need a data frame as input (see later sessions).
+```{r, eval=TRUE,error=TRUE}
+# generate a data frame
+ID<- 1:4
+hourly_wage<- rnorm(n=4,mean=20,sd=1) # create 4 draws from N(20,1)
+city<- c("Maastricht","Eindhoven","Amsterdam",NA)
+dats<- data.frame(ID,hourly_wage,city) # add new variable
+dats
+```
+
+---
+
+- As with lists, we can access variables using the `$` operator.
+- We can also add new variables using the `$` operator.
+-  `View()` opens a data-viewer. Very useful (but difficult to demonstrate on these slides).
+```{r, eval=TRUE,error=TRUE}
+dats$city # "city" is NA for ID 4.
+dats$city[4]<-'Tilburg' # assign city to ID 4
+dats$educ<- c(12,21,9,10)
+dats
+```
+
+---
+
+- Using `subset(data_frame,condition)`, we can easily get a subset of the original data frame where `condition` is `TRUE`.
+```{r, eval=TRUE,error=TRUE}
+# only keep individuals with at least 10 years of education
+sub_dats=subset(dats,educ>10)
+sub_dats
+```
+
+# Exercise
+- Create your own data frame:
+	- create a vector `ID` that contains the sequence 1,2,...,100.
+	- create a vector `income` that contains 100 random draws from N(10,1).
+	- create a dummy `female` that is 1 for `ID=1,...,50` and 0 otherwise. (hint: you can achieve this by using `rep()` twice and combining two vectors with `c()`)
+	- collect the variables in a data frame `my_df`.
+	- inspect your data with `View(my_df)`
+	- bonus: create a subset `sub_my_df` that contains only individuals with income larger than 10.
+	
+```{r, eval=FALSE,error=TRUE,echo=FALSE}
+# Solution:
+ID=1:100
+income=rnorm(n=100,mean=10,sd=1)
+female=c(rep(1,50),rep(0,50))
+my_df=data.frame(ID,income,female)
+my_df
+View(my_df)
+sub_my_df=subset(my_df,income>10)
+View(sub_my_df)
+```
+	
