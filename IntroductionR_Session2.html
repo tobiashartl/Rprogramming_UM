@@ -6,17 +6,17 @@
 <script src="IntroductionR_Session2_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="IntroductionR_Session2_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="IntroductionR_Session2_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="IntroductionR_Session2_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
-<meta name="author" content="">
-<title>Introduction to R</title>
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-<link rel="stylesheet" href="IntroductionR_Session2_files/libs/revealjs/dist/reset.css">
-<link rel="stylesheet" href="IntroductionR_Session2_files/libs/revealjs/dist/reveal.css">
-<style>
+<link href="IntroductionR_Session2_files/libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.31">
+
+  <meta name="author" content="">
+  <title>Introduction to R</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="IntroductionR_Session2_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="IntroductionR_Session2_files/libs/revealjs/dist/reveal.css">
+  <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -29,8 +29,9 @@
       vertical-align: middle;
     }
     /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -41,7 +42,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -94,13 +95,13 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-<link rel="stylesheet" href="IntroductionR_Session2_files/libs/revealjs/dist/theme/quarto-583737715ad91b45aa8f803ec5bac169.css">
-<link rel="stylesheet" href="custom.css">
-<link href="IntroductionR_Session2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-<link href="IntroductionR_Session2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-<link href="IntroductionR_Session2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-<link href="IntroductionR_Session2_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-<style type="text/css">
+  <link rel="stylesheet" href="IntroductionR_Session2_files/libs/revealjs/dist/theme/quarto-2b17e36b362874a7ddd65dc1c420b444.css">
+  <link rel="stylesheet" href="custom.css">
+  <link href="IntroductionR_Session2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="IntroductionR_Session2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="IntroductionR_Session2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="IntroductionR_Session2_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
       overflow: auto;
@@ -192,20 +193,27 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center"><h1 class="title">Introduction to R</h1>
-  <p class="subtitle">Session 2 - Objects</p>
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Introduction to R</h1>
+  <p class="subtitle">Session 2</p>
 
 <div class="quarto-title-authors">
 </div>
 
-</section><section><section id="session-overview" class="title-slide slide level1 center"><h1>Session Overview</h1>
+</section>
+<section>
+<section id="session-overview" class="title-slide slide level1 center">
+<h1>Session Overview</h1>
 <ol type="1">
 <li><a href="#/objects">Objects</a></li>
 <li><a href="#/vectors">Vectors</a></li>
 <li><a href="#/matrices">Matrices</a></li>
 <li><a href="#/lists">Lists</a></li>
 <li><a href="#/dataframes">Data frames</a></li>
-</ol></section><section id="objects" class="slide level2"><h2>Objects</h2>
+</ol>
+</section>
+<section id="objects" class="slide level2">
+<h2>Objects</h2>
 <ul>
 <li><p>In R, <strong>everything is an object</strong>.</p></li>
 <li><p>Objects have a name that is assigned with <code>&lt;-</code> (recommended) or <code>=</code>.</p></li>
@@ -214,106 +222,206 @@
 <li><p>Objects can store vectors, matrices, lists, data frames, functions…</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># generate object x (no output):</span></span>
-<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">5</span></span>
-<span><span class="co"># display log(x)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># generate object x (no output):</span></span>
+<span id="cb1-2"><a href="" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb1-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># display log(x)</span></span>
+<span id="cb1-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.609438</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># object X is not defined =&gt; error message </span></span>
-<span><span class="va">X</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># object X is not defined =&gt; error message </span></span>
+<span id="cb3-2"><a href="" aria-hidden="true" tabindex="-1"></a>X</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error: object 'X' not found</code></pre>
 </div>
 </div>
-</section><section id="vectors" class="slide level2"><h2>Vectors</h2>
+</section>
+<section id="vectors" class="slide level2">
+<h2>Vectors</h2>
 <ul>
 <li>Vectors can store multiple types of information (e.g., numbers or “characters”).</li>
 <li>To define a 3-dimensional vector named “vec”, use <code>vec&lt;- c(value1,value2,value3)</code>.</li>
 <li>Operators and functions can be applied to vectors, which means they are applied to <strong>each of the elements individually</strong>.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># define vector named 'vec'</span></span>
-<span><span class="va">vec</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span></span>
-<span><span class="co"># take the square root of 'vec' and store the result in 'sqrt_vec'</span></span>
-<span><span class="va">sqrt_vec</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">vec</span><span class="op">)</span></span>
-<span><span class="co"># display sqrt_vec</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">sqrt_vec</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># define vector named 'vec'</span></span>
+<span id="cb5-2"><a href="" aria-hidden="true" tabindex="-1"></a>vec<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb5-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># take the square root of 'vec' and store the result in 'sqrt_vec'</span></span>
+<span id="cb5-4"><a href="" aria-hidden="true" tabindex="-1"></a>sqrt_vec<span class="ot">=</span><span class="fu">sqrt</span>(vec)</span>
+<span id="cb5-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># display sqrt_vec</span></span>
+<span id="cb5-6"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sqrt_vec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.000000 1.414214 1.732051</code></pre>
 </div>
 </div>
-</section><section id="vectors---some-helpful-shortcuts" class="slide level2"><h2>Vectors - some helpful shortcuts</h2>
+</section>
+<section id="vectors---some-helpful-shortcuts" class="slide level2">
+<h2>Vectors - some helpful shortcuts</h2>
 <ul>
 <li>R has built-in functions that generate sequences (useful for loops or plots, among other things).</li>
-<li>We can also repeat elements using <code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code>.</li>
+<li>We can also repeat elements using <code>rep()</code>.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># generate sequence 5,6,...,10</span></span>
-<span><span class="fl">5</span><span class="op">:</span><span class="fl">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># generate sequence 5,6,...,10</span></span>
+<span id="cb7-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">:</span><span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  5  6  7  8  9 10</code></pre>
 </div>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># generate sequence from 1 to 10 in steps of 0.5</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span>from<span class="op">=</span><span class="fl">1</span>,to<span class="op">=</span><span class="fl">5</span>,by<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># generate sequence from 1 to 10 in steps of 0.5</span></span>
+<span id="cb9-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from=</span><span class="dv">1</span>,<span class="at">to=</span><span class="dv">5</span>,<span class="at">by=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5 5.0</code></pre>
 </div>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#generate 4-dimensional vector of ones</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#generate 4-dimensional vector of ones</span></span>
+<span id="cb11-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 1 1 1</code></pre>
 </div>
 </div>
-</section><section id="order-matters" class="slide level2"><h2>Order matters!</h2>
+</section>
+<section id="order-matters" class="slide level2">
+<h2>Order matters!</h2>
 <ul>
 <li><strong>Be aware of the order of operations!</strong></li>
 <li>compare the following:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">1</span><span class="op">+</span><span class="fl">2</span><span class="op">:</span><span class="fl">3</span><span class="op">^</span><span class="fl">2</span> <span class="co"># '^2' evaluated before ':', only then '+1' is evaluated</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">2</span><span class="sc">:</span><span class="dv">3</span><span class="sc">^</span><span class="dv">2</span> <span class="co"># '^2' evaluated before ':', only then '+1' is evaluated</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  3  4  5  6  7  8  9 10</code></pre>
 </div>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">1</span><span class="op">+</span><span class="fl">2</span><span class="op">:</span><span class="fl">3</span><span class="op">*</span><span class="fl">4</span> <span class="co"># first ':', then '*4', then '+1'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">2</span><span class="sc">:</span><span class="dv">3</span><span class="sc">*</span><span class="dv">4</span> <span class="co"># first ':', then '*4', then '+1'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  9 13</code></pre>
 </div>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># use brackets to avoid confusion or mistakes</span></span>
-<span><span class="op">(</span><span class="fl">1</span><span class="op">+</span><span class="fl">2</span><span class="op">)</span><span class="op">:</span><span class="op">(</span><span class="fl">3</span><span class="op">*</span><span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># use brackets to avoid confusion or mistakes</span></span>
+<span id="cb17-2"><a href="" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span><span class="sc">+</span><span class="dv">2</span>)<span class="sc">:</span>(<span class="dv">3</span><span class="sc">*</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  3  4  5  6  7  8  9 10 11 12</code></pre>
 </div>
 </div>
-</section><section id="summarizing-vectors" class="slide level2"><h2>Summarizing vectors</h2>
+</section>
+<section id="summarizing-vectors" class="slide level2">
+<h2>Summarizing vectors</h2>
 <ul>
 <li>R has built-in functions to summarize the information stored in vectors.</li>
 <li>Remark: R is very good at generating random numbers!</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Example: generate 100 random draws from a normal distribution with mean 1</span></span>
-<span><span class="co"># and standard deviation 2</span></span>
-<span><span class="va">norm.vec</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">100</span>,mean<span class="op">=</span><span class="fl">1</span>,sd<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
-<span><span class="co"># get mean </span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">norm.vec</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: generate 100 random draws from a normal distribution with mean 1</span></span>
+<span id="cb19-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># and standard deviation 2</span></span>
+<span id="cb19-3"><a href="" aria-hidden="true" tabindex="-1"></a>norm.vec<span class="ot">=</span><span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">100</span>,<span class="at">mean=</span><span class="dv">1</span>,<span class="at">sd=</span><span class="dv">2</span>)</span>
+<span id="cb19-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># get mean </span></span>
+<span id="cb19-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(norm.vec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9131413</code></pre>
+<pre><code>[1] 0.8389827</code></pre>
 </div>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get standard deviation </span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">norm.vec</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># get standard deviation </span></span>
+<span id="cb21-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(norm.vec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.800739</code></pre>
+<pre><code>[1] 1.941413</code></pre>
 </div>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get maximum</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">norm.vec</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># get maximum</span></span>
+<span id="cb23-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(norm.vec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 5.96667</code></pre>
+<pre><code>[1] 5.574102</code></pre>
 </div>
 </div>
-</section><section id="factors" class="slide level2"><h2>factors</h2>
+</section>
+<section id="exercise-2.1-generating-and-summarizing-vectors" class="slide level2">
+<h2>Exercise 2.1: generating and summarizing vectors</h2>
+<ul>
+<li>draw 50 random numbers from a normal distribution with mean <code>0</code> and variance <code>1</code>. Store your results in the object <code>norm.vec</code>.</li>
+<li>calculate the mean and standard deviation of <code>norm.vec</code>.</li>
+<li>use <code>rep()</code> to repeat each element of <code>norm.vec</code> 3 times. Store the result in the object <code>norm.vec.rep</code>.</li>
+<li>Is <code>mean(norm.vec.rep^2)</code> equal to <code>mean(norm.vec.rep)^2</code>?</li>
+</ul>
+</section>
+<section id="logical-operators" class="slide level2">
+<h2>logical operators</h2>
+<ul>
+<li>logical operators can be either <code>TRUE</code> or <code>FALSE</code>.</li>
+<li>Extremely useful for conditional statements, e.g.&nbsp;<code>if(condition is TRUE){do this}else{do that}</code>.</li>
+<li>We can check if two objects are equal by <code>==</code>, different by <code>!=</code> or compare them with <code>&lt;</code> and <code>&gt;</code>.</li>
+<li>We can combine logical statements with “AND” <code>&amp;</code> and “OR” <code>|</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># define  objects </span></span>
+<span id="cb25-2"><a href="" aria-hidden="true" tabindex="-1"></a>obj1<span class="ot">&lt;-</span><span class="dv">1</span></span>
+<span id="cb25-3"><a href="" aria-hidden="true" tabindex="-1"></a>obj2<span class="ot">&lt;-</span><span class="dv">2</span></span>
+<span id="cb25-4"><a href="" aria-hidden="true" tabindex="-1"></a>obj3<span class="ot">&lt;-</span><span class="dv">1</span> <span class="co"># same value as obj1</span></span>
+<span id="cb25-5"><a href="" aria-hidden="true" tabindex="-1"></a>obj1<span class="sc">==</span>obj2 <span class="co"># false statement</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="" aria-hidden="true" tabindex="-1"></a>obj1<span class="sc">!=</span>obj2 <span class="co"># true statement</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="" aria-hidden="true" tabindex="-1"></a>obj1<span class="sc">==</span>obj2 <span class="sc">&amp;</span> obj1<span class="sc">==</span>obj3 <span class="co"># FALSE AND TRUE =&gt; FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="" aria-hidden="true" tabindex="-1"></a>obj1<span class="sc">==</span>obj2 <span class="sc">|</span> obj1<span class="sc">==</span>obj3 <span class="co"># FALSE OR TRUE =&gt; TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>We can also use logical operators in vectors.</li>
+<li>the AND and OR operators <code>&amp;</code> and <code>|</code> are then applied element-wise.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="" aria-hidden="true" tabindex="-1"></a>vec2<span class="ot">=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span> <span class="co"># defines vector vec2=(1,2,3,4,5)</span></span>
+<span id="cb33-2"><a href="" aria-hidden="true" tabindex="-1"></a>vec2<span class="sc">==</span><span class="dv">3</span>  <span class="co"># =FALSE if element is not 3, =TRUE if element is 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE FALSE  TRUE FALSE FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="" aria-hidden="true" tabindex="-1"></a>vec2<span class="sc">&gt;=</span><span class="dv">2</span><span class="sc">&amp;</span>vec2<span class="sc">&lt;</span><span class="dv">5</span> <span class="co"># Only TRUE for elements &gt;=2 and &lt;5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE  TRUE  TRUE  TRUE FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="" aria-hidden="true" tabindex="-1"></a>vec2<span class="sc">&gt;=</span><span class="dv">2</span><span class="sc">|</span>vec2<span class="sc">&lt;</span><span class="dv">5</span> <span class="co"># TRUE for all elements since either &gt;=2 or &lt;5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE TRUE TRUE TRUE TRUE</code></pre>
+</div>
+</div>
+</section>
+<section id="characters" class="slide level2">
+<h2>Characters</h2>
+<ul>
+<li>Vectors can also store characters.</li>
+<li>characters are enclosed in <code>""</code>or <code>''</code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># define a vector of 2 cities</span></span>
+<span id="cb39-2"><a href="" aria-hidden="true" tabindex="-1"></a>cities<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">'Maastricht'</span>, <span class="st">"Amsterdam"</span>,<span class="st">'Rotterdam'</span>)</span>
+<span id="cb39-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(cities)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Maastricht" "Amsterdam"  "Rotterdam" </code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-2.2-type-coersion" class="slide level2">
+<h2>Exercise 2.2: type coersion</h2>
+<ul>
+<li>R tries to make objects comparable by coercing one object into the type of another.</li>
+<li>This can sometimes be handy, but sometimes it leads to unforeseen errors (e.g., when loading new data). To illustrate this, do the following:
+<ul>
+<li>compare the character <code>"1"</code> to the numeric <code>1</code>.</li>
+<li>try computing the sum of <code>"1"</code> and <code>"2"</code>.</li>
+<li>try computing the sum of <code>as.numeric("1")</code> and <code>as.numeric("2")</code>. What happened?</li>
+<li>create a mixed vector containing the numeric <code>1</code> and the character <code>"2"</code>. Of which type are the elements of the vector?</li>
+</ul></li>
+</ul>
+</section>
+<section id="factors" class="slide level2">
+<h2>factors</h2>
 <ul>
 <li>Many variables are qualitative rather than quantitative.</li>
 <li>While they are often coded using numbers, they don’t have a numerical meaning.</li>
@@ -321,186 +429,128 @@
 <li>Can also be ordinal, i.e., the outcomes can be ranked (e.g., “bad”, “meh”, “great”).</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">3</span><span class="op">)</span></span>
-<span><span class="va">xf</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">x</span>,labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"bad"</span>,<span class="st">"ok"</span>,<span class="st">"good"</span><span class="op">)</span><span class="op">)</span><span class="co"># no ranking</span></span>
-<span><span class="va">xf</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">3</span>)</span>
+<span id="cb41-2"><a href="" aria-hidden="true" tabindex="-1"></a>xf<span class="ot">&lt;-</span><span class="fu">factor</span>(x,<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"bad"</span>,<span class="st">"ok"</span>,<span class="st">"good"</span>))<span class="co"># no ranking</span></span>
+<span id="cb41-3"><a href="" aria-hidden="true" tabindex="-1"></a>xf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] bad  good good ok   bad  good
 Levels: bad ok good</code></pre>
 </div>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># now with ranking</span></span>
-<span><span class="va">xf.ordered</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">x</span>,labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"bad"</span>,<span class="st">"ok"</span>,<span class="st">"good"</span><span class="op">)</span>,ordered<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="va">xf.ordered</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># now with ranking</span></span>
+<span id="cb43-2"><a href="" aria-hidden="true" tabindex="-1"></a>xf.ordered<span class="ot">&lt;-</span><span class="fu">factor</span>(x,<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"bad"</span>,<span class="st">"ok"</span>,<span class="st">"good"</span>),<span class="at">ordered=</span><span class="cn">TRUE</span>)</span>
+<span id="cb43-3"><a href="" aria-hidden="true" tabindex="-1"></a>xf.ordered</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] bad  good good ok   bad  good
 Levels: bad &lt; ok &lt; good</code></pre>
 </div>
 </div>
-</section><section id="logical-operators" class="slide level2"><h2>logical operators</h2>
+</section>
+<section id="names" class="slide level2">
+<h2>Names</h2>
 <ul>
-<li>logical operators can be either <code>TRUE</code> or <code>FALSE</code>.</li>
-<li>Extremely useful for conditional statements, e.g.&nbsp;<code>if(condition is TRUE){do this}else{do that}</code>.</li>
-<li>We can check if two objects are equal by <code>==</code>, different by <code>!=</code> or compare them with <code>&lt;</code> and <code>&gt;</code>.</li>
-<li>We can combine logical statements with “AND” <code>&amp;</code> and “OR” <code>|</code>
-</li>
-</ul>
-<div class="cell">
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># define  objects </span></span>
-<span><span class="va">obj1</span><span class="op">&lt;-</span><span class="fl">1</span></span>
-<span><span class="va">obj2</span><span class="op">&lt;-</span><span class="fl">2</span></span>
-<span><span class="va">obj3</span><span class="op">&lt;-</span><span class="fl">1</span> <span class="co"># same value as obj1</span></span>
-<span><span class="va">obj1</span><span class="op">==</span><span class="va">obj2</span> <span class="co"># false statement</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">obj1</span><span class="op">!=</span><span class="va">obj2</span> <span class="co"># true statement</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">obj1</span><span class="op">==</span><span class="va">obj2</span> <span class="op">&amp;</span> <span class="va">obj1</span><span class="op">==</span><span class="va">obj3</span> <span class="co"># FALSE AND TRUE =&gt; FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">obj1</span><span class="op">==</span><span class="va">obj2</span> <span class="op">|</span> <span class="va">obj1</span><span class="op">==</span><span class="va">obj3</span> <span class="co"># FALSE OR TRUE =&gt; TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-</div>
-</section><section class="slide level2"><ul>
-<li>We can also use logical operators in vectors.</li>
-<li>the AND and OR operators <code>&amp;</code> and <code>|</code> are then applied element-wise.</li>
-</ul>
-<div class="cell">
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">vec2</span><span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span> <span class="co"># defines vector vec2=(1,2,3,4,5)</span></span>
-<span><span class="va">vec2</span><span class="op">==</span><span class="fl">3</span>  <span class="co"># =FALSE if element is not 3, =TRUE if element is 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE FALSE  TRUE FALSE FALSE</code></pre>
-</div>
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">vec2</span><span class="op">&gt;=</span><span class="fl">2</span><span class="op">&amp;</span><span class="va">vec2</span><span class="op">&lt;</span><span class="fl">5</span> <span class="co"># Only TRUE for elements &gt;=2 and &lt;5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE  TRUE  TRUE  TRUE FALSE</code></pre>
-</div>
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">vec2</span><span class="op">&gt;=</span><span class="fl">2</span><span class="op">|</span><span class="va">vec2</span><span class="op">&lt;</span><span class="fl">5</span> <span class="co"># TRUE for all elements since either &gt;=2 or &lt;5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE TRUE TRUE TRUE TRUE</code></pre>
-</div>
-</div>
-</section><section id="characters" class="slide level2"><h2>Characters</h2>
-<ul>
-<li>Vectors can also store characters.</li>
-<li>characters are enclosed in <code>""</code>or <code>''</code>.</li>
-</ul>
-<div class="cell">
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># define a vector of 2 cities</span></span>
-<span><span class="va">cities</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Maastricht'</span>, <span class="st">"Amsterdam"</span>,<span class="st">'Rotterdam'</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">cities</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Maastricht" "Amsterdam"  "Rotterdam" </code></pre>
-</div>
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># combine characters and numbers =&gt; numbers turn into characters</span></span>
-<span><span class="va">mix</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="st">"2"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">mix</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "1" "2"</code></pre>
-</div>
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># now that numbers are converted to characters, numerical operations</span></span>
-<span><span class="co"># produce an error</span></span>
-<span><span class="va">mix</span><span class="op">+</span><span class="fl">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in mix + 1: non-numeric argument to binary operator</code></pre>
-</div>
-</div>
-</section><section id="names" class="slide level2"><h2>Names</h2>
-<ul>
-<li>You can give the elements of your vector names either directly or using the <code><a href="https://rdrr.io/r/base/names.html">names()</a></code> command.</li>
+<li>You can give the elements of your vector names either directly or using the <code>names()</code> command.</li>
 <li>This is very useful for accessing elements (see nect slide)</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">avg_temp</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>Maastricht<span class="op">=</span><span class="fl">14.2</span>, Amsterdam<span class="op">=</span><span class="fl">13.4</span>,Rotterdam<span class="op">=</span><span class="fl">13.7</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">avg_temp</span><span class="op">)</span> <span class="co"># names appear on top of elements</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="" aria-hidden="true" tabindex="-1"></a>avg_temp<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="at">Maastricht=</span><span class="fl">14.2</span>, <span class="at">Amsterdam=</span><span class="fl">13.4</span>,<span class="at">Rotterdam=</span><span class="fl">13.7</span>)</span>
+<span id="cb45-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(avg_temp) <span class="co"># names appear on top of elements</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Maastricht  Amsterdam  Rotterdam 
       14.2       13.4       13.7 </code></pre>
 </div>
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">avg_temp</span><span class="op">)</span> <span class="co"># returns names of elements</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(avg_temp) <span class="co"># returns names of elements</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Maastricht" "Amsterdam"  "Rotterdam" </code></pre>
 </div>
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Alternatively, we can define data and names separately</span></span>
-<span><span class="va">temp</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">14.2</span>,<span class="fl">13.4</span>,<span class="fl">13.7</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">temp</span><span class="op">)</span><span class="op">&lt;-</span><span class="va">cities</span> <span class="co"># recall that we have defined "cities" earlier!</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">temp</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternatively, we can define data and names separately</span></span>
+<span id="cb49-2"><a href="" aria-hidden="true" tabindex="-1"></a>temp<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">14.2</span>,<span class="fl">13.4</span>,<span class="fl">13.7</span>)</span>
+<span id="cb49-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(temp)<span class="ot">&lt;-</span>cities <span class="co"># recall that we have defined "cities" earlier!</span></span>
+<span id="cb49-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(temp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Maastricht  Amsterdam  Rotterdam 
       14.2       13.4       13.7 </code></pre>
 </div>
 </div>
-</section><section id="accessing-elements" class="slide level2"><h2>Accessing elements</h2>
+</section>
+<section id="accessing-elements" class="slide level2">
+<h2>Accessing elements</h2>
 <ul>
 <li>One can access the elements of a vector either by name or position.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># return the second element of "avg_temp" defined before</span></span>
-<span><span class="va">avg_temp</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># return the second element of "avg_temp" defined before</span></span>
+<span id="cb51-2"><a href="" aria-hidden="true" tabindex="-1"></a>avg_temp[<span class="dv">2</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Amsterdam 
      13.4 </code></pre>
 </div>
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># return the element corresponding to "Maastricht"</span></span>
-<span><span class="va">avg_temp</span><span class="op">[</span><span class="st">"Maastricht"</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># return the element corresponding to "Maastricht"</span></span>
+<span id="cb53-2"><a href="" aria-hidden="true" tabindex="-1"></a>avg_temp[<span class="st">"Maastricht"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Maastricht 
       14.2 </code></pre>
 </div>
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># trying to access a non-existing element yields "NA"</span></span>
-<span><span class="co"># ( for "not available"), i.e. a missing value</span></span>
-<span><span class="va">avg_temp</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># trying to access a non-existing element yields "NA"</span></span>
+<span id="cb55-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># ( for "not available"), i.e. a missing value</span></span>
+<span id="cb55-3"><a href="" aria-hidden="true" tabindex="-1"></a>avg_temp[<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;NA&gt; 
   NA </code></pre>
 </div>
 </div>
-</section><section class="slide level2"><ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>By using the minus sign <code>[-k]</code>, we can get the vector except for the <span class="math inline">\(k\)</span>-th element.</li>
 <li>We can also add elements to an existing vector.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># now add another city to avg_temp</span></span>
-<span><span class="va">avg_temp</span><span class="op">[</span><span class="st">"Tilburg"</span> <span class="op">]</span><span class="op">&lt;-</span> <span class="fl">14.7</span></span>
-<span><span class="co"># now the fourth element is defined!</span></span>
-<span><span class="va">avg_temp</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># get the vector except for the third element</span></span>
+<span id="cb57-2"><a href="" aria-hidden="true" tabindex="-1"></a>avg_temp[<span class="sc">-</span><span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Maastricht  Amsterdam 
+      14.2       13.4 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># now add another city to avg_temp</span></span>
+<span id="cb59-2"><a href="" aria-hidden="true" tabindex="-1"></a>avg_temp[<span class="st">"Tilburg"</span> ]<span class="ot">&lt;-</span> <span class="fl">14.7</span></span>
+<span id="cb59-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># now the fourth element is defined!</span></span>
+<span id="cb59-4"><a href="" aria-hidden="true" tabindex="-1"></a>avg_temp[<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Tilburg 
    14.7 </code></pre>
 </div>
 </div>
-</section><section id="more-on-na-nan-inf" class="slide level2"><h2>More on NA, NaN, Inf</h2>
+</section>
+<section id="more-on-na-nan-inf" class="slide level2">
+<h2>More on NA, NaN, Inf</h2>
 <ul>
-<li>
-<code>NA</code> (“not available”) indicates missing values.</li>
+<li><code>NA</code> (“not available”) indicates missing values.</li>
 <li>Anything combined with <code>NA</code> yields <code>NA</code>.</li>
-<li>
-<code>NaN</code>(“not a number”) indicates the result of a mathematically undefined operation.</li>
+<li><code>NaN</code>(“not a number”) indicates the result of a mathematically undefined operation.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#define another vector</span></span>
-<span><span class="va">vec3</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1.2</span>,<span class="cn">NA</span>,<span class="fl">0</span><span class="op">)</span></span>
-<span><span class="co"># combine avg_temp and vec3</span></span>
-<span><span class="va">vec4</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">avg_temp</span>,<span class="va">vec3</span><span class="op">)</span> </span>
-<span><span class="co"># divide elements by 0; notice the different outcomes</span></span>
-<span><span class="va">vec4</span><span class="op">/</span><span class="fl">0</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">#define another vector</span></span>
+<span id="cb61-2"><a href="" aria-hidden="true" tabindex="-1"></a>vec3<span class="ot">=</span><span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.2</span>,<span class="cn">NA</span>,<span class="dv">0</span>)</span>
+<span id="cb61-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># combine avg_temp and vec3</span></span>
+<span id="cb61-4"><a href="" aria-hidden="true" tabindex="-1"></a>vec4<span class="ot">=</span><span class="fu">c</span>(avg_temp,vec3) </span>
+<span id="cb61-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># divide elements by 0; notice the different outcomes</span></span>
+<span id="cb61-6"><a href="" aria-hidden="true" tabindex="-1"></a>vec4<span class="sc">/</span><span class="dv">0</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Maastricht  Amsterdam  Rotterdam    Tilburg                                  
        Inf        Inf        Inf        Inf       -Inf         NA        NaN </code></pre>
 </div>
 </div>
-</section><section id="matrices" class="slide level2"><h2>Matrices</h2>
+</section>
+<section id="matrices" class="slide level2">
+<h2>Matrices</h2>
 <ul>
 <li>We can create a matrix with <code>m</code> rows directly using <code>matrix(vector,nrow=m)</code>.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create matrix with 3 rows; fill numbers by row</span></span>
-<span><span class="va">mat1</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">12</span>,nrow<span class="op">=</span><span class="fl">3</span>,byrow<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> <span class="co"># by default, R fills matrices by column</span></span>
-<span><span class="va">mat1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># create matrix with 3 rows; fill numbers by row</span></span>
+<span id="cb63-2"><a href="" aria-hidden="true" tabindex="-1"></a>mat1<span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>,<span class="at">nrow=</span><span class="dv">3</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>) <span class="co"># by default, R fills matrices by column</span></span>
+<span id="cb63-3"><a href="" aria-hidden="true" tabindex="-1"></a>mat1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4]
 [1,]    1    2    3    4
@@ -508,16 +558,19 @@ Levels: bad &lt; ok &lt; good</code></pre>
 [3,]    9   10   11   12</code></pre>
 </div>
 </div>
-</section><section class="slide level2"><ul>
+</section>
+<section class="slide level2">
+
+<ul>
 <li>We can also combine vectors of the same length by row with <code>rbind(v1,v2,...)</code> or by column by <code>cbind(v1,v2,...)</code>.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create vectors v1, v2 and v3 and combine them for same result</span></span>
-<span><span class="va">v1</span><span class="op">&lt;-</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span></span>
-<span><span class="va">v2</span><span class="op">&lt;-</span><span class="fl">5</span><span class="op">:</span><span class="fl">8</span></span>
-<span><span class="va">v3</span><span class="op">&lt;-</span><span class="fl">9</span><span class="op">:</span><span class="fl">12</span></span>
-<span><span class="va">mat2</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">v1</span>,<span class="va">v2</span>,<span class="va">v3</span><span class="op">)</span></span>
-<span><span class="va">mat2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># create vectors v1, v2 and v3 and combine them for same result</span></span>
+<span id="cb65-2"><a href="" aria-hidden="true" tabindex="-1"></a>v1<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
+<span id="cb65-3"><a href="" aria-hidden="true" tabindex="-1"></a>v2<span class="ot">&lt;-</span><span class="dv">5</span><span class="sc">:</span><span class="dv">8</span></span>
+<span id="cb65-4"><a href="" aria-hidden="true" tabindex="-1"></a>v3<span class="ot">&lt;-</span><span class="dv">9</span><span class="sc">:</span><span class="dv">12</span></span>
+<span id="cb65-5"><a href="" aria-hidden="true" tabindex="-1"></a>mat2<span class="ot">&lt;-</span><span class="fu">rbind</span>(v1,v2,v3)</span>
+<span id="cb65-6"><a href="" aria-hidden="true" tabindex="-1"></a>mat2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   [,1] [,2] [,3] [,4]
 v1    1    2    3    4
@@ -525,23 +578,25 @@ v2    5    6    7    8
 v3    9   10   11   12</code></pre>
 </div>
 </div>
-</section><section id="matrix-indexing" class="slide level2"><h2>Matrix indexing</h2>
+</section>
+<section id="matrix-indexing" class="slide level2">
+<h2>Matrix indexing</h2>
 <ul>
-<li>We can give the rows and columns names using <code><a href="https://rdrr.io/r/base/colnames.html">rownames()</a></code> and <code><a href="https://rdrr.io/r/base/colnames.html">colnames()</a></code>.</li>
+<li>We can give the rows and columns names using <code>rownames()</code> and <code>colnames()</code>.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># assign names to columns</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">mat1</span><span class="op">)</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"col1"</span>,<span class="st">"col2"</span>,<span class="st">"col3"</span>,<span class="st">"col4"</span><span class="op">)</span></span>
-<span><span class="va">mat1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># assign names to columns</span></span>
+<span id="cb67-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mat1)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"col1"</span>,<span class="st">"col2"</span>,<span class="st">"col3"</span>,<span class="st">"col4"</span>)</span>
+<span id="cb67-3"><a href="" aria-hidden="true" tabindex="-1"></a>mat1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     col1 col2 col3 col4
 [1,]    1    2    3    4
 [2,]    5    6    7    8
 [3,]    9   10   11   12</code></pre>
 </div>
-<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># assign names to rows</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">mat1</span><span class="op">)</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"row1"</span>,<span class="st">"row2"</span>,<span class="st">"row3"</span><span class="op">)</span></span>
-<span><span class="va">mat1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># assign names to rows</span></span>
+<span id="cb69-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(mat1)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"row1"</span>,<span class="st">"row2"</span>,<span class="st">"row3"</span>)</span>
+<span id="cb69-3"><a href="" aria-hidden="true" tabindex="-1"></a>mat1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     col1 col2 col3 col4
 row1    1    2    3    4
@@ -549,124 +604,138 @@ row2    5    6    7    8
 row3    9   10   11   12</code></pre>
 </div>
 </div>
-</section><section id="accessing-elements-1" class="slide level2"><h2>Accessing elements</h2>
+</section>
+<section id="accessing-elements-1" class="slide level2">
+<h2>Accessing elements</h2>
 <ul>
 <li>We can access single elements by <code>[rownumber,colnumber]</code>, the <code>k</code>-th row by <code>[k,]</code> and the <code>k</code>-th column by <code>[,k]</code>.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get element in second row in third column</span></span>
-<span><span class="va">mat1</span><span class="op">[</span><span class="fl">2</span>,<span class="fl">3</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># get element in second row in third column</span></span>
+<span id="cb71-2"><a href="" aria-hidden="true" tabindex="-1"></a>mat1[<span class="dv">2</span>,<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 7</code></pre>
 </div>
-<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get second row</span></span>
-<span><span class="va">mat1</span><span class="op">[</span><span class="fl">2</span>,<span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># get second row</span></span>
+<span id="cb73-2"><a href="" aria-hidden="true" tabindex="-1"></a>mat1[<span class="dv">2</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>col1 col2 col3 col4 
    5    6    7    8 </code></pre>
 </div>
-<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get third column</span></span>
-<span><span class="va">mat1</span><span class="op">[</span>,<span class="fl">3</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># get third column</span></span>
+<span id="cb75-2"><a href="" aria-hidden="true" tabindex="-1"></a>mat1[,<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>row1 row2 row3 
    3    7   11 </code></pre>
 </div>
 </div>
-</section><section class="slide level2"><ul>
+</section>
+<section class="slide level2">
+
+<ul>
 <li>If rows/columns have names, we can also use those.</li>
 <li>Using vectors, we can also create more complicated subsets of matrices.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get sub-matrix using vectors</span></span>
-<span><span class="va">mat1</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># get sub-matrix using vectors</span></span>
+<span id="cb77-2"><a href="" aria-hidden="true" tabindex="-1"></a>mat1[<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>),<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     col1 col2 col3
 row2    5    6    7
 row3    9   10   11</code></pre>
 </div>
-<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get second row using names (recall definition of mat2)</span></span>
-<span><span class="va">mat2</span><span class="op">[</span><span class="st">"v2"</span>,<span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># get second row using names (recall definition of mat2)</span></span>
+<span id="cb79-2"><a href="" aria-hidden="true" tabindex="-1"></a>mat2[<span class="st">"v2"</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5 6 7 8</code></pre>
 </div>
 </div>
-</section><section id="exercise" class="slide level2"><h2>Exercise</h2>
+</section>
+<section id="exercise-2.3-creating-matrices-accessing-elements" class="slide level2">
+<h2>Exercise 2.3: creating matrices, accessing elements</h2>
 <ol type="1">
 <li>Create the 3x3 identity matrix “by hand”. To do so:
 <ol type="a">
 <li>create 3 vectors of with zeros and ones in the appropriate spots.</li>
-<li>use <code><a href="https://rdrr.io/r/base/cbind.html">rbind()</a></code> or <code><a href="https://rdrr.io/r/base/cbind.html">cbind()</a></code> to combine them into the identity matrix.</li>
+<li>use <code>rbind()</code> or <code>cbind()</code> to combine them into the identity matrix.</li>
 <li>store the identity matrix as the object “I_mat”.</li>
 <li>R makes your life easy: type <code>diag(3)</code> in your console.</li>
-</ol>
-</li>
+</ol></li>
 <li>Replicate the following Excel-matrix:</li>
 </ol>
 
-<img data-src="figures/excel-screenshot.png" style="width:50.0%" class="r-stretch"></section><section id="bonus-matrix-algebra" class="slide level2"><h2>Bonus: Matrix algebra</h2>
+<img data-src="figures/excel-screenshot.png" style="width:50.0%" class="r-stretch"><p><br> 3. Get the data for April and my by - including only the first and second row - excluding the third row - using the names</p>
+</section>
+<section id="bonus-matrix-algebra" class="slide level2">
+<h2>Bonus: Matrix algebra</h2>
 <ul>
 <li><p>R can do matrix “regular” algebra, and even lets you do operations that are not well-defined mathematically.</p></li>
 <li><p><code>t(A)</code> is the transpose of the matrix <code>A</code>.</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># define matrix containing normal data</span></span>
-<span><span class="va">data.vec</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">9</span>,mean<span class="op">=</span><span class="fl">0</span>,sd<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
-<span><span class="va">A</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="va">data.vec</span>,nrow<span class="op">=</span><span class="fl">3</span><span class="op">)</span> </span>
-<span><span class="va">A</span> <span class="co"># return A</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>           [,1]       [,2]       [,3]
-[1,]  0.0608646 -1.6503604 -0.1709266
-[2,] -1.6338637 -2.3228023 -1.0371176
-[3,] -0.7968817 -0.7760391  0.6362419</code></pre>
-</div>
-<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span> <span class="co"># return the transpose</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># define matrix containing normal data</span></span>
+<span id="cb81-2"><a href="" aria-hidden="true" tabindex="-1"></a>data.vec<span class="ot">=</span><span class="fu">rnorm</span>(<span class="dv">9</span>,<span class="at">mean=</span><span class="dv">0</span>,<span class="at">sd=</span><span class="dv">1</span>)</span>
+<span id="cb81-3"><a href="" aria-hidden="true" tabindex="-1"></a>A<span class="ot">=</span><span class="fu">matrix</span>(data.vec,<span class="at">nrow=</span><span class="dv">3</span>) </span>
+<span id="cb81-4"><a href="" aria-hidden="true" tabindex="-1"></a>A <span class="co"># return A</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           [,1]      [,2]       [,3]
-[1,]  0.0608646 -1.633864 -0.7968817
-[2,] -1.6503604 -2.322802 -0.7760391
-[3,] -0.1709266 -1.037118  0.6362419</code></pre>
+[1,] -0.1492325 1.4773250 -0.7571142
+[2,] -0.9437441 0.7755642 -1.4048324
+[3,]  0.4761070 0.7561128 -0.4084353</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(A) <span class="co"># return the transpose</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           [,1]       [,2]       [,3]
+[1,] -0.1492325 -0.9437441  0.4761070
+[2,]  1.4773250  0.7755642  0.7561128
+[3,] -0.7571142 -1.4048324 -0.4084353</code></pre>
 </div>
 </div>
-</section><section class="slide level2"><ul>
-<li>
-<code>solve(A)</code> returns the inverse of an invertible matrix.</li>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><code>solve(A)</code> returns the inverse of an invertible matrix.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/solve.html">solve</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span> <span class="co"># return the inverse of A</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">solve</span>(A) <span class="co"># return the inverse of A</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           [,1]        [,2]       [,3]
-[1,]  0.7319101 -0.37920363 -0.4214999
-[2,] -0.5982977  0.03125643 -0.1097828
-[3,]  0.1869469 -0.43682168  0.9099036</code></pre>
+[1,] -0.8780502 -0.03642957  1.7529381
+[2,]  1.2418587 -0.49638500 -0.5946871
+[3,]  1.2754517 -0.96139455 -1.5059042</code></pre>
 </div>
 </div>
-</section><section class="slide level2"><ul>
-<li>
-<code>*</code>does element-wise multiplication.</li>
-<li>
-<code>%*%</code> does matrix multiplication .</li>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><code>*</code>does element-wise multiplication.</li>
+<li><code>%*%</code> does matrix multiplication .</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># element-wise multiplication</span></span>
-<span><span class="va">A</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/solve.html">solve</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span> <span class="co"># NOT the identity matrix</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># element-wise multiplication</span></span>
+<span id="cb87-2"><a href="" aria-hidden="true" tabindex="-1"></a>A<span class="sc">*</span><span class="fu">solve</span>(A) <span class="co"># NOT the identity matrix</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>            [,1]       [,2]       [,3]
-[1,]  0.04454741  0.6258227 0.07204554
-[2,]  0.97753684 -0.0726025 0.11385764
-[3,] -0.14897454  0.3389907 0.57891875</code></pre>
+<pre><code>           [,1]        [,2]       [,3]
+[1,]  0.1310337 -0.05381832 -1.3271744
+[2,] -1.1719969 -0.38497841  0.8354357
+[3,]  0.6072515 -0.72692274  0.6150644</code></pre>
 </div>
-<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># matrix multiplication</span></span>
-<span><span class="va">A</span><span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span><span class="fu"><a href="https://rdrr.io/r/base/solve.html">solve</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># matrix multiplication</span></span>
+<span id="cb89-2"><a href="" aria-hidden="true" tabindex="-1"></a>A<span class="sc">%*%</span><span class="fu">solve</span>(A) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>             [,1]         [,2]          [,3]
-[1,] 1.000000e+00 1.387779e-17 -2.775558e-17
-[2,] 1.110223e-16 1.000000e+00  1.110223e-16
-[3,] 6.938894e-17 0.000000e+00  1.000000e+00</code></pre>
+<pre><code>             [,1]          [,2]          [,3]
+[1,] 1.000000e+00 -1.110223e-16 -2.220446e-16
+[2,] 0.000000e+00  1.000000e+00  0.000000e+00
+[3,] 1.110223e-16 -5.551115e-17  1.000000e+00</code></pre>
 </div>
-<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># yields the identity (up to a small error due to the</span></span>
-<span><span class="co"># numerical computation of the inverse)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># yields the identity (up to a small error due to the</span></span>
+<span id="cb91-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># numerical computation of the inverse)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="lists" class="slide level2"><h2>Lists</h2>
+</section>
+<section id="lists" class="slide level2">
+<h2>Lists</h2>
 <ul>
 <li>A <code>list</code> is a generic collection of objects.</li>
 <li>Unlike vectors, the components can have different types (e.g., numeric and character).</li>
@@ -674,8 +743,8 @@ row3    9   10   11</code></pre>
 <li>Generate a list with <code>mylist&lt;- list(name1=component1, name2=component2,...)</code>.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mylist</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>num.vec<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>,city<span class="op">=</span><span class="st">"Maastricht"</span><span class="op">)</span> </span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">mylist</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="" aria-hidden="true" tabindex="-1"></a>mylist<span class="ot">=</span><span class="fu">list</span>(<span class="at">num.vec=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="at">city=</span><span class="st">"Maastricht"</span>) </span>
+<span id="cb92-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mylist)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$num.vec
 [1] 1 2 3
@@ -684,102 +753,166 @@ $city
 [1] "Maastricht"</code></pre>
 </div>
 </div>
-</section><section class="slide level2"><ul>
+</section>
+<section class="slide level2">
+
+<ul>
 <li>Get names of the components with <code>names(mylist)</code>.</li>
 <li>You can access components with the <code>$</code> (dollar sign) operator, e.g., <code>mylist$name1</code>, or by position with <code>[[]]</code>.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mylist</span><span class="op">$</span><span class="va">city</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="" aria-hidden="true" tabindex="-1"></a>mylist<span class="sc">$</span>city</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Maastricht"</code></pre>
 </div>
-<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mylist</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span> <span class="co"># same result</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="" aria-hidden="true" tabindex="-1"></a>mylist[[<span class="dv">2</span>]] <span class="co"># same result</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Maastricht"</code></pre>
 </div>
 </div>
-</section><section id="dataframes" class="slide level2"><h2>Data frames</h2>
+</section>
+<section id="dataframes" class="slide level2">
+<h2>Data frames</h2>
 <ul>
-<li>
-<code>data frames</code> are simply data sets in R terminology.</li>
+<li><code>data frames</code> are simply data sets in R terminology.</li>
 <li>So-called <code>data files</code> can contain multiple data sets.</li>
-<li>We can create a data frame by <code><a href="https://rdrr.io/r/base/data.frame.html">data.frame()</a></code> or transform a matrix <code>mat</code> into a data frame by <code>as.data.frame(mat)</code>.</li>
-<li>Many functions (e.g.&nbsp;<code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> for regressions) need a data frame as input (see later sessions).</li>
+<li>We can create a data frame by <code>data.frame()</code> or transform a matrix <code>mat</code> into a data frame by <code>as.data.frame(mat)</code>.</li>
+<li>Many functions (e.g.&nbsp;<code>lm()</code> for regressions) need a data frame as input (see later sessions).</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># generate a data frame</span></span>
-<span><span class="va">ID</span><span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">4</span></span>
-<span><span class="va">hourly_wage</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n<span class="op">=</span><span class="fl">4</span>,mean<span class="op">=</span><span class="fl">20</span>,sd<span class="op">=</span><span class="fl">1</span><span class="op">)</span> <span class="co"># create 4 draws from N(20,1)</span></span>
-<span><span class="va">city</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Maastricht"</span>,<span class="st">"Eindhoven"</span>,<span class="st">"Amsterdam"</span>,<span class="cn">NA</span><span class="op">)</span></span>
-<span><span class="va">dats</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">ID</span>,<span class="va">hourly_wage</span>,<span class="va">city</span><span class="op">)</span> <span class="co"># add new variable</span></span>
-<span><span class="va">dats</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># generate a data frame</span></span>
+<span id="cb98-2"><a href="" aria-hidden="true" tabindex="-1"></a>ID<span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
+<span id="cb98-3"><a href="" aria-hidden="true" tabindex="-1"></a>hourly_wage<span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n=</span><span class="dv">4</span>,<span class="at">mean=</span><span class="dv">20</span>,<span class="at">sd=</span><span class="dv">1</span>) <span class="co"># create 4 draws from N(20,1)</span></span>
+<span id="cb98-4"><a href="" aria-hidden="true" tabindex="-1"></a>city<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Maastricht"</span>,<span class="st">"Eindhoven"</span>,<span class="st">"Amsterdam"</span>,<span class="cn">NA</span>)</span>
+<span id="cb98-5"><a href="" aria-hidden="true" tabindex="-1"></a>dats<span class="ot">&lt;-</span> <span class="fu">data.frame</span>(ID,hourly_wage,city) <span class="co"># add new variable</span></span>
+<span id="cb98-6"><a href="" aria-hidden="true" tabindex="-1"></a>dats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  ID hourly_wage       city
-1  1    17.88861 Maastricht
-2  2    19.66487  Eindhoven
-3  3    19.05278  Amsterdam
-4  4    18.44647       &lt;NA&gt;</code></pre>
+1  1    19.25526 Maastricht
+2  2    20.33626  Eindhoven
+3  3    19.11838  Amsterdam
+4  4    19.91660       &lt;NA&gt;</code></pre>
 </div>
 </div>
-</section><section class="slide level2"><ul>
+</section>
+<section class="slide level2">
+
+<ul>
 <li>As with lists, we can access variables using the <code>$</code> operator.</li>
 <li>We can also add new variables using the <code>$</code> operator.</li>
-<li>
-<code><a href="https://rdrr.io/r/utils/View.html">View()</a></code> opens a data-viewer. Very useful (but difficult to demonstrate on these slides).</li>
+<li><code>View()</code> opens a data-viewer. Very useful (but difficult to demonstrate on these slides).</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dats</span><span class="op">$</span><span class="va">city</span> <span class="co"># "city" is NA for ID 4.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="" aria-hidden="true" tabindex="-1"></a>dats<span class="sc">$</span>city <span class="co"># "city" is NA for ID 4.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Maastricht" "Eindhoven"  "Amsterdam"  NA          </code></pre>
 </div>
-<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dats</span><span class="op">$</span><span class="va">city</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span><span class="op">&lt;-</span><span class="st">'Tilburg'</span> <span class="co"># assign city to ID 4</span></span>
-<span><span class="va">dats</span><span class="op">$</span><span class="va">educ</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">12</span>,<span class="fl">21</span>,<span class="fl">9</span>,<span class="fl">10</span><span class="op">)</span></span>
-<span><span class="va">dats</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="" aria-hidden="true" tabindex="-1"></a>dats<span class="sc">$</span>city[<span class="dv">4</span>]<span class="ot">&lt;-</span><span class="st">'Tilburg'</span> <span class="co"># assign city to ID 4</span></span>
+<span id="cb102-2"><a href="" aria-hidden="true" tabindex="-1"></a>dats<span class="sc">$</span>educ<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>,<span class="dv">21</span>,<span class="dv">9</span>,<span class="dv">10</span>)</span>
+<span id="cb102-3"><a href="" aria-hidden="true" tabindex="-1"></a>dats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  ID hourly_wage       city educ
-1  1    17.88861 Maastricht   12
-2  2    19.66487  Eindhoven   21
-3  3    19.05278  Amsterdam    9
-4  4    18.44647    Tilburg   10</code></pre>
+1  1    19.25526 Maastricht   12
+2  2    20.33626  Eindhoven   21
+3  3    19.11838  Amsterdam    9
+4  4    19.91660    Tilburg   10</code></pre>
 </div>
 </div>
-</section><section class="slide level2"><ul>
+</section>
+<section class="slide level2">
+
+<ul>
 <li>Using <code>subset(data_frame,condition)</code>, we can easily get a subset of the original data frame where <code>condition</code> is <code>TRUE</code>.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># only keep individuals with at least 10 years of education</span></span>
-<span><span class="va">sub_dats</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">dats</span>,<span class="va">educ</span><span class="op">&gt;</span><span class="fl">10</span><span class="op">)</span></span>
-<span><span class="va">sub_dats</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># only keep individuals with at least 10 years of education</span></span>
+<span id="cb104-2"><a href="" aria-hidden="true" tabindex="-1"></a>sub_dats<span class="ot">=</span><span class="fu">subset</span>(dats,educ<span class="sc">&gt;</span><span class="dv">10</span>)</span>
+<span id="cb104-3"><a href="" aria-hidden="true" tabindex="-1"></a>sub_dats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  ID hourly_wage       city educ
-1  1    17.88861 Maastricht   12
-2  2    19.66487  Eindhoven   21</code></pre>
+1  1    19.25526 Maastricht   12
+2  2    20.33626  Eindhoven   21</code></pre>
 </div>
 </div>
-</section></section><section id="exercise-1" class="title-slide slide level1 center"><h1>Exercise</h1>
+</section>
+<section id="exercise-2.4" class="slide level2">
+<h2>Exercise 2.4</h2>
 <ul>
 <li>Create your own data frame:
 <ul>
 <li>create a vector <code>ID</code> that contains the sequence 1,2,…,100.</li>
 <li>create a vector <code>income</code> that contains 100 random draws from N(10,1).</li>
-<li>create a dummy <code>female</code> that is 1 for <code>ID=1,...,50</code> and 0 otherwise. (hint: you can achieve this by using <code><a href="https://rdrr.io/r/base/rep.html">rep()</a></code> twice and combining two vectors with <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>)</li>
+<li>create a dummy <code>female</code> that is 1 for <code>ID=1,...,50</code> and 0 otherwise. (hint: you can achieve this by using <code>rep()</code> twice and combining two vectors with <code>c()</code>)</li>
 <li>collect the variables in a data frame <code>my_df</code>.</li>
-<li>inspect your data with <code>View(my_df)</code>
-</li>
+<li>inspect your data with <code>View(my_df)</code></li>
 <li>bonus: create a subset <code>sub_my_df</code> that contains only individuals with income larger than 10.</li>
+</ul></li>
 </ul>
-</li>
+</section>
+<section id="bonus-teaching-regression-with-r" class="slide level2">
+<h2>Bonus: teaching regression with R</h2>
+<ul>
+<li>To give students a feeling for the behavior of the least squares estimator, it can be very useful to use simulated data.</li>
+<li>This allows teachers to visualize the effects of various quantities of interest, e.g., sample size, variation in the observed and unobserved variables, or omitted variables.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span><span class="dv">100</span> <span class="co"># set the sample size</span></span>
+<span id="cb106-2"><a href="" aria-hidden="true" tabindex="-1"></a>X<span class="ot">&lt;-</span><span class="fu">rnorm</span>(n,<span class="at">mean=</span><span class="dv">1</span>,<span class="at">sd=</span><span class="dv">2</span>)<span class="co"># define the observed covariate X</span></span>
+<span id="cb106-3"><a href="" aria-hidden="true" tabindex="-1"></a>epsilon<span class="ot">&lt;-</span><span class="fu">rnorm</span>(n,<span class="at">mean=</span><span class="dv">0</span>,<span class="at">sd=</span><span class="dv">1</span>) <span class="co"># define the model error</span></span>
+<span id="cb106-4"><a href="" aria-hidden="true" tabindex="-1"></a>beta0<span class="ot">&lt;-</span><span class="dv">1</span> <span class="co"># define true intercept</span></span>
+<span id="cb106-5"><a href="" aria-hidden="true" tabindex="-1"></a>beta1<span class="ot">&lt;-</span><span class="dv">2</span> <span class="co"># define true slope</span></span>
+<span id="cb106-6"><a href="" aria-hidden="true" tabindex="-1"></a>Y<span class="ot">=</span>beta0<span class="sc">+</span>beta1<span class="sc">*</span>X<span class="sc">+</span>epsilon <span class="co"># generate Y according to a linear model</span></span>
+<span id="cb106-7"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># recall the formula in a bivariate model</span></span>
+<span id="cb106-8"><a href="" aria-hidden="true" tabindex="-1"></a>beta1.hat<span class="ot">=</span><span class="fu">cov</span>(X,Y)<span class="sc">/</span><span class="fu">var</span>(X)</span>
+<span id="cb106-9"><a href="" aria-hidden="true" tabindex="-1"></a>beta0.hat<span class="ot">=</span><span class="fu">mean</span>(Y)<span class="sc">-</span>beta1.hat<span class="sc">*</span><span class="fu">mean</span>(X)</span>
+<span id="cb106-10"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># print estimators</span></span>
+<span id="cb106-11"><a href="" aria-hidden="true" tabindex="-1"></a>beta0.hat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9906007</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="" aria-hidden="true" tabindex="-1"></a>beta1.hat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.04402</code></pre>
+</div>
+</div>
+</section></section>
+<section id="bonus-exercise-simulate" class="title-slide slide level1 center">
+<h1>Bonus exercise: simulate!</h1>
+<ul>
+<li>Repeat the previous simulation, but
+<ul>
+<li>change the sample size</li>
+<li>change the mean of <code>X</code>. What is the effect on <code>beta1.hat</code>?</li>
+<li>change the mean of <code>epsilon</code>. What is the effect on <code>beta0.hat</code>?</li>
+<li>change the variance of <code>X</code> and <code>epsilon</code>. What is the effect?</li>
+</ul></li>
 </ul>
 
 </section>
-</div>
+    </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
 
 </div>
 </div></div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="IntroductionR_Session2_files/libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="IntroductionR_Session2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="IntroductionR_Session2_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="IntroductionR_Session2_files/libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="IntroductionR_Session2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="IntroductionR_Session2_files/libs/revealjs/plugin/quarto-support/support.js"></script><script src="IntroductionR_Session2_files/libs/revealjs/plugin/notes/notes.js"></script><script src="IntroductionR_Session2_files/libs/revealjs/plugin/search/search.js"></script><script src="IntroductionR_Session2_files/libs/revealjs/plugin/zoom/zoom.js"></script><script src="IntroductionR_Session2_files/libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="IntroductionR_Session2_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="IntroductionR_Session2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="IntroductionR_Session2_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="IntroductionR_Session2_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="IntroductionR_Session2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="IntroductionR_Session2_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="IntroductionR_Session2_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="IntroductionR_Session2_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="IntroductionR_Session2_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="IntroductionR_Session2_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
@@ -970,226 +1103,250 @@ $city
           RevealZoom
         ]
       });
-    </script><script>
+    </script>
+    
+
+    <script>
+
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
       // slide changes (different for each slide format).
+
       (function () {
+
         // dispatch for htmlwidgets
+
         function fireSlideEnter() {
+
           const event = window.document.createEvent("Event");
+
           event.initEvent("slideenter", true, true);
+
           window.document.dispatchEvent(event);
+
         }
+
     
+
         function fireSlideChanged(previousSlide, currentSlide) {
+
           fireSlideEnter();
+
     
+
           // dispatch for shiny
+
           if (window.jQuery) {
+
             if (previousSlide) {
+
               window.jQuery(previousSlide).trigger("hidden");
+
             }
+
             if (currentSlide) {
+
               window.jQuery(currentSlide).trigger("shown");
+
             }
+
           }
+
         }
+
     
+
         // hookup for slidy
+
         if (window.w3c_slidy) {
+
           window.w3c_slidy.add_observer(function (slide_num) {
+
             // slide_num starts at position 1
+
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
           });
+
         }
+
     
+
       })();
-    </script><script id="quarto-html-after-body" type="application/javascript">
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-      const toggleBodyColorMode = (bsSheetEl) => {
-        const mode = bsSheetEl.getAttribute("data-mode");
-        const bodyEl = window.document.querySelector("body");
-        if (mode === "dark") {
-          bodyEl.classList.add("quarto-dark");
-          bodyEl.classList.remove("quarto-light");
-        } else {
-          bodyEl.classList.add("quarto-light");
-          bodyEl.classList.remove("quarto-dark");
-        }
-      }
-      const toggleBodyColorPrimary = () => {
-        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-        if (bsSheetEl) {
-          toggleBodyColorMode(bsSheetEl);
-        }
-      }
-      toggleBodyColorPrimary();  
-      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-      tabsets.forEach(function(tabset) {
-        const tabby = new Tabby('#' + tabset.id);
-      });
-      const isCodeAnnotation = (el) => {
-        for (const clz of el.classList) {
-          if (clz.startsWith('code-annotation-')) {                     
-            return true;
-          }
-        }
-        return false;
-      }
-      const onCopySuccess = function(e) {
-        // button target
-        const button = e.trigger;
-        // don't keep focus
-        button.blur();
-        // flash "checked"
-        button.classList.add('code-copy-button-checked');
-        var currentTitle = button.getAttribute("title");
-        button.setAttribute("title", "Copied!");
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute("data-bs-toggle", "tooltip");
-          button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
-          tooltip = new bootstrap.Tooltip(button, 
-            { trigger: "manual", 
-              customClass: "code-copy-button-tooltip",
-              offset: [0, -8]});
-          tooltip.show();    
-        }
-        setTimeout(function() {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute("data-bs-title");
-            button.removeAttribute("data-bs-toggle");
-            button.removeAttribute("data-bs-placement");
-          }
-          button.setAttribute("title", currentTitle);
-          button.classList.remove('code-copy-button-checked');
-        }, 1000);
-        // clear code selection
-        e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
-      });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp('/' + window.location.host + '/');
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-        }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
-            }
-          }
-        }
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-        const config = {
-          allowHTML: true,
-          maxWidth: 500,
-          delay: 100,
-          arrow: false,
-          appendTo: function(el) {
-              return el.closest('section.slide') || el.parentElement;
-          },
-          interactive: true,
-          interactiveBorder: 10,
-          theme: 'light-border',
-          placement: 'bottom-start',
-        };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
-          config['offset'] = [0,0];
-          config['maxWidth'] = 700;
-        window.tippy(el, config); 
-      }
-      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-      for (var i=0; i<noterefs.length; i++) {
-        const ref = noterefs[i];
-        tippyHover(ref, function() {
-          // use id or data attribute instead here
-          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-          try { href = new URL(href).hash; } catch {}
-          const id = href.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
-          }
-        });
-      }
-      const findCites = (el) => {
-        const parentEl = el.parentElement;
-        if (parentEl) {
-          const cites = parentEl.dataset.cites;
-          if (cites) {
-            return {
-              el,
-              cites: cites.split(' ')
-            };
-          } else {
-            return findCites(el.parentElement)
-          }
-        } else {
-          return undefined;
-        }
-      };
-      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-      for (var i=0; i<bibliorefs.length; i++) {
-        const ref = bibliorefs[i];
-        const citeInfo = findCites(ref);
-        if (citeInfo) {
-          tippyHover(citeInfo.el, function() {
-            var popup = window.document.createElement('div');
-            citeInfo.cites.forEach(function(cite) {
-              var citeDiv = window.document.createElement('div');
-              citeDiv.classList.add('hanging-indent');
-              citeDiv.classList.add('csl-entry');
-              var biblioDiv = window.document.getElementById('ref-' + cite);
-              if (biblioDiv) {
-                citeDiv.innerHTML = biblioDiv.innerHTML;
-              }
-              popup.appendChild(citeDiv);
-            });
-            return popup.innerHTML;
-          });
-        }
-      }
-    });
+
     </script>
 
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
 
 </body></html>
