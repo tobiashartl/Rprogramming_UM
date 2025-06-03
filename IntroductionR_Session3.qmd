@@ -27,9 +27,21 @@ diagram:
 # Functions {#functions}
 
 ## Functions
-We have already encountered many *functions* in R:
 
-*Add examples based on previous sessions*
+We have already encountered several  *functions* in R:
+
+- `setwd()`
+
+- `sqrt()`
+
+- `print()`
+
+- `seq()`
+
+- `rep()`
+
+- `rnorm()`
+
 
 ## Function Overview
 <!-- To use TikZ, we need to install the following extension: -->
@@ -105,6 +117,58 @@ log_2_data <- log(fake_data, base = 2)	# <2>
 
 2. Calculates the logarithm with base 2.
 
+- Use the help files to understand function arguments
+
+## R help pages
+
+- provide detailed descriptions, arguments, return values, etc. for **R** packages, functions
+
+- include usage examples that demonstrate how to use the function effectively
+
+- are directly accessible in **RStudio**
+
+## R Help
+Help files are displayed in the <em>Help</em> window in the bottom right window below
+
+![](figures/R-help-1.png)
+
+## Accessing R Help
+
+To open the help file for a specific **R** function, for instance the function `log()`, you can use either of the following two commands:
+```{r, eval=FALSE}
+help(log)
+?log
+```
+
+Both commands above to the  same: they open the help file of the function you specified. 
+Note that **R**  searches for an **exact**! match and will only open the **R** Help page if the function exists. 
+
+## Exercise 3.1:  R Help
+
+- Execute the following code:
+```{r, eval=FALSE}
+?log
+```
+
+**R** should open the help page for the function with name `log`. No need to go over the help page in detail, we explore this in detail
+
+- Execute the following code:
+```{r, eval=FALSE}
+?logarithm
+```
+
+**R** should tell you that no documentation for the requested function exists. It did not find an **exact** match to the function `logarithm()`. It does give you a recommendation to try something instead...
+
+- Namely to try this:
+```{r, eval=FALSE}
+??logarithm
+```
+
+**R** performs a full-text search of the help system for all documentation that mentions the term `logarithm`.
+
+While the search with the command <em>?</em> is thus useful to directly access the help page of an **R** function you know exists, the broader help search with the command <em>??</em> is useful if you are not sure about the exact name of a function.
+
+
 ## Understanding the log function
 
 Execute the command `?log`. It gives something like this:
@@ -165,7 +229,7 @@ log(fake_data_matrix)
 ```
 
 
-## Exercise: Function Arguments
+## Exercise 3.2: Function Arguments
 
 The function `rnorm()` can be used to simulate normally distributed data. The function `mean()` can be used to calculate the sample mean of the data, while the function `sd()` can be used to calculate the sample standard deviation. You will need to use the help files of these functions to complete the question.
 
@@ -329,7 +393,7 @@ miles_to_metric(60)
 
 - Note: make sure to first execute the lines containing your function before you use it (and execute again after an update to the code).
 
-## Exercise: create your own function
+## Exercise 3.3: Create your own function
 
 1. Create a function that takes as input the `courses` data frame. The function output should be the total number of courses that use student tutors.
   + There are many ways to count the number of courses that require student tutors. Probably the easiest is to directly do calculations with the logical values: `TRUE` is treated as 1, `FALSE` as 0:
@@ -346,13 +410,12 @@ c(TRUE + FALSE, TRUE + TRUE, TRUE * FALSE)
 
 ## Objects and Their Labels
 
-Discussion how objects and classes are used for function output. How then functions appear to act differently on different types of objects (e.g. `plot()`).
-
 - Objects can be seen as a *package*: there is the actual *content*, and there is a *label* explaining the purpose of the object.
 
 ![](figures/package.png){width=40%}
 
 - We can obtain the label from the function `class()`
+
 - Many functions act differently, depending on the class of the input.
 
 ## The summary function
@@ -448,9 +511,9 @@ In terms of content, this is just a (named) vector.
 
 2. Applying it to an object for which the class function has not been defined (*"Why does `summary()` not work on my object X?"*).
 
-## Exercise 3.X: Using the plot function for different objects
+## Exercise 3.4: Using the plot function for different objects
 
-1. Remember your vector `x1` of normally distributed random variables created in Exercise 3.x
+1. Remember your vector `x1` of normally distributed random variables created in Exercise 3.3
 
 2. Make a basic plot of this vector using the simple command `plot(x1)`.
 
@@ -462,9 +525,21 @@ In terms of content, this is just a (named) vector.
 
 # Packages {#packages}
 
-## Installing Packages
+## R packages
 
-- One of R's defining features is the richness of its package management system.
+- Until now, we have explored some basic functionality in **R**. But much of the functionality of **R** is extended by its big and active community.
+
+- These extensions are called **R packages**.
+
+- One of **R**'s defining features is the richness of its package management system:
+
+  + Packages are constantly developed and adjusted by the large user community making many state-of-the-art methods quickly available
+
+  + Packages can be installed for just about everything you want to do in statistics and data science
+
+  + Packages offer pre-defined functions which makes it possible to use **R** without a deep understanding of the language and programming skills.
+
+## Installing Packages
 
 - Installing packages is straightforward. But how do I know which package I need?
 
