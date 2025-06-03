@@ -539,6 +539,52 @@ In terms of content, this is just a (named) vector.
 
   + Packages offer pre-defined functions which makes it possible to use **R** without a deep understanding of the language and programming skills.
 
+## Overview of R packages
+
+The standard distribution of **R** comes already with a number of packages. 
+
+A list of the currently installed packages can be obtained from the <em>Packages</em> window in the bottom right window below
+
+![](figures/R-package-1.png)
+
+You can install new packages depending on your needs
+
+## Installing R packages
+
+To install a new **R** package,  click on the <em>Install</em> button at the top of the <em>Packages</em> window.
+
+You can then type the name of the **R** package you want to install. Let us install the package **this.path**
+
+![](figures/R-package-2.png)
+
+You can use this **R** code also directly to install a package. The package is now added to to your package list and ready to be used.
+
+```{r, eval=FALSE}
+install.packages("this.path", dependencies = TRUE)
+```
+
+## Loading R package
+
+Installing an **R** package as we just did, only needs to be done once. 
+
+Yet each time you want to use the functionality of the **R** package in your current **R** session, you need to activate it. You can do this via the following command:
+```{r, eval=FALSE}
+library(this.path)
+```
+
+After activating the package nothing immediately happens, but **R** simply has access to the functionality that the **this.path** offers.
+
+## Exercise R package
+
+Why did we install the **this.path** package? Because it offers functionality to  set your working directory, as an alternative to the Menu-based approach we say before.
+
+To set the working directory to the folder where your current **R** script is located, you can simply use:
+```{r, eval=FALSE}
+library(this.path) # Load the library each time you use the command below
+setwd(dirname(this.path::this.path()))
+```
+It may be convenient to enter this at the top of your **R** script to ensure that you are always working in the directory where your **R** Script is located without having to type the name of the path!
+
 ## Installing Packages
 
 - Installing packages is straightforward. But how do I know which package I need?
