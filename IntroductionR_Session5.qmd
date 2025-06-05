@@ -17,812 +17,127 @@ diagram:
         - '\definecolor{UMred}{RGB}{174,11,18}'
 ---
 
-```{r setup, include = FALSE}
-library(dplyr)
-data_cli <- read.table("https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv", 
-                       header = TRUE, sep = ",", stringsAsFactors = FALSE)
-```
-
 # Session Overview
 
-1.  [Basics of data manipulation](#dataman1)
-2.	[Bonus: Data manipulation and tidyverse](#dataman2)
-3.  [Regression analysis](#reg1)
+1.  [Basics of Data Manipulation](#dataman1)
+2.  [Regression Analysis](#reg1)
+3.	[Bonus: Tidyverse](#dataman2)
 
-# Basics of data manipulation {#dataman1}
+# Basics of Data Manipulation {#dataman1}
 
-## Data manipulation
+## Data Manipulation
 In the last session, we learned how to load data of various sources into R. 
 
-Today's session will be about how to manipulate data in R. Importantly, we will learn how to
+Today's first part will be about how to manipulate data in R. Importantly, we will learn how to
 
 - select certain variables from a data 
 - subset a data set
-- order data 
 - recode and rename certain variables
-- add new information to a data set 
-- reshape data
-- compute summary statistics 
 
+We will work with fictive data set of student grades. Let us start by loading the data:
 
-We will work with the climate data set for the Netherlands in long format
-
-```{r list1, eval = FALSE}
-data_cli <- read.table("https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv", 
+```{r list1, eval = TRUE}
+data_grades <- read.table("data/grades.csv", 
                        header = TRUE, sep = ",", stringsAsFactors = FALSE)
 ```
 
+## Selecting Variables
+We begin with selecting interesting variables from a data set. For our grades data set, we want to preserve information about `ID`, `Name`, and `Exam_Score`, and drop all other information. 
 
-## Data manipulation: Select 1
-We begin with selecting interesting variables from a data set while dropping irrelevant ones. For our climate data set, we want to preserve information about `date`, `location`, and `temperature`, and drop all other information. 
-
-Approach #1: Selecting by variable names
+Variables can be selected by name, after which we inspect the first and last three rows in the data set:
 ```{r list2, eval = TRUE}
-data <- data_cli[, c("YEARMODA", "NAME", "TEMP")] 
+data <- data_grades[, c("ID", "Name", "Exam_Score")] 
 head(data, 3)
 tail(data, 3)
 ```
 
-
-## Data manipulation: Select 2
-As an alternative, we could also 
-
-- call the column indexes 
-- use negative indexing 
-- use subset()
-
-Approach #2: Selecting by variable indexes
+## Selecting Variables
+Or by variable indexes
 ```{r list3, eval = TRUE}
-data1 <- data_cli[, c(14, 3, 19)] 
-
-# check
-identical(data, data1) 
+data1 <- data_grades[, c(1, 2, 7)] 
 ```
+though this is not that convenient unless you know the column numbers of the variables you want to select.
 
-## Data manipulation: Select 3
-Approach #3: Selecting by subset()
+A more convenient alternative is to use the following function:
 ```{r list4, eval = TRUE}
-data3 <- subset(data_cli, select = c(YEARMODA, NAME, TEMP))
-
-# check
-identical(data, data3)
+data2 <- subset(data_grades, select = c(ID, Name, Exam_Score))
 ```
 
+The objects data, data1 and data2 are all identical so you can use your preferred way of working!
 
-## Data manipulation: Subsetting rows 1
-Next, we want to subset the data set, i.e. preserve interesting rows while dropping irrelevant ones. For the climate data set, we might be interested in information about Maastricht in 2024 only. 
+## Subsetting Rows
+Next, we want to subset the data set, i.e. preserve interesting rows while removing the others. 
 
-Approach #1: Logical row indexing
+For the grades data set, we might be interested in information about students in tutorial group 1: 
 ```{r list5, eval = TRUE}
-# select data from 2024-01-01 on only
-data <- data_cli[data_cli$YEARMODA >= as.Date("2024-01-01"), ]
-# select data until 2024-12-31
-data <- data[data$YEARMODA <= as.Date("2024-12-31"), ]
-# select Maastricht only
-data <- data[data$NAME == "MAASTRICHT", ]
-
-head(data[, c("YEARMODA", "NAME", "TEMP")], 3)
-tail(data[, c("YEARMODA", "NAME", "TEMP")], 3)
-
+# select tutorial 1 students only
+data_tutorial1 <- data_grades[data_grades$Tutorial == 1, ]
 ```
-
-## Data manipulation: Subsetting rows 2
-Approach #2: subset()
+or alternatively:
 ```{r list6, eval = TRUE}
-data2 <- subset(data_cli, YEARMODA >= as.Date("2024-01-01") &
-						  YEARMODA <= as.Date("2024-12-31") &
-						  NAME == "MAASTRICHT")
-
-identical(data, data2)
+data_tutorial1 <- subset(data_grades, Tutorial == 1)
 ```
 
-Approach #3: which()
+Subsetting also works using characters. For instance, to retrieve only information for females:
 ```{r list7, eval = TRUE}
-data3 <- data_cli[which(data_cli$YEARMODA >= as.Date("2024-01-01") & 
-					    data_cli$YEARMODA <= as.Date("2024-12-31") & 
-						data_cli$NAME == "MAASTRICHT"), ]
-
-identical(data, data3)
+# select female students only
+data_females <- data_grades[data_grades$Gender == 'Female', ]
 ```
 
-## Data manipulation: Sorting data 1
-Often we want to order / sort data. Two functions will be helpful here:
+Inspect your new data sets!
 
-- `order()` returns the indices that would sort the data (ascendingly, descendingly)
-- `sort()` is available for vectors only, and returns the sorted vector. 
+## Exercise 5.1
 
-## Data manipulation: Sorting data 2
-For our climate data set, suppose we want to sort the data by time (instead of by location). 
+Use the grades data set.
 
+1. Generate a data set that contains information about the student ID, student name,  their tutorial group, participation grade and their exam score.
+
+2. Reduce the data set to only display information of students in tutorial group 4
+
+3. Further reduce the data set to only display information of students in tutorial group 4 with an exam score of more than 80. How many such students are there? 
+Hint: You can use a logical operator when subsetting!
+
+## Transforming Variables 
+Let us continue with further data manipulations. The variable tutorial is currently an integer:
 ```{r list8, eval = TRUE}
-# sort: returns a sorted vector
-data_cli$YEARMODA[1:10]
-sort(data_cli$YEARMODA)[1:10]
-
-# order: returns the indices that would sort the data
-order(data_cli$YEARMODA)[1:10]
-data_cli_ord <- data_cli[order(data_cli$YEARMODA), ]
-head(data_cli_ord[, c("YEARMODA", "NAME", "TEMP")], 3)
+class(data_grades$Tutorial)
 ```
-
-
-
-
-## Task 5.1
-
-Use the long-format climate [data set](https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv).
-
-1. Generate a data set that contains information about precipitation (`PRCP`), temperature (`TEMP`) for all days and locations of the original data set.
-
-2. Reduce the information to the year 2020 and the locations Eelde, De Bilt, and Maastricht.
-
-3. Sort the data by time (ascendingly) and location (alphabetically) first, and then by temperature (ascendingly). When and where was the highest temperature observed?
-
-
-```{r list9, include = FALSE}
-data_cli <- read.table("https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv", 
-                       header = TRUE, sep = ",", stringsAsFactors = FALSE)
-
-data <- data_cli[,c("YEARMODA", "NAME", "PRCP", "TEMP")]
-head(data)
-data <- data[data$YEARMODA >= as.Date("2020-01-01") &
-			 data$YEARMODA <= as.Date("2020-12-31") & 
-			 data$NAME %in% c("EELDE", "DE BILT", "MAASTRICHT"),]
-head(data)
-tail(data)
-
-data <- data[order(data$YEARMODA, data$NAME), ]
-head(data)
-tail(data)
-
-data <- data[order(data$TEMP), ]
-tail(data)
+but it should be a factor (a categorical variable). This can be easily changed in R:
+```{r list9, eval = TRUE}
+data_grades$Tutorial <- as.factor(data_grades$Tutorial)
 ```
-
-
-## Data manipulation: Adding information 1
-Sometimes we want to transform data or add information. For instance, we could be interested in whether it was raining on a certain day in a certain city (i.e. `PRCP` is positive)
-
-To add a new variable `RAIN` to a data.frame, use the `$` operator
+after which you can inspect its new class:
 ```{r list10, eval = TRUE}
-# Generate a logical value that is TRUE if percipitation > 0, else FALSE
-data_cli$RAIN <- (data_cli$PRCP > 0)
-
-head(data_cli[, c("YEARMODA", "RAIN")], 3)
+class(data_grades$Tutorial)
 ```
 
-## Data manipulation: Adding information 2
-As an alternative, we can also use the bracket notation
-```{r list11, eval = F}
-data_cli[, "RAIN"] <- (data_cli$PRCP > 0)
+## Transforming Variables 
+When inspecting the variable itself, R now mentions the different levels of the factors:
+```{r list11, eval = TRUE}
+data_grades$Tutorial
 ```
-
-Moreover, sometimes we want to transform data. As an example, add temperature in Kelvin to the data set. 
+which you can also directly retreive via:
 ```{r list12, eval = TRUE}
-data_cli[, "temp_k"] <- data_cli[, "TEMP"] + 273.15
-head(data_cli[, c("YEARMODA", "RAIN", "NAME", "TEMP", "temp_k")], 3)
-
+levels(data_grades$Tutorial)
 ```
 
+## Adding Variables
+Sometimes we want to add a variable to an existing data set. 
 
-## Data manipulation: Adding information 3
-Besides adding columns, we can also expand our data set by adding further rows to the data. Suppose we observe additional data for Leuven. We can then extend our data set to include the new information using the `rbind()` command.
-```{r, include = FALSE}
-data_cli <- read.table("https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv", 
-                       header = TRUE, sep = ",", stringsAsFactors = FALSE)
-```
+For instance, we want to add the exam score on 10 instead of 100. To add a new variable, use the `$` operator and specify a new variable name:
 ```{r list13, eval = TRUE}
-# Load data for Leuven
-data_leuven <- read.table("https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate_leuven.csv", 
-                       header = TRUE, sep = ",", stringsAsFactors = FALSE)
+data_grades$Exam_Score_10 <- data_grades$Exam_Score/10 
 
-# join the two data sets 
-data_new <- rbind(data_cli, data_leuven)
+head(data_grades[, c("Exam_Score", "Exam_Score_10")], 3)
 ```
 
-## Data manipulation: Adding information 4
-Sometimes we want to change the class of a variable: for instance, we want to make sure that `YEARMODA` indeed is a Date-variable, whereas `NAME` is a factor
-```{r list14, eval = TRUE}
-# split the data set
-data_cli$NAME <- as.factor(data_cli$NAME)
-data_cli$YEARMODA <- as.Date(data_cli$YEARMODA)
-```
+## Exercise 5.2
 
+1. What is the class of the variable Tutor? Transform it into a factor. How many tutors are there?
 
-## Data manipulation: Reshaping data 1
-If we want to generate a new data.frame, we can collect the relevat information via the `data.frame()` function: 
-```{r list15, eval = TRUE}
-# split the data set
-data_cli_new <- data.frame(date = as.Date(data_cli$YEARMODA),
-						   location = as.factor(data_cli$NAME), 
-						   temp = as.numeric(data_cli$TEMP))
-head(data_cli_new)
-```
+2. Add a new variable to compute the final score of each student, which is the weighted average of their participation grade (20%) and their exam score (80%)
 
+3. Retrieve the final score of the students in tutorial group 2. Obtain summary statistics of their final scores.
 
-## Data manipulation: Reshaping data 2
-Moreover, we sometimes prefer to have data in wide format. This can be achieved by using the `reshape()` function. The example below generates a wide data set with temperature data along different stations. 
-
-```{r list16, eval = TRUE}
-# split the data set
-data_cli_new_wide <- reshape(data_cli_new, timevar = "location", 
-						     idvar ="date", direction = "wide")
-
-head(data_cli_new_wide[, c(1, 2, 3, 4)])
-
-```
-
-
-
-
-
-## Data manipulation: Computing summary statistics 1
-For exploratory data analysis, we are interested in computing (conditional and unconditional) summary statistics. In principle, the function `summary()` already gives us an overview about the data. 
-
-Example:
-```{r list17, eval = TRUE}
-# split the data set
-summary(data_cli_new)
-```
-
-
-## Data manipulation: Computing summary statistics 2
-Often we are interested in computing summary statistics along certain groups: For instance, we could be interested in the average temperature for each station and year. Here, the `aggregate` function allows to execute functions along groups.
-
-Example:
-```{r list18, eval = TRUE}
-# generate a new variable `year``
-data_cli_new$year <- format(as.Date(data_cli_new$date), "%Y")
-# average temperature per year
-aggregate(temp ~ year, data = data_cli_new, FUN = mean)
-```
-
-
-## Data manipulation: Computing summary statistics 3
-```{r list19, eval = TRUE}
-# average temperature per station
-aggregate(temp ~ location, data = data_cli_new, FUN = mean)
-```
-
-## Data manipulation: Computing summary statistics 4
-```{r list20, eval = TRUE}
-# average temperature per station and year
-aggregate(temp ~ location + year, data = data_cli_new, FUN = mean)
-```
-
-
-
-## Task 5.2
-
-Use the long-format temperature [data set](https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv).
-
-1. Add the variable `tempF` (temperature in Fahrenheit) to the dataset 
-
-2. Compute, grouped by city and year, the mean temperature and standard deviation.
-
-3. Find the coolest and warmest day for each city.
-
-4. Add a variable `lowest_temperature` to the dataset, which remains constant within each `city` group and corresponds to the lowest temperature in that respective group. Do the same for `highest_temperature`
-
-5. Sort the dataset within city groups by temperature.
-
-
-```{r list21, include = FALSE}
-data_cli <- read.table("https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv", 
-                       header = TRUE, sep = ",", stringsAsFactors = FALSE)
-
-data <- data.frame(date = as.Date(data_cli$YEARMODA),
-				   city = as.factor(data_cli$NAME), 
-				   temp = as.numeric(data_cli$TEMP))
-# add temperature in F as well as year
-data$tempF <- (data$temp * 9/5) + 32
-data$year <- format(as.Date(data$date), "%Y")
-
-# mean temperature and standard deviation
-aggregate(tempF ~ city + year, data = data, FUN = mean)
-aggregate(tempF ~ city + year, data = data, FUN = sd)
-
-# coolest and warmest day for each city
-min_temp <- aggregate(temp ~ city, data = data, FUN = min)
-(coolest_days <- merge(min_temp, data, by = c("city", "temp"))
-)
-
-max_temp <- aggregate(temp ~ city, data = data, FUN = max)
-(warmest_days <- merge(max_temp, data, by = c("city", "temp"))
-)
-
-# add variable lowest_temp and highest_temp to data
-data$lowest_temperature <- ave(data$temp, data$city, FUN = min)
-data$highest_temperature <- ave(data$temp, data$city, FUN = max)
-
-
-# sort data
-data_ord <- data[order(data$city, data$temp), ]
-head(data_ord)
-tail(data_ord)
-head(data_ord[data_ord$city == "MAASTRICHT", ])
-tail(data_ord[data_ord$city == "MAASTRICHT", ])
-```
-
-
-
-# Bonus: Data manipulation and tidyverse {#dataman2}
-
-## Consistent Work with Data: tidyverse
-
-Next, we will (superficially) cover the package [dplyr](https://dplyr.tidyverse.org/). This package is part of the [tidyverse](https://www.tidyverse.org/), a collection of R packages designed to provide a consistent approach to working with data. The following packages belong to the [tidyverse](https://www.tidyverse.org/):
-
- - [dplyr](https://dplyr.tidyverse.org/): "Grammar of Data Manipulation"
-
- - [ggplot2](https://ggplot2.tidyverse.org/): "Grammar of Graphics"
-
- - [readr](https://readr.tidyverse.org/): "Fast and friendly way to read rectangular data"
-
- - [tibble](https://tibble.tidyverse.org/): "A tibble, or tbl_df, is a modern reimagining of the data.frame"
-
- - [tidyr](https://tidyr.tidyverse.org/): "Create tidy data. Tidy data is data where:
-      1. Every column is a variable.
-      2. Every row is an observation.
-      3. Every cell is a single value."
-
- - [purrr](https://purrr.tidyverse.org/): "Enhance R’s functional programming toolkit"
-
-Note: The philosophy (and syntax) of [tidyverse](https://www.tidyverse.org/) differs completely from base-R and is somewhat similar to Python's `pandas`. Some argue tidyverse code is more readable and intuitive, others find it rather unhandy. R code written by AI models typically utilizes packages from the tidyverse.
-
-
-## Pipes
-An important component of working with data and `dplyr` is the pipe operator `%>%`, included in the `magrittr` package. The goal of this operator (also found in many other languages) is to make function composition more readable in code.
-
-Example:
-```{r example: pipe-operator, eval = FALSE}
-library(dplyr)
-
-f <- function(x) x + 10
-g <- function(x) x * 2
-
-a <- 2
-f(g(a))         # 2*a + 10 -> 14
-
-## Same result using the pipe operator
-a %>% g() %>% f()
-
-## Parentheses for function calls can be omitted,
-## but for readability, it is helpful to keep them
-a %>% g %>% f
-```
-
-## Pipes 2
-More examples
-<div style="display: flex; gap: 2em;">
-
-<div style="flex: 1;">
-
-**dplyr** with `%>%`
-```{r pipe-example, eval = FALSE}
-data_cli %>%
-  dplyr::select(TEMP) %>%
-  summary()
-
-
-data_cli %>%
-  filter(as.Date(YEARMODA) >= as.Date("2024-01-01") & as.Date(YEARMODA) <= as.Date("2024-12-31")) %>%
-  group_by(as.factor(NAME)) %>%
-  summarise(mtemp = mean(TEMP))
-```
-
-</div> <div style="flex: 1;">
-
-**Standard R**
-```{r pipe-eq, eval = FALSE}
-summary(
-  subset(data_cli, select = TEMP)
-  )
-
-datatemp <- subset(data_cli, as.Date(YEARMODA) >= as.Date("2024-01-01") & 
-                   as.Date(YEARMODA) <= as.Date("2024-12-31"))
-tapply(X = datatemp$TEMP,
-      INDEX = datatemp$NAME,
-      FUN = mean)
-```
-
- </div> </div>
-
-
-In the second example, you can already see that the pipe operator often eliminates the need for unnecessary assignments.
-
-
-## `dplyr`
-
-The key functions of `dplyr` are:
-
-- [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html): Add new variables to a dataset
-
-- [`select()`](https://dplyr.tidyverse.org/reference/select.html): Select variables (columns)
-
-- [`filter()`](https://dplyr.tidyverse.org/reference/filter.html): Select observations (rows)
-
-- [`arrange()`](https://dplyr.tidyverse.org/reference/arrange.html): Sort observations
-
-- [`summarise()`](https://dplyr.tidyverse.org/reference/summarise.html): Reduce variable values of multiple observations to a single value
-
-- [`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html): Apply subsequent operations to groups
-
-- `join()`: Merge two datasets
-
-- `bind_rows()`: Add rows to data set (equivalent to `rbind`)
-
-These functions often have variants and additional helper functions that assist with variable selection.
-
-
-
-## Data manipulation with `dplyr`: Select 
-As before, we want to select certain variables from our data set - now using dplyr. For our climate data set, we want to preserve information about `date`, `location`, and `temperature`, and drop all other information. 
-
-`select()` picks the variables of interest while dropping all others. In the example below, we choose to preserve `YEARMODA`, `NAME`, `TEMP`, while dropping all other information (as before). 
-```{r list22, eval = TRUE}
-data <- data_cli %>% select(YEARMODA, NAME, TEMP)
-head(data, 3)
-tail(data, 3)
-```
-
-
-
-## Data manipulation with `dplyr`: Subsetting rows
-Next, we want to subset the rows. Here, the `filter()` command is useful. It drops all information that violates the logical argument. In the example below, we restrict the data to year 2024 and to Maastricht only. 
-
-```{r list23, eval = TRUE}
-# select data from 2024-01-01 on only
-data <- data_cli %>% filter(YEARMODA >= as.Date("2024-01-01") &
-                            YEARMODA <= as.Date("2024-12-31")) %>%
-                     filter(NAME == "MAASTRICHT") # select Maastricht obs
-
-head(data[, c("YEARMODA", "NAME", "TEMP")], 3)
-tail(data[, c("YEARMODA", "NAME", "TEMP")], 3)
-
-```
-
-
-## Data manipulation with `dplyr`: Sorting data 
-The function `arrange()` sorts the observations along the values of the selected columns. 
-
-
-```{r list24, eval = TRUE}
-data_cli_ord <- data_cli %>% arrange(YEARMODA, NAME) %>%
-                select(YEARMODA, NAME, TEMP)
-head(data_cli_ord, 3)
-```
-
-
-
-## Task 5.3
-
-Replicate task 5.1 using `dplyr`
-
-```{r list25, include = FALSE}
-data_cli <- read.table("https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv", 
-                       header = TRUE, sep = ",", stringsAsFactors = FALSE)
-
-# Clean and manipulate
-data_dplyr <- data_cli %>%
-  select(YEARMODA, NAME, PRCP, TEMP) %>% 
-  filter(
-    YEARMODA >= as.Date("2020-01-01"),
-    YEARMODA <= as.Date("2020-12-31"),
-    NAME %in% c("EELDE", "DE BILT", "MAASTRICHT")
-  ) |> 
-  arrange(YEARMODA, NAME)
-
-data_dplyr %>% head
-
-data_dplyr %>% arrange(TEMP) %>% tail
-
-```
-
-
-
-## Data manipulation with `dplyr`: Adding information 1
-To add a new variable to the data set, we can use the function `mutate()`. As before, add a new variable `season` to the data set: 
-
-```{r list26, eval = TRUE}
-
-data_cli <- data_cli %>% 
-  mutate(
-    season = case_when(
-      format(as.Date(YEARMODA), "%m") %in% c("03", "04", "05") ~ "spring",
-      format(as.Date(YEARMODA), "%m") %in% c("06", "07", "08") ~ "summer",
-      format(as.Date(YEARMODA), "%m") %in% c("09", "10", "11") ~ "autumn",
-      TRUE ~ "winter"
-    )
-  )
-
-# Preview
-data_cli %>% select(YEARMODA, season) |> head(3)
-```
-
-
-
-## Data manipulation with `dplyr`: Adding information 2
-Besides adding columns, we can also expand our data set by adding further rows to the data. For instance, we could first drop all observations for Maastricht from the climate data set and add them back to it:
-```{r list27, eval = TRUE}
-# Split the data set
-data <- data_cli %>% filter(NAME != "MAASTRICHT")
-data_M <- data_cli %>% filter(NAME == "MAASTRICHT")
-
-# Join the two data sets
-data_new <- bind_rows(data, data_M)
-
-# Check if identical (ignores row order)
-identical(data_cli, data_new)
-
-# Preserve original order using column X
-data_new_ordered <- data_new %>% arrange(X)
-
-# Check if fully identical after reordering
-identical(data_cli, data_new_ordered)
-```
-
-
-
-
-## Data manipulation with `dplyr`: Reshaping data
-Datasets that are *tidy* should have each observation as a row and each variable as a column (`long` format). However, datasets are often found in `wide` format.
-
-A way to convert `wide` to `long` is the `pivot_longer()` function from `tidyr`:
-```{r wide-to-long, eval = FALSE}
-data_cli_new <- data_cli %>%  # subset the data set
-      mutate(date = as.Date(YEARMODA), location = as.factor(NAME), 
-             temp = as.numeric(TEMP)) %>% 
-      select(date, location, temp) 
-data_cli_new_wide <- data_cli_new %>% tidyr::pivot_wider(names_from = location, values_from = temp)
-
-head(data_cli_new_wide[, c(1, 2, 3, 4)])
-
-data_cli_new_long <- data_cli_new_wide %>%
-  tidyr::pivot_longer(
-    cols = -date,                  # all columns except 'date'
-    names_to = "location",         # name of the new key column
-    values_to = "temp"             # name of the value column
-  )
-
-```
-
-
-
-
-
-
-## Data manipulation with `dplyr`: Computing summary statistics 1
-To compute summary statistics along groups, we can use `group_by()`, which splits the data into groups and allows for the group-wise execution of functions:
-```{r list28, eval = TRUE}
-# add variable year
-data_cli_new <- data_cli_new %>% mutate(year = format(as.Date(date), "%Y")) 
-
-# mean temperature by location 
-data_cli_new %>% 
-    group_by(location) %>% # now data is grouped by city
-    summarise(mean_temp = mean(temp, na.rm = TRUE), .groups = "drop")
-
-```
-
-## Data manipulation with `dplyr`: Computing summary statistics 2
-
-```{r list29, eval = TRUE}
-# mean temperature by year
-data_cli_new %>% 
-    group_by(year) %>% # now data is grouped by year
-    summarise(mean_temp = mean(temp, na.rm = TRUE), .groups = "drop")
-
-```
-
-## Data manipulation with `dplyr`: Computing summary statistics 3
-
-```{r list30, eval = TRUE}
-# mean temperature by year and city
-data_cli_new %>% 
-    group_by(year, location) %>% # now data is grouped by city and year
-    summarise(mean_temp = mean(temp, na.rm = TRUE), .groups = "drop")
-
-```
-
-## Task 5.4
-
-Replicate task 5.2 using `dyplr`
-
-
-```{r list31, include = FALSE}
-library(dplyr)
-
-# Read and transform the data
-data <- read.table("https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv", 
-                   header = TRUE, sep = ",", stringsAsFactors = FALSE) |> 
-  transmute(
-    date = as.Date(YEARMODA),
-    city = as.factor(NAME),
-    temp = as.numeric(TEMP),
-    tempF = (as.numeric(TEMP) * 9/5) + 32,
-    year = format(as.Date(YEARMODA), "%Y")
-  )
-
-# Mean and standard deviation of temperature in F by city and year
-summary_stats <- data %>%
-  group_by(city, year) %>%
-  summarise(
-    mean_tempF = mean(tempF, na.rm = TRUE),
-    sd_tempF = sd(tempF, na.rm = TRUE),
-    .groups = "drop"
-  )
-
-# Coolest day per city
-coolest_days <- data %>% 
-  group_by(city) %>% 
-  filter(temp == min(temp, na.rm = TRUE)) %>%
-  ungroup()
-
-# Warmest day per city
-warmest_days <- data %>%
-  group_by(city) %>%
-  filter(temp == max(temp, na.rm = TRUE)) %>%
-  ungroup()
-
-# Add lowest and highest temperature per city to each row
-data <- data %>%
-  group_by(city) %>%
-  mutate(
-    lowest_temperature = min(temp, na.rm = TRUE),
-    highest_temperature = max(temp, na.rm = TRUE)
-  ) %>%
-  ungroup()
-
-# Sort data by city and temperature
-data_ord <- data %>% arrange(city, temp)
-
-# View results
-head(data_ord)
-tail(data_ord)
-head(filter(data_ord, city == "MAASTRICHT"))
-tail(filter(data_ord, city == "MAASTRICHT"))
-```
-
-
-
-
-# Regression analysis {#reg1}
-
-## General Information
-
-
-In what follows, consider the **multiple linear regression model**
-
- $$y_i = \beta_0 + \beta_1 x_{1,i} + \beta_2 x_{2,i} + \dots + \beta_p x_{p,i} + u_i,\ i=1,\dots,n$$
-Or, in matrix notation:
-$$\mathbf{y} = \mathbf{X}\beta + \mathbf{u},$$
-where $\mathbf{y}, \mathbf{u}\in\mathbb{R}^{n}$, $\mathbf{X}\in\mathbb{R}^{n\times k}$, $\beta\in\mathbb{R}^{k}$, and $k = p + 1$.
-
-
-## Formula Objects
-
-R is designed to easily estimate various statistical models. It provides a specific object class to symbolically describe statistical models, called `formula` objects. See `?formula` for more details.
-
-Example: the regression model
-
-$y_i = \beta_0 + \beta_1 x_{1,i} + \beta_2 x_{2,i} + u_i$
-
-can be specified in R as a `formula` like this:
-
-`y ~ x1 + x2`
-
----
-
-- Important operators:
-  - `~`: Basis for all models. `y ~ model` specifies that the dependent variable `y` is modeled using the linear predictors described in `model`.
-  - `+`: Models consist of terms separated by `+` (in simple cases, these are variables).
-  - `:`: Creates interaction terms between variables.
-  - `*`: `a*b` is equivalent to `a + b + a:b`.
-  - `^`: `(a + b)^2` is equivalent to `(a + b) * (a + b)`.
-
-- Note: `y ~ x1 + x2^2` is NOT the model $y_i = \beta_0 + \beta_1 x_{1,i} + \beta_2 x^2_{2,i} + u_i$!
-
-- For arithmetic expressions (e.g., variable transformations), use the function `I()`: <br>`y ~ x1 + I(x2^2)`.
-
-- Factor variables in formulas are automatically *dummy coded*.
-
----
-
-The standard function for estimating linear models is `lm()`. This function returns an `lm` object with numerous available methods: `summary()`, `plot()`, `predict()`, etc.
-
-
-```{r lm_example11, eval = TRUE}
-# example : Which city has the highest average temperature?
-regression_1 <- lm(TEMP ~ NAME, data = data_cli)
-summary(regression_1)
-```
-
-
-
-
-
-## Accessing Regression Results
-
-- Use functions such as `coefficients()`, `fitted()`, `residuals()`.
-- Or directly access the `lm` or `summary.lm` list objects:
-
-```{r access_lm, eval = FALSE}
-# elements in lm object
-regression_1$coefficients
-regression_1$residuals
-regression_1$fitted
-
-# summary.lm provides additional information:
-sum.reg.1 <- summary(regression_1)
-sum.reg.1$coefficients      ## matrix with estimates, std-dev, t-stat, p-value
-sum.reg.1$sigma             ## residual standard error estimate
-sum.reg.1$adj.r.squared     ## adjusted R^2 of regression
-```
-
-
-
-## Task 5.5
-Reconsider the climate [data set](https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv). You want to draw inference on whether temperature is trending, at the same time stay agnostic about the nature of the trend. Therefore, you decide to approximate the trending dynamics of temperature by a polynomial trend of order p
-$$
-  temp_t = \beta_0 + \beta_1 t + \beta_2 t^2 + \beta_3 t^3 + ... + \beta_p t^p + u_t.
-$$
-For one of the different locations
-
-
-1. Test different specifications for the trend (i.e.\ choose $p$ and possibly set some of the coefficients above to zero). Allow for 
-   
-    - Only a constant and a linear trend
-    - Quadratic, cubic, and higher order trends
-    - A polynomial trend up to order 8, but include only coefficients that are significant on a 5% level. 
-  
-2. Select one of your models and apply the `summary()` method to it. Discuss the estimates, standard errors, p-values, residual sum of squares, and the adjusted $R^2$ value.
-
-3. Plot the temperature series for your location of choice. What could make it hard to identify a trend?
-
-4. Generate monthly dummies. Add them to your regression model. Do your conclusions change?
-
-
-
-```{r list32, include = FALSE}
-library(dplyr)
-
-# Read and transform the data
-data <- read.table("https://raw.githubusercontent.com/tobiashartl/Rprogramming_UM/main/data/climate.csv", 
-                   header = TRUE, sep = ",", stringsAsFactors = FALSE) %>%
-  transmute(
-    date = as.Date(YEARMODA),
-    city = as.factor(NAME),
-    temp = as.numeric(TEMP),
-    year = format(as.Date(YEARMODA), "%Y")
-  ) %>% filter(city == "MAASTRICHT")
-
-# generate trends 
-trend <- sapply(1:4, function(x) (1:nrow(data))^x)
-library(MASS)
-
-data.lm <- data.frame(temp = data$temp, trend = trend)
-
-mod <- lm(temp ~ ., data = data.lm)
-
-
-summary(mod)
-
-plot(data$temp, type = "l")
-lines(fitted(mod), col="red")
-data.lm$mon <- as.factor(format(as.Date(data$date), "%m"))
-
-
-
-
-
-mod <- lm(data.lm$temp ~ data.lm$mon)
-summary(mod)
-
-# select from the full model with dummies and trends via stepAIC
-final <- stepAIC(lm(data.lm$temp ~ ., data = data.lm))
-summary(mod)
-plot(data$temp, type = "l")
-lines(fitted(mod), col="red", lwd = 3)
-```
-
+4. What is the lowest and the highest score in tutorial group 2? Retrieve this information from the summary statistics as well as by using a dedicated function.
 
