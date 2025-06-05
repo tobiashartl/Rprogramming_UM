@@ -54,7 +54,8 @@ This session has two goals:
 ## Using the correct directory to get input / output of the R session
 
 <!-- TODO -->
-
+<!-- there is stuff about this in session 1 and session 3. Maybe you can copy that? Some repetition is good. Please don't remove it from those sessions without discussing.
+-->
 ```{r, eval=FALSE}
 library('this.path')
 ```
@@ -129,8 +130,8 @@ Advice for option 1 (cont'd):
 ```{r}
 library(readxl)
 climate <- read_excel("data/climate.xlsx")
-View(climate) 
 ```
+<!-- View(climate) does not work on Mac! I am not sure about the participants, but it does for sure not work in quarto! -->
 
 ## General way of importing and exporting of other data formats
 

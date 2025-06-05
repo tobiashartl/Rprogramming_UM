@@ -219,7 +219,7 @@
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span>  <span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "C:/Users/s.smeekes/surfdrive/Teaching/Current Teaching/Professional/SBE introduction to R/Private/Git course/UM laptop/R Introduction"</code></pre>
+<pre><code>[1] "/Users/stephan/Documents/Werk/surfdrive/Teaching/Current Teaching/Professional/SBE introduction to R/Private/Git course/MacBook/R_Introduction"</code></pre>
 </div>
 </div>
 </section><section id="using-the-correct-directory-to-get-input-output-of-the-r-session" class="slide level2"><h2>Using the correct directory to get input / output of the R session</h2>
@@ -355,9 +355,9 @@
 </ul>
 <div class="cell">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
-<span><span class="va">climate</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"data/climate.xlsx"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/View.html">View</a></span><span class="op">(</span><span class="va">climate</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">climate</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"data/climate.xlsx"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<!-- View(climate) does not work on Mac! I am not sure about the participants, but it does for sure not work in quarto! -->
 </section><section id="general-way-of-importing-and-exporting-of-other-data-formats" class="slide level2"><h2>General way of importing and exporting of other data formats</h2>
 <ul>
 <li>Using the correct libraries for different data formats can be tedious.</li>
@@ -13461,8 +13461,8 @@ TODO Check if this is a repetition from Session 3.
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">data_short</span><span class="op">$</span><span class="va">MAX</span>, breaks <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>png 
-  2 </code></pre>
+<pre><code>quartz_off_screen 
+                2 </code></pre>
 </div>
 </div>
 </section><section id="customizing-graphics" class="slide level2"><h2>Customizing Graphics</h2>
@@ -13550,7 +13550,7 @@ TODO Check if this is a repetition from Session 3.
 <p>Best practice is to save a graph through a device such as pdf or similar:</p>
 <ul>
 <li>
-<code><a href="https://rdrr.io/r/grDevices/windows.html">windows()</a></code>/<code><a href="https://rdrr.io/r/grDevices/x11.html">x11()</a></code>/<code>quartz()</code>: Screen graphics (Windows, Unix, Mac), (default).</li>
+<code>windows()</code>/<code><a href="https://rdrr.io/r/grDevices/x11.html">x11()</a></code>/<code><a href="https://rdrr.io/r/grDevices/quartz.html">quartz()</a></code>: Screen graphics (Windows, Unix, Mac), (default).</li>
 <li>
 <code><a href="https://rdrr.io/r/grDevices/pdf.html">pdf()</a></code>: Adobe PDF (easily integrated into LaTeX).</li>
 <li>
@@ -13787,10 +13787,10 @@ TODO Check if this is a repetition from Session 3.
           event.initEvent("slideenter", true, true);
           window.document.dispatchEvent(event);
         }
-    
+
         function fireSlideChanged(previousSlide, currentSlide) {
           fireSlideEnter();
-    
+
           // dispatch for shiny
           if (window.jQuery) {
             if (previousSlide) {
@@ -13801,7 +13801,7 @@ TODO Check if this is a repetition from Session 3.
             }
           }
         }
-    
+
         // hookup for slidy
         if (window.w3c_slidy) {
           window.w3c_slidy.add_observer(function (slide_num) {
@@ -13809,7 +13809,7 @@ TODO Check if this is a repetition from Session 3.
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
           });
         }
-    
+
       })();
     </script><script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
