@@ -19,15 +19,49 @@ diagram:
 
 # Session Overview
 
-1.  [What is R?](#what-is-R)
-2.  [Installing R](#install-R)
-3.	[First Steps in R](#open-R)
-4.  [What is RStudio?](#what-is-RStudio)
-5.  [Installing RStudio](#install-RStudio)
-6.	[First Steps in RStudio](#open-Rstudio)
-7.	[R Script](#R-script)
-8.	[R Help](#R-help)
+1.  [R Training Team](#R-team)
+2.  [What is R?](#what-is-R)
+3.  [Installing R](#install-R)
+4.	[First Steps in R](#open-R)
+5.  [What is RStudio?](#what-is-RStudio)
+6.  [Installing RStudio](#install-RStudio)
+7.	[First Steps in RStudio](#open-Rstudio)
+8.	[R Script](#R-script)
 9.	[R Package Management System](#R-packages)
+
+# R Training Team {#R-team}
+
+## R Training Team
+
+- Nalan Bastürk
+- Tobias Hartl 
+- Martin Schumann
+- Stephan Smeekes
+- Ines Wilms
+
+All are econometricians at the Department of Quantitative Economics, and have many years of experience in R.
+
+
+## Tobias Hartl
+
+- Assistant Professor at QE
+- Research interests: econometrics, state space and factor models, long memory, macro- and climate econometrics
+- Contact: tobias.hartl@maastrichtuniversity.nl
+- [website](https://tobiashartl.github.io/)
+
+## Martin Schumann
+
+- Assistant Professor at QE
+- Research interests: panel data, nonlinear models, difference-in-differences, network data, innovation
+- Contact: m.schumann@maastrichtuniversity.nl
+- [website](https://sites.google.com/site/martinschumannecon/home)
+
+## Ines Wilms
+
+- Associate Professor at QE
+- Research interests: econometrics, time series, high-dimensional statisics, forecasting,  outlier robustness
+- Contact: i.wilms@maastrichtuniversity.nl
+- [website](https://sites.google.com/view/iwilms)
 
 # What is R? {#what-is-R}
 
@@ -131,7 +165,7 @@ Finally, when **R** receives an incomplete expression such as
 **R** will return the <em>+</em> symbol, thereby letting you know that you forgot to type something. You can either complete the command and then hit <em>enter</em> or exit the incomplete command via the <em>esc</em> button.
 
 
-## Exercises in R
+## Exercise 1.1
 
 Enter the following expressions, one by one, in **R** and hit <em>enter</em> to see how **R** evaluates them:
 
@@ -197,7 +231,7 @@ You will recognize the **R** Console and see that **RStudio** is ready to receiv
 ![](figures/open-RStudio-2.png)
 
 
-## Exercises in RStudio
+## Exercise 1.2
 
 Re-execute the commands you executed before in **R** now in the **R** Console of **RStudio**:
 ```{r, eval=FALSE}
@@ -239,7 +273,7 @@ The 3 main windows (aka panes) in **RStudio**:
 The usefulness of these windows and menu bar in **RStudio** will become clear throughout this training.
 
 
-## Exercises in RStudio
+## Exercise 1.3
  
 Explore the following quick tricks that the console in **RStudio** offers. After the prompt:
 
@@ -301,7 +335,7 @@ Currently the **R** Script is Untitled, we should give it a name.
 
 ![](figures/R-script-3.png)
 
-## Exercise Saving R Scripts
+## Exercise 1.4
 
 Give your R Script a name and save it. Go to <em>File</em>, <em>Save As...</em>:
 
@@ -340,7 +374,7 @@ setwd("C:/Rtraining")
 ```
 
 
-## Exercise R Script
+## Exercise 1.5
 Copy some of the commands you previously executed into your **R** Script. 
 
 Execute a specific line
@@ -351,11 +385,11 @@ Execute a specific line
 
 ![](figures/R-script-6.png)
 
-You can execute multiple lines by highlighting them all and doing one of the above. Try this
+You can execute multiple lines by highlighting them all and doing one of the above. Try this.
 
 
 
-## Exercise R Panes
+## Exercise 1.6
 You can adjust the sizes and positioning of the windows (panes) according to your liking. 
 
 Go to <em>Tools</em>, <em>Global Options...</em> and then select <em>Pane Layout</em> from which you can adjust the positioning of each of the 4 panes by selecting them from the drop-down menus
@@ -391,110 +425,7 @@ A list of the currently installed packages can be obtained from the <em>Packages
 
 ![](figures/R-package-1.png)
 
-You can install new packages depending on your needs
-
-## Installing R packages
-
-To install a new **R** package,  click on the <em>Install</em> button at the top of the <em>Packages</em> window.
-
-You can then type the name of the **R** package you want to install. Let us install the package **this.path**
-
-![](figures/R-package-2.png)
-
-You will notice that **R** has automatically put the following command in the console:
-
-```{r, eval=FALSE}
-install.packages("this.path")
-```
-
-You can use this **R** code also directly to install a package. The package is now added to to your package list and ready to be used.
-
-## Loading R package
-
-Installing an **R** package as we just did, only needs to be done once. 
-
-Yet each time you want to use the functionality of the **R** package in your current **R** session, you need to activate it. You can do this via the following command:
-```{r, eval=FALSE}
-library(this.path)
-```
-
-After activating the package nothing immediately happens, but **R** simply has access to the functionality that the **this.path** offers.
-
-## Exercise R package
-
-Why did we install the **this.path** package? Because it offers functionality to  set your working directory, as an alternative to the Menu-based approach we say before.
-
-To set the working directory to the folder where your current **R** script is located, you can simply use:
-```{r, eval=FALSE}
-library(this.path) # Load the library each time you use the command below
-setwd(dirname(this.path::this.path()))
-```
-It may be convenient to enter this at the top of your **R** script to ensure that you are always working in the directory where your **R** Script is located without having to type the name of the path!
-
-# R Help {#R-help}
-
-## What are R help pages?
-**R** help pages
-
-- provide detailed descriptions, arguments, return values, etc. for **R** packages, functions
-
-- include usage examples that demonstrate how to use the function effectively
-
-- are directly accessible in **RStudio**
-
-
-## R Help
-Help files are displayed in the <em>Help</em> window in the bottom right window below
-
-![](figures/R-help-1.png)
-
-## Accessing R Help
-To access an **R** help page for an **R** package, for instance the package **this.path**, you can use
-```{r, eval=FALSE}
-help(package='this.path')
-```
-
-![](figures/R-help-2.png)
-
-## Accessing R Help
-
-To open the help file for a specific **R** function, for instance the function this.path, you can use either of the following two commands:
-```{r, eval=FALSE}
-help(this.path)
-?this.path
-```
-
-Both commands above to the  same: they open the help file of the function you specified. 
-Note that **R**  searches for an **exact**! match and will only open the **R** Help page if the function exists. 
-
-
-
-## Exercise R Help
-
-- What happens if you execute the following code:
-```{r, eval=FALSE}
-?this.path
-```
-
-**R** should open the help page for the function with name this.path. No need to go over the help page in detail, you will explore the content of **R** Help pages during later sessions!
-
-- What happens if you execute the following code:
-```{r, eval=FALSE}
-?thispath
-```
-
-**R** should tell you that no documentation for the requested function exists. It did not find an **exact** match to the function thispath!  It does give you a recommendation to try something instead...
-
-- What happens if you try this recommendation, namely:
-```{r, eval=FALSE}
-??thispath
-```
-
-**R** performs a full-text search of the help system for all documentation that mentions the term thispath (or something alike)
-
-
-While the search with the command <em>?</em> is thus useful to directly access the help page of an **R** function you know exists, the broader help search with the command <em>??</em> is useful if you are not sure about the exact name of a function.
-
+You can install new packages depending on your needs. We will explore R packages in the upcoming sessions!
 
 
 
